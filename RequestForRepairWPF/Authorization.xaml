@@ -1,0 +1,69 @@
+﻿<Window x:Class="RequestForRepairWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RequestForRepairWPF"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="20"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignBackground}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        
+    Title="Авторизация" Height="600" Width="800" Loaded="Window_Loaded">
+
+    <StackPanel Orientation="Vertical" >
+        <materialDesign:ColorZone 
+            Margin="0 0 0 25" 
+            Mode="PrimaryMid"
+            Padding="16">
+            <StackPanel
+                Orientation="Horizontal">
+                <ToggleButton
+                Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock
+                Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                VerticalAlignment="Center"
+                Margin="16 0 0 0"
+                Text="Учет заявок на ремонт">
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <TextBlock HorizontalAlignment="Center" 
+                   Height="auto" Width="auto"
+                   TextAlignment="Center"
+                   Margin="0 25 0 25"
+                   Style="{StaticResource MaterialDesignHeadline5TextBlock}" 
+                   Text="Пожалуйста, авторизуйтесь в системе&#10;используя ваш адрес электронной почты и пароль.">
+        </TextBlock>
+        <TextBox 
+            x:Name="textBox_Email"
+                   Margin="200 25 200 25"
+                   Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                   VerticalAlignment="Top"
+                   AcceptsReturn="True"
+                   materialDesign:HintAssist.Hint="Логин"/>
+        <PasswordBox 
+            x:Name="textBox_Password"
+                   Margin="200 25 200 25"
+                   Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
+                   VerticalAlignment="Top"
+                   materialDesign:HintAssist.Hint="Пароль" />
+
+        <Button 
+            Click="btn_Login_Click"
+            x:Name="btn_Login"
+            Content="Вход"
+            FontSize="22"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Width="auto" Height="50"
+            Margin="200 25 200 25"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"/>
+    </StackPanel>
+</Window>

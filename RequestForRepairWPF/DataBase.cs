@@ -10,7 +10,7 @@ namespace RequestForRepairWPF
 {
     class DataBase
     {
-        string connectionString = @"Server = DESKTOP-BSEODEL\SQLEXPRESS; DataBase = DB_RequestForRepair; Trusted_Connetion = True;";
+        string connectionString = @"Server = DESKTOP-BSEODEL\SQLEXPRESS; DataBase = DB_RegistrationOfRequest; Trusted_Connection = True;";
 
         int number = 0;
 

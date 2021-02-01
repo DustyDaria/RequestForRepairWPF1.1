@@ -15,7 +15,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
         
-    Title="Авторизация" Height="600" Width="800" Loaded="Window_Loaded">
+    Title="Авторизация" Height="600" Width="800">
 
     <StackPanel Orientation="Vertical" >
         <materialDesign:ColorZone 
@@ -55,7 +55,50 @@
                    VerticalAlignment="Top"
                    materialDesign:HintAssist.Hint="Пароль" />
 
-        <Button 
+        <Grid Margin="200 25 200 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+            <Button
+                x:Name="btn_Customer"
+                Grid.Column="0"
+                Content="Я заказчик"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                Height="auto"
+                Padding="5 10 5 10"
+                FontSize="18"
+                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+                materialDesign:RippleAssist.Feedback="#DD000000" Click="btn_Customer_Click">
+            </Button>
+            <Button 
+                x:Name="btn_Executor"
+                Grid.Column="1"
+                Content="Я исполнитель"
+                Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                Height="auto"
+                Padding="5 10 5 10"
+                FontSize="18"
+                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+                materialDesign:RippleAssist.Feedback="#DD000000" Click="btn_Executor_Click">
+            </Button>
+        </Grid>
+
+        <Button
+            x:Name="btn_Administrator"
+            Margin="200 5 200 25"
+            Content="Я системный администратор"
+            Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+            Height="auto"
+            Padding="5 10 5 10"
+            FontSize="18"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+            materialDesign:RippleAssist.Feedback="#DD000000" Click="btn_Administrator_Click">
+        </Button>
+        <!--<Button 
             Click="btn_Login_Click"
             x:Name="btn_Login"
             Content="Вход"
@@ -64,6 +107,6 @@
             Width="auto" Height="50"
             Margin="200 25 200 25"
             materialDesign:ShadowAssist.ShadowDepth="Depth3"
-            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"/>
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"/>-->
     </StackPanel>
 </Window>

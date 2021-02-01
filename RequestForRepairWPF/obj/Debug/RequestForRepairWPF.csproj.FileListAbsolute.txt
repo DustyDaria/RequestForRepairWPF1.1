@@ -18,7 +18,11 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Re
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\RequestForRepairWPF.csproj.CopyComplete
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\RequestForRepairWPF.exe
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\RequestForRepairWPF.pdb
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization_TypeOfAccount.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization_TypeOfAccount.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_Administrator.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_Customer.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_Executor.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_Administrator.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_Customer.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_Executor.baml

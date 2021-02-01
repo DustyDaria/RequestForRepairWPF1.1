@@ -1,12 +1,264 @@
 ﻿<Window x:Class="RequestForRepairWPF.Menu_Administrator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
         mc:Ignorable="d"
-        Title="Menu_Administrator" Height="450" Width="800">
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="20"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignBackground}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        Title="Меню системного администратора" Height="600" Width="1080">
+
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames 
+                Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame
+                    KeyTime="0"
+                    Value="60"/>
+                <EasingDoubleKeyFrame
+                    KeyTime="0:0:0.5"
+                    Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames 
+                Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame
+                    KeyTime="0"
+                    Value="200"/>
+                <EasingDoubleKeyFrame
+                    KeyTime="0:0:0.5"
+                    Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger 
+            RoutedEvent="ButtonBase.Click"
+            SourceName="btn_OpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+
+        <EventTrigger 
+            RoutedEvent="ButtonBase.Click"
+            SourceName="btn_CloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    
     <Grid>
+        <materialDesign:ColorZone
+            Margin="0 0 0 25" 
+            Mode="PrimaryMid"
+            Padding="16">
+            <DockPanel>
+                <materialDesign:PopupBox
+                DockPanel.Dock="Right"
+                PlacementMode="BottomAndAlignRightEdges">
+                    <ListBox>
+                        <ListBoxItem x:Name="btn_PopUpPersonalAccount" Content="ЛК (в будущем ФИО)" MouseDoubleClick="btn_PopUpPersonalAccount_MouseDoubleClick"/>
+                        <ListBoxItem Content="та-дам"/>
+                        <Separator/>
+                        <ListBoxItem x:Name="btn_PopUpLogout" Content="Выход" MouseDoubleClick="btn_PopUpLogout_MouseDoubleClick"/>
+                    </ListBox>
+                </materialDesign:PopupBox>
+                <StackPanel
+                Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+                    <!--<ToggleButton x:Name="btn_Hamburger"
+                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" Click="btn_Hamburger_Click" />-->
+                    <TextBlock
+                    Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                    VerticalAlignment="Center"
+                    
+                    Text="Учет заявок на ремонт">
+                    </TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <Grid x:Name="GridMenu" 
+            Width="60" 
+            HorizontalAlignment="Left" 
+            Background="#FF3A2266">
+            <StackPanel>
+                <Grid Height="150" Background="LightGray">
+                    <Button 
+                        x:Name="btn_CloseMenu"
+                        Width="60" 
+                        Height="60" 
+                        Background="{x:Null}" 
+                        BorderBrush="{x:Null}" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Right"
+                        Visibility="Collapsed"
+                        Click="btn_CloseMenu_Click">
+                        <materialDesign:PackIcon 
+                            Foreground="#FF3A2266"
+                            Kind="ArrowLeft"
+                            Width="25"
+                            Height="25"/>
+                    </Button>
+                    <Button 
+                        x:Name="btn_OpenMenu"
+                        Width="60" 
+                        Height="60" 
+                        Background="{x:Null}" 
+                        BorderBrush="{x:Null}" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Right"
+                        Click="btn_OpenMenu_Click">
+                        <materialDesign:PackIcon 
+                            Foreground="#FF3A2266"
+                            Kind="Menu"
+                            Width="30"
+                            Height="30"/>
+                    </Button>
+                </Grid>
+                <ListView 
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                    Foreground="#FF673AB7">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Margin="10"
+                                Kind="ViewDashboard" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Pencil" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME2" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Ticket" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME3" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Message" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME4" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="CarOff" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME5" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Pencil" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME2" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Pencil" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME2" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Pencil" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME2" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="HomeAccount" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="HOME6" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    
+                </ListView>
+            </StackPanel>
+        </Grid>
         
     </Grid>
 </Window>

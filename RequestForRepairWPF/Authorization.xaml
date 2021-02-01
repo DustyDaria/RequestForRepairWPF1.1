@@ -14,8 +14,8 @@
         Background="{DynamicResource MaterialDesignBackground}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
-        
-    Title="Авторизация" Height="600" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Авторизация" Height="600" Width="800">
 
     <StackPanel Orientation="Vertical" >
         <materialDesign:ColorZone 
@@ -23,13 +23,15 @@
             Mode="PrimaryMid"
             Padding="16">
             <StackPanel
-                Orientation="Horizontal">
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
                 <ToggleButton
+                    HorizontalAlignment="Left"
                 Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                 <TextBlock
                 Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                VerticalAlignment="Center"
-                Margin="16 0 0 0"
+                
+                Margin="150 0 0 0"
                 Text="Учет заявок на ремонт">
                 </TextBlock>
             </StackPanel>

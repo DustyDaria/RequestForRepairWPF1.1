@@ -43,21 +43,6 @@ namespace RequestForRepairWPF
             mainID = userID;
         }
 
-        private void btn_Hamburger_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_PopUpLogout_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void btn_PopUpPersonalAccount_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
         {
             btn_OpenMenu.Visibility = Visibility.Collapsed;
@@ -68,6 +53,18 @@ namespace RequestForRepairWPF
         {
             btn_OpenMenu.Visibility = Visibility.Visible;
             btn_CloseMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void btn_PopUpPersonalAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_PopUpLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Authorization authorization = new Authorization();
+            this.Close();
+            authorization.Show();
         }
     }
 }

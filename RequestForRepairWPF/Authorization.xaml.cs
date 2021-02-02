@@ -18,7 +18,7 @@ namespace RequestForRepairWPF
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Authorization : Window
     {
         string userEmail = string.Empty;
         string userPassword = string.Empty;
@@ -28,7 +28,7 @@ namespace RequestForRepairWPF
 
         DataBase dataBase = new DataBase();
 
-        public MainWindow()
+        public Authorization()
         {
             InitializeComponent();
         }

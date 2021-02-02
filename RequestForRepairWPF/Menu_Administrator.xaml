@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignBackground}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
-        Title="Меню системного администратора" Height="600" Width="1080">
+        Title="Меню системного администратора" Height="800" Width="1080">
 
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
@@ -23,10 +23,10 @@
                 Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame
                     KeyTime="0"
-                    Value="60"/>
+                    Value="70"/>
                 <EasingDoubleKeyFrame
                     KeyTime="0:0:0.5"
-                    Value="200"/>
+                    Value="250"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
@@ -35,10 +35,10 @@
                 Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame
                     KeyTime="0"
-                    Value="200"/>
+                    Value="250"/>
                 <EasingDoubleKeyFrame
                     KeyTime="0:0:0.5"
-                    Value="60"/>
+                    Value="70"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -66,37 +66,40 @@
                 <materialDesign:PopupBox
                 DockPanel.Dock="Right"
                 PlacementMode="BottomAndAlignRightEdges">
-                    <ListBox>
-                        <ListBoxItem x:Name="btn_PopUpPersonalAccount" Content="ЛК (в будущем ФИО)" MouseDoubleClick="btn_PopUpPersonalAccount_MouseDoubleClick"/>
-                        <ListBoxItem Content="та-дам"/>
+                    <StackPanel Width="150">
+                        <Button x:Name="btn_PopUpPersonalAccount" 
+                            Content="ЛК (в будущем ФИО)" 
+                            Click="btn_PopUpPersonalAccount_Click"/>
+                        <Button Content="tadam"/>
                         <Separator/>
-                        <ListBoxItem x:Name="btn_PopUpLogout" Content="Выход" MouseDoubleClick="btn_PopUpLogout_MouseDoubleClick"/>
-                    </ListBox>
+                        <Button x:Name="btn_PopUpLogout" 
+                            Content="Выход" 
+                            Click="btn_PopUpLogout_Click"/>
+                    </StackPanel>
                 </materialDesign:PopupBox>
                 <StackPanel
                 Orientation="Horizontal"
                     HorizontalAlignment="Center">
-                    <!--<ToggleButton x:Name="btn_Hamburger"
-                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" Click="btn_Hamburger_Click" />-->
                     <TextBlock
                     Style="{StaticResource MaterialDesignHeadline4TextBlock}"
                     VerticalAlignment="Center"
-                    
                     Text="Учет заявок на ремонт">
                     </TextBlock>
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
         <Grid x:Name="GridMenu" 
-            Width="60" 
+            Width="70" 
             HorizontalAlignment="Left" 
-            Background="#FF3A2266">
+            Background="#087f23">
             <StackPanel>
-                <Grid Height="150" Background="LightGray">
+                <Grid 
+                    Height="150" 
+                    Background="#ffc400">
                     <Button 
                         x:Name="btn_CloseMenu"
-                        Width="60" 
-                        Height="60" 
+                        Width="70" 
+                        Height="70" 
                         Background="{x:Null}" 
                         BorderBrush="{x:Null}" 
                         VerticalAlignment="Top" 
@@ -104,22 +107,22 @@
                         Visibility="Collapsed"
                         Click="btn_CloseMenu_Click">
                         <materialDesign:PackIcon 
-                            Foreground="#FF3A2266"
+                            Foreground="#000000"
                             Kind="ArrowLeft"
                             Width="25"
                             Height="25"/>
                     </Button>
                     <Button 
                         x:Name="btn_OpenMenu"
-                        Width="60" 
-                        Height="60" 
+                        Width="70" 
+                        Height="70" 
                         Background="{x:Null}" 
                         BorderBrush="{x:Null}" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Right"
                         Click="btn_OpenMenu_Click">
                         <materialDesign:PackIcon 
-                            Foreground="#FF3A2266"
+                            Foreground="#000000"
                             Kind="Menu"
                             Width="30"
                             Height="30"/>
@@ -127,130 +130,141 @@
                 </Grid>
                 <ListView 
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Visible"
-                    Foreground="#FF673AB7">
-                    <ListViewItem Height="60">
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    Foreground="#80e27e"
+                    FontSize="16">
+                    <ListViewItem 
+                        Height="Auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon 
                                 Margin="10"
-                                Kind="ViewDashboard" 
+                                Kind="UserOutline" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME" 
+                                Height="auto"
+                                Text="Все пользователи" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem 
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="Pencil" 
+                                Kind="UserBadgeOutline" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME2" 
+                                Height="auto"
+                                Text="Заказчики" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem 
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="Ticket" 
+                                Kind="HammerWrench" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME3" 
+                                Height="auto"
+                                Text="Исполнители" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem 
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="Message" 
+                                Kind="Register" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME4" 
+                                Height="auto"
+                                Text="Регистрация&#10;нового пользователя" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem 
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="CarOff" 
+                                Kind="PersonEdit" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME5" 
+                                Height="auto"
+                                Text="Редактировать&#10;личный профиль" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="Pencil" 
+                                Kind="ProgressWrench" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME2" 
+                                Height="auto"
+                                Text="Просмотр&#10;текущих заявок" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem 
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="Pencil" 
+                                Kind="ArchiveOutline" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME2" 
+                                Height="auto"
+                                Text="Просмотр&#10;архивных заявок" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem 
+                        Height="auto"
+                        Padding="3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
-                                Kind="Pencil" 
+                                Kind="FileReport" 
                                 Width="25" 
                                 Height="25"
                                 VerticalAlignment="Center"/>
                             <TextBlock 
-                                Text="HOME2" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="HomeAccount" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Text="HOME6" 
+                                Height="auto"
+                                Text="Создание отчёта" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>
@@ -259,6 +273,5 @@
                 </ListView>
             </StackPanel>
         </Grid>
-        
     </Grid>
 </Window>

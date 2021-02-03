@@ -33,7 +33,7 @@ namespace RequestForRepairWPF
             InitializeComponent();
         }
 
-        private void UserAuthorization(string userType)
+        private void UserAuthorization()
         {
             userEmail = textBox_Email.Text;
             userPassword = textBox_Password.Password.ToString();
@@ -53,22 +53,12 @@ namespace RequestForRepairWPF
             {
                 if (dataBase.GetResult(queryCheckUserData_GET) == userPassword)
                 {
-                    if(dataBase.GetResult(queryCheckUserType) == userType && userType == "Системный администратор")
-                    {
-                        UserIsAdmin();
-                    }
-                    else if (dataBase.GetResult(queryCheckUserType) == userType && userType == "Заказчик")
-                    {
-                        UserIsCustomer();
-                    }
-                    else if (dataBase.GetResult(queryCheckUserType) == userType && userType == "Исполнитель")
-                    {
-                        UserIsExecutor();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ваш тип аккаунта не совпадает с зарегистрированным пользователем!");
-                    }
+                    string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
+                    userID = dataBase.GetID(queryUsersID_GET);
+
+                    Menu_User menu_User = new Menu_User(userID);
+                    this.Close();
+                    menu_User.Show();
                 }
                 else
                 {
@@ -77,49 +67,11 @@ namespace RequestForRepairWPF
             }
         }
 
-        private void UserIsAdmin()
+
+        private void btn_LogIn_Click(object sender, RoutedEventArgs e)
         {
-            string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
-            userID = dataBase.GetID(queryUsersID_GET);
 
-            Menu_Administrator menu_Administrator = new Menu_Administrator(userID);
-            this.Close();
-            menu_Administrator.Show();
-        }
-
-        private void UserIsCustomer()
-        {
-            string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
-            userID = dataBase.GetID(queryUsersID_GET);
-
-            Menu_Customer menu_Customer = new Menu_Customer(userID);
-            this.Close();
-            menu_Customer.Show();
-        }
-
-        private void UserIsExecutor()
-        {
-            string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
-            userID = dataBase.GetID(queryUsersID_GET);
-
-            Menu_Executor menu_Executor = new Menu_Executor(userID);
-            this.Close();
-            menu_Executor.Show();
-        }
-
-        private void btn_Administrator_Click(object sender, RoutedEventArgs e)
-        {
-            UserAuthorization("Системный администратор");
-        }
-
-        private void btn_Customer_Click(object sender, RoutedEventArgs e)
-        {
-            UserAuthorization("Заказчик");
-        }
-
-        private void btn_Executor_Click(object sender, RoutedEventArgs e)
-        {
-            UserAuthorization("Исполнитель");
+            UserAuthorization();
         }
     }
 }

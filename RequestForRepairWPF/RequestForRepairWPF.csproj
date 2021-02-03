@@ -76,28 +76,14 @@
       <DependentUpon>Authorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Menu_Administrator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Menu_Customer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Menu_Executor.xaml">
+    <Page Include="Menu_User.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu_Administrator.xaml.cs">
-      <DependentUpon>Menu_Administrator.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Menu_Customer.xaml.cs">
-      <DependentUpon>Menu_Customer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Menu_Executor.xaml.cs">
-      <DependentUpon>Menu_Executor.xaml</DependentUpon>
+    <Compile Include="Menu_User.xaml.cs">
+      <DependentUpon>Menu_User.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -24,14 +24,10 @@
             Padding="16">
             <StackPanel
                 Orientation="Horizontal"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                <ToggleButton
-                    HorizontalAlignment="Left"
-                Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                 <TextBlock
                 Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                
-                Margin="150 0 0 0"
                 Text="Учет заявок на ремонт">
                 </TextBlock>
             </StackPanel>
@@ -57,48 +53,18 @@
                    VerticalAlignment="Top"
                    materialDesign:HintAssist.Hint="Пароль" />
 
-        <Grid Margin="200 25 200 5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-
-
-            <Button
-                x:Name="btn_Customer"
-                Grid.Column="0"
-                Content="Я заказчик"
-                Style="{StaticResource MaterialDesignFlatMidBgButton}"
-                Height="auto"
-                Padding="5 10 5 10"
-                FontSize="18"
-                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-                materialDesign:RippleAssist.Feedback="#DD000000" Click="btn_Customer_Click">
-            </Button>
-            <Button 
-                x:Name="btn_Executor"
-                Grid.Column="1"
-                Content="Я исполнитель"
-                Style="{StaticResource MaterialDesignFlatLightBgButton}"
-                Height="auto"
-                Padding="5 10 5 10"
-                FontSize="18"
-                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-                materialDesign:RippleAssist.Feedback="#DD000000" Click="btn_Executor_Click">
-            </Button>
-        </Grid>
 
         <Button
-            x:Name="btn_Administrator"
-            Margin="200 5 200 25"
-            Content="Я системный администратор"
+            x:Name="btn_LogIn"
+            Margin="200 25 200 25"
+            Content="ВОЙТИ"
             Style="{StaticResource MaterialDesignFlatDarkBgButton}"
             Height="auto"
             Padding="5 10 5 10"
             FontSize="18"
             ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-            materialDesign:RippleAssist.Feedback="#DD000000" Click="btn_Administrator_Click">
+            materialDesign:RippleAssist.Feedback="#DD000000" 
+            Click="btn_LogIn_Click">
         </Button>
     </StackPanel>
 </Window>

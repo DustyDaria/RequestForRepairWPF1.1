@@ -56,9 +56,9 @@ namespace RequestForRepairWPF
                     string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
                     userID = dataBase.GetID(queryUsersID_GET);
 
-                    Menu_User menu_User = new Menu_User(userID);
+                    PersonalAccount personalAccount = new PersonalAccount(userID);
                     this.Close();
-                    menu_User.Show();
+                    personalAccount.Show();
                 }
                 else
                 {

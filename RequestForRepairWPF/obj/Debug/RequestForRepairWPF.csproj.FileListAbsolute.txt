@@ -20,5 +20,5 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Re
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\RequestForRepairWPF.pdb
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_User.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Menu_User.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\PersonalAccount.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\PersonalAccount.baml

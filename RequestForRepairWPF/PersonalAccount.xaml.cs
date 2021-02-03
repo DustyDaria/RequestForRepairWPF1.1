@@ -53,13 +53,13 @@ namespace RequestForRepairWPF
 
 
 
-    public partial class Menu_User : Window
+    public partial class PersonalAccount : Window
     {
         int mainID = 0;
         DataBase dataBase = new DataBase();
 
 
-        public Menu_User(int userID)
+        public PersonalAccount(int userID)
         {
             InitializeComponent();
 

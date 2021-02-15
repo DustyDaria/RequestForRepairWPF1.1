@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace RequestForRepairWPF.ViewModels.Base
 {
-    class Command
+    internal abstract class Command : ICommand
     {
+        public event EventHandler CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
+        // Если данная функция возвращает ложь, то команду выполнить нельзя
+        // -> элемент, к кот. привязана команда, отключается автоматически
+        public abstract bool CanExecute(object parameter);
+        
+        // Данный метод реализует основную логику команды
+        public abstract void Execute(object parameter);
     }
 }

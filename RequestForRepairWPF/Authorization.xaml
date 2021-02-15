@@ -44,7 +44,6 @@
                    Margin="200 25 200 25"
                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                    VerticalAlignment="Top"
-                   AcceptsReturn="True"
                    materialDesign:HintAssist.Hint="Логин"/>
         <PasswordBox 
             x:Name="textBox_Password"

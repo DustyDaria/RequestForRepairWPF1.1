@@ -22,3 +22,9 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Au
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Authorization.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\PersonalAccount.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\PersonalAccount.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\AllUsers.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\AllUsers.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.dll
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.xml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.SqlServer.xml

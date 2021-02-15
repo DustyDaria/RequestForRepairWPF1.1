@@ -95,7 +95,7 @@ namespace RequestForRepairWPF
                     number = command.ExecuteNonQuery();
                     connection.Close();
                 }
-                MessageBox.Show("Успешно удалено " + number + " объектов!");
+                MessageBox.Show("Успешно обновлено " + number + " объектов!");
             }
             catch(Exception e)
             {
@@ -151,7 +151,7 @@ namespace RequestForRepairWPF
             catch(Exception e)
             {
                 result = string.Empty;
-                MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
+                //MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
                 return result;
             }
         }
@@ -187,7 +187,7 @@ namespace RequestForRepairWPF
             }
             catch(Exception e)
             {
-                MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
+                //MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
                 return false;
             }
         }

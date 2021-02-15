@@ -15,7 +15,9 @@
         Background="{DynamicResource MaterialDesignBackground}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
-        Title="" Height="800" Width="1080">
+        Title="" 
+        Height="800" 
+        Width="1080">
 
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
@@ -59,6 +61,7 @@
     </Window.Triggers>
     
     <Grid>
+        <!-- Шапка -->
         <StackPanel 
             Orientation="Vertical">
             <materialDesign:ColorZone
@@ -91,8 +94,23 @@
                     </StackPanel>
                 </DockPanel>
             </materialDesign:ColorZone>
+            
+            
+            <!-- Контент -->
+            <ScrollViewer
+                VerticalScrollBarVisibility="Visible"
+                CanContentScroll="True">
+                <StackPanel
+                Orientation="Vertical">
 
-            <Grid 
+                <TextBlock
+                    x:Name="label_Header"
+                    Margin="100 25 100 25"
+                    Text="Личный кабинет"
+                    Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                    FontWeight="DemiBold">
+                </TextBlock>
+                <Grid 
                 Height="auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -109,6 +127,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBox
+                    x:Name="textBox_last_name"
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="0"
@@ -116,9 +135,10 @@
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Фамилия" />
+                    materialDesign:HintAssist.Hint="Фамилия"/>
 
                 <TextBox
+                    x:Name="textBox_name"
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="1"
@@ -129,6 +149,7 @@
                     materialDesign:HintAssist.Hint="Имя" />
 
                 <TextBox
+                    x:Name="textBox_middle_name"
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="2"
@@ -137,6 +158,7 @@
                     materialDesign:HintAssist.Hint="Отчество" />
 
                 <TextBox
+                    x:Name="textBox_position"
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="3"
@@ -147,6 +169,7 @@
                     materialDesign:HintAssist.Hint="Должность" />
 
                 <TextBox
+                    x:Name="textBox_phone"
                     Margin="100 25 25 25"
                     materialDesign:HintAssist.Hint=" Телефон"
                     materialDesign:TextFieldAssist.PrefixText="+7"
@@ -158,6 +181,7 @@
                     VerticalAlignment="Top"/>
 
                 <TextBox
+                    x:Name="textBox_user_login"
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="0"
@@ -168,6 +192,8 @@
                     materialDesign:HintAssist.Hint="Логин"/>
                 
                 <PasswordBox
+                    IsEnabled="False"
+                    x:Name="passBox_user_password"
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="1"
@@ -178,6 +204,8 @@
                     materialDesign:HintAssist.Hint="Пароль"/>
 
                 <PasswordBox
+                    IsEnabled="False"
+                    x:Name="passBox_repeat_user_password"
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="2"
@@ -188,7 +216,9 @@
                     materialDesign:HintAssist.Hint="Повторите пароль"/>
 
                 <ComboBox
+                    x:Name="comboBox_type_of_account"
                     VerticalAlignment="Top"
+                    
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="3"
@@ -201,7 +231,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    Height="50">
+                    Height="50" SelectionChanged="comboBox_type_of_account_SelectionChanged">
                     <ComboBoxItem>
                         Системный администратор
                     </ComboBoxItem>
@@ -213,7 +243,56 @@
                     </ComboBoxItem>
                 </ComboBox>
 
-                <Button
+                        <ComboBox
+                    x:Name="comboBox_category_executors"
+                            Visibility="Collapsed"
+                    VerticalAlignment="Top"
+                    Margin="25"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Grid.RowSpan="2"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
+                    materialDesign:ColorZoneAssist.Mode="Accent"
+                    materialDesign:HintAssist.Hint="Категория исполнителя"
+                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
+                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    MinWidth="128"
+                    Height="50">
+                            <ComboBoxItem>
+                                IT-специалист
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Электрик
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Плотник
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                        <ComboBox
+                    x:Name="comboBox_room_number"
+                            Visibility="Collapsed"
+                    VerticalAlignment="Top"
+                    Margin="25"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Grid.RowSpan="2"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
+                    materialDesign:ColorZoneAssist.Mode="Accent"
+                    materialDesign:HintAssist.Hint="Номер кабинета"
+                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
+                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    MinWidth="128"
+                    Height="50">
+                        </ComboBox>
+
+                        <Button
+                    x:Name="btn_Save"
+                    Click="btn_Save_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -221,13 +300,16 @@
                     Margin="25"
                     HorizontalAlignment="Left"
                     Grid.Column="1"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Content="Сохранить"
+                    IsEnabled="False"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton">
                 </Button>
 
                 <Button
+                    x:Name="btn_Cancel"
+                    Click="btn_Cancel_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -235,13 +317,16 @@
                     Margin="25"
                     HorizontalAlignment="Right"
                     Grid.Column="1"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Content="Отмена"
+                    IsEnabled="False"
                     Style="{StaticResource MaterialDesignFlatButton}"
                     ToolTip="MaterialDesignFlatButton">
                 </Button>
 
                 <Button
+                    x:Name="btn_Edit"
+                    Click="btn_Edit_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -257,10 +342,12 @@
                 </Button>
 
             </Grid>
-            
-
+            </StackPanel>
+            </ScrollViewer>
         </StackPanel>
         
+        
+        <!-- Бургер-меню -->
         <Grid x:Name="GridMenu" 
             Width="70" 
             HorizontalAlignment="Left" 
@@ -310,7 +397,8 @@
                         x:Name="list_AllUsers"
                         Visibility="Collapsed"
                         Height="Auto"
-                        Padding="3">
+                        Padding="3"
+                        MouseLeftButtonUp="list_AllUsers_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon 
                                 Margin="10"
@@ -398,7 +486,7 @@
                                 VerticalAlignment="Center"/>
                             <TextBlock 
                                 Height="auto"
-                                Text="Редактировать&#10;личный профиль" 
+                                Text="Личный кабинет" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>

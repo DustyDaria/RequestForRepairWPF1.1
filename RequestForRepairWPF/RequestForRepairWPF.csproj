@@ -71,6 +71,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Customer.cs" />
+    <Compile Include="Data\CustomerContext.cs" />
     <Compile Include="Data\Executor.cs" />
     <Compile Include="Data\ExecutorContext.cs" />
     <Compile Include="ViewModels\AllUsers_ViewModel.cs" />

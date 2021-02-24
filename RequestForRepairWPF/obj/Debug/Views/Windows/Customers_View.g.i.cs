@@ -9,7 +9,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using RequestForRepairWPF.Views.Windows;
+using MaterialDesignThemes.Wpf;
+using MaterialDesignThemes.Wpf.Converters;
+using MaterialDesignThemes.Wpf.Transitions;
+using RequestForRepairWPF;
+using RequestForRepairWPF.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -40,6 +44,182 @@ namespace RequestForRepairWPF.Views.Windows {
     /// </summary>
     public partial class Customers_View : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 83 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_PopUpPersonalAccount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 87 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_PopUpLogout;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 117 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock label_Header;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 133 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid DataGrid_Executors;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 223 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox comboBox_Search;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 249 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox textBox_DataForSearch;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 265 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_Search;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 279 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_UpdateData;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 297 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_Edit;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 313 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_Delete;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 334 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Grid GridMenu;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 343 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_CloseMenu;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 359 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btn_OpenMenu;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 380 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_AllUsers;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 409 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_Customers;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 429 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_Executors;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 449 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_RegisterNewUser;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 469 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_EditUserAccount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 489 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_CreateRequest;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 508 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_WatchRequest;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 528 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_WatchArchiveRequest;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 548 "..\..\..\..\Views\Windows\Customers_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListViewItem list_FileReport;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -68,6 +248,141 @@ namespace RequestForRepairWPF.Views.Windows {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.btn_PopUpPersonalAccount = ((System.Windows.Controls.Button)(target));
+            return;
+            case 2:
+            this.btn_PopUpLogout = ((System.Windows.Controls.Button)(target));
+            return;
+            case 3:
+            this.label_Header = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 4:
+            this.DataGrid_Executors = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 5:
+            this.comboBox_Search = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 6:
+            this.textBox_DataForSearch = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 7:
+            this.btn_Search = ((System.Windows.Controls.Button)(target));
+            return;
+            case 8:
+            this.btn_UpdateData = ((System.Windows.Controls.Button)(target));
+            return;
+            case 9:
+            this.btn_Edit = ((System.Windows.Controls.Button)(target));
+            return;
+            case 10:
+            this.btn_Delete = ((System.Windows.Controls.Button)(target));
+            return;
+            case 11:
+            this.GridMenu = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 12:
+            this.btn_CloseMenu = ((System.Windows.Controls.Button)(target));
+            
+            #line 351 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.btn_CloseMenu.Click += new System.Windows.RoutedEventHandler(this.btn_CloseMenu_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 13:
+            this.btn_OpenMenu = ((System.Windows.Controls.Button)(target));
+            
+            #line 366 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.btn_OpenMenu.Click += new System.Windows.RoutedEventHandler(this.btn_OpenMenu_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 14:
+            this.list_AllUsers = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 384 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_AllUsers.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_AllUsers_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 15:
+            this.list_Customers = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 413 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_Customers.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_Customers_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 16:
+            this.list_Executors = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 433 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_Executors.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_Executors_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 17:
+            this.list_RegisterNewUser = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 453 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_RegisterNewUser.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_RegisterNewUser_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 18:
+            this.list_EditUserAccount = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 473 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_EditUserAccount.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_EditUserAccount_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 19:
+            this.list_CreateRequest = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 493 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_CreateRequest.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_CreateRequest_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 20:
+            this.list_WatchRequest = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 512 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_WatchRequest.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_WatchRequest_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 21:
+            this.list_WatchArchiveRequest = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 532 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_WatchArchiveRequest.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_WatchArchiveRequest_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            case 22:
+            this.list_FileReport = ((System.Windows.Controls.ListViewItem)(target));
+            
+            #line 552 "..\..\..\..\Views\Windows\Customers_View.xaml"
+            this.list_FileReport.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_FileReport_MouseLeftButtonUp);
+            
+            #line default
+            #line hidden
+            return;
+            }
             this._contentLoaded = true;
         }
     }

@@ -17,12 +17,12 @@ namespace RequestForRepairWPF.Views.Windows
     /// <summary>
     /// Логика взаимодействия для WatchRequests.xaml
     /// </summary>
-    public partial class WatchRequests : Window
+    public partial class WatchRequests_View : Window
     {
         private int mainID = 0;
         private string typeRequest = string.Empty;
 
-        public WatchRequests(int mainID, string typeRequest)
+        public WatchRequests_View(int mainID, string typeRequest)
         {
             InitializeComponent();
 

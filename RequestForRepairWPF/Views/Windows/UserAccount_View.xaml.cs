@@ -1155,21 +1155,23 @@ namespace RequestForRepairWPF
 
         private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            WatchRequests watchRequests = new WatchRequests(mainID, "Архивные");
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
             this.Close();
             watchRequests.Show();
         }
 
         private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            WatchRequests watchRequests = new WatchRequests(mainID, "Текущие");
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
             this.Close();
             watchRequests.Show();
         }
 
         private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            FileReport_View fileReport_View = new FileReport_View(mainID);
+            this.Close();
+            fileReport_View.Show();
         }
 
         #endregion

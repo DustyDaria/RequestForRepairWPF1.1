@@ -143,8 +143,8 @@
     <Compile Include="Views\Windows\FileReport_View.xaml.cs">
       <DependentUpon>FileReport_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\WatchRequests.xaml.cs">
-      <DependentUpon>WatchRequests.xaml</DependentUpon>
+    <Compile Include="Views\Windows\WatchRequests_View.xaml.cs">
+      <DependentUpon>WatchRequests_View.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Windows\AllUsers_View.xaml">
       <SubType>Designer</SubType>
@@ -187,7 +187,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\WatchRequests.xaml">
+    <Page Include="Views\Windows\WatchRequests_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,5 +27,60 @@ namespace RequestForRepairWPF.Views.Windows
 
             this.mainID = mainID;
         }
+
+        private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

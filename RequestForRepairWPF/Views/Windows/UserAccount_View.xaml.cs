@@ -53,7 +53,7 @@ namespace RequestForRepairWPF
 
 
 
-    public partial class PersonalAccount : Window
+    public partial class UserAccount_View : Window
     {
         private int mainID = 0;
         DataBase dataBase = new DataBase();
@@ -62,7 +62,7 @@ namespace RequestForRepairWPF
         bool btn_EditClick_FLAG = false;
         char charToTrim = ' ';
 
-        public PersonalAccount(int mainID)
+        public UserAccount_View(int mainID)
         {
             InitializeComponent();
 
@@ -74,7 +74,11 @@ namespace RequestForRepairWPF
             btn_Save.IsEnabled = false;
             btn_Cancel.IsEnabled = false;
 
-            /// Инициализация элементов управления
+            #region Инициализация бургер-меню
+            ///<summary>
+            ///Инициализация бургер-меню
+            /// </summary>
+
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
 
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
@@ -180,8 +184,12 @@ namespace RequestForRepairWPF
                 //данные
                 GetDataToViewAndChange_Main();
             }
-        } 
-        public PersonalAccount(int mainID, string usersAction, int secondaryID)
+            #endregion 
+        }
+
+
+
+        public UserAccount_View(int mainID, string usersAction, int secondaryID)
         {
             InitializeComponent();
 
@@ -189,8 +197,10 @@ namespace RequestForRepairWPF
             this.usersAction = usersAction;
             this.secondaryID = secondaryID;
 
-            /// Инициализация элементов управления
-            /// 
+            #region Инициализация элементов управления
+            ///<summary>
+            ///Инициализация элементов управления
+            /// </summary>
 
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
             //string queryUserLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + mainID + "';");
@@ -459,24 +469,24 @@ namespace RequestForRepairWPF
             }
         }
 
+        #endregion
 
-        private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
-        {
-            btn_OpenMenu.Visibility = Visibility.Collapsed;
-            btn_CloseMenu.Visibility = Visibility.Visible;
-        }
 
-        private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
-        {
-            btn_OpenMenu.Visibility = Visibility.Visible;
-            btn_CloseMenu.Visibility = Visibility.Collapsed;
-        }
-
+        #region Личный кабинет
+        /// <summary>
+        /// Личный кабинет
+        /// </summary>
         private void btn_PopUpPersonalAccount_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        #endregion
 
+
+        #region Выход из аккаунта
+        /// <summary>
+        /// Выход из аккаунта
+        /// </summary>
         private void btn_PopUpLogout_Click(object sender, RoutedEventArgs e)
         {
             // ДИАЛОГОВЫЕ ОКНА
@@ -485,6 +495,13 @@ namespace RequestForRepairWPF
             this.Close();
             authorization.Show();
         }
+        #endregion
+
+
+        #region Редактирование данных
+        /// <summary>
+        /// Редактирование данных
+        /// </summary>
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             btn_EditClick_FLAG = true;
@@ -599,7 +616,13 @@ namespace RequestForRepairWPF
                 btn_Cancel.IsEnabled = true;
             }
         }
+        #endregion
 
+
+        #region Сохранение измененных данных
+        /// <summary>
+        /// Сохранение измененных данных
+        /// </summary>
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
@@ -682,7 +705,7 @@ namespace RequestForRepairWPF
                                 }
                                 MessageBox.Show("Пользователь был успешно зарегистрирован!");
 
-                                PersonalAccount personalAccount = new PersonalAccount(mainID);
+                                UserAccount_View personalAccount = new UserAccount_View(mainID);
                                 this.Close();
                                 personalAccount.Show();
                             }
@@ -767,7 +790,10 @@ namespace RequestForRepairWPF
                 }
             }
         }
+        #endregion
 
+
+        #region Отмена изменения данных
         private void btn_Cancel_Click(object sender, RoutedEventArgs e)
         {
             if (btn_EditClick_FLAG == true)
@@ -778,7 +804,15 @@ namespace RequestForRepairWPF
                 
             }
         }
+        #endregion
 
+
+        #region Получение данных и их изменение 
+        /// <summary>
+        /// Получение данных и их изменение 
+        /// </summary>
+        /// 
+        #region Первичные данные 
         private void GetDataToViewAndChange_Main()
         {
             string queryLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + mainID + "';");
@@ -831,7 +865,9 @@ namespace RequestForRepairWPF
             }
 
         }
+        #endregion
 
+        #region Вторичные данные 
         private void GetDataToViewAndChange_Secondary()
         {
             string queryLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + secondaryID + "';");
@@ -882,6 +918,7 @@ namespace RequestForRepairWPF
                 comboBox_room_number.Text = string.Empty;
             }
         }
+        #endregion
         /*
         private void GetDataToViewAndChange_Main()
         {
@@ -910,32 +947,38 @@ namespace RequestForRepairWPF
                 maskedTextBox_middle_name.Text = string.Empty;
             }*/
 
-            /*textBox_position.Text = dataBase.GetResult(queryPosition_GET);
-            maskedTextBox_phone.Text = dataBase.GetResult(queryPhone_GET);
-            textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
-            maskedTextBox_user_password.Text = dataBase.GetResult(queryUserPassword_GET);
-            comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
+        /*textBox_position.Text = dataBase.GetResult(queryPosition_GET);
+        maskedTextBox_phone.Text = dataBase.GetResult(queryPhone_GET);
+        textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
+        maskedTextBox_user_password.Text = dataBase.GetResult(queryUserPassword_GET);
+        comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
 
-            if (dataBase.Check(queryCategoryExecutors_GET, Convert.ToString(mainID)) == true)
-            {
-                comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
-            }
-            else
-            {
-                comboBox_category_executors.Text = string.Empty;
-            }
+        if (dataBase.Check(queryCategoryExecutors_GET, Convert.ToString(mainID)) == true)
+        {
+            comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
+        }
+        else
+        {
+            comboBox_category_executors.Text = string.Empty;
+        }
 
-            if (dataBase.Check(queryRoomNumber_GET, Convert.ToString(mainID)) == true)
-            {
-                maskedTextBox_room_number.Text = dataBase.GetResult(queryRoomNumber_GET);
-            }
-            else
-            {
-                maskedTextBox_room_number.Text = string.Empty;
-            }
+        if (dataBase.Check(queryRoomNumber_GET, Convert.ToString(mainID)) == true)
+        {
+            maskedTextBox_room_number.Text = dataBase.GetResult(queryRoomNumber_GET);
+        }
+        else
+        {
+            maskedTextBox_room_number.Text = string.Empty;
+        }
 
-        }*/
+    }*/
+        #endregion
 
+
+        #region Выбор типа аккаунта
+        /// <summary>
+        /// Выбор типа аккаунта
+        /// </summary>
         private void comboBox_type_of_account_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
@@ -1046,19 +1089,74 @@ namespace RequestForRepairWPF
                 }
             }
         }
+        #endregion
 
-        //private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    AllUsers_View allUsers = new AllUsers_View(mainID);
-        //    this.Close();
-        //    allUsers.Show();
-        //}
-        //
+
+        #region Обработка кнопок бургер-меню
+        /// <summary>
+        /// Обработка кнопок бургер-меню
+        /// </summary>
+
+        private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btn_OpenMenu.Visibility = Visibility.Collapsed;
+            btn_CloseMenu.Visibility = Visibility.Visible;
+        }
+
+        private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btn_OpenMenu.Visibility = Visibility.Visible;
+            btn_CloseMenu.Visibility = Visibility.Collapsed;
+        }
+
         private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Executors_View executors_View = new Executors_View();
             this.Close();
             executors_View.Show();
+        }
+
+        private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            AllUsers_View allUsers = new AllUsers_View(mainID);
+            this.Close();
+            allUsers.Show();
+        }
+        #endregion
+
+        private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

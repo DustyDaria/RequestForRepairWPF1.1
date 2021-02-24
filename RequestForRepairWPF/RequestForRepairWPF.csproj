@@ -140,6 +140,12 @@
     <Compile Include="Models\Executor_Model.cs" />
     <Compile Include="ViewModels\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
+    <Compile Include="Views\Windows\FileReport_View.xaml.cs">
+      <DependentUpon>FileReport_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\WatchRequests.xaml.cs">
+      <DependentUpon>WatchRequests.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Windows\AllUsers_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,11 +167,27 @@
       <DependentUpon>Authorization_View.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Windows\Customer_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\Executors_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\PersonalAccount_View.xaml">
+    <Page Include="Views\Windows\CreateAndEditRequest_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\FileReport_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\UserAccount_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\WatchRequests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,11 +196,17 @@
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserContext.cs" />
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
+    <Compile Include="Views\Windows\Customer_View.xaml.cs">
+      <DependentUpon>Customer_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Executors_View.xaml.cs">
       <DependentUpon>Executors_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\PersonalAccount_View.xaml.cs">
-      <DependentUpon>PersonalAccount_View.xaml</DependentUpon>
+    <Compile Include="Views\Windows\CreateAndEditRequest_View.xaml.cs">
+      <DependentUpon>CreateAndEditRequest_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\UserAccount_View.xaml.cs">
+      <DependentUpon>UserAccount_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\App.xaml
-4137280387
+8-1009474650
 2-602890034
-382126028965
+42-900362573
 251381631964
-Views\Windows\AllUsers_View.xaml;Views\Windows\Authorization_View.xaml;Views\Windows\Executors_View.xaml;Views\Windows\PersonalAccount_View.xaml;
+Views\Windows\AllUsers_View.xaml;Views\Windows\Authorization_View.xaml;Views\Windows\Customer_View.xaml;Views\Windows\Executors_View.xaml;Views\Windows\CreateAndEditRequest_View.xaml;Views\Windows\FileReport_View.xaml;Views\Windows\UserAccount_View.xaml;Views\Windows\WatchRequests.xaml;
 
 True
 

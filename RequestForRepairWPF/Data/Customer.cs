@@ -17,7 +17,20 @@ namespace RequestForRepairWPF.Data
         public string middle_name { get; set; }
         public string position { get; set; }
         public string phone { get; set; }
-        public string roomNUMBER_URR { get; set; }
-        public string requestID_URC { get; set; }
+        //public string roomNUMBER_URR { get; set; }
+        //public string requestID_URC { get; set; }
+
+        public Customer(Entities.Users user)
+        {
+            this.id_user = user.id_user;
+            this.user_login = user.user_login;
+            this.last_name = user.last_name;
+            this.name = user.name;
+            this.middle_name = user.middle_name;
+            this.position = user.position;
+            this.phone = user.phone;
+            
+        }
+        public Customer() { }
     }
 }

@@ -17,11 +17,15 @@ namespace RequestForRepairWPF.Views.Windows
     /// <summary>
     /// Логика взаимодействия для Customer_View.xaml
     /// </summary>
-    public partial class Customer_View : Window
+    public partial class Customers_View : Window
     {
-        public Customer_View()
+
+        private int mainID = 0;
+        public Customers_View(int mainID)
         {
             InitializeComponent();
+
+            this.mainID = mainID;
         }
     }
 }

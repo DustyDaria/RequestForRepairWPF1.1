@@ -19,9 +19,12 @@ namespace RequestForRepairWPF
     /// </summary>
     public partial class Executors_View : Window
     {
-        public Executors_View()
+        private int mainID = 0;
+        public Executors_View(int mainID)
         {
             InitializeComponent();
+
+            this.mainID = mainID;
         }
     }
 }

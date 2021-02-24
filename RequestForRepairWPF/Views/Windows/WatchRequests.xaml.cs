@@ -19,9 +19,15 @@ namespace RequestForRepairWPF.Views.Windows
     /// </summary>
     public partial class WatchRequests : Window
     {
-        public WatchRequests()
+        private int mainID = 0;
+        private string typeRequest = string.Empty;
+
+        public WatchRequests(int mainID, string typeRequest)
         {
             InitializeComponent();
+
+            this.mainID = mainID;
+            this.typeRequest = typeRequest;
         }
     }
 }

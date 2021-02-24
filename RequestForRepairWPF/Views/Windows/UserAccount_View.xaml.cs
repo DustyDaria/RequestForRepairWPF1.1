@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RequestForRepairWPF.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -1111,7 +1112,7 @@ namespace RequestForRepairWPF
 
         private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Executors_View executors_View = new Executors_View();
+            Executors_View executors_View = new Executors_View(mainID);
             this.Close();
             executors_View.Show();
         }
@@ -1122,41 +1123,56 @@ namespace RequestForRepairWPF
             this.Close();
             allUsers.Show();
         }
-        #endregion
+
 
         private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            Customers_View customer_View = new Customers_View(mainID);
+            this.Close();
+            customer_View.Show();
         }
 
         private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
+            this.Close();
+            userAccount_View.Show();
         }
 
         private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+            this.Close();
+            userAccount_View.Show();
         }
 
         private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID);
+            this.Close();
+            createAndEditRequest.Show();
         }
 
         private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            WatchRequests watchRequests = new WatchRequests(mainID, "Архивные");
+            this.Close();
+            watchRequests.Show();
         }
 
         private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            WatchRequests watchRequests = new WatchRequests(mainID, "Текущие");
+            this.Close();
+            watchRequests.Show();
         }
 
         private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
 
         }
+
+        #endregion
+
     }
 }

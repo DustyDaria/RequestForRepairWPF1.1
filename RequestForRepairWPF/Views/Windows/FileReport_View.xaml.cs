@@ -19,9 +19,12 @@ namespace RequestForRepairWPF.Views.Windows
     /// </summary>
     public partial class FileReport_View : Window
     {
-        public FileReport_View()
+        private int mainID = 0;
+        public FileReport_View(int mainID)
         {
             InitializeComponent();
+
+            this.mainID = mainID;
         }
     }
 }

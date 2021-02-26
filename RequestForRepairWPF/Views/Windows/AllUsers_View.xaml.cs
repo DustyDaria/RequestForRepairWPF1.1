@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.DataGrid;
+using RequestForRepairWPF.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,7 +26,7 @@ namespace RequestForRepairWPF
         private string action = string.Empty;
         private int mainID = 0;
         DataBase dataBase = new DataBase();
-        //UserContext db;
+        UserContext db;
 
         public AllUsers_View() { }
 
@@ -35,13 +36,16 @@ namespace RequestForRepairWPF
 
             this.mainID = mainID;
             //this.action = usersAction;
-            //db = new UserContext();
-            //db.Users.Load(); // загружаем данные
-            //DataGrid_AllUsers.ItemsSource = db.Users.Local.ToBindingList(); // Устанавливаем привязку к кэшу
+            db = new UserContext();
+            db.Users.Load(); // загружаем данные
+            DataGrid_AllUsers.ItemsSource = db.Users.Local.ToBindingList(); // Устанавливаем привязку к кэшу
 
 
-
-            /// Инициализация элементов управления
+            #region Инициализация бургер-меню
+            ///<summary>
+            ///Инициализация бургер-меню
+            /// </summary>
+            /// 
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
 
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
@@ -92,6 +96,7 @@ namespace RequestForRepairWPF
                 btn_Edit.IsEnabled = false;
 
             }
+            #endregion
         }
 
         private void btn_PopUpPersonalAccount_Click(object sender, RoutedEventArgs e)
@@ -108,6 +113,35 @@ namespace RequestForRepairWPF
             authorization.Show();
         }
 
+        
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            db.Dispose();
+        }
+
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_UpdateData_Click(object sender, RoutedEventArgs e)
+        {
+            comboBox_Search.Text = string.Empty;
+            textBox_DataForSearch.Text = string.Empty;
+            db.Dispose(); // Чистка старых  данных
+            db.Users.Load(); // загружаем данные
+        }
+
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #region Обработка кнопок бургер-меню
+        /// <summary>
+        /// Обработка кнопок бургер-меню
+        /// </summary>
         private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
         {
             btn_OpenMenu.Visibility = Visibility.Visible;
@@ -120,27 +154,70 @@ namespace RequestForRepairWPF
             btn_CloseMenu.Visibility = Visibility.Visible;
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //db.Dispose();
+            AllUsers_View allUsers = new AllUsers_View(mainID);
+            this.Close();
+            allUsers.Show();
         }
 
-        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            Customers_View customer_View = new Customers_View(mainID);
+            this.Close();
+            customer_View.Show();
         }
 
-        private void btn_UpdateData_Click(object sender, RoutedEventArgs e)
+        private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            comboBox_Search.Text = string.Empty;
-            textBox_DataForSearch.Text = string.Empty;
-            //db.Dispose(); // Чистка старых  данных
-            //db.Users.Load(); // загружаем данные
+            Executors_View executors_View = new Executors_View(mainID);
+            this.Close();
+            executors_View.Show();
         }
 
-        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
+            this.Close();
+            userAccount_View.Show();
         }
+
+        private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+            this.Close();
+            userAccount_View.Show();
+        }
+
+        private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID);
+            this.Close();
+            createAndEditRequest.Show();
+        }
+
+        private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
+            this.Close();
+            watchRequests.Show();
+        }
+
+        private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
+            this.Close();
+            watchRequests.Show();
+        }
+
+        private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            FileReport_View fileReport_View = new FileReport_View(mainID);
+            this.Close();
+            fileReport_View.Show();
+        }
+        #endregion
+
+
     }
 }

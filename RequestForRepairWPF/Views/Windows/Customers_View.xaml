@@ -19,11 +19,12 @@
         WindowStartupLocation="CenterScreen"
         Title="Заказчики" 
         Height="800" 
-        Width="1080">
+        Width="1080"
+               Closing="Window_Closing">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:Executors_ViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
@@ -130,9 +131,8 @@
 
                     <DataGrid
                         Margin="100,25,25,25"
-                        x:Name="DataGrid_Executors"
+                        x:Name="DataGrid_Customers"
                         AutoGenerateColumns="False"
-                        ItemsSource="{Binding LoadData}"
                         CanUserAddRows="False"
                         SelectionUnit="Cell"
                         SelectionMode="Extended" Grid.ColumnSpan="2">
@@ -141,8 +141,8 @@
                                 Header="Выбор"
                                 Width="auto"/>
                             <DataGridTextColumn
-                                IsReadOnly="True"
                                 Binding="{Binding id_user}"
+                                IsReadOnly="True"
                                 Header="ID" 
                                 Width="auto"/>
                             <DataGridTextColumn 
@@ -175,7 +175,7 @@
                                 IsReadOnly="False"
                                 Header="Телефон" 
                                 Width="auto"/>
-                            <DataGridComboBoxColumn 
+                            <!--<DataGridComboBoxColumn 
                                 Header="Количество помещений" 
                                 Width="auto" 
                                 SelectedValueBinding="{Binding Path=loadRequestIDCollection}" 
@@ -208,7 +208,7 @@
                                         <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
                                     </Style>
                                 </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>
+                            </DataGridComboBoxColumn>-->
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

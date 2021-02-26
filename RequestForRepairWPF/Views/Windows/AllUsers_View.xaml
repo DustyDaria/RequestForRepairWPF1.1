@@ -20,9 +20,9 @@
         Height="800" 
         Width="1080" Closing="Window_Closing">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:AllUsers_ViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
@@ -133,7 +133,6 @@
                         Margin="100,25,25,25"
                         x:Name="DataGrid_AllUsers"
                         AutoGenerateColumns="False"
-                        ItemsSource="{Binding LoadData}"
                         CanUserAddRows="False"
                         SelectionUnit="Cell"
                         SelectionMode="Extended" Grid.ColumnSpan="2">
@@ -142,8 +141,8 @@
                                 Header="Выбор"
                                 Width="auto"/>
                             <DataGridTextColumn
-                                IsReadOnly="True"
                                 Binding="{Binding id_user}"
+                                IsReadOnly="True"
                                 Header="ID" 
                                 Width="auto"/>
                             <DataGridTextColumn 
@@ -205,7 +204,6 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Height="auto"
-                        SelectedItem="{Binding CriteriaSearch, UpdateSourceTrigger=PropertyChanged}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                           materialDesign:TextFieldAssist.HasClearButton="True"
                           materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueMidBrush}"
@@ -225,8 +223,6 @@
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"
-                        
-                        Text="{Binding DataForSearch, UpdateSourceTrigger=PropertyChanged}"
                         Grid.ColumnSpan="2"
                         FontSize="14"
                         Grid.Row="1"
@@ -241,7 +237,6 @@
                         Margin="0 20 0 20">
                         <Button
                         x:Name="btn_Search"
-                            Command="{Binding SearchDataCommand}"
                         Padding="10"
                         Margin="15 10 15 10"
                         Grid.Row="2"
@@ -355,12 +350,13 @@
                         
                         Visibility="Collapsed"
                         Height="Auto"
-                        Padding="3">
-                        <ListViewItem.InputBindings>
+                        Padding="3"
+                        MouseLeftButtonUp="list_AllUsers_MouseLeftButtonUp">
+                        <!--<ListViewItem.InputBindings>
 
                             <MouseBinding Command="{Binding BurgerMenu_AllUsers}"
                                           MouseAction="LeftClick"/>
-                        </ListViewItem.InputBindings>
+                        </ListViewItem.InputBindings>-->
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon 
                                 Margin="10"
@@ -381,7 +377,8 @@
                         x:Name="list_Customers"
                         Visibility="Collapsed"
                         Height="auto"
-                        Padding="3">
+                        Padding="3"
+                        MouseLeftButtonUp="list_Customers_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
@@ -400,7 +397,8 @@
                         x:Name="list_Executors"
                         Visibility="Collapsed"
                         Height="auto"
-                        Padding="3">
+                        Padding="3"
+                        MouseLeftButtonUp="list_Executors_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
@@ -419,7 +417,8 @@
                         x:Name="list_RegisterNewUser"
                         Visibility="Collapsed"
                         Height="auto"
-                        Padding="3">
+                        Padding="3"
+                        MouseLeftButtonUp="list_RegisterNewUser_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
@@ -438,7 +437,8 @@
                         x:Name="list_EditUserAccount"
                         Height="auto"
                         Padding="3"
-                        Visibility="Collapsed">
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_EditUserAccount_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
@@ -457,7 +457,8 @@
                         x:Name="list_CreateRequest"
                         Height="auto"
                         Padding="3"
-                        Visibility="Collapsed">
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_CreateRequest_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon 
                                 Margin="10"
@@ -475,7 +476,8 @@
                         x:Name="list_WatchRequest"
                         Height="auto"
                         Padding="3"
-                        Visibility="Collapsed">
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_WatchRequest_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
@@ -494,7 +496,8 @@
                         x:Name="list_WatchArchiveRequest"
                         Height="auto"
                         Padding="3"
-                        Visibility="Collapsed">
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_WatchArchiveRequest_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"
@@ -513,7 +516,8 @@
                         x:Name="list_FileReport"
                         Height="auto"
                         Padding="3"
-                        Visibility="Collapsed">
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_FileReport_MouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  
                                 Margin="10"

@@ -75,9 +75,9 @@ namespace RequestForRepairWPF
             btn_Save.IsEnabled = false;
             btn_Cancel.IsEnabled = false;
 
-            #region Инициализация бургер-меню
+            #region Инициализация бургер-меню и контента
             ///<summary>
-            ///Инициализация бургер-меню
+            ///Инициализация бургер-меню и контента
             /// </summary>
 
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");

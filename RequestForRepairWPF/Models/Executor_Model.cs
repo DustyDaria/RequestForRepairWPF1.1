@@ -17,8 +17,8 @@ namespace RequestForRepairWPF.Models
     public class Executor_Model : INotifyPropertyChanged
     {
         private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
-        public ObservableCollection<Executor> ExecutorsCollection = new ObservableCollection<Executor>();
-        public ObservableCollection<U_R_Executor_Custom> U_R_ExecutorCollection = new ObservableCollection<U_R_Executor_Custom>();
+        //public ObservableCollection<Executor> ExecutorsCollection = new ObservableCollection<Executor>();
+        //public ObservableCollection<U_R_Executor_Custom> U_R_ExecutorCollection = new ObservableCollection<U_R_Executor_Custom>();
 
         U_R_Executor_Custom u_r_executorObj = new U_R_Executor_Custom();
         Executor executorObj = new Executor();
@@ -119,7 +119,7 @@ namespace RequestForRepairWPF.Models
         //}
         #endregion
 
-        public ObservableCollection<U_R_Executor_Custom> LoadRequestID()
+        /*public ObservableCollection<U_R_Executor_Custom> LoadRequestID()
         {
             var executors = context.Users
                 .Where(t => t.type_of_account == "Исполнитель")
@@ -131,13 +131,13 @@ namespace RequestForRepairWPF.Models
                 //MessageBox.Show(Convert.ToString(U_R_ExecutorCollection.First()));
             }
             return executorObj.loadRequestIDCollection;
-        }
+        }*/
 
         /// <summary>Загрузка данных</summary>
         #region Загрузка данных
 
         /// <summary>Загрузка данных</summary>
-        public ObservableCollection<Executor> LoadData()
+        /*public ObservableCollection<Executor> LoadData()
         {
             var _context = context.Users;
 
@@ -155,19 +155,18 @@ namespace RequestForRepairWPF.Models
                     position = exe.position,
                     phone = exe.phone,
                     category_executors = exe.category_executors,
-                    loadRequestIDCollection = exe.loadRequestIDCollection
-                    //requestID_URE = exe.requestID_URE
+                    //loadRequestIDCollection = exe.loadRequestIDCollection
                 });
             }
             return ExecutorsCollection;
-        }
+        }*/
         #endregion
 
 
         /// <summary>Поиск данных</summary>
         #region Поиск данных
         /// <summary>Поиск данных </summary>
-        public ObservableCollection<Executor> SearchData
+        /*public ObservableCollection<Executor> SearchData
         {
             //var query = db.Executors.Where(p => p.criteriaSearch == "%{dataForSearch}%");
             //IEnumerable<Executor> querySearch = (IEnumerable<Executor>)(from item in db.Executors select db.Users Where );
@@ -194,7 +193,7 @@ namespace RequestForRepairWPF.Models
                 OnPropertyChanged("SearchData");
                 return ExecutorsCollection;
             }
-        }
+        }*/
 
 
         #endregion

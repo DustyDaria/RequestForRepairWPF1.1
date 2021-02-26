@@ -29,14 +29,14 @@ namespace RequestForRepairWPF.ViewModels
         /// <summary>Загрузка данных</summary>
         #region Загрузка данных
         /// <summary>Загрузка данных</summary>
-        public ObservableCollection<Executor> LoadData
+        /*public ObservableCollection<Executor> LoadData
         {
             get
             {
                 m_model = new Executor_Model();
                 return m_model.LoadData();
             }
-        }
+        }*/
 
         ///// <summary>Загрузка заявок в comboBox</summary>
         //public ObservableCollection<U_R_Executor_Custom> LoadRequestID

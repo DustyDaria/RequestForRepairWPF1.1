@@ -77,7 +77,15 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 209 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 182 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGridComboBoxColumn comboBoxRequest;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 215 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox comboBox_Search;
         
@@ -85,7 +93,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 234 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 240 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox textBox_DataForSearch;
         
@@ -93,7 +101,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 250 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 256 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btn_Search;
         
@@ -101,7 +109,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 264 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 270 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btn_UpdateData;
         
@@ -109,7 +117,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 282 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 288 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btn_Edit;
         
@@ -117,7 +125,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 298 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 304 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btn_Delete;
         
@@ -125,7 +133,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 319 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 325 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid GridMenu;
         
@@ -133,7 +141,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 328 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 334 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btn_CloseMenu;
         
@@ -141,7 +149,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 344 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 350 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btn_OpenMenu;
         
@@ -149,7 +157,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 365 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 371 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_AllUsers;
         
@@ -157,7 +165,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 393 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 399 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_Customers;
         
@@ -165,7 +173,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 413 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 419 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_Executors;
         
@@ -173,7 +181,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 433 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 439 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_RegisterNewUser;
         
@@ -181,7 +189,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 453 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 459 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_EditUserAccount;
         
@@ -189,7 +197,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 473 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 479 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_CreateRequest;
         
@@ -197,7 +205,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 492 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 498 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_WatchRequest;
         
@@ -205,7 +213,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 512 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 518 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_WatchArchiveRequest;
         
@@ -213,7 +221,7 @@ namespace RequestForRepairWPF {
         #line hidden
         
         
-        #line 532 "..\..\..\..\Views\Windows\Executors_View.xaml"
+        #line 538 "..\..\..\..\Views\Windows\Executors_View.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListViewItem list_FileReport;
         
@@ -263,120 +271,123 @@ namespace RequestForRepairWPF {
             this.DataGrid_Executors = ((System.Windows.Controls.DataGrid)(target));
             return;
             case 5:
-            this.comboBox_Search = ((System.Windows.Controls.ComboBox)(target));
+            this.comboBoxRequest = ((System.Windows.Controls.DataGridComboBoxColumn)(target));
             return;
             case 6:
-            this.textBox_DataForSearch = ((System.Windows.Controls.TextBox)(target));
+            this.comboBox_Search = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 7:
-            this.btn_Search = ((System.Windows.Controls.Button)(target));
+            this.textBox_DataForSearch = ((System.Windows.Controls.TextBox)(target));
             return;
             case 8:
-            this.btn_UpdateData = ((System.Windows.Controls.Button)(target));
+            this.btn_Search = ((System.Windows.Controls.Button)(target));
             return;
             case 9:
-            this.btn_Edit = ((System.Windows.Controls.Button)(target));
+            this.btn_UpdateData = ((System.Windows.Controls.Button)(target));
             return;
             case 10:
-            this.btn_Delete = ((System.Windows.Controls.Button)(target));
+            this.btn_Edit = ((System.Windows.Controls.Button)(target));
             return;
             case 11:
-            this.GridMenu = ((System.Windows.Controls.Grid)(target));
+            this.btn_Delete = ((System.Windows.Controls.Button)(target));
             return;
             case 12:
+            this.GridMenu = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 13:
             this.btn_CloseMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 336 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 342 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.btn_CloseMenu.Click += new System.Windows.RoutedEventHandler(this.btn_CloseMenu_Click);
             
             #line default
             #line hidden
             return;
-            case 13:
+            case 14:
             this.btn_OpenMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 351 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 357 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.btn_OpenMenu.Click += new System.Windows.RoutedEventHandler(this.btn_OpenMenu_Click);
             
             #line default
             #line hidden
             return;
-            case 14:
+            case 15:
             this.list_AllUsers = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 370 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 376 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_AllUsers.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_AllUsers_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 15:
+            case 16:
             this.list_Customers = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 397 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 403 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_Customers.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_Customers_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 16:
+            case 17:
             this.list_Executors = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 417 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 423 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_Executors.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_Executors_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 17:
+            case 18:
             this.list_RegisterNewUser = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 437 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 443 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_RegisterNewUser.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_RegisterNewUser_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 18:
+            case 19:
             this.list_EditUserAccount = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 457 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 463 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_EditUserAccount.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_EditUserAccount_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 19:
+            case 20:
             this.list_CreateRequest = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 477 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 483 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_CreateRequest.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_CreateRequest_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 20:
+            case 21:
             this.list_WatchRequest = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 496 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 502 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_WatchRequest.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_WatchRequest_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 21:
+            case 22:
             this.list_WatchArchiveRequest = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 516 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 522 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_WatchArchiveRequest.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_WatchArchiveRequest_MouseLeftButtonUp);
             
             #line default
             #line hidden
             return;
-            case 22:
+            case 23:
             this.list_FileReport = ((System.Windows.Controls.ListViewItem)(target));
             
-            #line 536 "..\..\..\..\Views\Windows\Executors_View.xaml"
+            #line 542 "..\..\..\..\Views\Windows\Executors_View.xaml"
             this.list_FileReport.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.list_FileReport_MouseLeftButtonUp);
             
             #line default

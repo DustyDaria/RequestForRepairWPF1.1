@@ -178,6 +178,12 @@
                                 IsReadOnly="False"
                                 Header="Телефон" 
                                 Width="auto"/>
+                            <DataGridComboBoxColumn
+                                x:Name="comboBoxRequest"
+                                Header="Заявки"
+                                Width="auto">
+                                
+                            </DataGridComboBoxColumn>
                             <!--<DataGridComboBoxColumn 
                                 Header="Заявки" 
                                 Width="auto" 

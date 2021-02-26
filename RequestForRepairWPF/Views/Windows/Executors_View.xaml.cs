@@ -25,6 +25,7 @@ namespace RequestForRepairWPF
         private int mainID = 0;
         DataBase dataBase = new DataBase();
         UserContext db = new UserContext();
+        List<int> requestList = new List<int>();
         public Executors_View(int mainID)
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace RequestForRepairWPF
                             c.phone
                         };
             DataGrid_Executors.ItemsSource = query.ToList();
+            
 
 
             #region Инициализация бургер-меню

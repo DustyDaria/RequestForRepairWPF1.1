@@ -39,6 +39,7 @@
     <Property Name="actual_date_end" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Users" Relationship="Self.U_R_Customer" FromRole="Request" ToRole="Users" />
     <NavigationProperty Name="Users1" Relationship="Self.U_R_Executors" FromRole="Request" ToRole="Users" />
+    <Property Name="category_request" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

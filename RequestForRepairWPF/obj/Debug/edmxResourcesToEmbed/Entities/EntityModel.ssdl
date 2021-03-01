@@ -23,7 +23,7 @@
     <Key>
       <PropertyRef Name="id_request" />
     </Key>
-    <Property Name="id_request" Type="int" Nullable="false" />
+    <Property Name="id_request" Type="int" StoreGeneratedPattern="None" Nullable="false" />
     <Property Name="date_start" Type="smalldatetime" Nullable="false" />
     <Property Name="date_end" Type="smalldatetime" Nullable="false" />
     <Property Name="status_request" Type="varchar" MaxLength="50" Nullable="false" />
@@ -33,6 +33,7 @@
     <Property Name="comment_request" Type="varchar" MaxLength="300" />
     <Property Name="inventory_number" Type="varchar" MaxLength="50" />
     <Property Name="actual_date_end" Type="smalldatetime" />
+    <Property Name="category_request" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "DB_RequestForRepair.dbo.Software" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -96,14 +97,6 @@
     <Property Name="userID_URC" Type="int" Nullable="false" />
     <Property Name="requestID_URC" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="U_R_Executors">
-    <Key>
-      <PropertyRef Name="userID_URE" />
-      <PropertyRef Name="requestID_URE" />
-    </Key>
-    <Property Name="userID_URE" Type="int" Nullable="false" />
-    <Property Name="requestID_URE" Type="int" Nullable="false" />
-  </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "DB_RequestForRepair.dbo.U_R_Room" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="U_R_Room">
@@ -156,46 +149,6 @@
       </Principal>
       <Dependent Role="U_R_Customer">
         <PropertyRef Name="userID_URC" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DescriptionRoom_TypeRoom">
-    <End Role="TypeRoom" Type="Self.TypeRoom" Multiplicity="1" />
-    <End Role="DescriptionRoom" Type="Self.DescriptionRoom" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TypeRoom">
-        <PropertyRef Name="id_type_room_TR" />
-      </Principal>
-      <Dependent Role="DescriptionRoom">
-        <PropertyRef Name="id_type_room_DR" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Executor_Request">
-    <End Role="Request" Type="Self.Request" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="U_R_Executors" Type="Self.U_R_Executors" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Request">
-        <PropertyRef Name="id_request" />
-      </Principal>
-      <Dependent Role="U_R_Executors">
-        <PropertyRef Name="requestID_URE" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Executor_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="U_R_Executors" Type="Self.U_R_Executors" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="id_user" />
-      </Principal>
-      <Dependent Role="U_R_Executors">
-        <PropertyRef Name="userID_URE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -268,7 +221,6 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeRoom" EntityType="Self.TypeRoom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="U_R_Customer" EntityType="Self.U_R_Customer" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="U_R_Executors" EntityType="Self.U_R_Executors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Software" EntityType="Self.Software" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -306,18 +258,6 @@
     <AssociationSet Name="FK_Customer_Users" Association="Self.FK_Customer_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="U_R_Customer" EntitySet="U_R_Customer" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DescriptionRoom_TypeRoom" Association="Self.FK_DescriptionRoom_TypeRoom">
-      <End Role="TypeRoom" EntitySet="TypeRoom" />
-      <End Role="DescriptionRoom" EntitySet="DescriptionRoom" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Executor_Request" Association="Self.FK_Executor_Request">
-      <End Role="Request" EntitySet="Request" />
-      <End Role="U_R_Executors" EntitySet="U_R_Executors" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Executor_Users" Association="Self.FK_Executor_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="U_R_Executors" EntitySet="U_R_Executors" />
     </AssociationSet>
     <AssociationSet Name="FK_Room_Users" Association="Self.FK_Room_Users">
       <End Role="Users" EntitySet="Users" />

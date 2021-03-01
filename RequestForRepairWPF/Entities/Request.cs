@@ -31,6 +31,7 @@ namespace RequestForRepairWPF.Entities
         public string comment_request { get; set; }
         public string inventory_number { get; set; }
         public Nullable<System.DateTime> actual_date_end { get; set; }
+        public string category_request { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users> Users { get; set; }

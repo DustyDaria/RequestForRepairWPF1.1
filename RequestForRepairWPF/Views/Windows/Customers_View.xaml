@@ -242,8 +242,6 @@
                         <ComboBoxItem Content="Отчество"/>
                         <ComboBoxItem Content="Должность"/>
                         <ComboBoxItem Content="Телефон"/>
-                        <ComboBoxItem Content="Количество помещений"/>
-                        <ComboBoxItem Content="Количество заявок"/>
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"

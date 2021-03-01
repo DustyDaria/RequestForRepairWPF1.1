@@ -24,6 +24,7 @@
     <EntitySetMapping Name="Request">
       <EntityTypeMapping TypeName="DB_RequestForRepairModel.Request">
         <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="category_request" ColumnName="category_request" />
           <ScalarProperty Name="id_request" ColumnName="id_request" />
           <ScalarProperty Name="date_start" ColumnName="date_start" />
           <ScalarProperty Name="date_end" ColumnName="date_end" />
@@ -115,14 +116,6 @@
       </EndProperty>
       <EndProperty Name="Users">
         <ScalarProperty Name="id_user" ColumnName="userID_URC" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="U_R_Executors" TypeName="DB_RequestForRepairModel.U_R_Executors" StoreEntitySet="U_R_Executors">
-      <EndProperty Name="Request">
-        <ScalarProperty Name="id_request" ColumnName="requestID_URE" />
-      </EndProperty>
-      <EndProperty Name="Users">
-        <ScalarProperty Name="id_user" ColumnName="userID_URE" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

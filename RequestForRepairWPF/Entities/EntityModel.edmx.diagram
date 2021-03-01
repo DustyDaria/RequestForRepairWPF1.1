@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="54f7b8803ab6419d84c5962d2e3509fa" Name="Diagram1">
+      <Diagram DiagramId="54f7b8803ab6419d84c5962d2e3509fa" Name="Diagram1" ZoomLevel="102">
         <EntityTypeShape EntityType="DB_RequestForRepairModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_RequestForRepairModel.DescriptionRoom" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_RequestForRepairModel.Request" Width="1.5" PointX="1.5" PointY="8.625" IsExpanded="true" />

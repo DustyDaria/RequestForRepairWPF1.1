@@ -232,9 +232,9 @@
                         <ComboBoxItem Content="Фамилия"/>
                         <ComboBoxItem Content="Имя"/>
                         <ComboBoxItem Content="Отчество"/>
+                        <ComboBoxItem Content="Должность"/>
                         <ComboBoxItem Content="Категория исполнителя"/>
                         <ComboBoxItem Content="Телефон"/>
-                        <ComboBoxItem Content="Количество заявок"/>
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"

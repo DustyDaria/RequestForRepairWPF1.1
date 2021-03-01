@@ -9,7 +9,7 @@ namespace RequestForRepairWPF.Data
 {
     public class Customer
     {
-        [Key]
+        //[Key]
         public int id_user { get; set; }
         public string user_login { get; set; }
         public string last_name { get; set; }

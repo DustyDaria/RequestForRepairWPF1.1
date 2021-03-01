@@ -24,7 +24,6 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\En
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\AllUsers_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Authorization_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Executors_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.dll

@@ -75,117 +75,7 @@ namespace RequestForRepairWPF
             btn_Save.IsEnabled = false;
             btn_Cancel.IsEnabled = false;
 
-            #region Инициализация бургер-меню и контента
-            ///<summary>
-            ///Инициализация бургер-меню и контента
-            /// </summary>
-
-            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
-
-            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
-            {
-
-                //бургер меню
-                list_AllUsers.Visibility = Visibility.Visible;
-                list_Customers.Visibility = Visibility.Visible;
-                list_Executors.Visibility = Visibility.Visible;
-                list_RegisterNewUser.Visibility = Visibility.Visible;
-                list_EditUserAccount.Visibility = Visibility.Visible;
-                list_CreateRequest.Visibility = Visibility.Collapsed;
-                list_WatchRequest.Visibility = Visibility.Visible;
-                list_WatchArchiveRequest.Visibility = Visibility.Visible;
-                list_FileReport.Visibility = Visibility.Visible;
-
-                //контент
-                this.Title = "Личный кабинет системного администратора";
-                textBox_last_name.IsEnabled = false;
-                textBox_name.IsEnabled = false;
-                textBox_middle_name.IsEnabled = false;
-                textBox_position.IsEnabled = false;
-                textBox_phone.IsEnabled = false;
-                textBox_user_login.IsEnabled = false;
-                passBox_user_password.IsEnabled = false;
-                //label_repeat_user_password.Visible = false;
-                passBox_repeat_user_password.IsEnabled = false;
-                passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-                comboBox_type_of_account.IsEnabled = false;
-
-                // данные
-                GetDataToViewAndChange_Main();
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
-            {
-
-                //бургер меню
-                list_AllUsers.Visibility = Visibility.Collapsed;
-                list_Customers.Visibility = Visibility.Collapsed;
-                list_Executors.Visibility = Visibility.Collapsed;
-                list_RegisterNewUser.Visibility = Visibility.Collapsed;
-                list_EditUserAccount.Visibility = Visibility.Visible;
-                list_CreateRequest.Visibility = Visibility.Visible;
-                list_WatchRequest.Visibility = Visibility.Visible;
-                list_WatchArchiveRequest.Visibility = Visibility.Visible;
-                list_FileReport.Visibility = Visibility.Visible;
-
-                //контент
-                this.Title = "Личный кабинет заказчика";
-                textBox_last_name.IsEnabled = false;
-                textBox_name.IsEnabled = false;
-                textBox_middle_name.IsEnabled = false;
-                textBox_position.IsEnabled = false;
-                textBox_phone.IsEnabled = false;
-                textBox_user_login.IsEnabled = false;
-                passBox_user_password.IsEnabled = false;
-                passBox_repeat_user_password.IsEnabled = false;
-                passBox_repeat_user_password.Visibility = Visibility.Visible;
-                comboBox_type_of_account.IsEnabled = false;
-                //label_room_number.Visible = true;
-                comboBox_room_number.Visibility = Visibility.Visible;
-                comboBox_room_number.IsEnabled = false;
-                //label_category_executors.Visibility = Visibility.Collapsed;
-                comboBox_category_executors.Visibility = Visibility.Collapsed;
-                comboBox_category_executors.IsEnabled = false;
-
-                //данные
-                GetDataToViewAndChange_Main();
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
-            {
-
-                //бургер меню
-                list_AllUsers.Visibility = Visibility.Collapsed;
-                list_Customers.Visibility = Visibility.Collapsed;
-                list_Executors.Visibility = Visibility.Collapsed;
-                list_RegisterNewUser.Visibility = Visibility.Collapsed;
-                list_EditUserAccount.Visibility = Visibility.Visible;
-                list_CreateRequest.Visibility = Visibility.Collapsed;
-                list_WatchRequest.Visibility = Visibility.Visible;
-                list_WatchArchiveRequest.Visibility = Visibility.Visible;
-                list_FileReport.Visibility = Visibility.Visible;
-
-                //контент
-                this.Title = "Личный кабинет исполнителя";
-                textBox_last_name.IsEnabled = false;
-                textBox_name.IsEnabled = false;
-                textBox_middle_name.IsEnabled = false;
-                textBox_position.IsEnabled = false;
-                textBox_phone.IsEnabled = false;
-                textBox_user_login.IsEnabled = false;
-                passBox_user_password.IsEnabled = false;
-                passBox_repeat_user_password.IsEnabled = false;
-                passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-                comboBox_type_of_account.IsEnabled = false;
-                //label_room_number.Visible = false;
-                comboBox_room_number.Visibility = Visibility.Collapsed;
-                comboBox_room_number.IsEnabled = false;
-                //label_category_executors.Visible = true;
-                comboBox_category_executors.Visibility = Visibility.Visible;
-                comboBox_category_executors.IsEnabled = false;
-
-                //данные
-                GetDataToViewAndChange_Main();
-            }
-            #endregion 
+            BurgerMenu();
         }
 
 
@@ -197,6 +87,8 @@ namespace RequestForRepairWPF
             this.mainID = mainID;
             this.usersAction = usersAction;
             this.secondaryID = secondaryID;
+
+            BurgerMenu();
 
             #region Инициализация элементов управления
             ///<summary>
@@ -468,10 +360,126 @@ namespace RequestForRepairWPF
                     btn_Cancel.IsEnabled = true;
                 }
             }
+
+            #endregion
         }
 
-        #endregion
 
+
+        private void BurgerMenu()
+        {
+            #region Инициализация бургер-меню и контента
+            ///<summary>
+            ///Инициализация бургер-меню и контента
+            /// </summary>
+
+            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+
+            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
+            {
+
+                //бургер меню
+                list_AllUsers.Visibility = Visibility.Visible;
+                list_Customers.Visibility = Visibility.Visible;
+                list_Executors.Visibility = Visibility.Visible;
+                list_RegisterNewUser.Visibility = Visibility.Visible;
+                list_EditUserAccount.Visibility = Visibility.Visible;
+                list_CreateRequest.Visibility = Visibility.Collapsed;
+                list_WatchRequest.Visibility = Visibility.Visible;
+                list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                list_FileReport.Visibility = Visibility.Visible;
+
+                //контент
+                this.Title = "Личный кабинет системного администратора";
+                textBox_last_name.IsEnabled = false;
+                textBox_name.IsEnabled = false;
+                textBox_middle_name.IsEnabled = false;
+                textBox_position.IsEnabled = false;
+                textBox_phone.IsEnabled = false;
+                textBox_user_login.IsEnabled = false;
+                passBox_user_password.IsEnabled = false;
+                //label_repeat_user_password.Visible = false;
+                passBox_repeat_user_password.IsEnabled = false;
+                passBox_repeat_user_password.Visibility = Visibility.Collapsed;
+                comboBox_type_of_account.IsEnabled = false;
+
+                // данные
+                GetDataToViewAndChange_Main();
+            }
+            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+            {
+
+                //бургер меню
+                list_AllUsers.Visibility = Visibility.Collapsed;
+                list_Customers.Visibility = Visibility.Collapsed;
+                list_Executors.Visibility = Visibility.Collapsed;
+                list_RegisterNewUser.Visibility = Visibility.Collapsed;
+                list_EditUserAccount.Visibility = Visibility.Visible;
+                list_CreateRequest.Visibility = Visibility.Visible;
+                list_WatchRequest.Visibility = Visibility.Visible;
+                list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                list_FileReport.Visibility = Visibility.Visible;
+
+                //контент
+                this.Title = "Личный кабинет заказчика";
+                textBox_last_name.IsEnabled = false;
+                textBox_name.IsEnabled = false;
+                textBox_middle_name.IsEnabled = false;
+                textBox_position.IsEnabled = false;
+                textBox_phone.IsEnabled = false;
+                textBox_user_login.IsEnabled = false;
+                passBox_user_password.IsEnabled = false;
+                passBox_repeat_user_password.IsEnabled = false;
+                passBox_repeat_user_password.Visibility = Visibility.Visible;
+                comboBox_type_of_account.IsEnabled = false;
+                //label_room_number.Visible = true;
+                comboBox_room_number.Visibility = Visibility.Visible;
+                comboBox_room_number.IsEnabled = false;
+                //label_category_executors.Visibility = Visibility.Collapsed;
+                comboBox_category_executors.Visibility = Visibility.Collapsed;
+                comboBox_category_executors.IsEnabled = false;
+
+                //данные
+                GetDataToViewAndChange_Main();
+            }
+            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+            {
+
+                //бургер меню
+                list_AllUsers.Visibility = Visibility.Collapsed;
+                list_Customers.Visibility = Visibility.Collapsed;
+                list_Executors.Visibility = Visibility.Collapsed;
+                list_RegisterNewUser.Visibility = Visibility.Collapsed;
+                list_EditUserAccount.Visibility = Visibility.Visible;
+                list_CreateRequest.Visibility = Visibility.Collapsed;
+                list_WatchRequest.Visibility = Visibility.Visible;
+                list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                list_FileReport.Visibility = Visibility.Visible;
+
+                //контент
+                this.Title = "Личный кабинет исполнителя";
+                textBox_last_name.IsEnabled = false;
+                textBox_name.IsEnabled = false;
+                textBox_middle_name.IsEnabled = false;
+                textBox_position.IsEnabled = false;
+                textBox_phone.IsEnabled = false;
+                textBox_user_login.IsEnabled = false;
+                passBox_user_password.IsEnabled = false;
+                passBox_repeat_user_password.IsEnabled = false;
+                passBox_repeat_user_password.Visibility = Visibility.Collapsed;
+                comboBox_type_of_account.IsEnabled = false;
+                //label_room_number.Visible = false;
+                comboBox_room_number.Visibility = Visibility.Collapsed;
+                comboBox_room_number.IsEnabled = false;
+                //label_category_executors.Visible = true;
+                comboBox_category_executors.Visibility = Visibility.Visible;
+                comboBox_category_executors.IsEnabled = false;
+
+                //данные
+                GetDataToViewAndChange_Main();
+            }
+            #endregion 
+        }
 
         #region Личный кабинет
         /// <summary>
@@ -1148,21 +1156,21 @@ namespace RequestForRepairWPF
 
         private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID);
+            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID, "Создать");
             this.Close();
             createAndEditRequest.Show();
         }
 
         private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
             this.Close();
             watchRequests.Show();
         }
 
         private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
             this.Close();
             watchRequests.Show();
         }

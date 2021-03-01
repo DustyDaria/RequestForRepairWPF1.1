@@ -88,6 +88,8 @@
     <Compile Include="Data\CustomerContext.cs" />
     <Compile Include="Data\Executor.cs" />
     <Compile Include="Data\ExecutorContext.cs" />
+    <Compile Include="Data\_Request.cs" />
+    <Compile Include="Data\_RequestContext.cs" />
     <Compile Include="Data\U_R_Customer_Custom.cs" />
     <Compile Include="Data\U_R_Executor_Custom.cs" />
     <Compile Include="Data\U_R_Room.cs" />

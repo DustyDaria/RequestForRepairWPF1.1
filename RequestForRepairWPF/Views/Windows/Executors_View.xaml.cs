@@ -2,6 +2,7 @@
 using RequestForRepairWPF.Views.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -25,12 +26,15 @@ namespace RequestForRepairWPF
         private int mainID = 0;
         DataBase dataBase = new DataBase();
         UserContext db = new UserContext();
+        List<User> idList = new List<User>();
         List<int> requestList = new List<int>();
+        ObservableCollection<User> executorsCollection = new ObservableCollection<User>(); 
         public Executors_View(int mainID)
         {
             InitializeComponent();
 
             this.mainID = mainID;
+
             db.Users.Load(); // загружаем данные
             var query = from c in db.Users
                         where c.type_of_account == "Исполнитель"
@@ -45,9 +49,33 @@ namespace RequestForRepairWPF
                             c.category_executors,
                             c.phone
                         };
-            DataGrid_Executors.ItemsSource = query.ToList();
-            
 
+            DataGrid_Executors.ItemsSource = query.ToList();
+
+            // НУЖНЫ ДАННЫЕ В КОМБО-БОКСАХ
+            /*foreach (var _user in query)
+            {
+                idList.Add(new User
+                {
+                    id_user = _user.id_user
+                });
+            }
+            for (int i=0; i<=idList.Count; i++)
+            {
+                var item = idList[i];
+                string queryRequest = string.Format("SELECT requestID_URE FROM U_R_Executor WHERE userID_URE = " + item +";");
+                
+                requestList.Add(Convert.ToInt32(dataBase.GetResult(queryRequest)));
+                //for(DataGrid_Executors)
+                var cellContext = DataGrid_Executors.Columns[1].GetCellContent(DataGrid_Executors.Items(i));
+                if ( == item)
+                {
+
+                }
+            }*/
+            
+            //var id = (DataGrid_Executors.SelectedItem as User).id_user;
+            
 
             #region Инициализация бургер-меню
                         ///<summary>
@@ -161,7 +189,7 @@ namespace RequestForRepairWPF
 
         private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID);
+            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID, "Создать");
             this.Close();
             createAndEditRequest.Show();
         }

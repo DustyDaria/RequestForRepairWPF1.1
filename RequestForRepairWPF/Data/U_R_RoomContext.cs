@@ -14,5 +14,6 @@ namespace RequestForRepairWPF.Data
 
         }
         public DbSet<U_R_Room> U_R_Rooms { get; set; }
+
     }
 }

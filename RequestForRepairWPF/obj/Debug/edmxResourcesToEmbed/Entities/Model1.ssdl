@@ -97,6 +97,14 @@
     <Property Name="userID_URC" Type="int" Nullable="false" />
     <Property Name="requestID_URC" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="U_R_Executor">
+    <Key>
+      <PropertyRef Name="userID_URE" />
+      <PropertyRef Name="requestID_URE" />
+    </Key>
+    <Property Name="userID_URE" Type="int" Nullable="false" />
+    <Property Name="requestID_URE" Type="int" Nullable="false" />
+  </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "DB_RequestForRepair.dbo.U_R_Room" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="U_R_Room">
@@ -152,6 +160,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DescriptionRoom_TypeRoom">
+    <End Role="TypeRoom" Type="Self.TypeRoom" Multiplicity="1" />
+    <End Role="DescriptionRoom" Type="Self.DescriptionRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeRoom">
+        <PropertyRef Name="id_type_room_TR" />
+      </Principal>
+      <Dependent Role="DescriptionRoom">
+        <PropertyRef Name="id_type_room_DR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Room_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -202,6 +222,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_U_R_Executor_Request">
+    <End Role="Request" Type="Self.Request" Multiplicity="1" />
+    <End Role="U_R_Executor" Type="Self.U_R_Executor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="id_request" />
+      </Principal>
+      <Dependent Role="U_R_Executor">
+        <PropertyRef Name="requestID_URE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_U_R_Executor_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="U_R_Executor" Type="Self.U_R_Executor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="U_R_Executor">
+        <PropertyRef Name="userID_URE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_U_R_Room_TypeRoom">
     <End Role="TypeRoom" Type="Self.TypeRoom" Multiplicity="1" />
     <End Role="U_R_Room" Type="Self.U_R_Room" Multiplicity="*" />
@@ -221,6 +265,7 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeRoom" EntityType="Self.TypeRoom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="U_R_Customer" EntityType="Self.U_R_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="U_R_Executor" EntityType="Self.U_R_Executor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Software" EntityType="Self.Software" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -259,6 +304,10 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="U_R_Customer" EntitySet="U_R_Customer" />
     </AssociationSet>
+    <AssociationSet Name="FK_DescriptionRoom_TypeRoom" Association="Self.FK_DescriptionRoom_TypeRoom">
+      <End Role="TypeRoom" EntitySet="TypeRoom" />
+      <End Role="DescriptionRoom" EntitySet="DescriptionRoom" />
+    </AssociationSet>
     <AssociationSet Name="FK_Room_Users" Association="Self.FK_Room_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="U_R_Room" EntitySet="U_R_Room" />
@@ -274,6 +323,14 @@
     <AssociationSet Name="FK_TechnicalEquipment_DescriptionRoom" Association="Self.FK_TechnicalEquipment_DescriptionRoom">
       <End Role="DescriptionRoom" EntitySet="DescriptionRoom" />
       <End Role="TechnicalEquipment" EntitySet="TechnicalEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_U_R_Executor_Request" Association="Self.FK_U_R_Executor_Request">
+      <End Role="Request" EntitySet="Request" />
+      <End Role="U_R_Executor" EntitySet="U_R_Executor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_U_R_Executor_Users" Association="Self.FK_U_R_Executor_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="U_R_Executor" EntitySet="U_R_Executor" />
     </AssociationSet>
     <AssociationSet Name="FK_U_R_Room_TypeRoom" Association="Self.FK_U_R_Room_TypeRoom">
       <End Role="TypeRoom" EntitySet="TypeRoom" />

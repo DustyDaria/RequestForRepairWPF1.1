@@ -17,16 +17,16 @@ namespace RequestForRepairWPF.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeRoom()
         {
-            this.DescriptionRoom = new HashSet<DescriptionRoom>();
             this.U_R_Room = new HashSet<U_R_Room>();
+            this.DescriptionRoom = new HashSet<DescriptionRoom>();
         }
     
         public int id_type_room_TR { get; set; }
         public string name_type_room_TR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DescriptionRoom> DescriptionRoom { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<U_R_Room> U_R_Room { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DescriptionRoom> DescriptionRoom { get; set; }
     }
 }

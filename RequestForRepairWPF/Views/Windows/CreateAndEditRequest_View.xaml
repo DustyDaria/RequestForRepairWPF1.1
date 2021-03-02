@@ -286,8 +286,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    Height="50"
-                            SelectionChanged="comboBox_room_number_SelectionChanged"/>
+                    Height="50"/>
 
                         <TextBox
                     x:Name="textBox_inventory_number"
@@ -319,7 +318,7 @@
                           materialDesign:HintAssist.Hint="Дата окончания (по умолчанию)"
                           Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
 
-                        <ComboBox
+                    <ComboBox
                     x:Name="comboBox_category_request"
                     VerticalAlignment="Top"
                     
@@ -334,8 +333,11 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    Height="50"
-                            SelectionChanged="comboBox_category_request_SelectionChanged"/>
+                    Height="50">
+                        <ComboBoxItem Content="Электрик"/>
+                        <ComboBoxItem Content="Плотник"/>
+                        <ComboBoxItem Content="IT-специалист"/>
+                    </ComboBox>
 
 
 
@@ -375,7 +377,7 @@
                     ToolTip="MaterialDesignFlatButton">
                         </Button>
 
-                        <Button
+                        <!--<Button
                     x:Name="btn_Edit"
                             Click="btn_Edit_Click"
                     FontSize="20"
@@ -391,7 +393,7 @@
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightButton">
 
-                        </Button>
+                        </Button>-->
 
                     </Grid>
                 

@@ -157,7 +157,7 @@ namespace RequestForRepairWPF.Views.Windows
 
         private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID, "Создать");
+            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID, "Создать", 0);
             this.Close();
             createAndEditRequest.Show();
         }

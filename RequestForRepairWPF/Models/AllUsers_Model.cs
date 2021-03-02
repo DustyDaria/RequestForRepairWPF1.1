@@ -13,6 +13,7 @@ namespace RequestForRepairWPF.Models
     class AllUsers_Model : INotifyPropertyChanged
     {
         private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         public ObservableCollection<User> UsersCollection = new ObservableCollection<User>();
 
         User userObj = new User();

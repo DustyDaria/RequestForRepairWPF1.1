@@ -9,7 +9,7 @@ namespace RequestForRepairWPF.Data
 {
     public class _Request
     {
-        //[Key]
+        [Key]
         public int id_request { get; set; }
         public DateTime date_start { get; set; }
         public DateTime date_end { get; set; }

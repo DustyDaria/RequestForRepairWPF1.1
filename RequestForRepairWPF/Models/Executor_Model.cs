@@ -17,6 +17,7 @@ namespace RequestForRepairWPF.Models
     public class Executor_Model : INotifyPropertyChanged
     {
         private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         //public ObservableCollection<Executor> ExecutorsCollection = new ObservableCollection<Executor>();
         //public ObservableCollection<U_R_Executor_Custom> U_R_ExecutorCollection = new ObservableCollection<U_R_Executor_Custom>();
 

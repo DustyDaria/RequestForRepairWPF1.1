@@ -27,12 +27,12 @@ namespace RequestForRepairWPF.Entities
         public string description_DR { get; set; }
         public string comment_DR { get; set; }
     
-        public virtual TypeRoom TypeRoom { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Software> Software { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SpecialEquipment> SpecialEquipment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TechnicalEquipment> TechnicalEquipment { get; set; }
+        public virtual TypeRoom TypeRoom { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace RequestForRepairWPF.Data
     {
         //Executor_Model executor_ModelObj = new Executor_Model(); 
 
-        //[Key]
+        [Key]
         public int id_user { get; set; }
         public string user_login { get; set; }
         public string last_name { get; set; }

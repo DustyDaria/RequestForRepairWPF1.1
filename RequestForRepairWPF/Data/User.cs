@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.DataGrid
+namespace RequestForRepairWPF.Data
 {
     public class User
     {
@@ -22,7 +22,7 @@ namespace RequestForRepairWPF.DataGrid
         
         public User() { }
 
-        public User(Entities.Users user)
+        /*public User(Entities.Users user)
         {
             this.id_user = user.id_user;
             this.user_login = user.user_login;
@@ -34,6 +34,6 @@ namespace RequestForRepairWPF.DataGrid
             this.category_executors = user.category_executors;
             this.phone = user.phone;
         }
-
+        */
     }
 }

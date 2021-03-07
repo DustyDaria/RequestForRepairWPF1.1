@@ -1,4 +1,5 @@
-﻿using RequestForRepairWPF.DataGrid;
+﻿
+using RequestForRepairWPF.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace RequestForRepairWPF.Models
 {
     class AllUsers_Model : INotifyPropertyChanged
     {
-        private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         public ObservableCollection<User> UsersCollection = new ObservableCollection<User>();
 
@@ -95,7 +96,7 @@ namespace RequestForRepairWPF.Models
         /// <summary>Загрузка данных</summary>
         public ObservableCollection<User> LoadData()
         {
-            var _context = context.Users;
+            /*var _context = context.Users;
             var _query = _context.ToList()
                 .ConvertAll(e => new User(e));
             foreach(var _user in _query)
@@ -112,7 +113,7 @@ namespace RequestForRepairWPF.Models
                     category_executors = _user.category_executors,
                     phone = _user.phone
                 });
-            }
+            }*/
             return UsersCollection;
         }
         #endregion

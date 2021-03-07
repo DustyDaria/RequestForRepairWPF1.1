@@ -20,7 +20,8 @@
         Title="Заказчики" 
         Height="800" 
         Width="1080"
-               Closing="Window_Closing">
+        MinHeight="700" 
+        MinWidth="900">
 
     <!--<Window.DataContext>
         <vm:Executors_ViewModel/>
@@ -266,6 +267,7 @@
                         Margin="15 10 15 10"
                         Grid.Row="2"
                         Grid.Column="1"
+                            Click="btn_Search_Click"
                         Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                         ToolTip="MaterialDesignFloatingActionAccentButton">
                             <materialDesign:PackIcon
@@ -279,6 +281,7 @@
                         Margin="15 10 15 10"
                         Grid.Row="2"
                         Grid.Column="0"
+                            Click="btn_UpdateData_Click"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                             <materialDesign:PackIcon
@@ -479,6 +482,26 @@
                             <TextBlock 
                                 Height="auto"
                                 Text="Личный кабинет" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_DescriptionRoom"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_DescriptionRoom_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Room" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Моё помещение" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>

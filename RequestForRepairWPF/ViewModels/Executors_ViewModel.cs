@@ -55,13 +55,13 @@ namespace RequestForRepairWPF.ViewModels
 
         ///<summary>Выбор исполнителя</summary>
 
-        private Executor _selectedExecutor;
-        public Executor SelectedExecuor
-        {
-            get => _selectedExecutor;
-            //set => Set(ref _selectedExecutor, value);
-
-        }
+        //private Executor _selectedExecutor;
+        //public Executor SelectedExecuor
+        //{
+        //    get => _selectedExecutor;
+        //    //set => Set(ref _selectedExecutor, value);
+        //
+        //}
 
         #endregion
 

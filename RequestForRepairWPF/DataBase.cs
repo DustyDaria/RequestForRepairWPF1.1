@@ -46,6 +46,8 @@ namespace RequestForRepairWPF
             }
         }
 
+
+
         public void Select(string query)
         {
             try
@@ -153,6 +155,74 @@ namespace RequestForRepairWPF
                 result = string.Empty;
                 //MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
                 return result;
+            }
+        }
+
+        public List<string> GetResultList(string query)
+        {
+            List<string> list = new List<string>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = string.Format(query);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int i = 0;
+                                list.Add((string)reader[i]);
+                                i++;
+                            }
+                            reader.Close();
+                        }
+                    }
+                    connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                list.Clear();
+                MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
+                return list;
+            }
+        }
+
+        public List<object> GetResultListObj(string query)
+        {
+            List<object> list = new List<object>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = string.Format(query);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int i = 0;
+                                list.Add((object)reader[i]);
+                                i++;
+                            }
+                            reader.Close();
+                        }
+                    }
+                    connection.Close();
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                list.Clear();
+                MessageBox.Show("ERROR!!!\n" + Convert.ToString(e));
+                return list;
             }
         }
 

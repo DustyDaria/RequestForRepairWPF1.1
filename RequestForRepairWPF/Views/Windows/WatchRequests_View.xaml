@@ -18,7 +18,9 @@
         WindowStartupLocation="CenterScreen"
         Title="Просмотр текущих заявок" 
         Height="800" 
-        Width="1080">
+        Width="1080"
+        MinHeight="700" 
+        MinWidth="900">
 
     <!--<Window.DataContext>
         <vm:Executors_ViewModel/>
@@ -168,38 +170,11 @@
                                 IsReadOnly="False"
                                 Header="Номер помещения" 
                                 Width="auto"/>
-                            <DataGridTextColumn
-                                Binding="{Binding UsersE}"
-                                Header="Исполнитель"
-                                IsReadOnly="True"
-                                Width="auto"/>
                             <DataGridTextColumn 
                                 Binding="{Binding category_request}"
                                 Header="Категория заявки" 
                                 IsReadOnly="True"
                                 Width="auto"/>
-                            <DataGridTextColumn
-                                Binding="{Binding UsersC}"
-                                Header="Заказчик"
-                                IsReadOnly="True"
-                                Width="auto"/>
-                            <!--<DataGridComboBoxColumn 
-                                Header="Заявки" 
-                                Width="auto" 
-                                SelectedValueBinding="{Binding Path=loadRequestIDCollection}" 
-                                DisplayMemberPath="Brigade1">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
-                                        <Setter Property="IsReadOnly" Value="True"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>-->
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
@@ -227,13 +202,12 @@
                           materialDesign:HintAssist.HelperText="Выберите критерий поиска"
                           MinWidth="128">
                         <ComboBoxItem Content="ID"/>
-                        <ComboBoxItem Content="Логин"/>
-                        <ComboBoxItem Content="Фамилия"/>
-                        <ComboBoxItem Content="Имя"/>
-                        <ComboBoxItem Content="Отчество"/>
-                        <ComboBoxItem Content="Должность"/>
-                        <ComboBoxItem Content="Категория исполнителя"/>
-                        <ComboBoxItem Content="Телефон"/>
+                        <ComboBoxItem Content="Название"/>
+                        <ComboBoxItem Content="Дата начала"/>
+                        <ComboBoxItem Content="Дата окончания"/>
+                        <ComboBoxItem Content="Статус заявки"/>
+                        <ComboBoxItem Content="Номер помещения"/>
+                        <ComboBoxItem Content="Категория заявки"/>
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"
@@ -475,6 +449,26 @@
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem 
+                        x:Name="list_DescriptionRoom"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_DescriptionRoom_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Room" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Моё помещение" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
                         x:Name="list_CreateRequest"
                         Height="auto"
                         Padding="3"
@@ -529,6 +523,46 @@
                             <TextBlock 
                                 Height="auto"
                                 Text="Просмотр&#10;архивных заявок" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem
+                        x:Name="list_MyRequest"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_MyRequest_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="ProgressAlert" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Мои текущие заявки" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem
+                        x:Name="list_MyArchiveRequest"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_MyArchiveRequest_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="UserCheckOutline" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Мои архивные заявки" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>

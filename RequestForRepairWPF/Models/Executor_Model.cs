@@ -16,13 +16,13 @@ namespace RequestForRepairWPF.Models
 {
     public class Executor_Model : INotifyPropertyChanged
     {
-        private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         //public ObservableCollection<Executor> ExecutorsCollection = new ObservableCollection<Executor>();
         //public ObservableCollection<U_R_Executor_Custom> U_R_ExecutorCollection = new ObservableCollection<U_R_Executor_Custom>();
 
         U_R_Executor_Custom u_r_executorObj = new U_R_Executor_Custom();
-        Executor executorObj = new Executor();
+        //Executor executorObj = new Executor();
         private string criteriaSearch;
         private string dataForSearch;
 
@@ -38,14 +38,15 @@ namespace RequestForRepairWPF.Models
         public Executor_Model() { }
         public Executor_Model(int id_user, string user_login, string last_name, string name, string middle_name, string position, string phone, string category_executors, int requestID_URE)
         {
-            executorObj.id_user = id_user;
-            executorObj.user_login = user_login;
-            executorObj.last_name = last_name;
-            executorObj.name = name;
-            executorObj.middle_name = middle_name;
-            executorObj.position = position;
-            executorObj.phone = phone;
-            executorObj.category_executors = category_executors;
+            //executorObj.id_user = id_user;
+            //executorObj.user_login = user_login;
+            //executorObj.last_name = last_name;
+            //executorObj.name = name;
+            //executorObj.middle_name = middle_name;
+            //executorObj.position = position;
+            //executorObj.phone = phone;
+            //executorObj.category_executors = category_executors;
+
             //executorObj.requestID_URE = requestID_URE;
         }
         #endregion
@@ -55,63 +56,63 @@ namespace RequestForRepairWPF.Models
         /// <summary>GET,SET</summary>
         #region GET,SET
         /// <summary>GET,SET</summary>
-        public int Id_user
-        {
-            get
-            {
-                return executorObj.id_user;
-            }
-        } 
-        public string User_login
-        {
-            get
-            {
-                return executorObj.user_login;
-            }
-        }
-        public string Last_name
-        {
-            get
-            {
-                return executorObj.last_name;
-            }
-        }
-        public string Name
-        {
-            get
-            {
-                return executorObj.name;
-            }
-        }
-        public string Middle_name
-        {
-            get
-            {
-                return executorObj.middle_name;
-            }
-        }
-        public string Position
-        {
-            get
-            {
-                return executorObj.position;
-            }
-        }
-        public string Phone
-        {
-            get
-            {
-                return executorObj.phone;
-            }
-        }
-        public string Category_executors
-        {
-            get
-            {
-                return executorObj.category_executors;
-            }
-        } 
-        //public int RequestID_URE
+       //public int Id_user
+       //{
+       //    //get
+       //    //{
+       //    //    return executorObj.id_user;
+       //    //}
+       //} 
+       //public string User_login
+       //{
+       //    //get
+       //    //{
+       //    //    return executorObj.user_login;
+       //    //}
+       //}
+       //public string Last_name
+       //{
+       //    //get
+       //    //{
+       //    //    return executorObj.last_name;
+       //    //}
+       //}
+       //public string Name
+       //{
+       //   //get
+       //   //{
+       //   //    return executorObj.name;
+       //   //}
+       //}
+       //public string Middle_name
+       //{
+       //    //get
+       //    //{
+       //    //    return executorObj.middle_name;
+       //    //}
+       //}
+       ////public string Position
+       ////{
+       ////   //get
+       ////   //{
+       ////   //    return executorObj.position;
+       ////   //}
+       ////}
+       //public string Phone
+       //{
+       //    //get
+       //    //{
+       //    //    return executorObj.phone;
+       //    //}
+       //}
+       //public string Category_executors
+       //{
+       //    get
+       //    {
+       //        return executorObj.category_executors;
+       //    }
+       //} 
+       ////public int RequestID_URE
         //{
         //    get
         //    {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RequestForRepairWPF.Views.Windows.UserAccount;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,14 +52,36 @@ namespace RequestForRepairWPF
             }
             else
             {
-                if (dataBase.GetResult(queryCheckUserData_GET) == userPassword)
+                if (dataBase.GetResult(queryCheckUserData_GET) == userPassword && dataBase.GetResult(queryCheckUserType) == "Системный администратор")
                 {
                     string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
                     userID = dataBase.GetID(queryUsersID_GET);
 
-                    UserAccount_View personalAccount = new UserAccount_View(userID);
-                    this.Close();
+                    UserAccount_View personalAccount = new UserAccount_View(userID, "Просмотреть", 0);
                     personalAccount.Show();
+                    this.Close();
+                    
+                }
+                else if(dataBase.GetResult(queryCheckUserData_GET) == userPassword && dataBase.GetResult(queryCheckUserType) == "Заказчик")
+                {
+                    string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
+                    userID = dataBase.GetID(queryUsersID_GET);
+
+                    CustomerUserAccount_View customerUser = new CustomerUserAccount_View(userID, "Просмотреть", 0);
+                    // UserAccount_View personalAccount = new UserAccount_View(userID, "Просмотреть", 0);
+                    customerUser.Show();
+                    this.Close();
+                    
+                }
+                else if (dataBase.GetResult(queryCheckUserData_GET) == userPassword && dataBase.GetResult(queryCheckUserType) == "Исполнитель")
+                {
+                    string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
+                    userID = dataBase.GetID(queryUsersID_GET);
+
+                    UserAccount_View personalAccount = new UserAccount_View(userID, "Просмотреть", 0);
+                    personalAccount.Show();
+                    this.Close();
+                    
                 }
                 else
                 {

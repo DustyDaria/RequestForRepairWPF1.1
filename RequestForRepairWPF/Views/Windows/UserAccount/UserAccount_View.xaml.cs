@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace RequestForRepairWPF
+namespace RequestForRepairWPF.Views.Windows.UserAccount
 {
     /// <summary>
     /// Логика взаимодействия для Menu_Administrator.xaml
@@ -96,148 +96,14 @@ namespace RequestForRepairWPF
             /// </summary>
 
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
-            //string queryUserLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + mainID + "';");
-            //string queryUserName_GET = string.Format("SELECT name FROM Users WHERE id_user = '" + mainID + "';");
-            //string queryUserMiddleName_GET = string.Format("SELECT middle_name FROM Users WHERE id_user = '" + mainID + "';");
-
+            
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
             {
                 if (usersAction == "Создать")
                 {
                     this.Title = "Зарегистрировать нового пользователя";
                     label_Header.Text = "Зарегистрировать нового пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
-
-                    btn_Edit.IsEnabled = false;
-                    btn_Edit.Visibility = Visibility.Collapsed;
-                    btn_Save.IsEnabled = true;
-                }
-                else if (usersAction == "Редактировать")
-                {
-                    string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
-                    string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
-
-                    GetDataToViewAndChange_Secondary();
                     
-
-                    this.Title = "Редактировать данные пользователя";
-                    label_Header.Text = "Редактировать данные пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
-
-                    /*maskedTextBox_last_name.Enabled = true;
-                    maskedTextBox_name.Enabled = true;
-                    maskedTextBox_middle_name.Enabled = true;
-                    textBox_position.Enabled = true;
-                    maskedTextBox_phone.Enabled = true;
-                    textBox_user_login.Enabled = true;
-                    maskedTextBox_user_password.Enabled = true;
-                    maskedTextBox_repeat_user_password.Enabled = true;
-                    comboBox_type_of_account.Enabled = true;*/
-
-                    if (dataBase.Check(queryCheckRoomNumber_GET, Convert.ToString(secondaryID)) == true)
-                    {
-                        //label_room_number.Visible = true;
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = true;
-                    }
-                    else
-                    {
-                        //label_room_number.Visible = false;
-                        comboBox_room_number.Visibility = Visibility.Collapsed;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-
-                    if (dataBase.Check(queryCheckCategoryExecutors_GET, Convert.ToString(secondaryID)) == true)
-                    {
-                        //label_category_executors.Visible = true;
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = true;
-                    }
-                    else
-                    {
-                        //label_category_executors.Visible = false;
-                        comboBox_category_executors.Visibility = Visibility.Collapsed;
-                        comboBox_category_executors.IsEnabled = false;
-                    }
-
-                    btn_Edit.IsEnabled = false;
-                    btn_Edit.Visibility = Visibility.Collapsed;
-                    btn_Save.IsEnabled = true;
-                    btn_Cancel.IsEnabled = true;
-
-                }
-                else if (usersAction == "Просмотреть")
-                {
-                    string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
-                    string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
-
-                    GetDataToViewAndChange_Secondary();
-                    
-
-                    this.Title = "Просмотреть данные пользователя";
-                    label_Header.Text = "Просмотреть данные пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
-
-                    textBox_last_name.IsEnabled = false;
-                    textBox_name.IsEnabled = false;
-                    textBox_middle_name.IsEnabled = false;
-                    textBox_position.IsEnabled = false;
-                    textBox_phone.IsEnabled = false;
-                    textBox_user_login.IsEnabled = false;
-                    passBox_user_password.IsEnabled = false;
-                    //label_repeat_user_password.Visible = false;
-                    passBox_repeat_user_password.IsEnabled = false;
-                    passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-                    comboBox_type_of_account.IsEnabled = false;
-
-                    if (dataBase.Check(queryCheckRoomNumber_GET, Convert.ToString(secondaryID)) == true)
-                    {
-                        //label_room_number.Visible = true;
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-                    else
-                    {
-                        //label_room_number.Visible = false;
-                        comboBox_room_number.Visibility = Visibility.Collapsed;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-
-                    if (dataBase.Check(queryCheckCategoryExecutors_GET, Convert.ToString(secondaryID)) == true)
-                    {
-                        //label_category_executors.Visible = true;
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = false;
-                    }
-                    else
-                    {
-                        //label_category_executors.Visible = false;
-                        comboBox_category_executors.Visibility = Visibility.Collapsed;
-                        comboBox_category_executors.IsEnabled = false;
-                    }
-
-                    btn_Edit.IsEnabled = true;
-                    btn_Edit.Visibility = Visibility.Visible;
-
-                    btn_Save.IsEnabled = false;
-                    btn_Cancel.IsEnabled = true;
-                }
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
-            {
-                if (usersAction == "Редактировать")
-                {
-                    GetDataToViewAndChange_Secondary();
-                    
-
-                    this.Title = "Редактировать данные пользователя";
-                    label_Header.Text = "Редактировать данные пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
-
                     textBox_last_name.IsEnabled = true;
                     textBox_name.IsEnabled = true;
                     textBox_middle_name.IsEnabled = true;
@@ -246,29 +112,53 @@ namespace RequestForRepairWPF
                     textBox_user_login.IsEnabled = true;
                     passBox_user_password.IsEnabled = true;
                     passBox_repeat_user_password.IsEnabled = true;
+                    passBox_repeat_user_password.Visibility = Visibility.Visible;
+                    comboBox_type_of_account.IsEnabled = true;
+
+
+                    btn_Edit.IsEnabled = false;
+                    btn_Edit.Visibility = Visibility.Collapsed;
+                    btn_Save.IsEnabled = true;
+                    btn_Save.Visibility = Visibility.Visible;
+                }
+                else if (usersAction == "Редактировать")
+                {
+                    string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
+                    string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
+
+                    GetDataToViewAndChange_Main();
+
+
+                    this.Title = "Редактировать данные пользователя";
+                    label_Header.Text = "Редактировать данные пользователя";
+                    
+                    textBox_last_name.IsEnabled = true;
+                    textBox_name.IsEnabled = true;
+                    textBox_middle_name.IsEnabled = true;
+                    textBox_position.IsEnabled = true;
+                    textBox_phone.IsEnabled = true;
+                    textBox_user_login.IsEnabled = true;
+                    passBox_user_password.IsEnabled = true;
+                    passBox_repeat_user_password.IsEnabled = true;
+                    passBox_repeat_user_password.Visibility = Visibility.Visible;
                     comboBox_type_of_account.IsEnabled = false;
-                    //label_room_number.Visibility = Visibility.Visible;
-                    comboBox_room_number.Visibility = Visibility.Visible;
-                    comboBox_room_number.IsEnabled = true;
-                    //label_category_executors.Visibility = Visibility.Collapsed;
-                    comboBox_category_executors.Visibility = Visibility.Collapsed;
-                    comboBox_category_executors.IsEnabled = false;
 
                     btn_Edit.IsEnabled = false;
                     btn_Edit.Visibility = Visibility.Collapsed;
                     btn_Save.IsEnabled = true;
                     btn_Cancel.IsEnabled = true;
+
                 }
                 else if (usersAction == "Просмотреть")
                 {
-                    GetDataToViewAndChange_Secondary();
-                    
+                    string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
+                    string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
+
+                    GetDataToViewAndChange_Main();
 
                     this.Title = "Просмотреть данные пользователя";
                     label_Header.Text = "Просмотреть данные пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
-
+                    
                     textBox_last_name.IsEnabled = false;
                     textBox_name.IsEnabled = false;
                     textBox_middle_name.IsEnabled = false;
@@ -277,14 +167,8 @@ namespace RequestForRepairWPF
                     textBox_user_login.IsEnabled = false;
                     passBox_user_password.IsEnabled = false;
                     passBox_repeat_user_password.IsEnabled = false;
-                    passBox_repeat_user_password.Visibility = Visibility.Visible;
+                    passBox_repeat_user_password.Visibility = Visibility.Collapsed;
                     comboBox_type_of_account.IsEnabled = false;
-                    //label_room_number.Visible = true;
-                    comboBox_room_number.Visibility = Visibility.Visible;
-                    comboBox_room_number.IsEnabled = false;
-                    //label_category_executors.Visibility = Visibility.Collapsed;
-                    comboBox_category_executors.Visibility = Visibility.Collapsed;
-                    comboBox_category_executors.IsEnabled = false;
 
                     btn_Edit.IsEnabled = true;
                     btn_Edit.Visibility = Visibility.Visible;
@@ -298,12 +182,10 @@ namespace RequestForRepairWPF
 
                 if (usersAction == "Редактировать")
                 {
-                    GetDataToViewAndChange_Secondary();
+                    GetDataToViewAndChange_Main();
                     
                     this.Title = "Редактировать данные пользователя";
                     label_Header.Text = "Редактировать данные пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
 
                     textBox_last_name.IsEnabled = true;
                     textBox_name.IsEnabled = true;
@@ -313,11 +195,10 @@ namespace RequestForRepairWPF
                     textBox_user_login.IsEnabled = true;
                     passBox_user_password.IsEnabled = true;
                     passBox_repeat_user_password.IsEnabled = true;
+                    passBox_repeat_user_password.Visibility = Visibility.Visible;
                     comboBox_type_of_account.IsEnabled = false;
-                    //label_room_number.Visibility = Visibility.Visible;
                     comboBox_room_number.Visibility = Visibility.Collapsed;
                     comboBox_room_number.IsEnabled = false;
-                    //label_category_executors.Visibility = Visibility.Visible;
                     comboBox_category_executors.Visibility = Visibility.Visible;
                     comboBox_category_executors.IsEnabled = false;
 
@@ -329,13 +210,11 @@ namespace RequestForRepairWPF
                 }
                 else if (usersAction == "Просмотреть")
                 {
-                    GetDataToViewAndChange_Secondary();
+                    GetDataToViewAndChange_Main();
                     
 
                     this.Title = "Просмотреть данные пользователя";
                     label_Header.Text = "Просмотреть данные пользователя";
-                    //linkLabel_UserName.Text = dataBase.GetResult(queryUserLastName_GET) + " "
-                    //+ dataBase.GetResult(queryUserName_GET) + " " + dataBase.GetResult(queryUserMiddleName_GET);
 
                     textBox_last_name.IsEnabled = false;
                     textBox_name.IsEnabled = false;
@@ -347,10 +226,8 @@ namespace RequestForRepairWPF
                     passBox_repeat_user_password.IsEnabled = false;
                     passBox_repeat_user_password.Visibility = Visibility.Collapsed;
                     comboBox_type_of_account.IsEnabled = false;
-                    //label_room_number.Visible = false;
                     comboBox_room_number.Visibility = Visibility.Collapsed;
                     comboBox_room_number.IsEnabled = false;
-                    //label_category_executors.Visible = true;
                     comboBox_category_executors.Visibility = Visibility.Visible;
                     comboBox_category_executors.IsEnabled = false;
 
@@ -365,20 +242,16 @@ namespace RequestForRepairWPF
         }
 
 
-
+        #region Инициализация бургер-меню
+        ///<summary>
+        ///Инициализация бургер-меню и контента
+        /// </summary>
         private void BurgerMenu()
         {
-            #region Инициализация бургер-меню и контента
-            ///<summary>
-            ///Инициализация бургер-меню и контента
-            /// </summary>
-
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
 
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
             {
-
-                //бургер меню
                 list_AllUsers.Visibility = Visibility.Visible;
                 list_Customers.Visibility = Visibility.Visible;
                 list_Executors.Visibility = Visibility.Visible;
@@ -389,63 +262,26 @@ namespace RequestForRepairWPF
                 list_WatchArchiveRequest.Visibility = Visibility.Visible;
                 list_FileReport.Visibility = Visibility.Visible;
 
-                //контент
-                this.Title = "Личный кабинет системного администратора";
-                textBox_last_name.IsEnabled = false;
-                textBox_name.IsEnabled = false;
-                textBox_middle_name.IsEnabled = false;
-                textBox_position.IsEnabled = false;
-                textBox_phone.IsEnabled = false;
-                textBox_user_login.IsEnabled = false;
-                passBox_user_password.IsEnabled = false;
-                //label_repeat_user_password.Visible = false;
-                passBox_repeat_user_password.IsEnabled = false;
-                passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-                comboBox_type_of_account.IsEnabled = false;
 
-                // данные
-                GetDataToViewAndChange_Main();
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
             {
 
-                //бургер меню
                 list_AllUsers.Visibility = Visibility.Collapsed;
                 list_Customers.Visibility = Visibility.Collapsed;
                 list_Executors.Visibility = Visibility.Collapsed;
                 list_RegisterNewUser.Visibility = Visibility.Collapsed;
                 list_EditUserAccount.Visibility = Visibility.Visible;
+                list_DescriptionRoom.Visibility = Visibility.Visible;
                 list_CreateRequest.Visibility = Visibility.Visible;
                 list_WatchRequest.Visibility = Visibility.Visible;
                 list_WatchArchiveRequest.Visibility = Visibility.Visible;
                 list_FileReport.Visibility = Visibility.Visible;
 
-                //контент
-                this.Title = "Личный кабинет заказчика";
-                textBox_last_name.IsEnabled = false;
-                textBox_name.IsEnabled = false;
-                textBox_middle_name.IsEnabled = false;
-                textBox_position.IsEnabled = false;
-                textBox_phone.IsEnabled = false;
-                textBox_user_login.IsEnabled = false;
-                passBox_user_password.IsEnabled = false;
-                passBox_repeat_user_password.IsEnabled = false;
-                passBox_repeat_user_password.Visibility = Visibility.Visible;
-                comboBox_type_of_account.IsEnabled = false;
-                //label_room_number.Visible = true;
-                comboBox_room_number.Visibility = Visibility.Visible;
-                comboBox_room_number.IsEnabled = false;
-                //label_category_executors.Visibility = Visibility.Collapsed;
-                comboBox_category_executors.Visibility = Visibility.Collapsed;
-                comboBox_category_executors.IsEnabled = false;
-
-                //данные
-                GetDataToViewAndChange_Main();
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {
 
-                //бургер меню
                 list_AllUsers.Visibility = Visibility.Collapsed;
                 list_Customers.Visibility = Visibility.Collapsed;
                 list_Executors.Visibility = Visibility.Collapsed;
@@ -454,32 +290,14 @@ namespace RequestForRepairWPF
                 list_CreateRequest.Visibility = Visibility.Collapsed;
                 list_WatchRequest.Visibility = Visibility.Visible;
                 list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                list_MyRequest.Visibility = Visibility.Visible;
+                list_MyArchiveRequest.Visibility = Visibility.Visible;
                 list_FileReport.Visibility = Visibility.Visible;
 
-                //контент
-                this.Title = "Личный кабинет исполнителя";
-                textBox_last_name.IsEnabled = false;
-                textBox_name.IsEnabled = false;
-                textBox_middle_name.IsEnabled = false;
-                textBox_position.IsEnabled = false;
-                textBox_phone.IsEnabled = false;
-                textBox_user_login.IsEnabled = false;
-                passBox_user_password.IsEnabled = false;
-                passBox_repeat_user_password.IsEnabled = false;
-                passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-                comboBox_type_of_account.IsEnabled = false;
-                //label_room_number.Visible = false;
-                comboBox_room_number.Visibility = Visibility.Collapsed;
-                comboBox_room_number.IsEnabled = false;
-                //label_category_executors.Visible = true;
-                comboBox_category_executors.Visibility = Visibility.Visible;
-                comboBox_category_executors.IsEnabled = false;
-
-                //данные
-                GetDataToViewAndChange_Main();
             }
-            #endregion 
+
         }
+        #endregion 
 
         #region Личный кабинет
         /// <summary>
@@ -499,11 +317,12 @@ namespace RequestForRepairWPF
         private void btn_PopUpLogout_Click(object sender, RoutedEventArgs e)
         {
             // ДИАЛОГОВЫЕ ОКНА
-            MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
+            //MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
             Authorization authorization = new Authorization();
             this.Close();
             authorization.Show();
         }
+        
         #endregion
 
 
@@ -535,34 +354,32 @@ namespace RequestForRepairWPF
                 passBox_user_password.IsEnabled = true;
                 passBox_repeat_user_password.Visibility = Visibility.Visible;
                 passBox_repeat_user_password.IsEnabled = true;
-                //label_type_of_account.Visible = true;
-                comboBox_type_of_account.IsEnabled = true;
+                comboBox_type_of_account.IsEnabled = false;
+
+                #region Неработающая проверка на кабинеты и категорию исполнителя
 
                 if (dataBase.Check(queryCheckCategoryExecutors_GET, Convert.ToString(secondaryID)) == true)
                 {
-                    //label_category_executors.Visible = true;
                     comboBox_category_executors.Visibility = Visibility.Visible;
                     comboBox_category_executors.IsEnabled = true;
                 }
                 else
                 {
-                    //label_category_executors.Visible = false;
                     comboBox_category_executors.Visibility = Visibility.Collapsed;
                     comboBox_category_executors.IsEnabled = false;
                 }
 
                 if (dataBase.Check(queryCheckRoomNumber_GET, Convert.ToString(secondaryID)) == true)
                 {
-                    //label_room_number.Visible = true;
                     comboBox_room_number.Visibility = Visibility.Visible;
                     comboBox_room_number.IsEnabled = true;
                 }
                 else
                 {
-                    //label_room_number.Visible = false;
                     comboBox_room_number.Visibility = Visibility.Collapsed;
                     comboBox_room_number.IsEnabled = false;
                 }
+                #endregion
 
                 btn_Edit.IsEnabled = false;
                 btn_Edit.Visibility = Visibility.Collapsed;
@@ -584,12 +401,9 @@ namespace RequestForRepairWPF
                 passBox_user_password.IsEnabled = true;
                 passBox_repeat_user_password.Visibility = Visibility.Visible;
                 passBox_repeat_user_password.IsEnabled = true;
-                //label_type_of_account.Visible = true;
                 comboBox_type_of_account.IsEnabled = false;
-                //label_room_number.Visible = true;
                 comboBox_room_number.Visibility = Visibility.Visible;
                 comboBox_room_number.IsEnabled = true;
-                //label_type_of_account.Visible = false;
                 comboBox_category_executors.Visibility = Visibility.Collapsed;
                 comboBox_category_executors.IsEnabled = false;
 
@@ -613,9 +427,7 @@ namespace RequestForRepairWPF
                 passBox_user_password.IsEnabled = true;
                 passBox_repeat_user_password.Visibility = Visibility.Visible;
                 passBox_repeat_user_password.IsEnabled = true;
-                //label_type_of_account.Visible = true;
                 comboBox_type_of_account.IsEnabled = false;
-                //label_type_of_account.Visible = false;
                 comboBox_category_executors.Visibility = Visibility.Visible;
                 comboBox_category_executors.IsEnabled = false;
 
@@ -669,12 +481,12 @@ namespace RequestForRepairWPF
                     {
                         MessageBox.Show("Введенные пароли не совпадают!");
                     }
-                    else if (comboBox_type_of_account.Text == string.Empty)//нужна проверка от левых данных
-                    {//нужна проверка от левых данных
+                    else if (comboBox_type_of_account.Text == string.Empty)
+                    {
                         MessageBox.Show("Пожалуйста, выберите тип аккаунта!");
                     }
                     else if ((comboBox_category_executors.Text == string.Empty) && (comboBox_type_of_account.Text == "Исполнитель"))
-                    {//нужна проверка от левых данных
+                    {
                         MessageBox.Show("Пожалуйста, выберите категорию исполнителя!");
                     }
                     else
@@ -707,7 +519,7 @@ namespace RequestForRepairWPF
                                         + "' AND position = '" + textBox_position.Text.Trim(charToTrim) + "' AND category_executors = '" + comboBox_category_executors.Text.Trim(charToTrim)
                                         + "' AND phone = '" + textBox_phone.Text.Trim(charToTrim) + "';");
 
-                                    string queryU_RD_Rooms_SET = string.Format("INSERT INTO U_RD_Rooms (userID, roomNUMBER) VALUES ('" + dataBase.GetID(queryUserID_GET) + "', '"
+                                    string queryU_RD_Rooms_SET = string.Format("INSERT INTO U_R_Room (userID_URR, roomNUMBER_URR) VALUES ('" + dataBase.GetID(queryUserID_GET) + "', '"
                                     + comboBox_room_number.Text.Trim(charToTrim) + "');");
 
                                     dataBase.Insert(queryU_RD_Rooms_SET);
@@ -739,7 +551,7 @@ namespace RequestForRepairWPF
                         + comboBox_type_of_account.Text.Trim(charToTrim) + "', last_name = '" + textBox_last_name.Text.Trim(charToTrim) + "', name = '"
                         + textBox_name.Text.Trim(charToTrim) + "', middle_name = '" + textBox_middle_name.Text.Trim(charToTrim) + "', position = '"
                         + textBox_position.Text.Trim(charToTrim) + "', category_executors = '" + comboBox_category_executors.Text.Trim(charToTrim) + "', phone = '"
-                        + textBox_phone.Text.Trim(charToTrim) + "' WHERE id_user = '" + secondaryID + "';");
+                        + textBox_phone.Text.Trim(charToTrim) + "' WHERE id_user = '" + mainID + "';");
 
                         dataBase.Update(queryUpdateUserData_SET);
 
@@ -762,7 +574,7 @@ namespace RequestForRepairWPF
                         + comboBox_type_of_account.Text.Trim(charToTrim) + "', last_name = '" + textBox_last_name.Text.Trim(charToTrim) + "', name = '"
                         + textBox_name.Text.Trim(charToTrim) + "', middle_name = '" + textBox_middle_name.Text.Trim(charToTrim) + "', position = '"
                         + textBox_position.Text.Trim(charToTrim) + "', category_executors = '" + comboBox_category_executors.Text.Trim(charToTrim) + "', phone = '"
-                        + textBox_phone.Text.Trim(charToTrim) + "' WHERE id_user = '" + secondaryID + "';");
+                        + textBox_phone.Text.Trim(charToTrim) + "' WHERE id_user = '" + mainID + "';");
 
                         dataBase.Update(queryUpdateUserData_SET);
 
@@ -786,7 +598,7 @@ namespace RequestForRepairWPF
                         + comboBox_type_of_account.Text.Trim(charToTrim) + "', last_name = '" + textBox_last_name.Text.Trim(charToTrim) + "', name = '"
                         + textBox_name.Text.Trim(charToTrim) + "', middle_name = '" + textBox_middle_name.Text.Trim(charToTrim) + "', position = '"
                         + textBox_position.Text.Trim(charToTrim) + "', category_executors = '" + comboBox_category_executors.Text.Trim(charToTrim) + "', phone = '"
-                        + textBox_phone.Text.Trim(charToTrim) + "' WHERE id_user = '" + secondaryID + "';");
+                        + textBox_phone.Text.Trim(charToTrim) + "' WHERE id_user = '" + mainID + "';");
 
                         dataBase.Update(queryUpdateUserData_SET);
 
@@ -833,46 +645,21 @@ namespace RequestForRepairWPF
             string queryUserPassword_GET = string.Format("SELECT user_password FROM Users WHERE id_user = '" + mainID + "'; ");
             string queryTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "'; ");
             string queryCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + mainID + "'; ");
-            string queryRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_ROOMS WHERE userID = '" + mainID + "';");
+            //string queryRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_ROOMS WHERE userID = '" + mainID + "';");
 
-            //label1.Text = "Проверка на добавление: " + queryLastName_GET;
             textBox_last_name.Text = dataBase.GetResult(queryLastName_GET);
             textBox_name.Text = dataBase.GetResult(queryName_GET);
-
             textBox_middle_name.Text = dataBase.GetResult(queryMiddleName_GET);
-            /*if (dataBase.Check(queryMiddleName_GET, Convert.ToString(mainID)) == true)
-            {
-                maskedTextBox_middle_name.Text = dataBase.GetResult(queryMiddleName_GET);
-            }
-            else
-            {
-                maskedTextBox_middle_name.Text = string.Empty;
-            }*/
-
             textBox_position.Text = dataBase.GetResult(queryPosition_GET);
             textBox_phone.Text = dataBase.GetResult(queryPhone_GET);
             textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
             passBox_user_password.Password = dataBase.GetResult(queryUserPassword_GET);
             comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
-
-            if (dataBase.Check(queryCategoryExecutors_GET, Convert.ToString(mainID)) == true)
-            {
-                comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
-            }
-            else
-            {
-                comboBox_category_executors.Text = string.Empty;
-            }
-
-            if (dataBase.Check(queryRoomNumber_GET, Convert.ToString(mainID)) == true)
-            {
-                comboBox_room_number.Text = dataBase.GetResult(queryRoomNumber_GET);
-            }
-            else
-            {
-                comboBox_room_number.Text = string.Empty;
-            }
-
+            comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
+            
+            comboBox_type_of_account.IsEnabled = false;
+            comboBox_category_executors.IsEnabled = false;
+            
         }
         #endregion
 
@@ -988,10 +775,13 @@ namespace RequestForRepairWPF
         /// <summary>
         /// Выбор типа аккаунта
         /// </summary>
-        private void comboBox_type_of_account_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// 
+
+/*
+        private void comboBox_type_of_account_Selected(object sender, RoutedEventArgs e)
         {
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
-
+            
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
             {
                 if (usersAction == "Создать")
@@ -1067,37 +857,138 @@ namespace RequestForRepairWPF
                     }
                 }
             }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
-            {
-                if (usersAction == "Просмотреть")
+                else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
                 {
-                    //label_category_executors.Visible = true;
-                    comboBox_category_executors.Visibility = Visibility.Visible;
-                    comboBox_category_executors.IsEnabled = false;
+                    if (usersAction == "Просмотреть")
+                    {
+                        comboBox_category_executors.Visibility = Visibility.Visible;
+                        comboBox_category_executors.IsEnabled = false;
+                    }
+                    else if (usersAction == "Редактировать")
+                    {
+                        comboBox_category_executors.Visibility = Visibility.Visible;
+                        comboBox_category_executors.IsEnabled = false;
+                    }
                 }
-                else if (usersAction == "Редактировать")
+                else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+                {
+                    if (usersAction == "Просмотреть")
+                    {
+                        comboBox_room_number.Visibility = Visibility.Visible;
+                        comboBox_room_number.IsEnabled = false;
+                    }
+                    else if (usersAction == "Редактировать")
+                    {
+                        comboBox_room_number.Visibility = Visibility.Visible;
+                        comboBox_room_number.IsEnabled = false;
+                    }
+                }
+        }
+*/
+        private void adm_Selected(object sender, RoutedEventArgs e)
+        {
+            if (usersAction == "Создать")
+            {
+                if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
                 {
                     //label_category_executors.Visible = true;
                     comboBox_category_executors.Visibility = Visibility.Visible;
+                    comboBox_category_executors.IsEnabled = true;
+                }
+                else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
+                {
+                    //label_room_number.Visible = true;
+                    comboBox_room_number.Visibility = Visibility.Visible;
+                    comboBox_room_number.IsEnabled = true;
+                }
+                else
+                {
+                    //label_category_executors.Visible = false;
+                    //label_room_number.Visible = false;
+                    comboBox_category_executors.Visibility = Visibility.Collapsed;
                     comboBox_category_executors.IsEnabled = false;
+                    comboBox_room_number.Visibility = Visibility.Collapsed;
+                    comboBox_room_number.IsEnabled = false;
                 }
             }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+            else if (usersAction == "Просмотреть")
             {
-                if (usersAction == "Просмотреть")
+                if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
+                {
+                    //label_category_executors.Visible = true;
+                    comboBox_category_executors.Visibility = Visibility.Visible;
+                    comboBox_category_executors.IsEnabled = false;
+                }
+                else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
                 {
                     //label_room_number.Visible = true;
                     comboBox_room_number.Visibility = Visibility.Visible;
                     comboBox_room_number.IsEnabled = false;
                 }
-                else if (usersAction == "Редактировать")
+                else
+                {
+                    //label_category_executors.Visible = false;
+                    //label_room_number.Visible = false;
+                    comboBox_category_executors.Visibility = Visibility.Collapsed;
+                    comboBox_category_executors.IsEnabled = false;
+                    comboBox_room_number.Visibility = Visibility.Collapsed;
+                    comboBox_room_number.IsEnabled = false;
+                }
+            }
+            else if (usersAction == "Редактировать")
+            {
+                if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
+                {
+                    //label_category_executors.Visible = true;
+                    comboBox_category_executors.Visibility = Visibility.Visible;
+                    comboBox_category_executors.IsEnabled = true;
+                }
+                else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
                 {
                     //label_room_number.Visible = true;
                     comboBox_room_number.Visibility = Visibility.Visible;
+                    comboBox_room_number.IsEnabled = true;
+                }
+                else
+                {
+                    //label_category_executors.Visible = false;
+                    //label_room_number.Visible = false;
+                    comboBox_category_executors.Visibility = Visibility.Collapsed;
+                    comboBox_category_executors.IsEnabled = false;
+                    comboBox_room_number.Visibility = Visibility.Collapsed;
                     comboBox_room_number.IsEnabled = false;
                 }
             }
         }
+        
+        private void cus_Selected(object sender, RoutedEventArgs e)
+        {
+            if (usersAction == "Просмотреть")
+            {
+                comboBox_room_number.Visibility = Visibility.Visible;
+                comboBox_room_number.IsEnabled = false;
+            }
+            else if (usersAction == "Редактировать")
+            {
+                comboBox_room_number.Visibility = Visibility.Visible;
+                comboBox_room_number.IsEnabled = false;
+            }
+        }
+        
+        private void exe_Selected(object sender, RoutedEventArgs e)
+        {
+            if (usersAction == "Просмотреть")
+            {
+                comboBox_category_executors.Visibility = Visibility.Visible;
+                comboBox_category_executors.IsEnabled = false;
+            }
+            else if (usersAction == "Редактировать")
+            {
+                comboBox_category_executors.Visibility = Visibility.Visible;
+                comboBox_category_executors.IsEnabled = false;
+            }
+        }
+
         #endregion
 
 
@@ -1149,9 +1040,33 @@ namespace RequestForRepairWPF
 
         private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+
+            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
+            {
+                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                this.Close();
+                userAccount_View.Show();
+            }
+            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+            {
+                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                this.Close();
+                userAccount_View.Show();
+            }
+            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+            {
+                CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
+                this.Close();
+                customerUser.Show();
+            }
+
+        }
+        private void list_DescriptionRoom_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DescriptionRoom description = new DescriptionRoom(mainID, "Просмотреть");
             this.Close();
-            userAccount_View.Show();
+            description.Show();
         }
 
         private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -1175,6 +1090,21 @@ namespace RequestForRepairWPF
             watchRequests.Show();
         }
 
+
+        private void list_MyRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Мои Текущие");
+            this.Close();
+            watchRequests.Show();
+        }
+
+        private void list_MyArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Мои Архивные");
+            this.Close();
+            watchRequests.Show();
+        }
+
         private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             FileReport_View fileReport_View = new FileReport_View(mainID);
@@ -1182,7 +1112,10 @@ namespace RequestForRepairWPF
             fileReport_View.Show();
         }
 
+
+
         #endregion
+
 
     }
 }

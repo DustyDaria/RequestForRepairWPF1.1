@@ -19,7 +19,9 @@
         WindowStartupLocation="CenterScreen"
         Title="Создание заявки" 
         Height="800" 
-        Width="1080">
+        Width="1080"
+        MinHeight="700" 
+        MinWidth="900">
 
     <!--<Window.DataContext>
         <vm:Executors_ViewModel/>
@@ -112,12 +114,9 @@
                 x:Name="scroll"
                 CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible">
-                
                
-
-                    
                     <Grid 
-                Height="auto">
+                    Height="auto">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -554,6 +553,26 @@
                             <TextBlock 
                                 Height="auto"
                                 Text="Личный кабинет" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_DescriptionRoom"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_DescriptionRoom_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Room" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Моё помещение" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                         </StackPanel>

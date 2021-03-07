@@ -1,11 +1,15 @@
 ﻿
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\App.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Room\Control_checkBox.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\AllUsers_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\Authorization_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\Customers_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\DescriptionRoom.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\Executors_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\CreateAndEditRequest_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\FileReport_View.xaml;;
-FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\UserAccount_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\UserAccount\CustomerUserAccount_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\UserAccount\UserAccount_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Room\Control_radioBtn.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\WatchRequests_View.xaml;;
 

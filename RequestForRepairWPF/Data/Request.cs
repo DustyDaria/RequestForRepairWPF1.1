@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RequestForRepairWPF.Data
 {
-    public class _Request
+    public class Request
     {
         [Key]
         public int id_request { get; set; }
@@ -19,18 +19,18 @@ namespace RequestForRepairWPF.Data
         public string description_request { get; set; }
         public string comment_request { get; set; }
         public string inventory_number { get; set; }
+        public DateTime? actual_date_end { get; set; }
         public string category_request { get; set; }
-        public DateTime actual_date_end { get; set; }
 
 
         //public int userID_URC { get; set; }
-        public List<Entities.Users> UsersC { get; set; }
+        //public List<Entities.Users> UsersC { get; set; }
         //public int userID_URE { get; set; }
-        public List<Entities.Users> UsersE { get; set; }
+        //public List<Entities.Users> UsersE { get; set; }
 
 
 
-        public _Request(Entities.Request request)
+       /* public _Request(Entities.Request request)
         {
             this.id_request = request.id_request;
             this.date_start = request.date_start;
@@ -46,8 +46,8 @@ namespace RequestForRepairWPF.Data
 
             this.UsersC = request.Users.ToList();
             this.UsersE = request.Users1.ToList();
-        }
+        }*/
 
-        public _Request() { }
+        public Request() { }
     }
 }

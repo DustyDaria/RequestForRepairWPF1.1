@@ -1,9 +1,11 @@
-﻿using RequestForRepairWPF.DataGrid;
+﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Views.Windows;
+using RequestForRepairWPF.Views.Windows.UserAccount;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +27,11 @@ namespace RequestForRepairWPF
     {
         private int mainID = 0;
         DataBase dataBase = new DataBase();
-        UserContext db = new UserContext();
+        my_DbContext db = new my_DbContext();
         List<User> idList = new List<User>();
         List<int> requestList = new List<int>();
+        public string typeSearchTransfer;
+        public string stringReaderBoxTransfer;
         ObservableCollection<User> executorsCollection = new ObservableCollection<User>(); 
         public Executors_View(int mainID)
         {
@@ -49,7 +53,7 @@ namespace RequestForRepairWPF
                             c.category_executors,
                             c.phone
                         };
-
+            
             DataGrid_Executors.ItemsSource = query.ToList();
 
             // НУЖНЫ ДАННЫЕ В КОМБО-БОКСАХ
@@ -73,20 +77,23 @@ namespace RequestForRepairWPF
 
                 }
             }*/
-            
-            //var id = (DataGrid_Executors.SelectedItem as User).id_user;
-            
 
-            #region Инициализация бургер-меню
-                        ///<summary>
-                        ///Инициализация бургер-меню
-                        /// </summary>
-                        /// 
+            //var id = (DataGrid_Executors.SelectedItem as User).id_user;
+            //LoadDataExecutor();
+
+            BurgerMenu();
+        }
+
+        #region Инициализация бургер-меню
+        ///<summary>
+        ///Инициализация бургер-меню и контента
+        /// </summary>
+        private void BurgerMenu()
+        {
             string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
 
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
             {
-                //бургер меню
                 list_AllUsers.Visibility = Visibility.Visible;
                 list_Customers.Visibility = Visibility.Visible;
                 list_Executors.Visibility = Visibility.Visible;
@@ -96,30 +103,27 @@ namespace RequestForRepairWPF
                 list_WatchRequest.Visibility = Visibility.Visible;
                 list_WatchArchiveRequest.Visibility = Visibility.Visible;
                 list_FileReport.Visibility = Visibility.Visible;
-                btn_Edit.IsEnabled = false;
+
 
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
             {
 
-                //бургер меню
                 list_AllUsers.Visibility = Visibility.Collapsed;
                 list_Customers.Visibility = Visibility.Collapsed;
                 list_Executors.Visibility = Visibility.Collapsed;
                 list_RegisterNewUser.Visibility = Visibility.Collapsed;
                 list_EditUserAccount.Visibility = Visibility.Visible;
+                list_DescriptionRoom.Visibility = Visibility.Visible;
                 list_CreateRequest.Visibility = Visibility.Visible;
                 list_WatchRequest.Visibility = Visibility.Visible;
                 list_WatchArchiveRequest.Visibility = Visibility.Visible;
                 list_FileReport.Visibility = Visibility.Visible;
-                btn_Edit.IsEnabled = false;
-
 
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {
 
-                //бургер меню
                 list_AllUsers.Visibility = Visibility.Collapsed;
                 list_Customers.Visibility = Visibility.Collapsed;
                 list_Executors.Visibility = Visibility.Collapsed;
@@ -129,11 +133,45 @@ namespace RequestForRepairWPF
                 list_WatchRequest.Visibility = Visibility.Visible;
                 list_WatchArchiveRequest.Visibility = Visibility.Visible;
                 list_FileReport.Visibility = Visibility.Visible;
-                btn_Edit.IsEnabled = false;
 
             }
-            #endregion
+
         }
+        #endregion 
+
+        #region Загрузка данных исполнителей
+        //private void LoadDataExecutor()
+        //{
+        //    string connectionString = @"Server = DESKTOP-BSEODEL\SQLEXPRESS; DataBase = DB_RegistrationOfRequest; Trusted_Connection = True;";
+        //    SqlConnection myConnection = new SqlConnection(connectionString);
+        //    myConnection.Open();
+        //
+        //    string queryPat = "SELECT id_user, user_login, last_name, name, middle_name, position, category_executors, phone FROM Users WHERE type_of_account = 'Исполнитель' ORDER BY id_user;";
+        //
+        //    SqlCommand command = new SqlCommand(queryPat, myConnection);
+        //    SqlDataReader reader = command.ExecuteReader();
+        //    List<string[]> data = new List<string[]>();
+        //
+        //    while (reader.Read())
+        //    {
+        //        data.Add(new string[8]);
+        //
+        //        data[data.Count - 1][0] = reader[0].ToString();
+        //        data[data.Count - 1][1] = reader[1].ToString();
+        //        data[data.Count - 1][2] = reader[2].ToString();
+        //        data[data.Count - 1][3] = reader[3].ToString();
+        //        data[data.Count - 1][4] = reader[4].ToString();
+        //        data[data.Count - 1][5] = reader[5].ToString();
+        //        data[data.Count - 1][6] = reader[6].ToString();
+        //        data[data.Count - 1][7] = reader[7].ToString();
+        //        //data[data.Count - 1][8] = reader[8].ToString();
+        //    }
+        //    reader.Close();
+        //    myConnection.Close();
+        //    foreach (string[] exe in data)
+        //        DataGrid_Executors.Items.Add(exe);
+        //}
+        #endregion
 
         #region Обработка кнопок бургер-меню
         /// <summary>
@@ -152,6 +190,13 @@ namespace RequestForRepairWPF
             btn_CloseMenu.Visibility = Visibility.Collapsed;
         }
 
+        private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Executors_View executors_View = new Executors_View(mainID);
+            this.Close();
+            executors_View.Show();
+        }
+
         private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             AllUsers_View allUsers = new AllUsers_View(mainID);
@@ -159,18 +204,12 @@ namespace RequestForRepairWPF
             allUsers.Show();
         }
 
+
         private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Customers_View customer_View = new Customers_View(mainID);
             this.Close();
             customer_View.Show();
-        }
-
-        private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Executors_View executors_View = new Executors_View(mainID);
-            this.Close();
-            executors_View.Show();
         }
 
         private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -182,9 +221,33 @@ namespace RequestForRepairWPF
 
         private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+
+            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
+            {
+                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                this.Close();
+                userAccount_View.Show();
+            }
+            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+            {
+                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                this.Close();
+                userAccount_View.Show();
+            }
+            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+            {
+                CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
+                this.Close();
+                customerUser.Show();
+            }
+
+        }
+        private void list_DescriptionRoom_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DescriptionRoom description = new DescriptionRoom(mainID, "Просмотреть");
             this.Close();
-            userAccount_View.Show();
+            description.Show();
         }
 
         private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -196,14 +259,14 @@ namespace RequestForRepairWPF
 
         private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
             this.Close();
             watchRequests.Show();
         }
 
         private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
+            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
             this.Close();
             watchRequests.Show();
         }
@@ -215,8 +278,202 @@ namespace RequestForRepairWPF
             fileReport_View.Show();
         }
 
+
+
         #endregion
 
-        
+        #region Поиск
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            typeSearchTransfer = comboBox_Search.Text;
+            stringReaderBoxTransfer = textBox_DataForSearch.Text;
+
+            ListStatus(typeSearchTransfer, stringReaderBoxTransfer);
+
+        }
+
+        public void ListStatus(string typeSearch, string stringReaderBox)
+        {
+            DataGrid_Executors.ItemsSource = null;
+            
+            if (typeSearch == "ID")
+            {
+                var data = Convert.ToInt32(stringReaderBox);
+                
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.id_user == data
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Логин")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.user_login == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+               DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Фамилия")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.last_name == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Имя")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.name == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Отчество")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.middle_name == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Должность")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.position == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Категория исполнителя")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.category_executors == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else if (typeSearch == "Телефон")
+            {
+                var query = from u in db.Users
+                            where u.type_of_account == "Исполнитель" && u.phone == stringReaderBox
+                            select new
+                            {
+                                u.id_user,
+                                u.user_login,
+                                u.last_name,
+                                u.name,
+                                u.middle_name,
+                                u.position,
+                                u.type_of_account,
+                                u.category_executors,
+                                u.phone
+                            };
+                DataGrid_Executors.ItemsSource = query.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите категорию поиска!");
+            }
+
+
+        }
+        #endregion
+
+
+        #region Обновление данных
+        private void btn_UpdateData_Click(object sender, RoutedEventArgs e)
+        {
+            comboBox_Search.Text = string.Empty;
+            textBox_DataForSearch.Text = string.Empty;
+
+            DataGrid_Executors.ItemsSource = null;
+            var query = from c in db.Users
+                        where c.type_of_account == "Исполнитель"
+                        select new
+                        {
+                            c.id_user,
+                            c.user_login,
+                            c.last_name,
+                            c.name,
+                            c.middle_name,
+                            c.position,
+                            c.category_executors,
+                            c.phone
+                        };
+
+            DataGrid_Executors.ItemsSource = query.ToList();
+        }
+        #endregion
     }
 }

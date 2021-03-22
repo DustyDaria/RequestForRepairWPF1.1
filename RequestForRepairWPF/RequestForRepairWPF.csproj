@@ -67,8 +67,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,10 +96,15 @@
     <Compile Include="Data\U_R_Executor_Custom.cs" />
     <Compile Include="Data\U_R_Room.cs" />
     <Compile Include="Infrastructure\Commands\BurgerMenu_AllUsers.cs" />
-    <Compile Include="Models\AllUsers_Model.cs" />
-    <Compile Include="Models\Executor_Model.cs" />
-    <Compile Include="ViewModels\AllUsers_ViewModel.cs" />
+    <Compile Include="Models\Windows\AllUsers_Model.cs" />
+    <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
+    <Compile Include="Models\Windows\Executor_Model.cs" />
+    <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
+    <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
+    <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu.xaml.cs">
+      <DependentUpon>Ctrl_burgerMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\Room\Control_checkBox.xaml.cs">
       <DependentUpon>Control_checkBox.xaml</DependentUpon>
     </Compile>
@@ -116,6 +123,10 @@
     <Compile Include="Views\Windows\WatchRequests_View.xaml.cs">
       <DependentUpon>WatchRequests_View.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Controls\Menu\Ctrl_burgerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Controls\Room\Control_checkBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,7 +139,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ViewModels\Executors_ViewModel.cs" />
+    <Compile Include="ViewModels\Windows\Executors_ViewModel.cs" />
     <Compile Include="Views\Windows\AllUsers_View.xaml.cs">
       <DependentUpon>AllUsers_View.xaml</DependentUpon>
     </Compile>
@@ -222,7 +233,6 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Views\Controls\Header\" />
-    <Folder Include="Views\Controls\Menu\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

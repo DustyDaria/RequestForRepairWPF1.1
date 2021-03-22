@@ -1,0 +1,271 @@
+﻿<UserControl x:Class="RequestForRepairWPF.Views.Controls.Menu.Ctrl_burgerMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RequestForRepairWPF.Views.Controls.Menu"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Grid x:Name="GridMenu" 
+            Width="70" 
+            HorizontalAlignment="Left" 
+            Background="#087f23">
+            <StackPanel>
+                <Grid 
+                    Height="150" 
+                    Background="#ffc400">
+                    <Button 
+                        x:Name="btn_CloseMenu"
+                        Width="70" 
+                        Height="70" 
+                        Background="{x:Null}" 
+                        BorderBrush="{x:Null}" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Right"
+                        Visibility="Collapsed"
+                        Click="btn_CloseMenu_Click">
+                        <materialDesign:PackIcon 
+                            Foreground="#000000"
+                            Kind="ArrowLeft"
+                            Width="25"
+                            Height="25"/>
+                    </Button>
+                    <Button 
+                        x:Name="btn_OpenMenu"
+                        Width="70" 
+                        Height="70" 
+                        Background="{x:Null}" 
+                        BorderBrush="{x:Null}" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Right"
+                        Click="btn_OpenMenu_Click">
+                        <materialDesign:PackIcon 
+                            Foreground="#000000"
+                            Kind="Menu"
+                            Width="30"
+                            Height="30"/>
+                    </Button>
+                </Grid>
+                <ListView 
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    Foreground="#80e27e"
+                    FontSize="16">
+                    <ListViewItem 
+                        x:Name="list_AllUsers"
+                        
+                        Visibility="Collapsed"
+                        Height="Auto"
+                        Padding="3"
+                        MouseLeftButtonUp="list_AllUsers_MouseLeftButtonUp">
+                        <!--<ListViewItem.InputBindings>
+
+                            <MouseBinding Command="{Binding BurgerMenu_AllUsers}"
+                                          MouseAction="LeftClick"/>
+                        </ListViewItem.InputBindings>-->
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Margin="10"
+                                Kind="UserOutline" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Все пользователи" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+
+                    </ListViewItem>
+
+                    <ListViewItem
+                        x:Name="list_Customers"
+                        Visibility="Collapsed"
+                        Height="auto"
+                        Padding="3"
+                        MouseLeftButtonUp="list_Customers_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="UserBadgeOutline" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Заказчики" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem
+                        x:Name="list_Executors"
+                        Visibility="Collapsed"
+                        Height="auto"
+                        Padding="3"
+                        MouseLeftButtonUp="list_Executors_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="HammerWrench" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Исполнители" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_RegisterNewUser"
+                        Visibility="Collapsed"
+                        Height="auto"
+                        Padding="3"
+                        MouseLeftButtonUp="list_RegisterNewUser_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Register" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Регистрация&#10;нового пользователя" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_EditUserAccount"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_EditUserAccount_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="PersonEdit" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Личный кабинет" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_DescriptionRoom"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_DescriptionRoom_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="Room" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Моё помещение" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_CreateRequest"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_CreateRequest_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon 
+                                Margin="10"
+                                Kind="CreateNewFolderOutline" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Text="Создание&#10;новой заявки" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem
+                        x:Name="list_WatchRequest"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_WatchRequest_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="ProgressWrench" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Просмотр&#10;текущих заявок" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_WatchArchiveRequest"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_WatchArchiveRequest_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="ArchiveOutline" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Просмотр&#10;архивных заявок" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem 
+                        x:Name="list_FileReport"
+                        Height="auto"
+                        Padding="3"
+                        Visibility="Collapsed"
+                        MouseLeftButtonUp="list_FileReport_MouseLeftButtonUp">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  
+                                Margin="10"
+                                Kind="FileReport" 
+                                Width="25" 
+                                Height="25"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Height="auto"
+                                Text="Создание отчёта" 
+                                VerticalAlignment="Center" 
+                                Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </UserControl.Resources>
+   
+</UserControl>

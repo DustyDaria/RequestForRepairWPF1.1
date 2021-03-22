@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.Models
+namespace RequestForRepairWPF.Models.Windows
 {
     class AllUsers_Model : INotifyPropertyChanged
     {

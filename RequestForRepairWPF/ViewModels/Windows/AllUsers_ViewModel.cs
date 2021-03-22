@@ -1,5 +1,6 @@
 ﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Models;
+using RequestForRepairWPF.Models.Windows;
 using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.ViewModels
+namespace RequestForRepairWPF.ViewModels.Windows
 {
     class AllUsers_ViewModel : ViewModel
     {

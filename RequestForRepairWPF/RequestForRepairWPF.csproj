@@ -95,6 +95,48 @@
     <Compile Include="Data\U_R_Customer_Custom.cs" />
     <Compile Include="Data\U_R_Executor_Custom.cs" />
     <Compile Include="Data\U_R_Room.cs" />
+    <Compile Include="Entities\DB_RequestForRepair.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_RequestForRepair.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DB_RequestForRepair.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DB_RequestForRepair.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DescriptionRoom.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Requests.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Software.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SpecialEquipment.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TechnicalEquipment.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TypeRoom.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Users.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\U_R_Room.cs">
+      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Menu\MenuListViewItem_Command.cs" />
@@ -226,6 +268,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Entities\DB_RequestForRepair.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_RequestForRepair.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\DB_RequestForRepair.edmx.diagram">
+      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -236,7 +285,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Views\Controls\Header\" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +292,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\DB_RequestForRepair.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
+      <LastGenOutput>DB_RequestForRepair.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\DB_RequestForRepair.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
+      <LastGenOutput>DB_RequestForRepair.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />

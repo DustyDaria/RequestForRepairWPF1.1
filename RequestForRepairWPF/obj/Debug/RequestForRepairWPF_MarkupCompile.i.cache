@@ -11,10 +11,10 @@ false
 DEBUG;TRACE
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\App.xaml
 13-576498811
-
-40-2052222289
+2-2057753819
+52694429928
 27-10348926
 Views\Controls\Menu\Ctrl_burgerMenu_View.xaml;Views\Controls\Room\Control_checkBox.xaml;Views\Windows\AllUsers_View.xaml;Views\Windows\Authorization_View.xaml;Views\Windows\Customers_View.xaml;Views\Windows\DescriptionRoom.xaml;Views\Windows\Executors_View.xaml;Views\Windows\CreateAndEditRequest_View.xaml;Views\Windows\FileReport_View.xaml;Views\Windows\UserAccount\CustomerUserAccount_View.xaml;Views\Windows\UserAccount\UserAccount_View.xaml;Views\Controls\Room\Control_radioBtn.xaml;Views\Windows\WatchRequests_View.xaml;
 
-True
+False
 

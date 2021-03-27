@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RequestForRepairWPF.ViewModels.Base
 {
     // Базовый класс модели-представления
-    internal abstract class ViewModel : INotifyPropertyChanged
+    public abstract class ViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -1,4 +1,5 @@
-﻿using RequestForRepairWPF.Views.Windows.UserAccount;
+﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Views.Windows.UserAccount;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RequestForRepairWPF
+namespace RequestForRepairWPF.Views.Windows
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class Authorization : Window
+    public partial class Authorization_View : Window
     {
         string userEmail = string.Empty;
         string userPassword = string.Empty;
@@ -28,13 +29,14 @@ namespace RequestForRepairWPF
         //string Password = string.Empty;
 
         DataBase dataBase = new DataBase();
+        public User _authorizationUser = new User(); 
 
-        public Authorization()
+        public Authorization_View()
         {
             InitializeComponent();
         }
 
-        private void UserAuthorization()
+        public void UserAuthorization()
         {
             userEmail = textBox_Email.Text;
             userPassword = textBox_Password.Password.ToString();
@@ -56,6 +58,7 @@ namespace RequestForRepairWPF
                 {
                     string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
                     userID = dataBase.GetID(queryUsersID_GET);
+                    _authorizationUser.id_user = userID;
 
                     UserAccount_View personalAccount = new UserAccount_View(userID, "Просмотреть", 0);
                     personalAccount.Show();
@@ -66,6 +69,7 @@ namespace RequestForRepairWPF
                 {
                     string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
                     userID = dataBase.GetID(queryUsersID_GET);
+                    _authorizationUser.id_user = userID;
 
                     CustomerUserAccount_View customerUser = new CustomerUserAccount_View(userID, "Просмотреть", 0);
                     // UserAccount_View personalAccount = new UserAccount_View(userID, "Просмотреть", 0);
@@ -77,6 +81,7 @@ namespace RequestForRepairWPF
                 {
                     string queryUsersID_GET = string.Format("SELECT id_user FROM Users WHERE user_login = '" + userEmail + "' AND user_password = '" + userPassword + "';");
                     userID = dataBase.GetID(queryUsersID_GET);
+                    _authorizationUser.id_user = userID;
 
                     UserAccount_View personalAccount = new UserAccount_View(userID, "Просмотреть", 0);
                     personalAccount.Show();

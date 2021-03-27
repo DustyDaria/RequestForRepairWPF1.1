@@ -170,7 +170,7 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
         {
             // ДИАЛОГОВЫЕ ОКНА
             //MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
-            Authorization authorization = new Authorization();
+            Authorization_View authorization = new Authorization_View();
             this.Close();
             authorization.Show();
         }

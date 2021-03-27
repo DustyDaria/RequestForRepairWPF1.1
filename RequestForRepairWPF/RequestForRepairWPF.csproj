@@ -95,15 +95,20 @@
     <Compile Include="Data\U_R_Customer_Custom.cs" />
     <Compile Include="Data\U_R_Executor_Custom.cs" />
     <Compile Include="Data\U_R_Room.cs" />
-    <Compile Include="Infrastructure\Commands\BurgerMenu_AllUsers.cs" />
+    <Compile Include="Infrastructure\Commands\Base\Command.cs" />
+    <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
+    <Compile Include="Infrastructure\Commands\Controls\Menu\MenuListViewItem_Command.cs" />
     <Compile Include="Models\Windows\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
     <Compile Include="Models\Windows\Executor_Model.cs" />
+    <Compile Include="Services\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
-    <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu.xaml.cs">
-      <DependentUpon>Ctrl_burgerMenu.xaml</DependentUpon>
+    <Compile Include="ViewModels\Windows\Authorization_ViewModel.cs" />
+    <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml.cs">
+      <DependentUpon>Ctrl_burgerMenu_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\Room\Control_checkBox.xaml.cs">
       <DependentUpon>Control_checkBox.xaml</DependentUpon>
@@ -123,7 +128,7 @@
     <Compile Include="Views\Windows\WatchRequests_View.xaml.cs">
       <DependentUpon>WatchRequests_View.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Controls\Menu\Ctrl_burgerMenu.xaml">
+    <Page Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,7 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\User.cs" />
-    <Compile Include="Infrastructure\Commands\Base\Command.cs" />
+    <Compile Include="Infrastructure\Commands\Base\RelayCommand.cs" />
     <Compile Include="Views\Windows\Customers_View.xaml.cs">
       <DependentUpon>Customers_View.xaml</DependentUpon>
     </Compile>
@@ -231,7 +236,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Folder Include="Entities\" />
     <Folder Include="Views\Controls\Header\" />
   </ItemGroup>
   <ItemGroup>

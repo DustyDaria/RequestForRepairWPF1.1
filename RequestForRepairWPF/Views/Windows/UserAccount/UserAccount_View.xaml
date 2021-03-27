@@ -6,7 +6,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
-        xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands"
+        xmlns:ctrl="clr-namespace:RequestForRepairWPF.Views.Controls.Menu" 
+        xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -26,7 +27,7 @@
         <CommandBinding Command="BurgerMenu_AllUsers"/>
     </Window.CommandBindings>-->
     
-    <Window.Resources>
+    <!--<Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames 
                 Storyboard.TargetProperty="(FrameworkElement.Width)" 
@@ -65,122 +66,124 @@
             SourceName="btn_CloseMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
-    </Window.Triggers>
-    
+    </Window.Triggers>-->
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <!-- Шапка -->
-            <StackPanel 
-            Orientation="Vertical">
-                <materialDesign:ColorZone
+        <StackPanel 
+            Orientation="Vertical"
+                Grid.Column="1"
+                Grid.Row="0">
+            <materialDesign:ColorZone
                 Margin="0 0 0 25" 
                 Mode="PrimaryMid"
                 Padding="16">
-                    <DockPanel>
-                        <materialDesign:PopupBox
+                <DockPanel>
+                    <materialDesign:PopupBox
                         DockPanel.Dock="Right"
                         PlacementMode="BottomAndAlignRightEdges">
-                            <StackPanel Width="150">
-                                <Button x:Name="btn_PopUpPersonalAccount" 
+                        <StackPanel Width="150">
+                            <Button x:Name="btn_PopUpPersonalAccount" 
                                 Content="ЛК (в будущем ФИО)" 
                                 Click="btn_PopUpPersonalAccount_Click"/>
-                                <Button Content="tadam"/>
-                                <Separator/>
-                                <materialDesign:DialogHost
+                            <Button Content="tadam"/>
+                            <Separator/>
+                            <materialDesign:DialogHost
             
                                 DialogTheme="Inherit"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center">
-                                    <materialDesign:DialogHost.DialogContent>
-                                        <StackPanel
+                                <materialDesign:DialogHost.DialogContent>
+                                    <StackPanel
                                             Margin="16">
-                                            <TextBlock Text="Вы уверены, что хотите выйти из приложения?"/>
-                                            <!--<TextBox
+                                        <TextBlock Text="Вы уверены, что хотите выйти из приложения?"/>
+                                        <!--<TextBox
                                             Margin="0 8 0 0"
                                             HorizontalAlignment="Stretch"
                                             x:Name="FruitTextBox" />-->
-                                            <StackPanel
+                                        <StackPanel
                                             Orientation="Horizontal"
                                             HorizontalAlignment="Right">
-                                                <Button
+                                            <Button
                                                 Style="{StaticResource MaterialDesignFlatButton}"
                                                 IsDefault="True"
                                                 Margin="0 8 8 0"
                                                     Content="Уверен(а)"
                                                 Command="materialDesign:DialogHost.CloseDialogCommand">
-                                                    <Button.CommandParameter>
-                                                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                                            True
-                                                        </system:Boolean>
-                                                    </Button.CommandParameter>
-                                                    
-                                                </Button>
-                                                <Button
+                                                <Button.CommandParameter>
+                                                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                                        True
+                                                    </system:Boolean>
+                                                </Button.CommandParameter>
+
+                                            </Button>
+                                            <Button
                                                 Style="{StaticResource MaterialDesignFlatButton}"
                                                 IsCancel="True"
                                                 Margin="0 8 8 0"
                                                     Content="Отмена"
                                                 Command="materialDesign:DialogHost.CloseDialogCommand">
-                                                    <Button.CommandParameter>
-                                                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                                            False
-                                                        </system:Boolean>
-                                                    </Button.CommandParameter>
-                                                    
-                                                </Button>
-                                            </StackPanel>
+                                                <Button.CommandParameter>
+                                                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                                        False
+                                                    </system:Boolean>
+                                                </Button.CommandParameter>
+
+                                            </Button>
                                         </StackPanel>
-                                    </materialDesign:DialogHost.DialogContent>
-                                
+                                    </StackPanel>
+                                </materialDesign:DialogHost.DialogContent>
+
                                 <Button x:Name="btn_PopUpLogout" 
                             Content="Выход" 
                             Click="btn_PopUpLogout_Click"/>
-                                </materialDesign:DialogHost>
-                            </StackPanel>
-                        </materialDesign:PopupBox>
-                        <StackPanel
+                            </materialDesign:DialogHost>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                    <StackPanel
                 Orientation="Horizontal"
                     HorizontalAlignment="Center">
-                            <TextBlock
+                        <TextBlock
                     Style="{StaticResource MaterialDesignHeadline4TextBlock}"
                     VerticalAlignment="Center"
                     Text="Учет заявок на ремонт">
-                            </TextBlock>
-                        </StackPanel>
-                    </DockPanel>
-                </materialDesign:ColorZone>
-            </StackPanel>
+                        </TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+        </StackPanel>
 
 
-            <!-- Контент -->
-            <ScrollViewer
+        <!-- Контент -->
+        <ScrollViewer
                 Grid.Row="1"
+                Grid.Column="1"
                 x:Name="scroll"
                 CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible">
 
-                <Grid 
+            <Grid 
                 Height="auto">
                 <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                        <TextBlock
+                <TextBlock
                             Grid.Row="0"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
@@ -189,9 +192,9 @@
                     Text="Личный кабинет"
                     Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                     FontWeight="DemiBold">
-                        </TextBlock>
-                    
-                        <TextBox
+                </TextBlock>
+
+                <TextBox
                     x:Name="textBox_last_name"
                     Margin="100 25 25 25"
                     Grid.Column="0"
@@ -255,7 +258,7 @@
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Hint="Логин"/>
-                
+
                 <PasswordBox
                     IsEnabled="False"
                     x:Name="passBox_user_password"
@@ -296,22 +299,22 @@
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
                     Height="50" >
-                            <ComboBoxItem 
+                    <ComboBoxItem 
                                 Content="Системный администратор"
                                 x:Name="adm"
                                 Selected="adm_Selected"/>
-                            <ComboBoxItem
+                    <ComboBoxItem
                                 Content="Заказчик"
                                 x:Name="cus"
                                 Selected="cus_Selected"/>
-                            <ComboBoxItem
+                    <ComboBoxItem
                                 Content="Исполнитель"
                                 x:Name="exe"
                                 Selected="exe_Selected"
                                 />
-                        </ComboBox>
+                </ComboBox>
 
-                        <ComboBox
+                <ComboBox
                     x:Name="comboBox_category_executors"
                             Visibility="Collapsed"
                     VerticalAlignment="Top"
@@ -327,18 +330,18 @@
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
                     Height="50">
-                            <ComboBoxItem>
-                                IT-специалист
-                            </ComboBoxItem>
-                            <ComboBoxItem>
-                                Электрик
-                            </ComboBoxItem>
-                            <ComboBoxItem>
-                                Плотник
-                            </ComboBoxItem>
-                        </ComboBox>
+                    <ComboBoxItem>
+                        IT-специалист
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Электрик
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Плотник
+                    </ComboBoxItem>
+                </ComboBox>
 
-                        <ComboBox
+                <ComboBox
                     x:Name="comboBox_room_number"
                             Visibility="Collapsed"
                     VerticalAlignment="Top"
@@ -354,9 +357,9 @@
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
                     Height="50">
-                        </ComboBox>
+                </ComboBox>
 
-                        <TextBox
+                <TextBox
                     x:Name="textBox_room_number"
                     Margin="25"
                     Grid.Column="1"
@@ -368,7 +371,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Hint="Номер кабинета"/>
 
-                        <Button
+                <Button
                     x:Name="btn_Save"
                     Click="btn_Save_Click"
                     FontSize="18"
@@ -387,17 +390,17 @@
 
                 <Button
                     x:Name="btn_Cancel"
-                    Click="btn_Cancel_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
                     Padding="25 10 25 10"
                     Margin="25"
+                    Command="{Binding MenuListViewItem_Command}"
                     HorizontalAlignment="Right"
                     Grid.Column="1"
                     Grid.Row="6"
                     Content="Отмена"
-                    IsEnabled="False"
+                    IsEnabled="True"
                     Style="{StaticResource MaterialDesignFlatButton}"
                     ToolTip="MaterialDesignFlatButton">
                 </Button>
@@ -416,313 +419,20 @@
                     Content="Редактировать"
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                    
+
                 </Button>
 
             </Grid>
-            
-            </ScrollViewer>
-            </Grid>
-        
-        
-        <!-- Бургер-меню -->
-        <Grid x:Name="GridMenu" 
-            Width="70" 
-            HorizontalAlignment="Left" 
-            Background="#087f23">
-            <StackPanel>
-                <Grid 
-                    Height="150" 
-                    Background="#ffc400">
-                    <Button 
-                        x:Name="btn_CloseMenu"
-                        Width="70" 
-                        Height="70" 
-                        Background="{x:Null}" 
-                        BorderBrush="{x:Null}" 
-                        VerticalAlignment="Top" 
-                        HorizontalAlignment="Right"
-                        Visibility="Collapsed"
-                        Click="btn_CloseMenu_Click">
-                        <materialDesign:PackIcon 
-                            Foreground="#000000"
-                            Kind="ArrowLeft"
-                            Width="25"
-                            Height="25"/>
-                    </Button>
-                    <Button 
-                        x:Name="btn_OpenMenu"
-                        Width="70" 
-                        Height="70" 
-                        Background="{x:Null}" 
-                        BorderBrush="{x:Null}" 
-                        VerticalAlignment="Top" 
-                        HorizontalAlignment="Right"
-                        Click="btn_OpenMenu_Click">
-                        <materialDesign:PackIcon 
-                            Foreground="#000000"
-                            Kind="Menu"
-                            Width="30"
-                            Height="30"/>
-                    </Button>
-                </Grid>
-                <ListView 
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    Foreground="#80e27e"
-                    FontSize="16">
-                    <ListViewItem 
-                        x:Name="list_AllUsers"
-                        Visibility="Collapsed"
-                        Height="Auto"
-                        Padding="3"
-                        MouseLeftButtonUp="list_AllUsers_MouseLeftButtonUp">
-                        <!--<ListViewItem.CommandBindings>
-                            
-                            <CommandBinding Command="{cmd:BurgerMenu_AllUsers}" Executed=""/>
 
-                            <MouseBinding Command="{Binding BurgerMenu_AllUsers}"
-                                          MouseAction="LeftClick"/>
-                        </ListViewItem.CommandBindings>-->
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                                Margin="10"
-                                Kind="UserOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Все пользователи" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                        
-                    </ListViewItem>
+        </ScrollViewer>
+    </Grid>
+    <!-- Бургер-меню -->
+        <ctrl:Ctrl_burgerMenu_View 
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+            DataContext="{Binding Ctrl_burgerMenu_ViewModel}"
+            MyVisibility="Visible"/>
 
-                    <ListViewItem
-                        x:Name="list_Customers"
-                        Visibility="Collapsed"
-                        Height="auto"
-                        Padding="3"
-                        MouseLeftButtonUp="list_Customers_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="UserBadgeOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Заказчики" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem
-                        x:Name="list_Executors"
-                        Visibility="Collapsed"
-                        Height="auto"
-                        Padding="3"
-                        MouseLeftButtonUp="list_Executors_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="HammerWrench" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Исполнители" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem 
-                        x:Name="list_RegisterNewUser"
-                        Visibility="Collapsed"
-                        Height="auto"
-                        Padding="3"
-                        MouseLeftButtonUp="list_RegisterNewUser_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="Register" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Регистрация&#10;нового пользователя" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem 
-                        x:Name="list_EditUserAccount"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_EditUserAccount_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="PersonEdit" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Личный кабинет" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem 
-                        x:Name="list_DescriptionRoom"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_DescriptionRoom_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="Room" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Моё помещение" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem 
-                        x:Name="list_CreateRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_CreateRequest_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon 
-                                Margin="10"
-                                Kind="CreateNewFolderOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Text="Создание&#10;новой заявки" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem
-                        x:Name="list_WatchRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_WatchRequest_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="ProgressWrench" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Просмотр&#10;текущих заявок" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem 
-                        x:Name="list_WatchArchiveRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_WatchArchiveRequest_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="ArchiveOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Просмотр&#10;архивных заявок" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem
-                        x:Name="list_MyRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_MyRequest_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="ProgressAlert" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Мои текущие заявки" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem
-                        x:Name="list_MyArchiveRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_MyArchiveRequest_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="UserCheckOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Мои архивные заявки" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem 
-                        x:Name="list_FileReport"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="Collapsed"
-                        MouseLeftButtonUp="list_FileReport_MouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="FileReport" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                            <TextBlock 
-                                Height="auto"
-                                Text="Создание отчёта" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    
-                </ListView>
-            </StackPanel>
-        </Grid>
-        
     </Grid>
 </Window>

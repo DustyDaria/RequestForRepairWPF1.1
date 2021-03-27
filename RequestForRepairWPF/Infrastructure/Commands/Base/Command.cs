@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace RequestForRepairWPF.ViewModels.Base
+namespace RequestForRepairWPF.Infrastructure.Commands.Base
 {
     internal abstract class Command : ICommand
     {
@@ -15,10 +15,11 @@ namespace RequestForRepairWPF.ViewModels.Base
             remove => CommandManager.RequerySuggested -= value;
         }
 
-        // Если данная функция возвращает ложь, то команду выполнить нельзя
-        // -> элемент, к кот. привязана команда, отключается автоматически
+        // Если данная функция возвращает ложь, то команду выполнить нельзя 
+        // -> элемент, к которому привязана команда, отключается автоматически
+
         public abstract bool CanExecute(object parameter);
-        
+
         // Данный метод реализует основную логику команды
         public abstract void Execute(object parameter);
     }

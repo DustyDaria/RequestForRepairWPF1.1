@@ -63,6 +63,8 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
         bool btn_EditClick_FLAG = false;
         char charToTrim = ' ';
 
+        //public UserAccount_View() { }
+
         public UserAccount_View(int mainID)
         {
             InitializeComponent();

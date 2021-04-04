@@ -140,17 +140,25 @@
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Menu\MenuListViewItem_Command.cs" />
+    <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
     <Compile Include="Models\Windows\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
+    <Compile Include="Models\Windows\Authorization_Model.cs" />
     <Compile Include="Models\Windows\Executor_Model.cs" />
+    <Compile Include="Models\Windows\UserAccount\UserAccount_Model.cs" />
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
     <Compile Include="ViewModels\Windows\Authorization_ViewModel.cs" />
+    <Compile Include="ViewModels\Windows\UserAccount\CustomerUserAccount_ViewModel.cs" />
+    <Compile Include="ViewModels\Windows\UserAccount\UserAccount_ViewModel.cs" />
     <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml.cs">
       <DependentUpon>Ctrl_burgerMenu_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\Password\Ctrl_PasswordBox_View.xaml.cs">
+      <DependentUpon>Ctrl_PasswordBox_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\Room\Control_checkBox.xaml.cs">
       <DependentUpon>Control_checkBox.xaml</DependentUpon>
@@ -171,6 +179,10 @@
       <DependentUpon>WatchRequests_View.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\Password\Ctrl_PasswordBox_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -63,7 +63,8 @@
     <Grid x:Name="GridMenu" 
             Width="70" 
             HorizontalAlignment="Left" 
-            Background="#002984">
+            Background="#002984"
+          BindingGroup="{Binding Path=userTypeOfAccount}">
         <StackPanel>
             <Grid 
                     Height="150" 

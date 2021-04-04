@@ -96,6 +96,7 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
 
             #endregion
         }
+        //CustomerUserAccount_View() { }
 
         #region Инициализация бургер-меню
         ///<summary>

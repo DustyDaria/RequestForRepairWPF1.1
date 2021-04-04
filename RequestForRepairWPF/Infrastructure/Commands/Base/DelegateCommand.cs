@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace RequestForRepairWPF.Infrastructure.Commands.Base
 {
-    class DelegateCommand : ICommand
+    public class DelegateCommand : ICommand
     {
         protected readonly Predicate<object> _canExecute;
         protected readonly Action<object> _execute;

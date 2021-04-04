@@ -5,6 +5,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows"
+        xmlns:ctrl="clr-namespace:RequestForRepairWPF.Views.Controls.Password"
+        xmlns:pass="clr-namespace:RequestForRepairWPF.Services"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -20,6 +23,10 @@
         Width="800"
         MinHeight="600" 
         MinWidth="800">
+
+    <Window.DataContext>
+        <vm:Authorization_ViewModel/>
+    </Window.DataContext>
 
     <StackPanel Orientation="Vertical" >
         <materialDesign:ColorZone 
@@ -46,28 +53,96 @@
         <TextBox 
             x:Name="textBox_Email"
                    Margin="200 25 200 25"
+            Text="{Binding Path=UserEmail}"
                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                    VerticalAlignment="Top"
                    materialDesign:HintAssist.Hint="Логин"/>
-        <PasswordBox 
+
+        <ctrl:Ctrl_PasswordBox_View
+            Margin="200 25 200 25"
+            Password="{Binding Path=UserPassword}"/>
+
+        <!--<PasswordBox 
             x:Name="textBox_Password"
                    Margin="200 25 200 25"
                    Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
                    VerticalAlignment="Top"
-                   materialDesign:HintAssist.Hint="Пароль" />
+                   materialDesign:HintAssist.Hint="Пароль" 
+            pass:PasswordHelper.Attach="True"
+            pass:PasswordHelper.Password="{Binding Text, ElementName=, Mode=TwoWay}"
+            MaxLength="20"
+            PasswordChar="*"/>-->
 
 
-        <Button
+        <!--<Grid
+            Margin="200 25 200 25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button
+                Margin="3"
+                Grid.Row="0"
+                Grid.Column="0"
             x:Name="btn_LogIn"
-            Margin="200 25 200 25"
-            Content="ВОЙТИ"
+            
+            Content="ЗАКАЗЧИК"
+            Command="{Binding Path=LoginCusCommand}"
+            Style="{StaticResource MaterialDesignFlatMidBgButton}"
+            Height="auto"
+            Padding="5 10 5 10"
+            FontSize="18"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+            materialDesign:RippleAssist.Feedback="#DD000000"
+            IsEnabled="True"/>
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+            
+                Margin="3"
+            Content="ИСПОЛНИТЕЛЬ"
+            Command="{Binding Path=LoginExeCommand}"
+            Style="{StaticResource MaterialDesignFlatLightBgButton}"
+            Height="auto"
+            Padding="5 10 5 10"
+            FontSize="18"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+            materialDesign:RippleAssist.Feedback="#DD000000"
+            IsEnabled="True"/>
+            <Button
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Grid.Column="0"
+            
+                Margin="3"
+            Content="СИСТЕМНЫЙ АДМИНИСТРАТОР"
+            Command="{Binding Path=LoginAdmCommand}"
             Style="{StaticResource MaterialDesignFlatDarkBgButton}"
             Height="auto"
             Padding="5 10 5 10"
             FontSize="18"
             ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-            materialDesign:RippleAssist.Feedback="#DD000000" 
-            Click="btn_LogIn_Click">
+            materialDesign:RippleAssist.Feedback="#DD000000"
+            IsEnabled="True"/>
+
+        </Grid> -->
+         <Button
+            x:Name="btn_LogIn"
+            Margin="200 25 200 25"
+            Content="ВОЙТИ"
+            Command="{Binding Path=LoginCommand}"
+            Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+            Height="auto"
+            Padding="5 10 5 10"
+            FontSize="18"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+            materialDesign:RippleAssist.Feedback="#DD000000"
+            IsEnabled="True">
         </Button>
     </StackPanel>
 </Window>

@@ -1,6 +1,8 @@
 ﻿using RequestForRepairWPF.Infrastructure.Commands.Controls.Menu;
+using RequestForRepairWPF.Models.Controls.Menu;
 using RequestForRepairWPF.ViewModels.Base;
 using RequestForRepairWPF.ViewModels.Windows;
+using RequestForRepairWPF.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,90 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
 {
     public class Ctrl_burgerMenu_ViewModel : ViewModel
     {
+
+        //private string _userTypeOfAccount;
+        private int _id;
+        Ctrl_burgerMenu_Model menu_Model = new Ctrl_burgerMenu_Model();
+        string _userTypeOfAccount;
+        public string userTypeOfAccount
+        {
+            get
+            {
+                //Authorization_View _authorization = new Authorization_View();
+                Authorization_ViewModel _authorization = new Authorization_ViewModel();
+                //_id = _authorization._authorizationUser.id_user;
+
+                /// _authorization.Authorization_userID !!! не получаю id 
+
+                menu_Model.UserType = Convert.ToString(_authorization.Authorization_userID);
+                _userTypeOfAccount = menu_Model.UserType;
+        
+                return menuItem(_userTypeOfAccount);
+            }
+        }
+
+        private string menuItem(string _userTypeOfAccount)
+        {
+            if (_userTypeOfAccount == "Системный администратор")
+            {
+                _listVisibility_AllUsers = true;
+
+                _listVisibility_Customers = true;
+
+                _listVisibility_Executors = true;
+
+                _listVisibility_RegisterNewUser = true;
+
+                _listVisibility_EditUserAccount = true;
+
+                _listVisibility_WatchRequest = true;
+
+                _listVisibility_WatchArchiveRequest = true;
+
+                _listVisibility_MyRequest = true;
+
+                _listVisibility_MyArchiveRequest = true;
+
+                _listVisibility_FileReport = true;
+            }
+            else if (_userTypeOfAccount == "Заказчик")
+            {
+                _listVisibility_EditUserAccount = true;
+
+                _listVisibility_DescriptionRoom = true;
+
+                _listVisibility_CreateRequest = true;
+
+                _listVisibility_WatchRequest = true;
+
+                _listVisibility_WatchArchiveRequest = true;
+
+                _listVisibility_MyRequest = true;
+
+                _listVisibility_MyArchiveRequest = true;
+
+                _listVisibility_FileReport = true;
+            }
+            else if (_userTypeOfAccount == "Исполнитель")
+            {
+                _listVisibility_EditUserAccount = true;
+
+                _listVisibility_WatchRequest = true;
+
+                _listVisibility_WatchArchiveRequest = true;
+
+                _listVisibility_MyRequest = true;
+
+                _listVisibility_MyArchiveRequest = true;
+
+                _listVisibility_FileReport = true;
+            }
+
+            return _userTypeOfAccount;
+        }
+
+
+
         /// <summary> Инициализация элементов меню </summary>
         #region Инициализация элементов меню
         /// <summary> Инициализация элементов меню </summary>
@@ -221,48 +307,53 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
             }
         }
 
-        class OpenExecutorsViewCommand : MyCommand
-        {
-            public OpenExecutorsViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel)
-            {
         
-            }
-            public override bool CanExecute(object parameter)
-            {
-                return true;
-            }
-            public override void Execute(object parameter)
-            {
-                var displayRootRegistry = (Application.Current as App).displayRootRegistry;
-        
-                var executors_ViewModel = new Executors_ViewModel();
-                displayRootRegistry.ShowPresentation(executors_ViewModel);
-            } 
-        }
         
 
         #endregion
 
-        #region Вспомогательный класс для команд
         
-        abstract class MyCommand : ICommand
-        {
-            protected Ctrl_burgerMenu_ViewModel _ctrlMenu_ViewModel;
-        
-            public MyCommand(Ctrl_burgerMenu_ViewModel ctrlMenu_ViewModel)
-            {
-                _ctrlMenu_ViewModel = ctrlMenu_ViewModel;
-            }
-        
-            public event EventHandler CanExecuteChanged;
-        
-            public abstract bool CanExecute(object parameter);
-        
-            public abstract void Execute(object parameter);
-        }
-        
-        #endregion
         #endregion
 
     }
+
+    class OpenExecutorsViewCommand : MyCommand
+    {
+        public OpenExecutorsViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel)
+        {
+
+        }
+        public override bool CanExecute(object parameter)
+        {
+            return true;
+        }
+        public override void Execute(object parameter)
+        {
+            var displayRootRegistry = (Application.Current as App).displayRootRegistry;
+
+            var executors_ViewModel = new Executors_ViewModel();
+            displayRootRegistry.ShowPresentation(executors_ViewModel);
+        }
+    }
+
+    #region Вспомогательный класс для команд
+
+    abstract class MyCommand : ICommand
+    {
+        protected Ctrl_burgerMenu_ViewModel _ctrlMenu_ViewModel;
+
+        public MyCommand(Ctrl_burgerMenu_ViewModel ctrlMenu_ViewModel)
+        {
+            _ctrlMenu_ViewModel = ctrlMenu_ViewModel;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public abstract bool CanExecute(object parameter);
+
+        public abstract void Execute(object parameter);
+    }
+
+    #endregion
+
 }

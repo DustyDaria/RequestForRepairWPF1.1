@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,9 @@ namespace RequestForRepairWPF.Models.Controls.Menu
 {
     public class Ctrl_burgerMenu_Model : INotifyPropertyChanged
     {
-        int _idUser;
+        private int _idUser;
         my_DbContext db = new my_DbContext(); 
-        public string GetType
+        public string UserType
         {
             get
             {
@@ -28,7 +29,7 @@ namespace RequestForRepairWPF.Models.Controls.Menu
             set
             {
                 _idUser = Convert.ToInt32(value);
-                OnPropertyChanged("GetType");
+                OnPropertyChanged("UserType");
             }
         }
 

@@ -329,11 +329,11 @@
         <Grid x:Name="GridMenu" 
             Width="70" 
             HorizontalAlignment="Left" 
-            Background="#087f23">
+            Background="#002984">
             <StackPanel>
                 <Grid 
                     Height="150" 
-                    Background="#ffc400">
+                    Background="#ffc246">
                     <Button 
                         x:Name="btn_CloseMenu"
                         Width="70" 
@@ -369,7 +369,7 @@
                 <ListView 
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    Foreground="#80e27e"
+                    Foreground="#ffc246"
                     FontSize="16">
                     <ListViewItem 
                         x:Name="list_AllUsers"

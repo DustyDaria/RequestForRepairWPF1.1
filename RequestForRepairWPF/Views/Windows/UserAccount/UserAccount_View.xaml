@@ -6,8 +6,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
-        xmlns:ctrl="clr-namespace:RequestForRepairWPF.Views.Controls.Menu" 
+        xmlns:ctrlm="clr-namespace:RequestForRepairWPF.Views.Controls.Menu" 
+        xmlns:ctrlp="clr-namespace:RequestForRepairWPF.Views.Controls.Password"
         xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows.UserAccount"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -23,6 +25,10 @@
         Height="800"
         Width="1080">
 
+    <Window.DataContext>
+        <vm:UserAccount_ViewModel/>
+    </Window.DataContext>
+    
     <!--<Window.CommandBindings>
         <CommandBinding Command="BurgerMenu_AllUsers"/>
     </Window.CommandBindings>-->
@@ -199,6 +205,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="1"
+                    Text="{Binding Path=_userLastName}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -210,6 +217,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="2"
+                    Text="{Binding Path=_userName}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -221,6 +229,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="3"
+                    Text="{Binding Path=_userMiddleName}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Отчество" />
@@ -230,6 +239,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="4"
+                    Text="{Binding Path=_userPosition}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
@@ -239,10 +249,10 @@
                 <TextBox
                     x:Name="textBox_phone"
                     Margin="100 25 25 25"
-                    materialDesign:HintAssist.Hint=" Телефон"
-                    materialDesign:TextFieldAssist.PrefixText="+7"
+                    materialDesign:HintAssist.Hint="Телефон"
                     Grid.Column="0"
                     Grid.Row="5"
+                    Text="{Binding Path=_userPhone}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
@@ -253,18 +263,34 @@
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="1"
+                    Text="{Binding Path=_userLogin}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Hint="Логин"/>
 
-                <PasswordBox
+                    <ctrlp:Ctrl_PasswordBox_View
+                        Margin="25"
+                        IsEnabled="False"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Password="{Binding Path=_userPassword}"/>
+
+                    <ctrlp:Ctrl_PasswordBox_View
+                        Margin="25"
+                        IsEnabled="False"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Password="{Binding Path=_userPassword}"/>
+
+                    <!--<PasswordBox
                     IsEnabled="False"
                     x:Name="passBox_user_password"
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="2"
+                    
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
                     VerticalAlignment="Top"
@@ -281,7 +307,7 @@
                     Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Повторите пароль"/>
+                    materialDesign:HintAssist.Hint="Повторите пароль"/>-->
 
                 <ComboBox
                     x:Name="comboBox_type_of_account"
@@ -298,20 +324,14 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    Height="50" >
+                    SelectedItem="{Binding Path=_userTypeOfAccount}"
+                    Height="50">
                     <ComboBoxItem 
-                                Content="Системный администратор"
-                                x:Name="adm"
-                                Selected="adm_Selected"/>
+                                Content="Системный администратор"/>
                     <ComboBoxItem
-                                Content="Заказчик"
-                                x:Name="cus"
-                                Selected="cus_Selected"/>
+                                Content="Заказчик"/>
                     <ComboBoxItem
-                                Content="Исполнитель"
-                                x:Name="exe"
-                                Selected="exe_Selected"
-                                />
+                                Content="Исполнитель"/>
                 </ComboBox>
 
                 <ComboBox
@@ -329,6 +349,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
+                    SelectedItem="{Binding Path=_userCategoryExecutors}"
                     Height="50">
                     <ComboBoxItem>
                         IT-специалист
@@ -356,6 +377,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
+                    ItemsSource="{Binding Path=_userRoomNumber}"
                     Height="50">
                 </ComboBox>
 
@@ -407,7 +429,7 @@
 
                 <Button
                     x:Name="btn_Edit"
-                    Click="btn_Edit_Click"
+                    Command="{Binding Path=}"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -427,7 +449,7 @@
         </ScrollViewer>
     </Grid>
     <!-- Бургер-меню -->
-        <ctrl:Ctrl_burgerMenu_View 
+        <ctrlm:Ctrl_burgerMenu_View 
                 Grid.Row="0"
                 Grid.RowSpan="2"
                 Grid.Column="0"

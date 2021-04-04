@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:RequestForRepairWPF"
         xmlns:ctrlm="clr-namespace:RequestForRepairWPF.Views.Controls.Menu" 
         xmlns:ctrlp="clr-namespace:RequestForRepairWPF.Views.Controls.Password"
+        xmlns:services="clr-namespace:RequestForRepairWPF.Services"
         xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
         xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows.UserAccount"
         mc:Ignorable="d"
@@ -172,6 +173,10 @@
                 x:Name="scroll"
                 CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible">
+                <ScrollViewer.Resources>
+                    <services:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+
+                </ScrollViewer.Resources>
 
             <Grid 
                 Height="auto">
@@ -205,6 +210,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="1"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Text="{Binding Path=_userLastName}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
@@ -218,6 +224,7 @@
                     Grid.Column="0"
                     Grid.Row="2"
                     Text="{Binding Path=_userName}"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -230,6 +237,7 @@
                     Grid.Column="0"
                     Grid.Row="3"
                     Text="{Binding Path=_userMiddleName}"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Отчество" />
@@ -240,6 +248,7 @@
                     Grid.Column="0"
                     Grid.Row="4"
                     Text="{Binding Path=_userPosition}"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
@@ -253,6 +262,7 @@
                     Grid.Column="0"
                     Grid.Row="5"
                     Text="{Binding Path=_userPhone}"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
@@ -264,6 +274,7 @@
                     Grid.Column="1"
                     Grid.Row="1"
                     Text="{Binding Path=_userLogin}"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -272,14 +283,16 @@
 
                     <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
-                        IsEnabled="False"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                        
                         Grid.Row="2"
                         Grid.Column="1"
                         Password="{Binding Path=_userPassword}"/>
 
                     <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
-                        IsEnabled="False"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                        
                         Grid.Row="3"
                         Grid.Column="1"
                         Password="{Binding Path=_userPassword}"/>
@@ -316,6 +329,7 @@
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="4"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -340,6 +354,7 @@
                     VerticalAlignment="Top"
                     Margin="25"
                     Grid.Column="1"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Grid.Row="5"
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:TextFieldAssist.HasClearButton="True"
@@ -369,6 +384,7 @@
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="5"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -387,6 +403,7 @@
                     Grid.Column="1"
                     Grid.Row="5"
                             Visibility="Hidden"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -405,12 +422,13 @@
                     Grid.Column="1"
                     Grid.Row="6"
                     Content="Сохранить"
-                    IsEnabled="False"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                    
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton">
                 </Button>
 
-                <Button
+                    <Button
                     x:Name="btn_Cancel"
                     FontSize="18"
                     Height="auto"
@@ -421,30 +439,31 @@
                     HorizontalAlignment="Right"
                     Grid.Column="1"
                     Grid.Row="6"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Content="Отмена"
-                    IsEnabled="True"
                     Style="{StaticResource MaterialDesignFlatButton}"
                     ToolTip="MaterialDesignFlatButton">
-                </Button>
+                    </Button>
+                    
+                            <Button
+                                x:Name="btn_Edit"
+                                FontSize="18"
+                                Height="auto"
+                                Width="auto"
+                                Click="btn_Edit_Click_1"
+                                Padding="25 10 25 10"
+                                Margin="100 25 25 25"
+                                HorizontalAlignment="Left"
+                                Grid.Column="0"
+                                Grid.Row="6"
+                                Content="Редактировать"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton">
 
-                <Button
-                    x:Name="btn_Edit"
-                    Command="{Binding Path=}"
-                    FontSize="18"
-                    Height="auto"
-                    Width="auto"
-                    Padding="25 10 25 10"
-                    Margin="100 25 25 25"
-                    HorizontalAlignment="Left"
-                    Grid.Column="0"
-                    Grid.Row="6"
-                    Content="Редактировать"
-                    Style="{StaticResource MaterialDesignRaisedLightButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                            </Button>
 
-                </Button>
 
-            </Grid>
+                </Grid>
 
         </ScrollViewer>
     </Grid>

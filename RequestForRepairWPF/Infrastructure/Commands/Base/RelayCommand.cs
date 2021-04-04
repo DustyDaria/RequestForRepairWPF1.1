@@ -9,33 +9,51 @@ namespace RequestForRepairWPF.ViewModels.Base
 {
     public class RelayCommand : ICommand
     {
+        readonly Action _execute_with_param;
+        readonly Action<object> _execute;
+        readonly Predicate<object> _canExecute;
 
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
+        public RelayCommand(Action<object> execute) : this(execute, null) { }
+        public RelayCommand(Action execute) : this(execute, null) { }
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("execute");
+            _execute = execute;
+            _execute_with_param = null;
+            _canExecute = canExecute;
+        }
+        public RelayCommand(Action execute, Predicate<object> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("execute");
+            _execute = null;
+            _execute_with_param = execute;
+            _canExecute = canExecute;
+        }
 
         public event EventHandler CanExecuteChanged
         {
-            add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value;
-        }
-
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
-        {
-            this.execute = execute;
-            this.canExecute = canExecute;
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
         // Если данная функция возвращает ложь, то команду выполнить нельзя
         // -> элемент, к кот. привязана команда, отключается автоматически
-        public bool CanExecute(object parameter)
-        {
-            return this.canExecute == null || this.canExecute(parameter);
-        }
+        public bool CanExecute(object parameter) { return _canExecute == null ? true : _canExecute(parameter); }
         
         // Данный метод реализует основную логику команды
-        public void Execute(object parameter)
+        /*public void Execute(object parameter)
         {
             this.execute(parameter);
+        }*/
+        public void Execute(object parameter)
+        {
+            if (_execute != null)
+                _execute.Invoke(parameter);
+            else
+                if (_execute_with_param != null)
+                _execute_with_param.Invoke();
         }
     }
 }

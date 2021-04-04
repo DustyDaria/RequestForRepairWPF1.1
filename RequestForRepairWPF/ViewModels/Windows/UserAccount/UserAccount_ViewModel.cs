@@ -118,16 +118,24 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         }
         #endregion
 
-        #region начать редактирование
-        public bool IsStartEdit { get; set; }
-        public ICommand StartEdit
-        {
-            get
-            {
-
-            }
-        } 
-
-        #endregion
+       //#region начать редактирование
+       //public bool IsStartEdit { get; set; }
+       //public ICommand StartEdit
+       //{
+       //    get
+       //    {
+       //        return new RelayCommand(
+       //            (param) =>
+       //            {
+       //                IsStartEdit = true;
+       //            },
+       //            (param) =>
+       //            {
+       //                return !IsStartEdit;
+       //            });
+       //    }
+       //} 
+       //
+       //#endregion
     }
 }

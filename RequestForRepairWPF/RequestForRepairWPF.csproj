@@ -148,6 +148,7 @@
     <Compile Include="Models\Windows\UserAccount\UserAccount_Model.cs" />
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
     <Compile Include="Services\DisplayRootRegistry.cs" />
+    <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />

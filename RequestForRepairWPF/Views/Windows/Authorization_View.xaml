@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
-        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows"
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows.UserAccount"
         xmlns:ctrl="clr-namespace:RequestForRepairWPF.Views.Controls.Password"
         xmlns:pass="clr-namespace:RequestForRepairWPF.Services"
         mc:Ignorable="d"
@@ -25,7 +25,7 @@
         MinWidth="800">
 
     <Window.DataContext>
-        <vm:Authorization_ViewModel/>
+        <vm:UsersData_ViewModel/>
     </Window.DataContext>
 
     <StackPanel Orientation="Vertical" >

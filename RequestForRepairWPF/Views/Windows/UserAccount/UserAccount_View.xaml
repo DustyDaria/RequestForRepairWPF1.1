@@ -11,6 +11,8 @@
         xmlns:services="clr-namespace:RequestForRepairWPF.Services"
         xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
         xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows.UserAccount"
+        xmlns:ld="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Loaded"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -25,10 +27,20 @@
         MinWidth="900"
         Height="800"
         Width="1080">
+   <!-- <Window.CommandBindings>
+        <CommandBinding Command="{Binding }"/>
+    </Window.CommandBindings>-->
 
     <Window.DataContext>
-        <vm:UserAccount_ViewModel/>
+        <vm:UsersData_ViewModel/>
     </Window.DataContext>
+    
+   <!-- <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=UserAccount_Command}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    
     
     <!--<Window.CommandBindings>
         <CommandBinding Command="BurgerMenu_AllUsers"/>
@@ -96,8 +108,7 @@
                         PlacementMode="BottomAndAlignRightEdges">
                         <StackPanel Width="150">
                             <Button x:Name="btn_PopUpPersonalAccount" 
-                                Content="ЛК (в будущем ФИО)" 
-                                Click="btn_PopUpPersonalAccount_Click"/>
+                                Content="ЛК (в будущем ФИО)" />
                             <Button Content="tadam"/>
                             <Separator/>
                             <materialDesign:DialogHost
@@ -147,8 +158,7 @@
                                 </materialDesign:DialogHost.DialogContent>
 
                                 <Button x:Name="btn_PopUpLogout" 
-                            Content="Выход" 
-                            Click="btn_PopUpLogout_Click"/>
+                            Content="Выход"/>
                             </materialDesign:DialogHost>
                         </StackPanel>
                     </materialDesign:PopupBox>
@@ -207,11 +217,11 @@
 
                 <TextBox
                     x:Name="textBox_last_name"
+                    Text="{Binding Path=UserLastName, Mode=TwoWay}"
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="1"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
-                    Text="{Binding Path=_userLastName}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -223,7 +233,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="2"
-                    Text="{Binding Path=_userName}"
+                    Text="{Binding Path=UserName}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
@@ -236,7 +246,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="3"
-                    Text="{Binding Path=_userMiddleName}"
+                    Text="{Binding Path=UserMiddleName}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
@@ -247,7 +257,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="4"
-                    Text="{Binding Path=_userPosition}"
+                    Text="{Binding Path=UserPosition}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
@@ -261,7 +271,7 @@
                     materialDesign:HintAssist.Hint="Телефон"
                     Grid.Column="0"
                     Grid.Row="5"
-                    Text="{Binding Path=_userPhone}"
+                    Text="{Binding Path=UserPhone}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
@@ -273,7 +283,7 @@
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="1"
-                    Text="{Binding Path=_userLogin}"
+                    Text="{Binding Path=UserLogin}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
@@ -287,7 +297,7 @@
                         
                         Grid.Row="2"
                         Grid.Column="1"
-                        Password="{Binding Path=_userPassword}"/>
+                        Password="{Binding Path=UserPassword}"/>
 
                     <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
@@ -295,7 +305,7 @@
                         
                         Grid.Row="3"
                         Grid.Column="1"
-                        Password="{Binding Path=_userPassword}"/>
+                        Password="{Binding Path=UserPassword}"/>
 
                     <!--<PasswordBox
                     IsEnabled="False"
@@ -338,7 +348,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    SelectedItem="{Binding Path=_userTypeOfAccount}"
+                    SelectedItem="{Binding Path=UserTypeOfAccount}"
                     Height="50">
                     <ComboBoxItem 
                                 Content="Системный администратор"/>
@@ -364,7 +374,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    SelectedItem="{Binding Path=_userCategoryExecutors}"
+                    SelectedItem="{Binding Path=UserCategoryExecutors}"
                     Height="50">
                     <ComboBoxItem>
                         IT-специалист
@@ -377,7 +387,7 @@
                     </ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox
+               <!-- <ComboBox
                     x:Name="comboBox_room_number"
                             Visibility="Collapsed"
                     VerticalAlignment="Top"
@@ -408,11 +418,10 @@
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Номер кабинета"/>
+                    materialDesign:HintAssist.Hint="Номер кабинета"/>-->
 
                 <Button
                     x:Name="btn_Save"
-                    Click="btn_Save_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -450,7 +459,7 @@
                                 FontSize="18"
                                 Height="auto"
                                 Width="auto"
-                                Click="btn_Edit_Click_1"
+                                Click="btn_Edit_Click"
                                 Padding="25 10 25 10"
                                 Margin="100 25 25 25"
                                 HorizontalAlignment="Left"

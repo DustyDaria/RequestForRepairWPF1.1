@@ -139,22 +139,21 @@
     </Compile>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
+    <Compile Include="Infrastructure\Commands\Loaded\UserAccount_Command.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Menu\MenuListViewItem_Command.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
+    <Compile Include="Models\Windows\UserAccount\UsersData_Model.cs" />
     <Compile Include="Models\Windows\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
-    <Compile Include="Models\Windows\Authorization_Model.cs" />
     <Compile Include="Models\Windows\Executor_Model.cs" />
-    <Compile Include="Models\Windows\UserAccount\UserAccount_Model.cs" />
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
-    <Compile Include="ViewModels\Windows\Authorization_ViewModel.cs" />
     <Compile Include="ViewModels\Windows\UserAccount\CustomerUserAccount_ViewModel.cs" />
-    <Compile Include="ViewModels\Windows\UserAccount\UserAccount_ViewModel.cs" />
+    <Compile Include="ViewModels\Windows\UserAccount\UsersData_ViewModel.cs" />
     <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml.cs">
       <DependentUpon>Ctrl_burgerMenu_View.xaml</DependentUpon>
     </Compile>

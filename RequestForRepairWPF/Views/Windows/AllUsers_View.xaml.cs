@@ -211,9 +211,9 @@ namespace RequestForRepairWPF
 
         private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
-            this.Close();
-            userAccount_View.Show();
+            //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
+            //this.Close();
+            //userAccount_View.Show();
         }
 
         private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -222,15 +222,15 @@ namespace RequestForRepairWPF
 
             if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
             {
-                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                userAccount_View.Show();
+                //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                //this.Close();
+                //userAccount_View.Show();
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
             {
-                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                userAccount_View.Show();
+                //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                //this.Close();
+                //userAccount_View.Show();
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {

@@ -1,5 +1,6 @@
 ﻿using RequestForRepairWPF.Infrastructure.Commands.Base;
 using RequestForRepairWPF.Models.Windows;
+using RequestForRepairWPF.Models.Windows.UserAccount;
 using RequestForRepairWPF.ViewModels.Windows;
 using RequestForRepairWPF.ViewModels.Windows.UserAccount;
 using RequestForRepairWPF.Views.Windows;
@@ -17,14 +18,17 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
 {
     public class LoginCommand : Command
     {
-        private readonly Authorization_ViewModel _viewModel;
-        private Authorization_Model _model;
-        private UserAccount_ViewModel userAccount_ViewModel = new UserAccount_ViewModel();
+        private readonly UsersData_ViewModel _viewModel;
+        private UsersData_Model _model;
+        //private Authorization_Model _model;
+        //private UserAccount_ViewModel userAccount_ViewModel = new UserAccount_ViewModel();
+        //private UserAccount_Model userAccount_Model;
+       // private UserAccount_Model 
         private string _email;
         private string _password;
 
 
-        public LoginCommand(Authorization_ViewModel viewModel)
+        public LoginCommand(UsersData_ViewModel viewModel)
         {
             _viewModel = viewModel;
             //_viewModel.PropertyChanged += ViewModel_PropertyChanged;
@@ -59,32 +63,30 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             else
             {
                 //ICommand _openExecutorsView;
-                _model = new Authorization_Model(_email, _password);
+                _model = new UsersData_Model(_email, _password);
+                //userAccount_Model = new UserAccount_Model(_email, _password);
 
                 if(_model.CheckUserPass == _password && _model.CheckUserType == "Системный администратор")
                 {
-                _viewModel.Authorization_userID = _model.UserID;
-                userAccount_ViewModel.Authorization_userID = _model.UserID;
-                _viewModel.UserType = _model.CheckUserType;
-                    UserAccount_View userAccount_View = new UserAccount_View(_model.UserID);
+                    _viewModel.Authorization_userID = _model.UserID;
+                    _viewModel.UserType = _model.CheckUserType;
+                    _viewModel.UserLastName = _model.UserLastName;
+                    _viewModel.UserName = _model.UserName;
+                    _viewModel.UserMiddleName = _model.UserMiddleName;
+                    _viewModel.UserPosition = _model.UserPosition;
+                    _viewModel.UserPhone = _model.UserPhone;
+                    _viewModel.UserCategoryExecutors = _model.UserCategoryExecutors;
+
+                    UserAccount_View userAccount_View = new UserAccount_View();
                     Authorization_View authorization_View = new Authorization_View();
                     userAccount_View.Show();
                     authorization_View.Close();
-                //ICommand _openUserAccount;
-               // _openUserAccount =  _viewModel.OpenUserAccount;
-                    
-
-                    //_openExecutorsView = new OpenUserAccountViewCommand(_viewModel);
-                    //UserAccount_View userAccount_View = new UserAccount_View();
-                    //Authorization_View authorization = new Authorization_View();
-                    //userAccount_View.Show();
-                    //authorization.Close();
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == "Заказчик")
                 {
                 
                     _viewModel.Authorization_userID = _model.UserID;
-                    userAccount_ViewModel.Authorization_userID = _model.UserID;
+                    //userAccount_ViewModel.Authorization_userID = _model.UserID;
                     CustomerUserAccount_View customerUserAccount_View = new CustomerUserAccount_View(_model.UserID, "Просмотреть", 0);
                     Authorization_View authorization_View = new Authorization_View();
                     customerUserAccount_View.Show();
@@ -94,10 +96,11 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == "Исполнитель")
                 {
                     _viewModel.Authorization_userID = _model.UserID;
-                    userAccount_ViewModel.Authorization_userID = _model.UserID;
+                    //userAccount_ViewModel.Authorization_userID = _model.UserID;
                     _viewModel.UserType = _model.CheckUserType;
-                    UserAccount_View userAccount_View = new UserAccount_View(_model.UserID);
+                    UserAccount_View userAccount_View = new UserAccount_View();
                     Authorization_View authorization_View = new Authorization_View();
+                    //userAccount_ViewModel.Authorization_userID = _model.UserID;
                     userAccount_View.Show();
                     authorization_View.Close();
 

@@ -294,9 +294,9 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
                                 }
                                 MessageBox.Show("Пользователь был успешно зарегистрирован!");
 
-                                UserAccount_View personalAccount = new UserAccount_View(mainID);
-                                this.Close();
-                                personalAccount.Show();
+                                //UserAccount_View personalAccount = new UserAccount_View(mainID);
+                                //this.Close();
+                                //personalAccount.Show();
                             }
 
                         }
@@ -527,9 +527,9 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
 
         private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
-            this.Close();
-            userAccount_View.Show();
+           // UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
+           // this.Close();
+           // userAccount_View.Show();
         }
 
         private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -538,15 +538,15 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
 
             if(dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
             {
-                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                userAccount_View.Show();
+               // UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+               // this.Close();
+               // userAccount_View.Show();
             }
             else if(dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
             {
-                UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                userAccount_View.Show();
+                //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+                //this.Close();
+                //userAccount_View.Show();
             }
             else if(dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {

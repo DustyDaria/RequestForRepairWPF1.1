@@ -25,12 +25,12 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
             get
             {
                 //Authorization_View _authorization = new Authorization_View();
-                Authorization_ViewModel _authorization = new Authorization_ViewModel();
+                //Authorization_ViewModel _authorization = new Authorization_ViewModel();
                 //_id = _authorization._authorizationUser.id_user;
 
                 /// _authorization.Authorization_userID !!! не получаю id 
 
-                menu_Model.UserType = Convert.ToString(_authorization.Authorization_userID);
+                //menu_Model.UserType = Convert.ToString(_authorization.Authorization_userID);
                 _userTypeOfAccount = menu_Model.UserType;
         
                 return menuItem(_userTypeOfAccount);

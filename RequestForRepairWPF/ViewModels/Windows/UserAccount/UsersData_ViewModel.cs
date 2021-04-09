@@ -2,7 +2,9 @@
 using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,20 +13,27 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
 {
     public class UsersData_ViewModel : ViewModel
     {
+
         /// <summary> Получение ID авторизорованнного пользователя </summary>
         #region Получение ID авторизорованнного пользователя
         /// <summary> Получение ID авторизорованнного пользователя </summary>
 
-        private int _authorization_userID;
+        private static int _authorization_userID;
         public int Authorization_userID
         {
             get => _authorization_userID;
-            set => Set(ref _authorization_userID, value);
+            set
+            {
+                if (Equals(_authorization_userID, value)) return;
+                _authorization_userID = value;
+                OnPropertyChanged("Authorization_userID");
+                
+            }
         }
         #endregion
 
         #region Логин
-        private string _userEmail;
+        private static string _userEmail;
         public string UserEmail
         {
             get => _userEmail;
@@ -33,7 +42,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Пароль
-        private string _userPassword;
+        private static string _userPassword;
         public string UserPassword
         {
             get => _userPassword;
@@ -42,7 +51,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Тип аккаунта
-        private string _userType;
+        private static string _userType;
         public string UserType
         {
             get => _userType;
@@ -53,7 +62,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Фамилия
-        private string _userLastName;
+        private static string _userLastName;
         public string UserLastName
         {
             get => _userLastName;
@@ -62,7 +71,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Имя
-        private string _userName;
+        private static string _userName;
         public string UserName
         {
             get => _userName;
@@ -71,7 +80,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Отчество
-        private string _userMiddleName;
+        private static string _userMiddleName;
         public string UserMiddleName
         {
             get => _userMiddleName;
@@ -80,7 +89,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Должность
-        private string _userPosition;
+        private static string _userPosition;
         public string UserPosition
         {
             get => _userPosition;
@@ -89,7 +98,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Телефон
-        private string _userPhone;
+        private static string _userPhone;
         public string UserPhone
         {
             get => _userPhone;
@@ -98,7 +107,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         #endregion
 
         #region Категория исполнителя
-        private string _userCategoryExecutors;
+        private static string _userCategoryExecutors;
         public string UserCategoryExecutors
         {
             get => _userCategoryExecutors;
@@ -106,18 +115,18 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         }
         #endregion
 
-        #region Список номеров помещений
-        private List<int> _userRoomNumber;
-        public List<int> UserRoomNumber
-        {
-            get => _userRoomNumber;
-            set
-            {
-                Set(ref _userRoomNumber, value);
-                //_userRoomNumber.CopyTo(value);
-            }
-        }
-        #endregion
+       //#region Список номеров помещений
+       //private List<int> _userRoomNumber;
+       //public List<int> UserRoomNumber
+       //{
+       //    get => _userRoomNumber;
+       //    set
+       //    {
+       //        Set(ref _userRoomNumber, value);
+       //        //_userRoomNumber.CopyTo(value);
+       //    }
+       //}
+       //#endregion
 
 
         #region Команда на вход

@@ -139,6 +139,7 @@
     </Compile>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
+    <Compile Include="Infrastructure\Commands\GoBack.cs" />
     <Compile Include="Infrastructure\Commands\Loaded\UserAccount_Command.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Menu\MenuListViewItem_Command.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="Services\InverseBooleanConverter.cs" />
+    <Compile Include="Services\PageManager.cs" />
     <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
@@ -163,6 +165,30 @@
     <Compile Include="Views\Controls\Room\Control_checkBox.xaml.cs">
       <DependentUpon>Control_checkBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\AllUsersPage_View.xaml.cs">
+      <DependentUpon>AllUsersPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CreateAndEditRequestPage_View.xaml.cs">
+      <DependentUpon>CreateAndEditRequestPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CustomersPage_View.xaml.cs">
+      <DependentUpon>CustomersPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\DescriptionRoomPage_View.xaml.cs">
+      <DependentUpon>DescriptionRoomPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ExecutorsPage_View.xaml.cs">
+      <DependentUpon>ExecutorsPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\FileReportPage_View.xaml.cs">
+      <DependentUpon>FileReportPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml.cs">
+      <DependentUpon>CustomerUserAccountPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\WatchRequestsPage_View.xaml.cs">
+      <DependentUpon>WatchRequestsPage_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\DescriptionRoom.xaml.cs">
       <DependentUpon>DescriptionRoom.xaml</DependentUpon>
     </Compile>
@@ -171,6 +197,15 @@
     </Compile>
     <Compile Include="Views\Controls\Room\Control_radioBtn.xaml.cs">
       <DependentUpon>Control_radioBtn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AuthorizationPage_View.xaml.cs">
+      <DependentUpon>AuthorizationPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserAccount\UserAccountPage_View.xaml.cs">
+      <DependentUpon>UserAccountPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\UserAccount\CustomerUserAccount_View.xaml.cs">
       <DependentUpon>CustomerUserAccount_View.xaml</DependentUpon>
@@ -187,6 +222,38 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\Room\Control_checkBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\AllUsersPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\CreateAndEditRequestPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\CustomersPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\DescriptionRoomPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ExecutorsPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\FileReportPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\WatchRequestsPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +295,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Windows\FileReport_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\AuthorizationPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserAccount\UserAccountPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -297,6 +376,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ViewModels\Pages\" />
     <Folder Include="Views\Controls\Header\" />
   </ItemGroup>
   <ItemGroup>

@@ -17,25 +17,25 @@ namespace RequestForRepairWPF.Models.Windows
         //private readonly Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         public ObservableCollection<User> UsersCollection = new ObservableCollection<User>();
 
-        User userObj = new User();
+        //User userObj = new User();
 
         /// <summary>Конструкторы</summary>
         #region Конструкторы
         /// <summary>Конструкторы</summary>
         
         public AllUsers_Model() { }
-        public AllUsers_Model(int id_user, string user_login, string last_name, string name, string middle_name, string position, string type_of_account, string category_executors, string phone)
-        {
-            userObj.id_user = id_user;
-            userObj.user_login = user_login;
-            userObj.last_name = last_name;
-            userObj.name = name;
-            userObj.middle_name = middle_name;
-            userObj.position = position;
-            userObj.type_of_account = type_of_account;
-            userObj.category_executors = category_executors;
-            userObj.phone = phone;
-        }
+        //public AllUsers_Model(int id_user, string user_login, string last_name, string name, string middle_name, string position, string type_of_account, string category_executors, string phone)
+        //{
+        //    userObj.id_user = id_user;
+        //    userObj.user_login = user_login;
+        //    userObj.last_name = last_name;
+        //    userObj.name = name;
+        //    userObj.middle_name = middle_name;
+        //    userObj.position = position;
+        //    userObj.type_of_account = type_of_account;
+        //    userObj.category_executors = category_executors;
+        //    userObj.phone = phone;
+        //}
         #endregion
 
         // Нужно будет добавить SET при реализации редактирования
@@ -43,50 +43,50 @@ namespace RequestForRepairWPF.Models.Windows
         #region GET,SET
         /// <summary>GET,SET</summary>
         
-        public int Id_user
-        {
-            get => userObj.id_user;
-        }
-        public string User_login
-        {
-            get => userObj.user_login;
-            
-        }
-        public string Last_name
-        {
-            get => userObj.last_name;
-            
-        }
-        public string Name
-        {
-            get => userObj.name;
-            
-        }
-        public string Middle_name
-        {
-            get => userObj.middle_name;
-            
-        }
-        public string Position
-        {
-            get => userObj.position;
-            
-        }
-        public string Type_of_account
-        {
-            get => userObj.type_of_account;
-        }
-        public string Category_executors
-        {
-            get => userObj.category_executors;
-            
-        }
-
-        public string Phone
-        {
-            get => userObj.phone;
-            
-        }
+        //public int Id_user
+        //{
+        //    get => userObj.id_user;
+        //}
+        //public string User_login
+        //{
+        //    get => userObj.user_login;
+        //    
+        //}
+        //public string Last_name
+        //{
+        //    get => userObj.last_name;
+        //    
+        //}
+        //public string Name
+        //{
+        //    get => userObj.name;
+        //    
+        //}
+        //public string Middle_name
+        //{
+        //    get => userObj.middle_name;
+        //    
+        //}
+        //public string Position
+        //{
+        //    get => userObj.position;
+        //    
+        //}
+        //public string Type_of_account
+        //{
+        //    get => userObj.type_of_account;
+        //}
+        //public string Category_executors
+        //{
+        //    get => userObj.category_executors;
+        //    
+        //}
+        //
+        //public string Phone
+        //{
+        //    get => userObj.phone;
+        //    
+        //}
         #endregion
 
 

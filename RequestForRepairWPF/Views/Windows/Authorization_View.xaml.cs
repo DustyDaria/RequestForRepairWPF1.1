@@ -23,7 +23,7 @@ namespace RequestForRepairWPF.Views.Windows
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class Authorization_View : Window
+    public partial class Authorization_View : Page
     {
         //public event PropertyChangedEventHandler PropertyChanged;
         //

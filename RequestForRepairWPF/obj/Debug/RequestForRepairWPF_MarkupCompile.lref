@@ -10,8 +10,19 @@ FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windo
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\Executors_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\CreateAndEditRequest_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\FileReport_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\MainWindow.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\AuthorizationPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\UserAccount\UserAccountPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\UserAccount\CustomerUserAccount_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\UserAccount\UserAccount_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Room\Control_radioBtn.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\WatchRequests_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\AllUsersPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\CreateAndEditRequestPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\CustomersPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\DescriptionRoomPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\ExecutorsPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\FileReportPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\WatchRequestsPage_View.xaml;;
 

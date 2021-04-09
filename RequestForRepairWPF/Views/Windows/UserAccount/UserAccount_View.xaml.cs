@@ -68,6 +68,11 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
             InitializeComponent();
         }
 
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            this.btn_Edit.IsEnabled = !this.btn_Edit.IsEnabled;
+        }
+
         //public UserAccount_View(int mainID)
         //{
         //    InitializeComponent();
@@ -87,232 +92,232 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
 
         //public UserAccount_View(int mainID, string usersAction, int secondaryID)
         //{
-           // InitializeComponent();
+        // InitializeComponent();
 
-            //this.mainID = mainID;
-            //this.usersAction = usersAction;
-            //this.secondaryID = secondaryID;
-            //
-            ////BurgerMenu();
-            //
-            //#region Инициализация элементов управления
-            /////<summary>
-            /////Инициализация элементов управления
-            ///// </summary>
-            //
-            //string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
-            //
-            //if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
-            //{
-            //    if (usersAction == "Создать")
-            //    {
-            //        this.Title = "Зарегистрировать нового пользователя";
-            //        label_Header.Text = "Зарегистрировать нового пользователя";
-            //        
-            //        //textBox_last_name.IsEnabled = true;
-            //        //textBox_name.IsEnabled = true;
-            //        //textBox_middle_name.IsEnabled = true;
-            //        //textBox_position.IsEnabled = true;
-            //        //textBox_phone.IsEnabled = true;
-            //        //textBox_user_login.IsEnabled = true;
-            //        ////passBox_user_password.IsEnabled = true;
-            //        ////passBox_repeat_user_password.IsEnabled = true;
-            //        ////passBox_repeat_user_password.Visibility = Visibility.Visible;
-            //        //comboBox_type_of_account.IsEnabled = true;
-            //        //
-            //
-            //        //btn_Edit.IsEnabled = false;
-            //        //btn_Edit.Visibility = Visibility.Collapsed;
-            //        //btn_Save.IsEnabled = true;
-            //        //btn_Save.Visibility = Visibility.Visible;
-            //    }
-            //    else if (usersAction == "Редактировать")
-            //    {
-            //        string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
-            //        string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
-            //
-            //        GetDataToViewAndChange_Main();
-            //
-            //
-            //        this.Title = "Редактировать данные пользователя";
-            //        label_Header.Text = "Редактировать данные пользователя";
-            //        
-            //       //textBox_last_name.IsEnabled = true;
-            //       //textBox_name.IsEnabled = true;
-            //       //textBox_middle_name.IsEnabled = true;
-            //       //textBox_position.IsEnabled = true;
-            //       //textBox_phone.IsEnabled = true;
-            //       //textBox_user_login.IsEnabled = true;
-            //       ////passBox_user_password.IsEnabled = true;
-            //       ////passBox_repeat_user_password.IsEnabled = true;
-            //       ////passBox_repeat_user_password.Visibility = Visibility.Visible;
-            //       //comboBox_type_of_account.IsEnabled = false;
-            //       //
-            //       //btn_Edit.IsEnabled = false;
-            //       //btn_Edit.Visibility = Visibility.Collapsed;
-            //       //btn_Save.IsEnabled = true;
-            //       //btn_Cancel.IsEnabled = true;
-            //
-            //    }
-            //    else if (usersAction == "Просмотреть")
-            //    {
-            //        string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
-            //        string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
-            //
-            //        GetDataToViewAndChange_Main();
-            //
-            //        this.Title = "Просмотреть данные пользователя";
-            //        label_Header.Text = "Просмотреть данные пользователя";
-            //        
-            //       // textBox_last_name.IsEnabled = false;
-            //       // textBox_name.IsEnabled = false;
-            //       // textBox_middle_name.IsEnabled = false;
-            //       // textBox_position.IsEnabled = false;
-            //       // textBox_phone.IsEnabled = false;
-            //       // textBox_user_login.IsEnabled = false;
-            //       // //passBox_user_password.IsEnabled = false;
-            //       // //passBox_repeat_user_password.IsEnabled = false;
-            //       // //passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-            //       // comboBox_type_of_account.IsEnabled = false;
-            //       //
-            //       // btn_Edit.IsEnabled = true;
-            //       // btn_Edit.Visibility = Visibility.Visible;
-            //       //
-            //       // btn_Save.IsEnabled = false;
-            //       // btn_Cancel.IsEnabled = true;
-            //    }
-            //}
-            //else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
-            //{
-            //
-            //    if (usersAction == "Редактировать")
-            //    {
-            //        GetDataToViewAndChange_Main();
-            //        
-            //        this.Title = "Редактировать данные пользователя";
-            //        label_Header.Text = "Редактировать данные пользователя";
-            //
-            //       //textBox_last_name.IsEnabled = true;
-            //       //textBox_name.IsEnabled = true;
-            //       //textBox_middle_name.IsEnabled = true;
-            //       //textBox_position.IsEnabled = true;
-            //       //textBox_phone.IsEnabled = true;
-            //       //textBox_user_login.IsEnabled = true;
-            //       ////passBox_user_password.IsEnabled = true;
-            //       ////passBox_repeat_user_password.IsEnabled = true;
-            //       ////passBox_repeat_user_password.Visibility = Visibility.Visible;
-            //       //comboBox_type_of_account.IsEnabled = false;
-            //       //comboBox_room_number.Visibility = Visibility.Collapsed;
-            //       //comboBox_room_number.IsEnabled = false;
-            //       //comboBox_category_executors.Visibility = Visibility.Visible;
-            //       //comboBox_category_executors.IsEnabled = false;
-            //       //
-            //       //btn_Edit.IsEnabled = false;
-            //       //btn_Edit.Visibility = Visibility.Collapsed;
-            //       //btn_Save.IsEnabled = true;
-            //       //btn_Cancel.IsEnabled = true;
-            //
-            //    }
-            //    else if (usersAction == "Просмотреть")
-            //    {
-            //        GetDataToViewAndChange_Main();
-            //        
-            //
-            //        this.Title = "Просмотреть данные пользователя";
-            //        label_Header.Text = "Просмотреть данные пользователя";
-            //
-            //        //textBox_last_name.IsEnabled = false;
-            //        //textBox_name.IsEnabled = false;
-            //        //textBox_middle_name.IsEnabled = false;
-            //        //textBox_position.IsEnabled = false;
-            //        //textBox_phone.IsEnabled = false;
-            //        //textBox_user_login.IsEnabled = false;
-            //        ////passBox_user_password.IsEnabled = false;
-            //        ////passBox_repeat_user_password.IsEnabled = false;
-            //        ////passBox_repeat_user_password.Visibility = Visibility.Collapsed;
-            //        //comboBox_type_of_account.IsEnabled = false;
-            //        //comboBox_room_number.Visibility = Visibility.Collapsed;
-            //        //comboBox_room_number.IsEnabled = false;
-            //        //comboBox_category_executors.Visibility = Visibility.Visible;
-            //        //comboBox_category_executors.IsEnabled = false;
-            //        //
-            //        //btn_Edit.IsEnabled = true;
-            //        //btn_Edit.Visibility = Visibility.Visible;
-            //        //btn_Save.IsEnabled = false;
-            //        //btn_Cancel.IsEnabled = true;
-            //    }
-            //}
-            //
-            //#endregion
+        //this.mainID = mainID;
+        //this.usersAction = usersAction;
+        //this.secondaryID = secondaryID;
+        //
+        ////BurgerMenu();
+        //
+        //#region Инициализация элементов управления
+        /////<summary>
+        /////Инициализация элементов управления
+        ///// </summary>
+        //
+        //string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+        //
+        //if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
+        //{
+        //    if (usersAction == "Создать")
+        //    {
+        //        this.Title = "Зарегистрировать нового пользователя";
+        //        label_Header.Text = "Зарегистрировать нового пользователя";
+        //        
+        //        //textBox_last_name.IsEnabled = true;
+        //        //textBox_name.IsEnabled = true;
+        //        //textBox_middle_name.IsEnabled = true;
+        //        //textBox_position.IsEnabled = true;
+        //        //textBox_phone.IsEnabled = true;
+        //        //textBox_user_login.IsEnabled = true;
+        //        ////passBox_user_password.IsEnabled = true;
+        //        ////passBox_repeat_user_password.IsEnabled = true;
+        //        ////passBox_repeat_user_password.Visibility = Visibility.Visible;
+        //        //comboBox_type_of_account.IsEnabled = true;
+        //        //
+        //
+        //        //btn_Edit.IsEnabled = false;
+        //        //btn_Edit.Visibility = Visibility.Collapsed;
+        //        //btn_Save.IsEnabled = true;
+        //        //btn_Save.Visibility = Visibility.Visible;
+        //    }
+        //    else if (usersAction == "Редактировать")
+        //    {
+        //        string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
+        //        string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
+        //
+        //        GetDataToViewAndChange_Main();
+        //
+        //
+        //        this.Title = "Редактировать данные пользователя";
+        //        label_Header.Text = "Редактировать данные пользователя";
+        //        
+        //       //textBox_last_name.IsEnabled = true;
+        //       //textBox_name.IsEnabled = true;
+        //       //textBox_middle_name.IsEnabled = true;
+        //       //textBox_position.IsEnabled = true;
+        //       //textBox_phone.IsEnabled = true;
+        //       //textBox_user_login.IsEnabled = true;
+        //       ////passBox_user_password.IsEnabled = true;
+        //       ////passBox_repeat_user_password.IsEnabled = true;
+        //       ////passBox_repeat_user_password.Visibility = Visibility.Visible;
+        //       //comboBox_type_of_account.IsEnabled = false;
+        //       //
+        //       //btn_Edit.IsEnabled = false;
+        //       //btn_Edit.Visibility = Visibility.Collapsed;
+        //       //btn_Save.IsEnabled = true;
+        //       //btn_Cancel.IsEnabled = true;
+        //
+        //    }
+        //    else if (usersAction == "Просмотреть")
+        //    {
+        //        string queryCheckCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "';");
+        //        string queryCheckRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_Rooms WHERE userID = '" + secondaryID + "';");
+        //
+        //        GetDataToViewAndChange_Main();
+        //
+        //        this.Title = "Просмотреть данные пользователя";
+        //        label_Header.Text = "Просмотреть данные пользователя";
+        //        
+        //       // textBox_last_name.IsEnabled = false;
+        //       // textBox_name.IsEnabled = false;
+        //       // textBox_middle_name.IsEnabled = false;
+        //       // textBox_position.IsEnabled = false;
+        //       // textBox_phone.IsEnabled = false;
+        //       // textBox_user_login.IsEnabled = false;
+        //       // //passBox_user_password.IsEnabled = false;
+        //       // //passBox_repeat_user_password.IsEnabled = false;
+        //       // //passBox_repeat_user_password.Visibility = Visibility.Collapsed;
+        //       // comboBox_type_of_account.IsEnabled = false;
+        //       //
+        //       // btn_Edit.IsEnabled = true;
+        //       // btn_Edit.Visibility = Visibility.Visible;
+        //       //
+        //       // btn_Save.IsEnabled = false;
+        //       // btn_Cancel.IsEnabled = true;
+        //    }
+        //}
+        //else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+        //{
+        //
+        //    if (usersAction == "Редактировать")
+        //    {
+        //        GetDataToViewAndChange_Main();
+        //        
+        //        this.Title = "Редактировать данные пользователя";
+        //        label_Header.Text = "Редактировать данные пользователя";
+        //
+        //       //textBox_last_name.IsEnabled = true;
+        //       //textBox_name.IsEnabled = true;
+        //       //textBox_middle_name.IsEnabled = true;
+        //       //textBox_position.IsEnabled = true;
+        //       //textBox_phone.IsEnabled = true;
+        //       //textBox_user_login.IsEnabled = true;
+        //       ////passBox_user_password.IsEnabled = true;
+        //       ////passBox_repeat_user_password.IsEnabled = true;
+        //       ////passBox_repeat_user_password.Visibility = Visibility.Visible;
+        //       //comboBox_type_of_account.IsEnabled = false;
+        //       //comboBox_room_number.Visibility = Visibility.Collapsed;
+        //       //comboBox_room_number.IsEnabled = false;
+        //       //comboBox_category_executors.Visibility = Visibility.Visible;
+        //       //comboBox_category_executors.IsEnabled = false;
+        //       //
+        //       //btn_Edit.IsEnabled = false;
+        //       //btn_Edit.Visibility = Visibility.Collapsed;
+        //       //btn_Save.IsEnabled = true;
+        //       //btn_Cancel.IsEnabled = true;
+        //
+        //    }
+        //    else if (usersAction == "Просмотреть")
+        //    {
+        //        GetDataToViewAndChange_Main();
+        //        
+        //
+        //        this.Title = "Просмотреть данные пользователя";
+        //        label_Header.Text = "Просмотреть данные пользователя";
+        //
+        //        //textBox_last_name.IsEnabled = false;
+        //        //textBox_name.IsEnabled = false;
+        //        //textBox_middle_name.IsEnabled = false;
+        //        //textBox_position.IsEnabled = false;
+        //        //textBox_phone.IsEnabled = false;
+        //        //textBox_user_login.IsEnabled = false;
+        //        ////passBox_user_password.IsEnabled = false;
+        //        ////passBox_repeat_user_password.IsEnabled = false;
+        //        ////passBox_repeat_user_password.Visibility = Visibility.Collapsed;
+        //        //comboBox_type_of_account.IsEnabled = false;
+        //        //comboBox_room_number.Visibility = Visibility.Collapsed;
+        //        //comboBox_room_number.IsEnabled = false;
+        //        //comboBox_category_executors.Visibility = Visibility.Visible;
+        //        //comboBox_category_executors.IsEnabled = false;
+        //        //
+        //        //btn_Edit.IsEnabled = true;
+        //        //btn_Edit.Visibility = Visibility.Visible;
+        //        //btn_Save.IsEnabled = false;
+        //        //btn_Cancel.IsEnabled = true;
+        //    }
+        //}
+        //
+        //#endregion
         //}
 
 
-     /*   #region Инициализация бургер-меню
-        ///<summary>
-        ///Инициализация бургер-меню и контента
-        /// </summary>
-        private void BurgerMenu()
-        {
-            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+        /*   #region Инициализация бургер-меню
+           ///<summary>
+           ///Инициализация бургер-меню и контента
+           /// </summary>
+           private void BurgerMenu()
+           {
+               string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
 
-            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
-            {
-                list_AllUsers.Visibility = Visibility.Visible;
-                list_Customers.Visibility = Visibility.Visible;
-                list_Executors.Visibility = Visibility.Visible;
-                list_RegisterNewUser.Visibility = Visibility.Visible;
-                list_EditUserAccount.Visibility = Visibility.Visible;
-                list_CreateRequest.Visibility = Visibility.Collapsed;
-                list_WatchRequest.Visibility = Visibility.Visible;
-                list_WatchArchiveRequest.Visibility = Visibility.Visible;
-                list_FileReport.Visibility = Visibility.Visible;
+               if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
+               {
+                   list_AllUsers.Visibility = Visibility.Visible;
+                   list_Customers.Visibility = Visibility.Visible;
+                   list_Executors.Visibility = Visibility.Visible;
+                   list_RegisterNewUser.Visibility = Visibility.Visible;
+                   list_EditUserAccount.Visibility = Visibility.Visible;
+                   list_CreateRequest.Visibility = Visibility.Collapsed;
+                   list_WatchRequest.Visibility = Visibility.Visible;
+                   list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                   list_FileReport.Visibility = Visibility.Visible;
 
 
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
-            {
+               }
+               else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+               {
 
-                list_AllUsers.Visibility = Visibility.Collapsed;
-                list_Customers.Visibility = Visibility.Collapsed;
-                list_Executors.Visibility = Visibility.Collapsed;
-                list_RegisterNewUser.Visibility = Visibility.Collapsed;
-                list_EditUserAccount.Visibility = Visibility.Visible;
-                list_DescriptionRoom.Visibility = Visibility.Visible;
-                list_CreateRequest.Visibility = Visibility.Visible;
-                list_WatchRequest.Visibility = Visibility.Visible;
-                list_WatchArchiveRequest.Visibility = Visibility.Visible;
-                list_FileReport.Visibility = Visibility.Visible;
+                   list_AllUsers.Visibility = Visibility.Collapsed;
+                   list_Customers.Visibility = Visibility.Collapsed;
+                   list_Executors.Visibility = Visibility.Collapsed;
+                   list_RegisterNewUser.Visibility = Visibility.Collapsed;
+                   list_EditUserAccount.Visibility = Visibility.Visible;
+                   list_DescriptionRoom.Visibility = Visibility.Visible;
+                   list_CreateRequest.Visibility = Visibility.Visible;
+                   list_WatchRequest.Visibility = Visibility.Visible;
+                   list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                   list_FileReport.Visibility = Visibility.Visible;
 
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
-            {
+               }
+               else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+               {
 
-                list_AllUsers.Visibility = Visibility.Collapsed;
-                list_Customers.Visibility = Visibility.Collapsed;
-                list_Executors.Visibility = Visibility.Collapsed;
-                list_RegisterNewUser.Visibility = Visibility.Collapsed;
-                list_EditUserAccount.Visibility = Visibility.Visible;
-                list_CreateRequest.Visibility = Visibility.Collapsed;
-                list_WatchRequest.Visibility = Visibility.Visible;
-                list_WatchArchiveRequest.Visibility = Visibility.Visible;
-                list_MyRequest.Visibility = Visibility.Visible;
-                list_MyArchiveRequest.Visibility = Visibility.Visible;
-                list_FileReport.Visibility = Visibility.Visible;
+                   list_AllUsers.Visibility = Visibility.Collapsed;
+                   list_Customers.Visibility = Visibility.Collapsed;
+                   list_Executors.Visibility = Visibility.Collapsed;
+                   list_RegisterNewUser.Visibility = Visibility.Collapsed;
+                   list_EditUserAccount.Visibility = Visibility.Visible;
+                   list_CreateRequest.Visibility = Visibility.Collapsed;
+                   list_WatchRequest.Visibility = Visibility.Visible;
+                   list_WatchArchiveRequest.Visibility = Visibility.Visible;
+                   list_MyRequest.Visibility = Visibility.Visible;
+                   list_MyArchiveRequest.Visibility = Visibility.Visible;
+                   list_FileReport.Visibility = Visibility.Visible;
 
-            }
+               }
 
-        }
-        #endregion */
+           }
+           #endregion */
 
-       //#region Личный кабинет
-       ///// <summary>
-       ///// Личный кабинет
-       ///// </summary>
-       //private void btn_PopUpPersonalAccount_Click(object sender, RoutedEventArgs e)
-       //{
-       //
-       //}
-       //#endregion
+        //#region Личный кабинет
+        ///// <summary>
+        ///// Личный кабинет
+        ///// </summary>
+        //private void btn_PopUpPersonalAccount_Click(object sender, RoutedEventArgs e)
+        //{
+        //
+        //}
+        //#endregion
 
 
         //#region Выход из аккаунта
@@ -633,93 +638,93 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
         //#endregion
         //
 
-       //#region Получение данных и их изменение 
-       ///// <summary>
-       ///// Получение данных и их изменение 
-       ///// </summary>
-       ///// 
-       //#region Первичные данные 
-       //private void GetDataToViewAndChange_Main()
-       //{
-       //    string queryLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + mainID + "';");
-       //    string queryName_GET = string.Format("SELECT name FROM Users WHERE id_user = '" + mainID + "';");
-       //    string queryMiddleName_GET = string.Format("SELECT middle_name FROM Users WHERE id_user = '" + mainID + "';");
-       //    string queryPosition_GET = string.Format("SELECT position FROM Users WHERE id_user = '" + mainID + "';");
-       //    string queryPhone_GET = string.Format("SELECT phone FROM Users WHERE id_user = '" + mainID + "';");
-       //    string queryUserLogin_GET = string.Format("SELECT user_login FROM Users WHERE id_user = '" + mainID + "';");
-       //    string queryUserPassword_GET = string.Format("SELECT user_password FROM Users WHERE id_user = '" + mainID + "'; ");
-       //    string queryTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "'; ");
-       //    string queryCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + mainID + "'; ");
-       //    //string queryRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_ROOMS WHERE userID = '" + mainID + "';");
-       //
-       //    textBox_last_name.Text = dataBase.GetResult(queryLastName_GET);
-       //    textBox_name.Text = dataBase.GetResult(queryName_GET);
-       //    textBox_middle_name.Text = dataBase.GetResult(queryMiddleName_GET);
-       //    textBox_position.Text = dataBase.GetResult(queryPosition_GET);
-       //    textBox_phone.Text = dataBase.GetResult(queryPhone_GET);
-       //    textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
-       //    //passBox_user_password.Password = dataBase.GetResult(queryUserPassword_GET);
-       //    comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
-       //    comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
-       //    
-       //    comboBox_type_of_account.IsEnabled = false;
-       //    comboBox_category_executors.IsEnabled = false;
-       //    
-       //}
-       //#endregion
-       //
-       //#region Вторичные данные 
-       //private void GetDataToViewAndChange_Secondary()
-       //{
-       //    string queryLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + secondaryID + "';");
-       //    string queryName_GET = string.Format("SELECT name FROM Users WHERE id_user = '" + secondaryID + "';");
-       //    string queryMiddleName_GET = string.Format("SELECT middle_name FROM Users WHERE id_user = '" + secondaryID + "';");
-       //    string queryPosition_GET = string.Format("SELECT position FROM Users WHERE id_user = '" + secondaryID + "';");
-       //    string queryPhone_GET = string.Format("SELECT phone FROM Users WHERE id_user = '" + secondaryID + "';");
-       //    string queryUserLogin_GET = string.Format("SELECT user_login FROM Users WHERE id_user = '" + secondaryID + "';");
-       //    string queryUserPassword_GET = string.Format("SELECT user_password FROM Users WHERE id_user = '" + secondaryID + "'; ");
-       //    string queryTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + secondaryID + "'; ");
-       //    string queryCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "'; ");
-       //    string queryRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_ROOMS WHERE userID = '" + secondaryID + "';");
-       //
-       //    //label1.Text = "Проверка на добавление: " + queryLastName_GET;
-       //    textBox_last_name.Text = dataBase.GetResult(queryLastName_GET);
-       //    textBox_name.Text = dataBase.GetResult(queryName_GET);
-       //
-       //    if (dataBase.Check(queryMiddleName_GET, Convert.ToString(secondaryID)) == true)
-       //    {
-       //        textBox_middle_name.Text = dataBase.GetResult(queryMiddleName_GET);
-       //    }
-       //    else
-       //    {
-       //        textBox_middle_name.Text = string.Empty;
-       //    }
-       //
-       //    textBox_position.Text = dataBase.GetResult(queryPosition_GET);
-       //    textBox_phone.Text = dataBase.GetResult(queryPhone_GET);
-       //    textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
-       //    //passBox_user_password.Password = dataBase.GetResult(queryUserPassword_GET);
-       //    comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
-       //
-       //    if (dataBase.Check(queryCategoryExecutors_GET, Convert.ToString(secondaryID)) == true)
-       //    {
-       //        comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
-       //    }
-       //    else
-       //    {
-       //        comboBox_category_executors.Text = string.Empty;
-       //    }
-       //
-       //    if (dataBase.Check(queryRoomNumber_GET, Convert.ToString(secondaryID)) == true)
-       //    {
-       //        comboBox_room_number.Text = dataBase.GetResult(queryRoomNumber_GET);
-       //    }
-       //    else
-       //    {
-       //        comboBox_room_number.Text = string.Empty;
-       //    }
-       //}
-       //#endregion
+        //#region Получение данных и их изменение 
+        ///// <summary>
+        ///// Получение данных и их изменение 
+        ///// </summary>
+        ///// 
+        //#region Первичные данные 
+        //private void GetDataToViewAndChange_Main()
+        //{
+        //    string queryLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + mainID + "';");
+        //    string queryName_GET = string.Format("SELECT name FROM Users WHERE id_user = '" + mainID + "';");
+        //    string queryMiddleName_GET = string.Format("SELECT middle_name FROM Users WHERE id_user = '" + mainID + "';");
+        //    string queryPosition_GET = string.Format("SELECT position FROM Users WHERE id_user = '" + mainID + "';");
+        //    string queryPhone_GET = string.Format("SELECT phone FROM Users WHERE id_user = '" + mainID + "';");
+        //    string queryUserLogin_GET = string.Format("SELECT user_login FROM Users WHERE id_user = '" + mainID + "';");
+        //    string queryUserPassword_GET = string.Format("SELECT user_password FROM Users WHERE id_user = '" + mainID + "'; ");
+        //    string queryTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "'; ");
+        //    string queryCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + mainID + "'; ");
+        //    //string queryRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_ROOMS WHERE userID = '" + mainID + "';");
+        //
+        //    textBox_last_name.Text = dataBase.GetResult(queryLastName_GET);
+        //    textBox_name.Text = dataBase.GetResult(queryName_GET);
+        //    textBox_middle_name.Text = dataBase.GetResult(queryMiddleName_GET);
+        //    textBox_position.Text = dataBase.GetResult(queryPosition_GET);
+        //    textBox_phone.Text = dataBase.GetResult(queryPhone_GET);
+        //    textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
+        //    //passBox_user_password.Password = dataBase.GetResult(queryUserPassword_GET);
+        //    comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
+        //    comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
+        //    
+        //    comboBox_type_of_account.IsEnabled = false;
+        //    comboBox_category_executors.IsEnabled = false;
+        //    
+        //}
+        //#endregion
+        //
+        //#region Вторичные данные 
+        //private void GetDataToViewAndChange_Secondary()
+        //{
+        //    string queryLastName_GET = string.Format("SELECT last_name FROM Users WHERE id_user = '" + secondaryID + "';");
+        //    string queryName_GET = string.Format("SELECT name FROM Users WHERE id_user = '" + secondaryID + "';");
+        //    string queryMiddleName_GET = string.Format("SELECT middle_name FROM Users WHERE id_user = '" + secondaryID + "';");
+        //    string queryPosition_GET = string.Format("SELECT position FROM Users WHERE id_user = '" + secondaryID + "';");
+        //    string queryPhone_GET = string.Format("SELECT phone FROM Users WHERE id_user = '" + secondaryID + "';");
+        //    string queryUserLogin_GET = string.Format("SELECT user_login FROM Users WHERE id_user = '" + secondaryID + "';");
+        //    string queryUserPassword_GET = string.Format("SELECT user_password FROM Users WHERE id_user = '" + secondaryID + "'; ");
+        //    string queryTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + secondaryID + "'; ");
+        //    string queryCategoryExecutors_GET = string.Format("SELECT category_executors FROM Users WHERE id_user = '" + secondaryID + "'; ");
+        //    string queryRoomNumber_GET = string.Format("SELECT roomNUMBER FROM U_RD_ROOMS WHERE userID = '" + secondaryID + "';");
+        //
+        //    //label1.Text = "Проверка на добавление: " + queryLastName_GET;
+        //    textBox_last_name.Text = dataBase.GetResult(queryLastName_GET);
+        //    textBox_name.Text = dataBase.GetResult(queryName_GET);
+        //
+        //    if (dataBase.Check(queryMiddleName_GET, Convert.ToString(secondaryID)) == true)
+        //    {
+        //        textBox_middle_name.Text = dataBase.GetResult(queryMiddleName_GET);
+        //    }
+        //    else
+        //    {
+        //        textBox_middle_name.Text = string.Empty;
+        //    }
+        //
+        //    textBox_position.Text = dataBase.GetResult(queryPosition_GET);
+        //    textBox_phone.Text = dataBase.GetResult(queryPhone_GET);
+        //    textBox_user_login.Text = dataBase.GetResult(queryUserLogin_GET);
+        //    //passBox_user_password.Password = dataBase.GetResult(queryUserPassword_GET);
+        //    comboBox_type_of_account.Text = dataBase.GetResult(queryTypeOfAccount_GET);
+        //
+        //    if (dataBase.Check(queryCategoryExecutors_GET, Convert.ToString(secondaryID)) == true)
+        //    {
+        //        comboBox_category_executors.Text = dataBase.GetResult(queryCategoryExecutors_GET);
+        //    }
+        //    else
+        //    {
+        //        comboBox_category_executors.Text = string.Empty;
+        //    }
+        //
+        //    if (dataBase.Check(queryRoomNumber_GET, Convert.ToString(secondaryID)) == true)
+        //    {
+        //        comboBox_room_number.Text = dataBase.GetResult(queryRoomNumber_GET);
+        //    }
+        //    else
+        //    {
+        //        comboBox_room_number.Text = string.Empty;
+        //    }
+        //}
+        //#endregion
         /*
         private void GetDataToViewAndChange_Main()
         {
@@ -773,7 +778,7 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
         }
 
     }*/
-       //#endregion
+        //#endregion
 
 
         //#region Выбор типа аккаунта
@@ -782,114 +787,114 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
         /// </summary>
         /// 
 
-/*
-        private void comboBox_type_of_account_Selected(object sender, RoutedEventArgs e)
-        {
-            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
-            
-            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
-            {
-                if (usersAction == "Создать")
+        /*
+                private void comboBox_type_of_account_Selected(object sender, RoutedEventArgs e)
                 {
-                    if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
+                    string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+
+                    if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
                     {
-                        //label_category_executors.Visible = true;
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = true;
+                        if (usersAction == "Создать")
+                        {
+                            if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
+                            {
+                                //label_category_executors.Visible = true;
+                                comboBox_category_executors.Visibility = Visibility.Visible;
+                                comboBox_category_executors.IsEnabled = true;
+                            }
+                            else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
+                            {
+                                //label_room_number.Visible = true;
+                                comboBox_room_number.Visibility = Visibility.Visible;
+                                comboBox_room_number.IsEnabled = true;
+                            }
+                            else
+                            {
+                                //label_category_executors.Visible = false;
+                                //label_room_number.Visible = false;
+                                comboBox_category_executors.Visibility = Visibility.Collapsed;
+                                comboBox_category_executors.IsEnabled = false;
+                                comboBox_room_number.Visibility = Visibility.Collapsed;
+                                comboBox_room_number.IsEnabled = false;
+                            }
+                        }
+                        else if (usersAction == "Просмотреть")
+                        {
+                            if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
+                            {
+                                //label_category_executors.Visible = true;
+                                comboBox_category_executors.Visibility = Visibility.Visible;
+                                comboBox_category_executors.IsEnabled = false;
+                            }
+                            else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
+                            {
+                                //label_room_number.Visible = true;
+                                comboBox_room_number.Visibility = Visibility.Visible;
+                                comboBox_room_number.IsEnabled = false;
+                            }
+                            else
+                            {
+                                //label_category_executors.Visible = false;
+                                //label_room_number.Visible = false;
+                                comboBox_category_executors.Visibility = Visibility.Collapsed;
+                                comboBox_category_executors.IsEnabled = false;
+                                comboBox_room_number.Visibility = Visibility.Collapsed;
+                                comboBox_room_number.IsEnabled = false;
+                            }
+                        }
+                        else if (usersAction == "Редактировать")
+                        {
+                            if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
+                            {
+                                //label_category_executors.Visible = true;
+                                comboBox_category_executors.Visibility = Visibility.Visible;
+                                comboBox_category_executors.IsEnabled = true;
+                            }
+                            else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
+                            {
+                                //label_room_number.Visible = true;
+                                comboBox_room_number.Visibility = Visibility.Visible;
+                                comboBox_room_number.IsEnabled = true;
+                            }
+                            else
+                            {
+                                //label_category_executors.Visible = false;
+                                //label_room_number.Visible = false;
+                                comboBox_category_executors.Visibility = Visibility.Collapsed;
+                                comboBox_category_executors.IsEnabled = false;
+                                comboBox_room_number.Visibility = Visibility.Collapsed;
+                                comboBox_room_number.IsEnabled = false;
+                            }
+                        }
                     }
-                    else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
-                    {
-                        //label_room_number.Visible = true;
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = true;
-                    }
-                    else
-                    {
-                        //label_category_executors.Visible = false;
-                        //label_room_number.Visible = false;
-                        comboBox_category_executors.Visibility = Visibility.Collapsed;
-                        comboBox_category_executors.IsEnabled = false;
-                        comboBox_room_number.Visibility = Visibility.Collapsed;
-                        comboBox_room_number.IsEnabled = false;
-                    }
+                        else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+                        {
+                            if (usersAction == "Просмотреть")
+                            {
+                                comboBox_category_executors.Visibility = Visibility.Visible;
+                                comboBox_category_executors.IsEnabled = false;
+                            }
+                            else if (usersAction == "Редактировать")
+                            {
+                                comboBox_category_executors.Visibility = Visibility.Visible;
+                                comboBox_category_executors.IsEnabled = false;
+                            }
+                        }
+                        else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+                        {
+                            if (usersAction == "Просмотреть")
+                            {
+                                comboBox_room_number.Visibility = Visibility.Visible;
+                                comboBox_room_number.IsEnabled = false;
+                            }
+                            else if (usersAction == "Редактировать")
+                            {
+                                comboBox_room_number.Visibility = Visibility.Visible;
+                                comboBox_room_number.IsEnabled = false;
+                            }
+                        }
                 }
-                else if (usersAction == "Просмотреть")
-                {
-                    if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
-                    {
-                        //label_category_executors.Visible = true;
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = false;
-                    }
-                    else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
-                    {
-                        //label_room_number.Visible = true;
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-                    else
-                    {
-                        //label_category_executors.Visible = false;
-                        //label_room_number.Visible = false;
-                        comboBox_category_executors.Visibility = Visibility.Collapsed;
-                        comboBox_category_executors.IsEnabled = false;
-                        comboBox_room_number.Visibility = Visibility.Collapsed;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-                }
-                else if (usersAction == "Редактировать")
-                {
-                    if (Convert.ToString(comboBox_type_of_account.Text) == "Исполнитель")
-                    {
-                        //label_category_executors.Visible = true;
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = true;
-                    }
-                    else if (Convert.ToString(comboBox_type_of_account.Text) == "Заказчик")
-                    {
-                        //label_room_number.Visible = true;
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = true;
-                    }
-                    else
-                    {
-                        //label_category_executors.Visible = false;
-                        //label_room_number.Visible = false;
-                        comboBox_category_executors.Visibility = Visibility.Collapsed;
-                        comboBox_category_executors.IsEnabled = false;
-                        comboBox_room_number.Visibility = Visibility.Collapsed;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-                }
-            }
-                else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
-                {
-                    if (usersAction == "Просмотреть")
-                    {
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = false;
-                    }
-                    else if (usersAction == "Редактировать")
-                    {
-                        comboBox_category_executors.Visibility = Visibility.Visible;
-                        comboBox_category_executors.IsEnabled = false;
-                    }
-                }
-                else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
-                {
-                    if (usersAction == "Просмотреть")
-                    {
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-                    else if (usersAction == "Редактировать")
-                    {
-                        comboBox_room_number.Visibility = Visibility.Visible;
-                        comboBox_room_number.IsEnabled = false;
-                    }
-                }
-        }
-*/
+        */
         //private void adm_Selected(object sender, RoutedEventArgs e)
         //{
         //    if (usersAction == "Создать")
@@ -994,10 +999,7 @@ namespace RequestForRepairWPF.Views.Windows.UserAccount
         //    }
         //}
 
-        private void btn_Edit_Click(object sender, RoutedEventArgs e)
-        {
-            this.btn_Edit.IsEnabled = !this.btn_Edit.IsEnabled;
-        }
+
 
 
 

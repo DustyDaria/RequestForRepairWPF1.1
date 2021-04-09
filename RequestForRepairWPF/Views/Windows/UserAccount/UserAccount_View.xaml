@@ -14,6 +14,7 @@
         xmlns:ld="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Loaded"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
+        
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="20"

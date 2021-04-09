@@ -40,21 +40,21 @@ namespace RequestForRepairWPF
             this.mainID = mainID;
 
             db.Users.Load(); // загружаем данные
-            var query = from c in db.Users
-                        where c.type_of_account == "Исполнитель"
-                        select new 
-                        {
-                            c.id_user,
-                            c.user_login,
-                            c.last_name,
-                            c.name,
-                            c.middle_name,
-                            c.position,
-                            c.category_executors,
-                            c.phone
-                        };
-            
-            DataGrid_Executors.ItemsSource = query.ToList();
+            //var query = from c in db.Users
+            //            where c.type_of_account == "Исполнитель"
+            //            select new 
+            //            {
+            //                c.id_user,
+            //                c.user_login,
+            //                c.last_name,
+            //                c.name,
+            //                c.middle_name,
+            //                c.position,
+            //                c.category_executors,
+            //                c.phone
+            //            };
+            //
+            //DataGrid_Executors.ItemsSource = query.ToList();
 
             // НУЖНЫ ДАННЫЕ В КОМБО-БОКСАХ
             /*foreach (var _user in query)
@@ -300,146 +300,146 @@ namespace RequestForRepairWPF
             {
                 var data = Convert.ToInt32(stringReaderBox);
                 
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.id_user == data
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+                //var query = from u in db.Users
+                //            where u.type_of_account == "Исполнитель" && u.id_user == data
+                //            select new
+                //            {
+                //                u.id_user,
+                //                u.user_login,
+                //                u.last_name,
+                //                u.name,
+                //                u.middle_name,
+                //                u.position,
+                //                u.category_executors,
+                //                u.phone
+                //            };
+                //DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Логин")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.user_login == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-               DataGrid_Executors.ItemsSource = query.ToList();
+              //  var query = from u in db.Users
+              //              where u.type_of_account == "Исполнитель" && u.user_login == stringReaderBox
+              //              select new
+              //              {
+              //                  u.id_user,
+              //                  u.user_login,
+              //                  u.last_name,
+              //                  u.name,
+              //                  u.middle_name,
+              //                  u.position,
+              //                  u.type_of_account,
+              //                  u.category_executors,
+              //                  u.phone
+              //              };
+              // DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Фамилия")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.last_name == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+               // var query = from u in db.Users
+               //             where u.type_of_account == "Исполнитель" && u.last_name == stringReaderBox
+               //             select new
+               //             {
+               //                 u.id_user,
+               //                 u.user_login,
+               //                 u.last_name,
+               //                 u.name,
+               //                 u.middle_name,
+               //                 u.position,
+               //                 u.type_of_account,
+               //                 u.category_executors,
+               //                 u.phone
+               //             };
+               // DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Имя")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.name == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+               // var query = from u in db.Users
+               //             where u.type_of_account == "Исполнитель" && u.name == stringReaderBox
+               //             select new
+               //             {
+               //                 u.id_user,
+               //                 u.user_login,
+               //                 u.last_name,
+               //                 u.name,
+               //                 u.middle_name,
+               //                 u.position,
+               //                 u.type_of_account,
+               //                 u.category_executors,
+               //                 u.phone
+               //             };
+               // DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Отчество")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.middle_name == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+              //  var query = from u in db.Users
+              //              where u.type_of_account == "Исполнитель" && u.middle_name == stringReaderBox
+              //              select new
+              //              {
+              //                  u.id_user,
+              //                  u.user_login,
+              //                  u.last_name,
+              //                  u.name,
+              //                  u.middle_name,
+              //                  u.position,
+              //                  u.type_of_account,
+              //                  u.category_executors,
+              //                  u.phone
+              //              };
+              //  DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Должность")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.position == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+              //  var query = from u in db.Users
+              //              where u.type_of_account == "Исполнитель" && u.position == stringReaderBox
+              //              select new
+              //              {
+              //                  u.id_user,
+              //                  u.user_login,
+              //                  u.last_name,
+              //                  u.name,
+              //                  u.middle_name,
+              //                  u.position,
+              //                  u.type_of_account,
+              //                  u.category_executors,
+              //                  u.phone
+              //              };
+              //  DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Категория исполнителя")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.category_executors == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+              //  var query = from u in db.Users
+              //              where u.type_of_account == "Исполнитель" && u.category_executors == stringReaderBox
+              //              select new
+              //              {
+              //                  u.id_user,
+              //                  u.user_login,
+              //                  u.last_name,
+              //                  u.name,
+              //                  u.middle_name,
+              //                  u.position,
+              //                  u.type_of_account,
+              //                  u.category_executors,
+              //                  u.phone
+              //              };
+              //  DataGrid_Executors.ItemsSource = query.ToList();
             }
             else if (typeSearch == "Телефон")
             {
-                var query = from u in db.Users
-                            where u.type_of_account == "Исполнитель" && u.phone == stringReaderBox
-                            select new
-                            {
-                                u.id_user,
-                                u.user_login,
-                                u.last_name,
-                                u.name,
-                                u.middle_name,
-                                u.position,
-                                u.type_of_account,
-                                u.category_executors,
-                                u.phone
-                            };
-                DataGrid_Executors.ItemsSource = query.ToList();
+              //  var query = from u in db.Users
+              //              where u.type_of_account == "Исполнитель" && u.phone == stringReaderBox
+              //              select new
+              //              {
+              //                  u.id_user,
+              //                  u.user_login,
+              //                  u.last_name,
+              //                  u.name,
+              //                  u.middle_name,
+              //                  u.position,
+              //                  u.type_of_account,
+              //                  u.category_executors,
+              //                  u.phone
+              //              };
+              //  DataGrid_Executors.ItemsSource = query.ToList();
             }
             else
             {
@@ -458,21 +458,21 @@ namespace RequestForRepairWPF
             textBox_DataForSearch.Text = string.Empty;
 
             DataGrid_Executors.ItemsSource = null;
-            var query = from c in db.Users
-                        where c.type_of_account == "Исполнитель"
-                        select new
-                        {
-                            c.id_user,
-                            c.user_login,
-                            c.last_name,
-                            c.name,
-                            c.middle_name,
-                            c.position,
-                            c.category_executors,
-                            c.phone
-                        };
+            //var query = from c in db.Users
+            //           where c.type_of_account == "Исполнитель"
+            //           select new
+            //           {
+            //               c.id_user,
+            //               c.user_login,
+            //               c.last_name,
+            //               c.name,
+            //               c.middle_name,
+            //               c.position,
+            //               c.category_executors,
+            //               c.phone
+            //           };
 
-            DataGrid_Executors.ItemsSource = query.ToList();
+           // DataGrid_Executors.ItemsSource = query.ToList();
         }
         #endregion
     }

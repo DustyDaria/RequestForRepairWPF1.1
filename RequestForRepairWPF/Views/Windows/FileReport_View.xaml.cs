@@ -97,7 +97,7 @@ namespace RequestForRepairWPF.Views.Windows
             //MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
             Authorization_View authorization = new Authorization_View();
             this.Close();
-            authorization.Show();
+            //authorization.Show();
         }
         #endregion
 

@@ -142,6 +142,7 @@
     <Compile Include="Infrastructure\Commands\Controls\Menu\MenuLoad_Command.cs" />
     <Compile Include="Infrastructure\Commands\GoBack.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
+    <Compile Include="Infrastructure\Commands\LogOut.cs" />
     <Compile Include="Models\Windows\UserAccount\UsersData_Model.cs" />
     <Compile Include="Models\Windows\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />

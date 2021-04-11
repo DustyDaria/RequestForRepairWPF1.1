@@ -31,6 +31,7 @@
 
     <Window.Resources>
         <cmd:GoBack x:Key="GoBack"/>
+        <cmd:LogOut x:Key="LogOut"/>
     </Window.Resources>
     
     <Grid>
@@ -75,6 +76,7 @@
                         <Button
                             x:Name="btn_Logout" 
                             Margin="5"
+                            Command="{StaticResource LogOut}"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             Background="{x:Null}" 

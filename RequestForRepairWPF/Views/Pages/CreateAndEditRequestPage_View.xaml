@@ -127,56 +127,48 @@
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_OnModeration"
-                                Checked="radioButton_OnModeration_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="На модерации"/>
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_ModerationIsNotPassed"
-                                    Checked="radioButton_ModerationIsNotPassed_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="Модерация не пройдена"/>
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_Waiting"
-                                    Checked="radioButton_Waiting_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="Ждет выполнения" />
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_WorkIsCompleted"
-                                    Checked="radioButton_WorkIsCompleted_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="Работа выполнена" />
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_AcceptedForWork"
-                                    Checked="radioButton_AcceptedForWork_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="Принято в работу" />
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_ReturnToWork"
-                                    Checked="radioButton_ReturnToWork_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="Возврат в работу" />
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest"
                                 x:Name="radioButton_Finished"
-                                    Checked="radioButton_Finished_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="Завершено" />
                         <RadioButton
                                 Margin="5"
                                 GroupName="statusRequest" 
                                 x:Name="radioButton_InTheArchive"
-                                    Checked="radioButton_InTheArchive_Checked"
                               Style="{StaticResource MaterialDesignAccentRadioButton}"
                               Content="В архиве" />
 
@@ -255,7 +247,6 @@
 
                 <Button
                     x:Name="btn_Save"
-                            Click="btn_Save_Click"
                     FontSize="20"
                     Height="70"
                     Width="200"
@@ -273,7 +264,6 @@
 
                 <Button
                     x:Name="btn_Cancel"
-                            Click="btn_Cancel_Click"
                     FontSize="20"
                     Height="70"
                     Width="200"

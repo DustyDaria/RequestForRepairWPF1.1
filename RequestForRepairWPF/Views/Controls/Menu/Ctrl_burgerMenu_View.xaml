@@ -9,11 +9,18 @@
              xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Controls.Menu" 
              xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
              xmlns:services="clr-namespace:RequestForRepairWPF.Services"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d">
 
     <UserControl.DataContext>
         <vm:Ctrl_burgerMenu_ViewModel/>
     </UserControl.DataContext>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=MenuLoad_Command}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <UserControl.Resources>
 
@@ -73,13 +80,12 @@
                         x:Name="btn_CloseMenu"
                         Width="70" 
                         Height="70" 
+                    Click="btn_CloseMenu_Click"
                         Background="{x:Null}" 
                         BorderBrush="{x:Null}" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Right"
-                        Visibility="{Binding Path=menuVisibility_Close, Mode=TwoWay,
-                    Converter={StaticResource BooleanToVisibility}}"
-                        Command="{Binding Path=btn_CloseMenu_Click}">
+                    Visibility="Collapsed">
                     <materialDesign:PackIcon 
                             Foreground="#000000"
                             Kind="ArrowLeft"
@@ -90,13 +96,11 @@
                         x:Name="btn_OpenMenu"
                         Width="70" 
                         Height="70" 
+                    Click="btn_OpenMenu_Click"
                         Background="{x:Null}" 
                         BorderBrush="{x:Null}" 
                         VerticalAlignment="Top" 
-                        HorizontalAlignment="Right"
-                    Visibility="{Binding Path=menuVisibility_Open, Mode=TwoWay,
-                    Converter={StaticResource BooleanToVisibility}}"
-                        Command="{Binding Path=btn_OpenMenu_Click}">
+                        HorizontalAlignment="Right">
                     <materialDesign:PackIcon 
                             Foreground="#000000"
                             Kind="Menu"
@@ -105,10 +109,10 @@
                 </Button>
             </Grid>
             <ListView 
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Auto"
                     Foreground="#ffc246"
-                    FontSize="16">
+                    FontSize="16"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListViewItem 
                         x:Name="list_AllUsers"
                         

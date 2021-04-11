@@ -62,7 +62,16 @@ namespace RequestForRepairWPF.Views.Controls.Menu
             InitializeComponent();
         }
 
+        private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btn_OpenMenu.Visibility = Visibility.Visible;
+            btn_CloseMenu.Visibility = Visibility.Collapsed;
+        }
 
-
+        private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            btn_OpenMenu.Visibility = Visibility.Collapsed;
+            btn_CloseMenu.Visibility = Visibility.Visible;
+        }
     }
 }

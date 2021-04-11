@@ -139,9 +139,8 @@
     </Compile>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
+    <Compile Include="Infrastructure\Commands\Controls\Menu\MenuLoad_Command.cs" />
     <Compile Include="Infrastructure\Commands\GoBack.cs" />
-    <Compile Include="Infrastructure\Commands\Loaded\UserAccount_Command.cs" />
-    <Compile Include="Infrastructure\Commands\Controls\Menu\MenuListViewItem_Command.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
     <Compile Include="Models\Windows\UserAccount\UsersData_Model.cs" />
     <Compile Include="Models\Windows\AllUsers_Model.cs" />
@@ -376,6 +375,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Infrastructure\Loaded\" />
     <Folder Include="ViewModels\Pages\" />
     <Folder Include="Views\Controls\Header\" />
   </ItemGroup>

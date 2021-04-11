@@ -165,7 +165,6 @@
                         Margin="15 10 15 10"
                         Grid.Row="2"
                         Grid.Column="1"
-                            Click="btn_Search_Click"
                         Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                         ToolTip="MaterialDesignFloatingActionAccentButton">
                         <materialDesign:PackIcon
@@ -179,7 +178,6 @@
                         Margin="15 10 15 10"
                         Grid.Row="2"
                         Grid.Column="0"
-                            Click="btn_UpdateData_Click"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                         <materialDesign:PackIcon

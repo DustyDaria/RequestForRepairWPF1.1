@@ -247,7 +247,6 @@
 
                 <Button
                     x:Name="btn_Save"
-                        Click="btn_Save_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -264,7 +263,6 @@
 
                 <Button
                     x:Name="btn_Cancel"
-                        Click="btn_Cancel_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"
@@ -281,7 +279,6 @@
 
                 <Button
                     x:Name="btn_Edit"
-                        Click="btn_Edit_Click"
                     FontSize="18"
                     Height="auto"
                     Width="auto"

@@ -34,7 +34,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => LogIn();
 
-        public void LogIn()
+        private void LogIn()
         {
             _email = _viewModel.UserEmail;
             _password = _viewModel.UserPassword;
@@ -53,65 +53,56 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
 
                 if(_model.CheckUserPass == _password && _model.CheckUserType == "Системный администратор")
                 {
-                    //_viewModel.Authorization_userID = _model.ID;
-                    //_viewModel.UserType = _model.CheckUserType;
-                    //_viewModel.UserLastName = _model.LastName;
-                    //_viewModel.UserName = _model.Name;
-                    //_viewModel.UserMiddleName = _model.MiddleName;
-                    //_viewModel.UserPosition = _model.Position;
-                    //_viewModel.UserPhone = _model.Phone;
-                    //_viewModel.UserCategoryExecutors = _model.CategoryExecutors;
-
-                    _id = _model.ID;
-                    _typeOfAccount = _model.CheckUserType;
-                    _lastName = _model.LastName;
-                    _name = _model.Name;
-                    _middleName = _model.MiddleName;
-                    _position = _model.Position;
-                    _phone = _model.Phone;
-                    _categoryExecutors = _model.CategoryExecutors;
+                    AddUserDataToModel(_model);
 
                     PageManager.MainFrame.Navigate(new UserAccountPage_View());
 
-                    _viewModel.UserEmail = _model.User_Login;
-                    _viewModel.UserPassword = _model.User_Password;
-                    _viewModel.Authorization_userID = _model.User_ID;
-                    _viewModel.UserType = _model.User_TypeOfAccount;
-                    _viewModel.UserLastName = _model.User_LastName;
-                    _viewModel.UserName = _model.User_LastName;
-                    _viewModel.UserMiddleName = _model.User_MiddleName;
-                    _viewModel.UserPosition = _model.User_Position;
-                    _viewModel.UserPhone = _model.User_Phone;
-                    _viewModel.UserCategoryExecutors = _model.User_CategoryExecutors;
+                    AddUserDataToViewModel(_model);
 
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == "Заказчик")
                 {
-                
-                    _viewModel.Authorization_userID = _model.ID;
-                    //userAccount_ViewModel.Authorization_userID = _model.UserID;
-                    CustomerUserAccount_View customerUserAccount_View = new CustomerUserAccount_View(_model.ID, "Просмотреть", 0);
-                    Authorization_View authorization_View = new Authorization_View();
-                    customerUserAccount_View.Show();
-                    //authorization_View.Close();
+                    AddUserDataToModel(_model);
 
+                    PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
+
+                    AddUserDataToViewModel(_model);
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == "Исполнитель")
                 {
-                    _viewModel.Authorization_userID = _model.ID;
-                    //userAccount_ViewModel.Authorization_userID = _model.UserID;
-                    _viewModel.UserType = _model.CheckUserType;
-                    UserAccount_View userAccount_View = new UserAccount_View();
-                    Authorization_View authorization_View = new Authorization_View();
-                    //userAccount_ViewModel.Authorization_userID = _model.UserID;
-                    userAccount_View.Show();
-                    //authorization_View.Close();
+                    AddUserDataToModel(_model);
 
+                    PageManager.MainFrame.Navigate(new UserAccountPage_View());
 
-
-                    //_openExecutorsView = new OpenUserAccountViewCommand(_viewModel);
+                    AddUserDataToViewModel(_model);
                 }
             }
+        }
+
+        private void AddUserDataToModel(UsersData_Model model)
+        {
+            _id = model.ID;
+            _typeOfAccount = model.CheckUserType;
+            _lastName = model.LastName;
+            _name = model.Name;
+            _middleName = model.MiddleName;
+            _position = model.Position;
+            _phone = model.Phone;
+            _categoryExecutors = model.CategoryExecutors;
+        }
+
+        private void AddUserDataToViewModel(UsersData_Model model)
+        {
+            _viewModel.UserEmail = model.User_Login;
+            _viewModel.UserPassword = model.User_Password;
+            _viewModel.Authorization_userID = model.User_ID;
+            _viewModel.UserType = model.User_TypeOfAccount;
+            _viewModel.UserLastName = model.User_LastName;
+            _viewModel.UserName = model.User_LastName;
+            _viewModel.UserMiddleName = model.User_MiddleName;
+            _viewModel.UserPosition = model.User_Position;
+            _viewModel.UserPhone = model.User_Phone;
+            _viewModel.UserCategoryExecutors = model.User_CategoryExecutors;
         }
     }
 

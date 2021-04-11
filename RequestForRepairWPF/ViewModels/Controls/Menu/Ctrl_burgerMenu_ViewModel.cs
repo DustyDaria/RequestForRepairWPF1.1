@@ -19,22 +19,21 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         //private string _userTypeOfAccount;
         private int _id;
         Ctrl_burgerMenu_Model menu_Model = new Ctrl_burgerMenu_Model();
-        string _userTypeOfAccount;
+        
+
+        #region Команда на загрузкку элементов меню
+        public ICommand MenuLoad_Command { get; }
+        public Ctrl_burgerMenu_ViewModel()
+        {
+            MenuLoad_Command = new MenuLoad_Command(this);
+        }
+        #endregion
+
+        private static string _userTypeOfAccount;
         public string userTypeOfAccount
         {
-            get
-            {
-                //Authorization_View _authorization = new Authorization_View();
-                //Authorization_ViewModel _authorization = new Authorization_ViewModel();
-                //_id = _authorization._authorizationUser.id_user;
-
-                /// _authorization.Authorization_userID !!! не получаю id 
-
-                //menu_Model.UserType = Convert.ToString(_authorization.Authorization_userID);
-                _userTypeOfAccount = menu_Model.UserType;
-        
-                return menuItem(_userTypeOfAccount);
-            }
+            get => _userTypeOfAccount;
+            set => Set(ref _userTypeOfAccount, value);
         }
 
         private string menuItem(string _userTypeOfAccount)
@@ -103,136 +102,88 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         #region Инициализация элементов меню
         /// <summary> Инициализация элементов меню </summary>
 
-        bool _listVisibility_AllUsers = false;
+        private static bool _listVisibility_AllUsers;
         public bool listVisibility_AllUsers
         {
             get => _listVisibility_AllUsers;
-            set
-            {
-                _listVisibility_AllUsers = value;
-                OnPropertyChanged("listVisibility_AllUsers");
-            }
+            set => Set(ref _listVisibility_AllUsers, value);
         }
 
-        bool _listVisibility_Customers = false;
+        private static bool _listVisibility_Customers;
         public bool listVisibility_Customers
         {
             get => _listVisibility_Customers;
-            set
-            {
-                _listVisibility_Customers = value;
-                OnPropertyChanged("listVisibility_Customers");
-            }
+            set => Set(ref _listVisibility_Customers, value);
         }
 
-        bool _listVisibility_Executors = false;
+        private static bool _listVisibility_Executors;
         public bool listVisibility_Executors
         {
             get => _listVisibility_Executors;
-            set
-            {
-                _listVisibility_Executors = value;
-                OnPropertyChanged("listVisibility_Executors");
-            }
+            set => Set(ref _listVisibility_Executors, value);
         }
 
-        bool _listVisibility_RegisterNewUser = false;
+        private static bool _listVisibility_RegisterNewUser;
         public bool listVisibility_RegisterNewUser
         {
             get => _listVisibility_RegisterNewUser;
-            set
-            {
-                _listVisibility_RegisterNewUser = value;
-                OnPropertyChanged("listVisibility_RegisterNewUser");
-            }
+            set => Set(ref _listVisibility_RegisterNewUser, value);
         }
 
-        bool _listVisibility_EditUserAccount = false;
+        private static bool _listVisibility_EditUserAccount;
         public bool listVisibility_EditUserAccount
         {
             get => _listVisibility_EditUserAccount;
-            set
-            {
-                _listVisibility_EditUserAccount = value;
-                OnPropertyChanged("listVisibility_EditUserAccount");
-            }
+            set => Set(ref _listVisibility_EditUserAccount, value);
         }
 
-        bool _listVisibility_DescriptionRoom = false;
+        private static bool _listVisibility_DescriptionRoom;
         public bool listVisibility_DescriptionRoom
         {
             get => _listVisibility_DescriptionRoom;
-            set
-            {
-                _listVisibility_DescriptionRoom = value;
-                OnPropertyChanged("listVisibility_DescriptionRoom");
-            }
+            set => Set(ref _listVisibility_DescriptionRoom, value);
         }
 
-        bool _listVisibility_CreateRequest = false;
+        private static bool _listVisibility_CreateRequest;
         public bool listVisibility_CreateRequest
         {
             get => _listVisibility_CreateRequest;
-            set
-            {
-                _listVisibility_CreateRequest = value;
-                OnPropertyChanged("listVisibility_CreateRequest");
-            }
+            set => Set(ref _listVisibility_CreateRequest, value);
         }
 
-        bool _listVisibility_WatchRequest = false;
+        private static bool _listVisibility_WatchRequest;
         public bool listVisibility_WatchRequest
         {
             get => _listVisibility_WatchRequest;
-            set
-            {
-                _listVisibility_WatchRequest = value;
-                OnPropertyChanged("listVisibility_WatchRequest");
-            }
+            set => Set(ref _listVisibility_WatchRequest, value);
         }
 
-        bool _listVisibility_WatchArchiveRequest = false;
+        private static bool _listVisibility_WatchArchiveRequest;
         public bool listVisibility_WatchArchiveRequest
         {
             get => _listVisibility_WatchArchiveRequest;
-            set
-            {
-                _listVisibility_WatchArchiveRequest = value;
-                OnPropertyChanged("listVisibility_WatchArchiveRequest");
-            }
+            set => Set(ref _listVisibility_WatchArchiveRequest, value);
         }
 
-        bool _listVisibility_MyRequest = false;
+        private static bool _listVisibility_MyRequest;
         public bool listVisibility_MyRequest
         {
             get => _listVisibility_MyRequest;
-            set
-            {
-                _listVisibility_MyRequest = value;
-                OnPropertyChanged("listVisibility_MyRequest");
-            }
+            set => Set(ref _listVisibility_MyRequest, value);
         }
 
-        bool _listVisibility_MyArchiveRequest = false;
+        private static bool _listVisibility_MyArchiveRequest;
         public bool listVisibility_MyArchiveRequest
         {
             get => _listVisibility_MyArchiveRequest;
-            set
-            {
-                _listVisibility_MyArchiveRequest = value;
-                OnPropertyChanged("listVisibility_MyArchiveRequest");
-            }
+            set => Set(ref _listVisibility_MyArchiveRequest, value);
         }
 
-        bool _listVisibility_FileReport = false;
+        private static bool _listVisibility_FileReport;
         public bool listVisibility_FileReport
         {
             get => _listVisibility_FileReport;
-            set
-            {
-                _listVisibility_FileReport = value;
-                OnPropertyChanged("listVisibility_FileReport");
-            }
+            set => Set(ref _listVisibility_FileReport, value);
         }
 
         #endregion
@@ -241,55 +192,55 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         #region Команды на обработку нажатия по элементам меню
         /// <summary> Команды на обработку нажатия по элементам меню </summary>
 
-        #region Открыть/закрыть меню
-
-        #region btn_CloseMenu_Click
-        public ICommand btn_CloseMenu_Click { get; }
-        private bool Canbtn_CloseMenu_ClickExecute(object p) => true;
-        private void Onbtn_CloseMenu_ClickExecuted(object p)
-        {
-            // тело команды
-            menuVisibility_Close = false;
-            menuVisibility_Open = true;
-        }
-        #endregion
-
-        #region btn_OpenMenu_Click
-        public ICommand btn_OpenMenu_Click { get; }
-        private bool Canbtn_OpenMenu_ClickExecute(object p) => true;
-        private void Onbtn_OpenMenu_ClickExecuted(object p)
-        {
-            menuVisibility_Close = true;
-            menuVisibility_Open = false;
-        }
-        #endregion
-
-        #region Изменение Visibility меню
-
-        bool _menuVisibility_Close = false;
-        public bool menuVisibility_Close
-        {
-            get => _menuVisibility_Close;
-            set
-            {
-                _menuVisibility_Close = value;
-                OnPropertyChanged("menuVisibility_Close");
-            }
-        }
-
-        bool _menuVisibility_Open = true;
-        public bool menuVisibility_Open
-        {
-            get => _menuVisibility_Open;
-            set
-            {
-                _menuVisibility_Open = value;
-                OnPropertyChanged("menuVisibility_Close");
-            }
-        }
-        #endregion
-
-        #endregion
+        //#region Открыть/закрыть меню
+        //
+        //#region btn_CloseMenu_Click
+        //public ICommand btn_CloseMenu_Click { get; }
+        //private bool Canbtn_CloseMenu_ClickExecute(object p) => true;
+        //private void Onbtn_CloseMenu_ClickExecuted(object p)
+        //{
+        //    // тело команды
+        //    menuVisibility_Close = false;
+        //    menuVisibility_Open = true;
+        //}
+        //#endregion
+        //
+        //#region btn_OpenMenu_Click
+        //public ICommand btn_OpenMenu_Click { get; }
+        //private bool Canbtn_OpenMenu_ClickExecute(object p) => true;
+        //private void Onbtn_OpenMenu_ClickExecuted(object p)
+        //{
+        //    menuVisibility_Close = true;
+        //    menuVisibility_Open = false;
+        //}
+        //#endregion
+        //
+        //#region Изменение Visibility меню
+        //
+        //bool _menuVisibility_Close = false;
+        //public bool menuVisibility_Close
+        //{
+        //    get => _menuVisibility_Close;
+        //    set
+        //    {
+        //        _menuVisibility_Close = value;
+        //        OnPropertyChanged("menuVisibility_Close");
+        //    }
+        //}
+        //
+        //bool _menuVisibility_Open = true;
+        //public bool menuVisibility_Open
+        //{
+        //    get => _menuVisibility_Open;
+        //    set
+        //    {
+        //        _menuVisibility_Open = value;
+        //        OnPropertyChanged("menuVisibility_Close");
+        //    }
+        //}
+        //#endregion
+        //
+        //#endregion
 
         #region Исполнители
 

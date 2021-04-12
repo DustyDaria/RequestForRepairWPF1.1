@@ -121,7 +121,7 @@
                         Height="Auto"
                         Padding="3">
                     <ListViewItem.InputBindings>
-                        <MouseBinding Command="{Binding Path=OpenExecutorsView}"
+                        <MouseBinding Command="{Binding Path=OpenAllUsersView}"
                                       CommandParameter="{Binding}"
                                       MouseAction="LeftClick"/>
                     </ListViewItem.InputBindings>
@@ -152,6 +152,11 @@
                     Converter={StaticResource BooleanToVisibilityConverter}}"
                         Height="auto"
                         Padding="3">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenCustomersView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -172,6 +177,11 @@
                     Converter={StaticResource BooleanToVisibilityConverter}}"
                         Height="auto"
                         Padding="3">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenExecutorsView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -192,6 +202,11 @@
                     Converter={StaticResource BooleanToVisibilityConverter}}"
                         Height="auto"
                         Padding="3">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenRegUserAccountView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -210,8 +225,13 @@
                         x:Name="list_EditUserAccount"
                         Height="auto"
                         Padding="3"
-                        Visibility="{Binding Path=listVisibility_EditUserAccount,
+                        Visibility="{Binding Path=OpenEditUserAccountView,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenEditUserAccountView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -232,6 +252,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_DescriptionRoom,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenDescriptionRoomView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -252,6 +277,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_CreateRequest,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenCreateRequestView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon 
                                 Margin="10"
@@ -271,6 +301,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_WatchRequest,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenWatchRequestView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -291,6 +326,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_WatchArchiveRequest,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenWatchArchiveRequestView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -311,6 +351,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_MyRequest,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenMyRequestView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -331,6 +376,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_MyArchiveRequest,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenMyArchiveRequestView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"
@@ -351,6 +401,11 @@
                         Padding="3"
                         Visibility="{Binding Path=listVisibility_FileReport,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <ListViewItem.InputBindings>
+                        <MouseBinding Command="{Binding Path=OpenFileReportView}"
+                                      CommandParameter="{Binding}"
+                                      MouseAction="LeftClick"/>
+                    </ListViewItem.InputBindings>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon  
                                 Margin="10"

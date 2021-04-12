@@ -28,7 +28,13 @@
                 x:Name="scroll"
                 CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible">
-
+            <TextBlock
+                    x:Name="label_Header"
+                    Margin="100,25,25,25"
+                    Text="Создание отчета"
+                    Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                    FontWeight="DemiBold">
+            </TextBlock>
         </ScrollViewer>
         
         <!-- Бургер-меню -->

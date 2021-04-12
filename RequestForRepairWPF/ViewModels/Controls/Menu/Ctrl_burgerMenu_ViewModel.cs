@@ -1,7 +1,10 @@
 ﻿using RequestForRepairWPF.Infrastructure.Commands.Controls.Menu;
 using RequestForRepairWPF.Models.Controls.Menu;
+using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Base;
 using RequestForRepairWPF.ViewModels.Windows;
+using RequestForRepairWPF.Views.Pages;
+using RequestForRepairWPF.Views.Pages.UserAccount;
 using RequestForRepairWPF.Views.Windows;
 using System;
 using System.Collections.Generic;
@@ -29,72 +32,72 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         }
         #endregion
 
-        private static string _userTypeOfAccount;
-        public string userTypeOfAccount
-        {
-            get => _userTypeOfAccount;
-            set => Set(ref _userTypeOfAccount, value);
-        }
-
-        private string menuItem(string _userTypeOfAccount)
-        {
-            if (_userTypeOfAccount == "Системный администратор")
-            {
-                _listVisibility_AllUsers = true;
-
-                _listVisibility_Customers = true;
-
-                _listVisibility_Executors = true;
-
-                _listVisibility_RegisterNewUser = true;
-
-                _listVisibility_EditUserAccount = true;
-
-                _listVisibility_WatchRequest = true;
-
-                _listVisibility_WatchArchiveRequest = true;
-
-                _listVisibility_MyRequest = true;
-
-                _listVisibility_MyArchiveRequest = true;
-
-                _listVisibility_FileReport = true;
-            }
-            else if (_userTypeOfAccount == "Заказчик")
-            {
-                _listVisibility_EditUserAccount = true;
-
-                _listVisibility_DescriptionRoom = true;
-
-                _listVisibility_CreateRequest = true;
-
-                _listVisibility_WatchRequest = true;
-
-                _listVisibility_WatchArchiveRequest = true;
-
-                _listVisibility_MyRequest = true;
-
-                _listVisibility_MyArchiveRequest = true;
-
-                _listVisibility_FileReport = true;
-            }
-            else if (_userTypeOfAccount == "Исполнитель")
-            {
-                _listVisibility_EditUserAccount = true;
-
-                _listVisibility_WatchRequest = true;
-
-                _listVisibility_WatchArchiveRequest = true;
-
-                _listVisibility_MyRequest = true;
-
-                _listVisibility_MyArchiveRequest = true;
-
-                _listVisibility_FileReport = true;
-            }
-
-            return _userTypeOfAccount;
-        }
+        //private static string _userTypeOfAccount;
+        //public string userTypeOfAccount
+        //{
+        //    get => _userTypeOfAccount;
+        //    set => Set(ref _userTypeOfAccount, value);
+        //}
+        //
+        //private string menuItem(string _userTypeOfAccount)
+        //{
+        //    if (_userTypeOfAccount == "Системный администратор")
+        //    {
+        //        _listVisibility_AllUsers = true;
+        //
+        //        _listVisibility_Customers = true;
+        //
+        //        _listVisibility_Executors = true;
+        //
+        //        _listVisibility_RegisterNewUser = true;
+        //
+        //        _listVisibility_EditUserAccount = true;
+        //
+        //        _listVisibility_WatchRequest = true;
+        //
+        //        _listVisibility_WatchArchiveRequest = true;
+        //
+        //        _listVisibility_MyRequest = true;
+        //
+        //        _listVisibility_MyArchiveRequest = true;
+        //
+        //        _listVisibility_FileReport = true;
+        //    }
+        //    else if (_userTypeOfAccount == "Заказчик")
+        //    {
+        //        _listVisibility_EditUserAccount = true;
+        //
+        //        _listVisibility_DescriptionRoom = true;
+        //
+        //        _listVisibility_CreateRequest = true;
+        //
+        //        _listVisibility_WatchRequest = true;
+        //
+        //        _listVisibility_WatchArchiveRequest = true;
+        //
+        //        _listVisibility_MyRequest = true;
+        //
+        //        _listVisibility_MyArchiveRequest = true;
+        //
+        //        _listVisibility_FileReport = true;
+        //    }
+        //    else if (_userTypeOfAccount == "Исполнитель")
+        //    {
+        //        _listVisibility_EditUserAccount = true;
+        //
+        //        _listVisibility_WatchRequest = true;
+        //
+        //        _listVisibility_WatchArchiveRequest = true;
+        //
+        //        _listVisibility_MyRequest = true;
+        //
+        //        _listVisibility_MyArchiveRequest = true;
+        //
+        //        _listVisibility_FileReport = true;
+        //    }
+        //
+        //    return _userTypeOfAccount;
+        //}
 
 
 
@@ -243,9 +246,7 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         //#endregion
 
         #region Исполнители
-
         private ICommand _openExecutorsView;
-
         public ICommand OpenExecutorsView
         {
             get
@@ -257,38 +258,264 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
                 return _openExecutorsView;
             }
         }
-
-        
-        
-
         #endregion
 
-        
+        #region Все пользователи 
+        private ICommand _openAllUsersView;
+        public ICommand OpenAllUsersView
+        {
+            get
+            {
+                if (_openAllUsersView == null)
+                {
+                    _openAllUsersView = new OpenAllUsersViewCommand(this);
+                }
+                return _openAllUsersView;
+            }
+        }
+        #endregion
+
+        #region Заказчики
+        private ICommand _openCustomersView;
+        public ICommand OpenCustomersView
+        {
+            get
+            {
+                if (_openCustomersView == null)
+                {
+                    _openCustomersView = new OpenCustomersViewCommand(this);
+                }
+                return _openCustomersView;
+            }
+        }
+        #endregion
+
+        #region Регистрация новых пользователей    НУЖНА ДОРАБОТКА ВЬЮХИ
+        private ICommand _openRegUserAccountView;
+        public ICommand OpenRegUserAccountView
+        {
+            get
+            {
+                if (_openRegUserAccountView == null)
+                {
+                    _openRegUserAccountView = new OpenRegUserAccountViewCommand(this);
+                }
+                return _openRegUserAccountView;
+            }
+        }
+        #endregion
+
+        #region Редактирование аккаунта пользователя    НУЖНА ДОРАБОТКА ВЬЮХИ
+        private ICommand _openEditUserAccountView;
+        public ICommand OpenEditUserAccountView
+        {
+            get
+            {
+                if (_openEditUserAccountView == null)
+                {
+                    _openEditUserAccountView = new OpenEditUserAccountViewCommand(this);
+                }
+                return _openEditUserAccountView;
+            }
+        }
+        #endregion
+
+        #region Описание помещения
+        private ICommand _openDescriptionRoomView;
+        public ICommand OpenDescriptionRoomView
+        {
+            get
+            {
+                if (_openDescriptionRoomView == null)
+                {
+                    _openDescriptionRoomView = new OpenDescriptionRoomViewCommand(this);
+                }
+                return _openDescriptionRoomView;
+            }
+        }
+        #endregion
+
+        #region Создание заявки       НУЖНА ДОРАБОТКА ВЬЮХИ 
+        private ICommand _openCreateRequestView;
+        public ICommand OpenCreateRequestView
+        {
+            get
+            {
+                if (_openCreateRequestView == null)
+                {
+                    _openCreateRequestView = new OpenCreateRequestViewCommand(this);
+                }
+                return _openCreateRequestView;
+            }
+        }
+        #endregion
+
+        #region Просмотр заявки       НУЖНА ДОРАБОТКА ВЬЮХИ 
+        private ICommand _openWatchRequestView;
+        public ICommand OpenWatchRequestView
+        {
+            get
+            {
+                if (_openWatchRequestView == null)
+                {
+                    _openWatchRequestView = new OpenWatchRequestViewCommand(this);
+                }
+                return _openWatchRequestView;
+            }
+        }
+        #endregion
+
+        #region Просмотр Архивных заявок       НУЖНА ДОРАБОТКА ВЬЮХИ 
+        private ICommand _openWatchArchiveRequestView;
+        public ICommand OpenWatchArchiveRequestView
+        {
+            get
+            {
+                if (_openWatchArchiveRequestView == null)
+                {
+                    _openWatchArchiveRequestView = new OpenWatchArchiveRequestViewCommand(this);
+                }
+                return _openWatchArchiveRequestView;
+            }
+        }
+        #endregion
+
+        #region Просмотр моих заявок       НУЖНА ДОРАБОТКА ВЬЮХИ 
+        private ICommand _openMyRequestView;
+        public ICommand OpenMyRequestView
+        {
+            get
+            {
+                if (_openMyRequestView == null)
+                {
+                    _openMyRequestView = new OpenMyRequestViewCommand(this);
+                }
+                return _openMyRequestView;
+            }
+        }
+        #endregion
+
+        #region Просмотр моих архивных заявок       НУЖНА ДОРАБОТКА ВЬЮХИ 
+        private ICommand _openMyArchiveRequestView;
+        public ICommand OpenMyArchiveRequestView
+        {
+            get
+            {
+                if (_openMyArchiveRequestView == null)
+                {
+                    _openMyArchiveRequestView = new OpenMyArchiveRequestViewCommand(this);
+                }
+                return _openMyArchiveRequestView;
+            }
+        }
+        #endregion
+
+        #region Создание отчета  
+        private ICommand _openFileReportView;
+        public ICommand OpenFileReportView
+        {
+            get
+            {
+                if (_openFileReportView == null)
+                {
+                    _openFileReportView = new OpenFileReportViewCommand(this);
+                }
+                return _openFileReportView;
+            }
+        }
+        #endregion
+
         #endregion
 
     }
 
-    class OpenExecutorsViewCommand : MyCommand
+    #region Классы для загрузки новых страниц
+    internal class OpenFileReportViewCommand : MyCommand
     {
-        public OpenExecutorsViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel)
-        {
-
-        }
-        public override bool CanExecute(object parameter)
-        {
-            return true;
-        }
-        public override void Execute(object parameter)
-        {
-            var displayRootRegistry = (Application.Current as App).displayRootRegistry;
-
-            var executors_ViewModel = new Executors_ViewModel();
-            displayRootRegistry.ShowPresentation(executors_ViewModel);
-        }
+        public OpenFileReportViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new FileReportPage_View());
     }
+
+    internal class OpenMyArchiveRequestViewCommand : MyCommand
+    {
+        public OpenMyArchiveRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
+    }
+
+    internal class OpenMyRequestViewCommand : MyCommand
+    {
+        public OpenMyRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
+    }
+
+    internal class OpenWatchArchiveRequestViewCommand : MyCommand
+    {
+        public OpenWatchArchiveRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
+    }
+
+    internal class OpenWatchRequestViewCommand : MyCommand
+    {
+        public OpenWatchRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
+    }
+
+    internal class OpenCreateRequestViewCommand : MyCommand
+    {
+        public OpenCreateRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new CreateAndEditRequestPage_View());
+    }
+
+    internal class OpenDescriptionRoomViewCommand : MyCommand
+    {
+        public OpenDescriptionRoomViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new DescriptionRoomPage_View());
+    }
+
+    internal class OpenEditUserAccountViewCommand : MyCommand
+    {
+        public OpenEditUserAccountViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new UserAccountPage_View());
+    }
+
+    internal class OpenRegUserAccountViewCommand : MyCommand
+    {
+        public OpenRegUserAccountViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new UserAccountPage_View());
+    }
+
+    internal class OpenAllUsersViewCommand : MyCommand
+    {
+        public OpenAllUsersViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new AllUsersPage_View());
+    }
+
+    internal class OpenCustomersViewCommand : MyCommand
+    {
+        public OpenCustomersViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new CustomersPage_View());
+    }
+
+    internal class OpenExecutorsViewCommand : MyCommand
+    {
+        public OpenExecutorsViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new ExecutorsPage_View());
+    }
+    #endregion
 
     #region Вспомогательный класс для команд
-
     abstract class MyCommand : ICommand
     {
         protected Ctrl_burgerMenu_ViewModel _ctrlMenu_ViewModel;
@@ -304,7 +531,6 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
 
         public abstract void Execute(object parameter);
     }
-
     #endregion
 
 }

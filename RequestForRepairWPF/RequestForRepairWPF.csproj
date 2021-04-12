@@ -151,11 +151,11 @@
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="Services\PageManager.cs" />
-    <Compile Include="ViewModels\Windows\AllUsers_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
-    <Compile Include="ViewModels\Windows\UserAccount\CustomerUserAccount_ViewModel.cs" />
-    <Compile Include="ViewModels\Windows\UserAccount\UsersData_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\UserAccount\CustomerUserAccount_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\UserAccount\UsersData_ViewModel.cs" />
     <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml.cs">
       <DependentUpon>Ctrl_burgerMenu_View.xaml</DependentUpon>
     </Compile>
@@ -265,7 +265,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ViewModels\Windows\Executors_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Executors_ViewModel.cs" />
     <Compile Include="Views\Windows\AllUsers_View.xaml.cs">
       <DependentUpon>AllUsers_View.xaml</DependentUpon>
     </Compile>
@@ -377,8 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\Loaded\" />
-    <Folder Include="ViewModels\Pages\" />
-    <Folder Include="Views\Controls\Header\" />
+    <Folder Include="ViewModels\Windows\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

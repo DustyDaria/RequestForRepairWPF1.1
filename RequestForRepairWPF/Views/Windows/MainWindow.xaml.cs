@@ -31,9 +31,9 @@ namespace RequestForRepairWPF.Views.Windows
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
             if (MainFrame.CanGoBack)
-                btn_Back.Visibility = Visibility.Visible;
+                btn_Logout.Visibility = Visibility.Visible;
             else
-                btn_Back.Visibility = Visibility.Collapsed;
+                btn_Logout.Visibility = Visibility.Collapsed;
         }
     }
 }

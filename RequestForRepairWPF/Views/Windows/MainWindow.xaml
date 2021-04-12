@@ -52,7 +52,7 @@
                             Width="auto"
                 Orientation="Horizontal"
                     HorizontalAlignment="Center">
-                        <Button
+                        <!--<Button
                             x:Name="btn_Back" 
                             Margin="5"
                             Command="{StaticResource GoBack}"
@@ -65,7 +65,7 @@
                             Kind="ArrowBack"
                             Width="25"
                             Height="25"/>
-                        </Button>
+                        </Button>-->
                         <TextBlock
                     Style="{StaticResource MaterialDesignHeadline4TextBlock}"
                             FontWeight="Medium"

@@ -22,13 +22,7 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
         public int Authorization_userID
         {
             get => _authorization_userID;
-            set
-            {
-                if (Equals(_authorization_userID, value)) return;
-                _authorization_userID = value;
-                OnPropertyChanged("Authorization_userID");
-                
-            }
+            set => Set(ref _authorization_userID, value);
         }
         #endregion
 

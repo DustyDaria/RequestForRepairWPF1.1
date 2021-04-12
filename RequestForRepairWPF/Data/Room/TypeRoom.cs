@@ -5,14 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.Data
+namespace RequestForRepairWPF.Data.Room
 {
     public class TypeRoom
     {
-        [Key]
-        public int id_type_room_TR { get; set; } // Первичный ключ
+        public int id_type_room_TR { get; set; } 
         public string name_type_room_TR { get; set; }
 
-        public TypeRoom() { }
     }
 }

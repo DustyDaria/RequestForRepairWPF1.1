@@ -216,113 +216,113 @@ namespace RequestForRepairWPF.Views.Windows
 
         }
 
-        #region Обработка кнопок бургер-меню
-        /// <summary>
-        /// Обработка кнопок бургер-меню
-        /// </summary>
-
-        private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
-        {
-            btn_OpenMenu.Visibility = Visibility.Collapsed;
-            btn_CloseMenu.Visibility = Visibility.Visible;
-        }
-
-        private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
-        {
-            btn_OpenMenu.Visibility = Visibility.Visible;
-            btn_CloseMenu.Visibility = Visibility.Collapsed;
-        }
-
-        private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Executors_View executors_View = new Executors_View(mainID);
-            this.Close();
-            executors_View.Show();
-        }
-
-        private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            AllUsers_View allUsers = new AllUsers_View(mainID);
-            this.Close();
-            allUsers.Show();
-        }
-
-
-        private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Customers_View customer_View = new Customers_View(mainID);
-            this.Close();
-            customer_View.Show();
-        }
-
-        private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
-           //this.Close();
-           //userAccount_View.Show();
-        }
-
-        private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
-
-            if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
-            {
-                //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
-                //this.Close();
-                //userAccount_View.Show();
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
-            {
-                //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
-                //this.Close();
-                //userAccount_View.Show();
-            }
-            else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
-            {
-                CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                customerUser.Show();
-            }
-
-        }
-        private void list_DescriptionRoom_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            DescriptionRoom description = new DescriptionRoom(mainID, "Просмотреть");
-            this.Close();
-            description.Show();
-        }
-
-        private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID, "Создать", 0);
-            this.Close();
-            createAndEditRequest.Show();
-        }
-
-        private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
-            this.Close();
-            watchRequests.Show();
-        }
-
-        private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
-            this.Close();
-            watchRequests.Show();
-        }
-
-        private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            FileReport_View fileReport_View = new FileReport_View(mainID);
-            this.Close();
-            fileReport_View.Show();
-        }
-
-
-
-        #endregion
+        //#region Обработка кнопок бургер-меню
+        ///// <summary>
+        ///// Обработка кнопок бургер-меню
+        ///// </summary>
+        //
+        //private void btn_OpenMenu_Click(object sender, RoutedEventArgs e)
+        //{
+        //    btn_OpenMenu.Visibility = Visibility.Collapsed;
+        //    btn_CloseMenu.Visibility = Visibility.Visible;
+        //}
+        //
+        //private void btn_CloseMenu_Click(object sender, RoutedEventArgs e)
+        //{
+        //    btn_OpenMenu.Visibility = Visibility.Visible;
+        //    btn_CloseMenu.Visibility = Visibility.Collapsed;
+        //}
+        //
+        //private void list_Executors_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    Executors_View executors_View = new Executors_View(mainID);
+        //    this.Close();
+        //    executors_View.Show();
+        //}
+        //
+        //private void list_AllUsers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    AllUsers_View allUsers = new AllUsers_View(mainID);
+        //    this.Close();
+        //    allUsers.Show();
+        //}
+        //
+        //
+        //private void list_Customers_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    Customers_View customer_View = new Customers_View(mainID);
+        //    this.Close();
+        //    customer_View.Show();
+        //}
+        //
+        //private void list_RegisterNewUser_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //   //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Создать", 0);
+        //   //this.Close();
+        //   //userAccount_View.Show();
+        //}
+        //
+        //private void list_EditUserAccount_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    string queryCheckTypeOfAccount_GET = string.Format("SELECT type_of_account FROM Users WHERE id_user = '" + mainID + "';");
+        //
+        //    if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Системный администратор")
+        //    {
+        //        //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+        //        //this.Close();
+        //        //userAccount_View.Show();
+        //    }
+        //    else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Заказчик")
+        //    {
+        //        //UserAccount_View userAccount_View = new UserAccount_View(mainID, "Редактировать", 0);
+        //        //this.Close();
+        //        //userAccount_View.Show();
+        //    }
+        //    else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
+        //    {
+        //        CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
+        //        this.Close();
+        //        customerUser.Show();
+        //    }
+        //
+        //}
+        //private void list_DescriptionRoom_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    DescriptionRoom description = new DescriptionRoom(mainID, "Просмотреть");
+        //    this.Close();
+        //    description.Show();
+        //}
+        //
+        //private void list_CreateRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    CreateAndEditRequest_View createAndEditRequest = new CreateAndEditRequest_View(mainID, "Создать", 0);
+        //    this.Close();
+        //    createAndEditRequest.Show();
+        //}
+        //
+        //private void list_WatchRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Текущие");
+        //    this.Close();
+        //    watchRequests.Show();
+        //}
+        //
+        //private void list_WatchArchiveRequest_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    WatchRequests_View watchRequests = new WatchRequests_View(mainID, "Архивные");
+        //    this.Close();
+        //    watchRequests.Show();
+        //}
+        //
+        //private void list_FileReport_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    FileReport_View fileReport_View = new FileReport_View(mainID);
+        //    this.Close();
+        //    fileReport_View.Show();
+        //}
+        //
+        //
+        //
+        //#endregion
     }
 }

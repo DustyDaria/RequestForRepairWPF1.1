@@ -89,7 +89,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\my_DbContext.cs" />
     <Compile Include="Data\Request.cs" />
     <Compile Include="Data\Room\DescriptionRoom.cs" />
     <Compile Include="Data\Room\Software.cs" />

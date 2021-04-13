@@ -27,7 +27,7 @@ namespace RequestForRepairWPF
     {
         private int mainID = 0;
         DataBase dataBase = new DataBase();
-        my_DbContext db = new my_DbContext();
+        //my_DbContext db = new my_DbContext();
         List<User> idList = new List<User>();
         List<int> requestList = new List<int>();
         public string typeSearchTransfer;
@@ -39,7 +39,7 @@ namespace RequestForRepairWPF
 
             this.mainID = mainID;
 
-            db.Users.Load(); // загружаем данные
+            //db.Users.Load(); // загружаем данные
             //var query = from c in db.Users
             //            where c.type_of_account == "Исполнитель"
             //            select new 

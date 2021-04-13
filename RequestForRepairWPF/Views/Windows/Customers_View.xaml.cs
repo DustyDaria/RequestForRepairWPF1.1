@@ -25,7 +25,7 @@ namespace RequestForRepairWPF.Views.Windows
     {
         DataBase dataBase = new DataBase();
         private int mainID = 0;
-        my_DbContext db = new my_DbContext();
+        //my_DbContext db = new my_DbContext();
         public string typeSearchTransfer;
         public string stringReaderBoxTransfer;
         public Customers_View(int mainID)
@@ -35,7 +35,7 @@ namespace RequestForRepairWPF.Views.Windows
             this.mainID = mainID;
 
             //db = new UserContext();
-            db.Users.Load();
+            //db.Users.Load();
             //var query = from c in db.Users
             //            where c.type_of_account == "Заказчик"
             //            select new

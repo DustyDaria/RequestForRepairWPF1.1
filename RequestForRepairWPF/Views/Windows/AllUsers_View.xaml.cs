@@ -31,7 +31,7 @@ namespace RequestForRepairWPF
         public string typeSearchTransfer;
         public string stringReaderBoxTransfer;
         DataBase dataBase = new DataBase();
-        my_DbContext db = new my_DbContext();
+        //my_DbContext db = new my_DbContext();
         ObservableCollection<string[]> usersData = new ObservableCollection<string[]>();
 
         public AllUsers_View() { }
@@ -42,8 +42,8 @@ namespace RequestForRepairWPF
 
             this.mainID = mainID;
             //this.action = usersAction;
-            db.Users.Load(); // загружаем данные
-            DataGrid_AllUsers.ItemsSource = db.Users.Local.ToBindingList(); // Устанавливаем привязку к кэшу
+            //db.Users.Load(); // загружаем данные
+            //DataGrid_AllUsers.ItemsSource = db.Users.Local.ToBindingList(); // Устанавливаем привязку к кэшу
 
             //LoadDataAll();
 
@@ -476,7 +476,7 @@ namespace RequestForRepairWPF
             textBox_DataForSearch.Text = string.Empty;
 
             DataGrid_AllUsers.ItemsSource = null;
-            DataGrid_AllUsers.ItemsSource = db.Users.Local.ToBindingList(); // Устанавливаем привязку к кэшу
+            //DataGrid_AllUsers.ItemsSource = db.Users.Local.ToBindingList(); // Устанавливаем привязку к кэшу
         }
         #endregion
     }

@@ -1,9 +1,7 @@
 ﻿using RequestForRepairWPF.Infrastructure.Commands.Base;
-using RequestForRepairWPF.Models.Windows;
-using RequestForRepairWPF.Models.Windows.UserAccount;
+using RequestForRepairWPF.Models.Pages.UserAccount;
 using RequestForRepairWPF.Services;
-using RequestForRepairWPF.ViewModels.Windows;
-using RequestForRepairWPF.ViewModels.Windows.UserAccount;
+using RequestForRepairWPF.ViewModels.Pages.UserAccount;
 using RequestForRepairWPF.Views.Pages.UserAccount;
 using RequestForRepairWPF.Views.Windows;
 using RequestForRepairWPF.Views.Windows.UserAccount;

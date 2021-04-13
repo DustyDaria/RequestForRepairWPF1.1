@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.Models.Windows.UserAccount
+namespace RequestForRepairWPF.Models.Pages.UserAccount
 {
     public class UsersData_Model : INotifyPropertyChanged
     {

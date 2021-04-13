@@ -11,7 +11,7 @@
         xmlns:services="clr-namespace:RequestForRepairWPF.Services"
         xmlns:cmdmenu="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
         xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands"
-        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows.UserAccount"
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Pages.UserAccount"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"

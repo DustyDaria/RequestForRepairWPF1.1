@@ -7,7 +7,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:ctrl="clr-namespace:RequestForRepairWPF.Views.Controls.Room"
-        
+         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Pages"
         xmlns:local="clr-namespace:RequestForRepairWPF"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
@@ -21,6 +22,16 @@
         d:DesignHeight="800" d:DesignWidth="1080"
       
       Title="Описание помещения">
+
+    <Page.DataContext>
+        <vm:DescriptionRoom_ViewModel/>
+    </Page.DataContext>
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=LoadDescriptionRoom}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <Grid>
 
@@ -62,7 +73,7 @@
                     x:Name="label_RoomNumber"
                     Margin="25"
                         HorizontalAlignment="Right"
-                    Text="Номер помещения: "
+                    Text="{Binding Path=RoomNumber}"
                     Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                     FontWeight="SemiBold">
                 </TextBlock>
@@ -75,7 +86,8 @@
                             Height="200"
                           Header="Тип помещения"
                           Style="{DynamicResource MaterialDesignCardGroupBox}"
-                            materialDesign:ColorZoneAssist.Mode="Accent">
+                            materialDesign:ColorZoneAssist.Mode="Accent"
+                    >
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel
@@ -108,6 +120,7 @@
                     Grid.Column="0"
                     Grid.Row="2"
                             Height="200"
+                    Text="{Binding Path=DescriptionRoom, Mode=TwoWay}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                             TextWrapping="Wrap"
@@ -120,6 +133,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="3"
+                    Text="{Binding Path=CommentRoom, Mode=TwoWay}"
                             Height="200"
                             TextWrapping="Wrap"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueMidBrush}"

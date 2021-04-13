@@ -1,9 +1,11 @@
-﻿using RequestForRepairWPF.ViewModels.Base;
+﻿using RequestForRepairWPF.Models.Pages;
+using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace RequestForRepairWPF.ViewModels.Pages
 {
@@ -11,11 +13,11 @@ namespace RequestForRepairWPF.ViewModels.Pages
     {
 
         #region Тип помещения
-        private int _roomNumber;
-        public int RoomNumber
+        private string _roomNumber;
+        public string RoomNumber
         {
             get => _roomNumber;
-            set => Set(ref _roomNumber, value);
+            set => Set(ref _roomNumber, "Номер помещения: " + value);
         }
         #endregion
 
@@ -39,11 +41,68 @@ namespace RequestForRepairWPF.ViewModels.Pages
 
         #region комментарий к помещению
         private string _commentRoom;
-        public string CcommantRoom
+        public string CommentRoom
         {
             get => _commentRoom;
             set => Set(ref _commentRoom, value);
         }
         #endregion
+
+        #region id типа помещения
+        private int _id_TypeRoom_URR;
+        public int ID_TypeRoom_URR
+        {
+            get => _id_TypeRoom_URR;
+            set => Set(ref _id_TypeRoom_URR, value);
+        }
+        #endregion
+
+        #region Загрузка данных описания помещения
+        private ICommand _loadDescriptionRoom;
+        public ICommand LoadDescriptionRoom
+        {
+            get
+            {
+                _loadDescriptionRoom = new LoadDescriptionRoomCommand(this);
+                return _loadDescriptionRoom;
+            }
+        }
+        #endregion
     }
+
+    #region Класс для выполнения команды по загрузке данных
+    internal class LoadDescriptionRoomCommand : MyCommand
+    {
+        public LoadDescriptionRoomCommand(DescriptionRoom_ViewModel descriptionRoom_ViewModel) : base(descriptionRoom_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter)
+        {
+            DescriptionRoom_Model _model = new DescriptionRoom_Model();
+            _descriptionRoom_ViewModel.RoomNumber = Convert.ToString(_model.RoomNumber);
+            _descriptionRoom_ViewModel.ID_TypeRoom_URR = _model.ID_TypeRoom_URR;
+            _descriptionRoom_ViewModel.TypeRoom = _model.TypeRoom;
+            _descriptionRoom_ViewModel.DescriptionRoom = _model.DescriptionRoom;
+            _descriptionRoom_ViewModel.CommentRoom = _model.CommentRoom;
+
+        }
+    }
+    #endregion
+
+    #region Вспомогательный класс для команд
+    abstract class MyCommand : ICommand
+    {
+        protected DescriptionRoom_ViewModel _descriptionRoom_ViewModel;
+
+        public MyCommand(DescriptionRoom_ViewModel descriptionRoom_ViewModel)
+        {
+            _descriptionRoom_ViewModel = descriptionRoom_ViewModel;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public abstract bool CanExecute(object parameter);
+
+        public abstract void Execute(object parameter);
+    }
+    #endregion
 }

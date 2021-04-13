@@ -10,7 +10,7 @@
         xmlns:ctrlp="clr-namespace:RequestForRepairWPF.Views.Controls.Password"
         xmlns:services="clr-namespace:RequestForRepairWPF.Services"
         xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands.Controls.Menu"
-        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Windows.UserAccount"
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Pages.UserAccount"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         

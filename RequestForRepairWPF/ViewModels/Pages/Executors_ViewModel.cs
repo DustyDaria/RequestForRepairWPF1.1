@@ -1,6 +1,6 @@
 ﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Models;
-using RequestForRepairWPF.Models.Windows;
+using RequestForRepairWPF.Models.Pages;
 using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace RequestForRepairWPF.ViewModels.Windows
+namespace RequestForRepairWPF.ViewModels.Pages
 {
     class Executors_ViewModel : ViewModel
     {

@@ -1,5 +1,7 @@
 ﻿using RequestForRepairWPF.Infrastructure.Commands.Controls.Password;
+using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Base;
+using RequestForRepairWPF.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
+namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 {
     public class UsersData_ViewModel : ViewModel
     {
@@ -131,5 +133,45 @@ namespace RequestForRepairWPF.ViewModels.Windows.UserAccount
 
         }
         #endregion
+
+        #region Команда для загрузки страницы "Описание помещения"
+        private ICommand _openDescriptionRoomView;
+        public ICommand OpenDescriptionRoomView
+        {
+            get
+            {
+                _openDescriptionRoomView = new OpenDescriptionRoomViewCommand(this);
+                return _openDescriptionRoomView;
+            }
+        }
+
+        #endregion
     }
+
+    #region Класс для загрузки страницы "Описание помещения"
+    internal class OpenDescriptionRoomViewCommand : MyCommand
+    {
+        public OpenDescriptionRoomViewCommand(UsersData_ViewModel usersData_ViewModel) : base(usersData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new DescriptionRoomPage_View());
+    }
+    #endregion
+
+    #region Вспомогательный класс для команд
+    abstract class MyCommand : ICommand
+    {
+        protected UsersData_ViewModel _usersData_ViewModel;
+
+        public MyCommand(UsersData_ViewModel usersData_ViewModel)
+        {
+            _usersData_ViewModel = usersData_ViewModel;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public abstract bool CanExecute(object parameter);
+
+        public abstract void Execute(object parameter);
+    }
+    #endregion
 }

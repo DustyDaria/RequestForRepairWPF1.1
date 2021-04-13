@@ -28,7 +28,7 @@ namespace RequestForRepairWPF.Views.Windows
         //BindingListCollectionView requestCollection = new BindingListCollectionView();
         List<object> requestList = new List<object>();
         DataBase dataBase = new DataBase();
-        my_DbContext db = new my_DbContext();
+        //my_DbContext db = new my_DbContext();
         //UserContext db_U = new UserContext();
         public WatchRequests_View(int mainID, string typeRequestGet)
         {
@@ -58,60 +58,60 @@ namespace RequestForRepairWPF.Views.Windows
                 //DataGrid_Request.ItemsSource = (System.Collections.IEnumerable)requestCollection;
 
 
-                db.Requests.Load();
+                //db.Requests.Load();
                                 
-                var queryActualRequest = from q in db.Requests
-                            where q.status_request != "В архиве"
-                            select new
-                            {
-                                q.id_request,
-                                q.name_request,
-                                q.date_start,
-                                q.date_end,
-                                q.status_request,
-                                q.room_number,
-                                q.category_request
-                            };
-                DataGrid_Request.ItemsSource = queryActualRequest.ToList();
+                //var queryActualRequest = from q in db.Requests
+                //            where q.status_request != "В архиве"
+                //            select new
+                //            {
+                //                q.id_request,
+                //                q.name_request,
+                //                q.date_start,
+                //                q.date_end,
+                //                q.status_request,
+                //                q.room_number,
+                //                q.category_request
+                //            };
+                //DataGrid_Request.ItemsSource = queryActualRequest.ToList();
             }
             else if (typeRequest == "Архивные")
             {
                 label_Header.Text = "Просмотр архивных заявок";
                 this.Title = "Просмотр архивных заявок";
 
-                db.Requests.Load();
-                
-                var queryArchiveRequest = from q in db.Requests
-                                   where q.status_request == "В архиве"
-                                   select new
-                                   {
-                                       q.id_request,
-                                       q.name_request,
-                                       q.date_start,
-                                       q.date_end,
-                                       q.status_request,
-                                       q.room_number,
-                                       q.category_request
-                                   };
-                DataGrid_Request.ItemsSource = queryArchiveRequest.ToList();
+                //db.Requests.Load();
+                //
+                //var queryArchiveRequest = from q in db.Requests
+                //                   where q.status_request == "В архиве"
+                //                   select new
+                //                   {
+                //                       q.id_request,
+                //                       q.name_request,
+                //                       q.date_start,
+                //                       q.date_end,
+                //                       q.status_request,
+                //                       q.room_number,
+                //                       q.category_request
+                //                   };
+                //DataGrid_Request.ItemsSource = queryArchiveRequest.ToList();
             }
             else if (typeRequest == "Мои Текущие")
             {
-                db.Requests.Load();
-                                
-                var queryActualRequest = from q in db.Requests
-                            where q.status_request != "В архиве"
-                            select new
-                            {
-                                q.id_request,
-                                q.name_request,
-                                q.date_start,
-                                q.date_end,
-                                q.status_request,
-                                q.room_number,
-                                q.category_request
-                            };
-
+                //db.Requests.Load();
+                //                
+                //var queryActualRequest = from q in db.Requests
+                //            where q.status_request != "В архиве"
+                //            select new
+                //            {
+                //                q.id_request,
+                //                q.name_request,
+                //                q.date_start,
+                //                q.date_end,
+                //                q.status_request,
+                //                q.room_number,
+                //                q.category_request
+                //            };
+                //
                 //var queryMyRequest = from r in db.Requests
                 //                     join u in db.U_R_Executor_Customs
                 //                     on r.id_request equals u.requestID_URE

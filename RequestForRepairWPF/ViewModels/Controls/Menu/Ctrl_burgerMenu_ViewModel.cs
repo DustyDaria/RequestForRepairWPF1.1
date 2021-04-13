@@ -2,7 +2,6 @@
 using RequestForRepairWPF.Models.Controls.Menu;
 using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Base;
-using RequestForRepairWPF.ViewModels.Windows;
 using RequestForRepairWPF.Views.Pages;
 using RequestForRepairWPF.Views.Pages.UserAccount;
 using RequestForRepairWPF.Views.Windows;
@@ -194,56 +193,6 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         /// <summary> Команды на обработку нажатия по элементам меню </summary>
         #region Команды на обработку нажатия по элементам меню
         /// <summary> Команды на обработку нажатия по элементам меню </summary>
-
-        //#region Открыть/закрыть меню
-        //
-        //#region btn_CloseMenu_Click
-        //public ICommand btn_CloseMenu_Click { get; }
-        //private bool Canbtn_CloseMenu_ClickExecute(object p) => true;
-        //private void Onbtn_CloseMenu_ClickExecuted(object p)
-        //{
-        //    // тело команды
-        //    menuVisibility_Close = false;
-        //    menuVisibility_Open = true;
-        //}
-        //#endregion
-        //
-        //#region btn_OpenMenu_Click
-        //public ICommand btn_OpenMenu_Click { get; }
-        //private bool Canbtn_OpenMenu_ClickExecute(object p) => true;
-        //private void Onbtn_OpenMenu_ClickExecuted(object p)
-        //{
-        //    menuVisibility_Close = true;
-        //    menuVisibility_Open = false;
-        //}
-        //#endregion
-        //
-        //#region Изменение Visibility меню
-        //
-        //bool _menuVisibility_Close = false;
-        //public bool menuVisibility_Close
-        //{
-        //    get => _menuVisibility_Close;
-        //    set
-        //    {
-        //        _menuVisibility_Close = value;
-        //        OnPropertyChanged("menuVisibility_Close");
-        //    }
-        //}
-        //
-        //bool _menuVisibility_Open = true;
-        //public bool menuVisibility_Open
-        //{
-        //    get => _menuVisibility_Open;
-        //    set
-        //    {
-        //        _menuVisibility_Open = value;
-        //        OnPropertyChanged("menuVisibility_Close");
-        //    }
-        //}
-        //#endregion
-        //
-        //#endregion
 
         #region Исполнители
         private ICommand _openExecutorsView;

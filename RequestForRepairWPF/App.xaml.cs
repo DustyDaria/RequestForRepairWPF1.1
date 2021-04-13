@@ -1,7 +1,5 @@
 ﻿using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Controls.Menu;
-using RequestForRepairWPF.ViewModels.Windows;
-using RequestForRepairWPF.ViewModels.Windows.UserAccount;
 using RequestForRepairWPF.Views.Controls.Menu;
 using RequestForRepairWPF.Views.Windows;
 using RequestForRepairWPF.Views.Windows.UserAccount;

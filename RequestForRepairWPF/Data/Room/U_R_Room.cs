@@ -11,6 +11,6 @@ namespace RequestForRepairWPF.Data
     {
         public static int userID_URR { get; set; }
         public static int roomNUMBER_URR { get; set; }
-        public int id_type_room_URR { get; set; }
+        public static int id_type_room_URR { get; set; }
     }
 }

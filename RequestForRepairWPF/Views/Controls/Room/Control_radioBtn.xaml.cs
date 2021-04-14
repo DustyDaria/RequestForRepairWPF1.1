@@ -1,4 +1,5 @@
-﻿using RequestForRepairWPF.Models.Pages;
+﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Models.Pages;
 using RequestForRepairWPF.ViewModels.Pages;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace RequestForRepairWPF.Views.Controls.Room
         List<string> _typeList = new List<string>();
         DescriptionRoom_Model _model = new DescriptionRoom_Model();
         DescriptionRoom_ViewModel _viewModel = new DescriptionRoom_ViewModel();
+        U_R_Room _room = new U_R_Room();
 
         public Control_radioBtn()
         {
@@ -54,6 +56,10 @@ namespace RequestForRepairWPF.Views.Controls.Room
             if (sender is RadioButton item)
             {
                 _viewModel.TypeRoom = item.Content.ToString();
+                _model.NameTypeRoom_TR = item.Content.ToString();
+                U_R_Room.id_type_room_URR = _model.ID_TypeRoom_TR;
+                _viewModel.DescriptionRoom = _model.DescriptionRoom;
+                _viewModel.CommentRoom = _model.CommentRoom;
             }
         }
     }

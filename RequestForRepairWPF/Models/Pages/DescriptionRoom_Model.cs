@@ -12,7 +12,7 @@ namespace RequestForRepairWPF.Models.Pages
     public class DescriptionRoom_Model : ViewModel
     {
         private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
-        U_R_Room _room = new U_R_Room();
+        //U_R_Room _room = new U_R_Room();
         DescriptionRoom _descriptionRoom = new DescriptionRoom();
         TypeRoom _typeRoom = new TypeRoom();
         private int _idTypeRoom;
@@ -51,12 +51,35 @@ namespace RequestForRepairWPF.Models.Pages
         {
             get
             {
-                _room.id_type_room_URR = (int)context.U_R_Room
+                U_R_Room.id_type_room_URR = (int)context.U_R_Room
                     .Where(c => c.roomNUMBER_URR == U_R_Room.roomNUMBER_URR)
                     .Select(c => c.id_type_room_URR)
                     .FirstOrDefault();
 
-                return _room.id_type_room_URR;
+                return U_R_Room.id_type_room_URR;
+            }
+        }
+        #endregion
+
+        #region Получение названия типа помещения (TypeRoom)
+        private string _nameTypeRoom_TR;
+        public string NameTypeRoom_TR
+        {
+            set => Set(ref _nameTypeRoom_TR, value);
+        }
+        #endregion
+
+        #region Возврат id типа помещения по названию помещения (TypeRoom)
+        public int ID_TypeRoom_TR
+        {
+            get
+            {
+                U_R_Room.id_type_room_URR = context.TypeRoom
+                    .Where(c => c.name_type_room_TR == _nameTypeRoom_TR)
+                    .Select(c => c.id_type_room_TR)
+                    .FirstOrDefault();
+
+                return U_R_Room.id_type_room_URR;
             }
         }
         #endregion
@@ -67,7 +90,7 @@ namespace RequestForRepairWPF.Models.Pages
             get
             {
                 _descriptionRoom.description_DR = context.DescriptionRoom
-                    .Where(c => c.id_type_room_DR == _room.id_type_room_URR)
+                    .Where(c => c.id_type_room_DR == U_R_Room.id_type_room_URR)
                     .Select(c => c.description_DR)
                     .FirstOrDefault();
                 
@@ -82,7 +105,7 @@ namespace RequestForRepairWPF.Models.Pages
             get
             {
                 _descriptionRoom.comment_DR = context.DescriptionRoom
-                    .Where(c => c.id_type_room_DR == _room.id_type_room_URR)
+                    .Where(c => c.id_type_room_DR == U_R_Room.id_type_room_URR)
                     .Select(c => c.comment_DR)
                     .FirstOrDefault();
                 return _descriptionRoom.comment_DR;
@@ -96,7 +119,7 @@ namespace RequestForRepairWPF.Models.Pages
             get
             {
                 _typeRoom.name_type_room_TR = context.TypeRoom
-                    .Where(c => c.id_type_room_TR == _room.id_type_room_URR)
+                    .Where(c => c.id_type_room_TR == U_R_Room.id_type_room_URR)
                     .Select(c => c.name_type_room_TR)
                     .FirstOrDefault();
                 return _typeRoom.name_type_room_TR;
@@ -114,11 +137,6 @@ namespace RequestForRepairWPF.Models.Pages
                     _typeRoomList.Add(l.name_type_room_TR);
                 }
 
-                //_typeRoomList.Add(from c in context.TypeRoom select c.name_type_room_TR);
-                //
-                //_typeRoomList.Add(context.TypeRoom
-                //    .Select(c => c.name_type_room_TR)
-                //    .FirstOrDefault());
                 return _typeRoomList;
             }
         }

@@ -13,7 +13,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
     {
 
         #region Тип помещения
-        private string _roomNumber;
+        private static string _roomNumber;
         public string RoomNumber
         {
             get => _roomNumber;
@@ -22,7 +22,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
         #endregion
 
         #region Тип помещения
-        private string _typeRoom;
+        private static string _typeRoom;
         public string TypeRoom
         {
             get => _typeRoom;
@@ -31,7 +31,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
         #endregion
 
         #region Описание помещения
-        private string _descriptionRoom;
+        private static string _descriptionRoom;
         public string DescriptionRoom
         {
             get => _descriptionRoom;
@@ -40,7 +40,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
         #endregion
 
         #region комментарий к помещению
-        private string _commentRoom;
+        private static string _commentRoom;
         public string CommentRoom
         {
             get => _commentRoom;
@@ -49,7 +49,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
         #endregion
 
         #region id типа помещения
-        private int _id_TypeRoom_URR;
+        private static int _id_TypeRoom_URR;
         public int ID_TypeRoom_URR
         {
             get => _id_TypeRoom_URR;
@@ -58,7 +58,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
         #endregion
 
         #region Список с названиями всех типов помещения
-        private List<string> _typeRoomList;
+        private static List<string> _typeRoomList;
         public List<string> TypeRoomList
         {
             get => _typeRoomList;

@@ -24,5 +24,6 @@ namespace RequestForRepairWPF.Views.Pages
         {
             InitializeComponent();
         }
+
     }
 }

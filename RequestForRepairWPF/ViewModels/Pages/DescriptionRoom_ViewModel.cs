@@ -57,6 +57,15 @@ namespace RequestForRepairWPF.ViewModels.Pages
         }
         #endregion
 
+        #region Список с названиями всех типов помещения
+        private List<string> _typeRoomList;
+        public List<string> TypeRoomList
+        {
+            get => _typeRoomList;
+            set => Set(ref _typeRoomList, value);
+        }
+        #endregion
+
         #region Загрузка данных описания помещения
         private ICommand _loadDescriptionRoom;
         public ICommand LoadDescriptionRoom
@@ -80,7 +89,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
             DescriptionRoom_Model _model = new DescriptionRoom_Model();
             _descriptionRoom_ViewModel.RoomNumber = Convert.ToString(_model.RoomNumber);
             _descriptionRoom_ViewModel.ID_TypeRoom_URR = _model.ID_TypeRoom_URR;
-            _descriptionRoom_ViewModel.TypeRoom = _model.TypeRoom;
+            //_descriptionRoom_ViewModel.TypeRoom = _model.TypeRoom;
             _descriptionRoom_ViewModel.DescriptionRoom = _model.DescriptionRoom;
             _descriptionRoom_ViewModel.CommentRoom = _model.CommentRoom;
 

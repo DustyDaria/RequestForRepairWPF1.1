@@ -163,7 +163,7 @@ namespace RequestForRepairWPF.Views.Windows
             label_RoomNumber.Text = "Номер помещения: " + roomNumber;
 
             typeRoom = dataBase.GetResult(queryTypeRoom_GET);
-            radioBtn.SelectedValue = typeRoom;
+            //radioBtn.SelectedValue = typeRoom;
 
             descriptionRoom = dataBase.GetResult(queryDescription_GET);
             textBox_description_room.Text = descriptionRoom;

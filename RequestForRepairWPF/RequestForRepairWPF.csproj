@@ -146,6 +146,7 @@
     <Compile Include="Infrastructure\Commands\GoBack.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
     <Compile Include="Infrastructure\Commands\LogOut.cs" />
+    <Compile Include="Models\Controls\Room\Control_radioBtn_Model.cs" />
     <Compile Include="Models\Pages\DescriptionRoom_Model.cs" />
     <Compile Include="Models\Pages\UserAccount\UsersData_Model.cs" />
     <Compile Include="Models\Pages\AllUsers_Model.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="Services\PageManager.cs" />
+    <Compile Include="ViewModels\Controls\Room\Control_radioBtn_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />

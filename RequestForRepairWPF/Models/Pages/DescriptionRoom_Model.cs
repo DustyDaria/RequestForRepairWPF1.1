@@ -16,6 +16,8 @@ namespace RequestForRepairWPF.Models.Pages
         DescriptionRoom _descriptionRoom = new DescriptionRoom();
         TypeRoom _typeRoom = new TypeRoom();
         private int _idTypeRoom;
+        private List<string> _typeRoomList = new List<string>();
+
 
         #region Возврат номера помещения заказчика (U_R_Room)
         public int RoomNumber
@@ -98,6 +100,26 @@ namespace RequestForRepairWPF.Models.Pages
                     .Select(c => c.name_type_room_TR)
                     .FirstOrDefault();
                 return _typeRoom.name_type_room_TR;
+            }
+        }
+        #endregion
+
+        #region Возврат списка всех типов помещения
+        public List<string> TypeRoom_List
+        {
+            get
+            {
+                foreach(var l in context.TypeRoom)
+                {
+                    _typeRoomList.Add(l.name_type_room_TR);
+                }
+
+                //_typeRoomList.Add(from c in context.TypeRoom select c.name_type_room_TR);
+                //
+                //_typeRoomList.Add(context.TypeRoom
+                //    .Select(c => c.name_type_room_TR)
+                //    .FirstOrDefault());
+                return _typeRoomList;
             }
         }
         #endregion

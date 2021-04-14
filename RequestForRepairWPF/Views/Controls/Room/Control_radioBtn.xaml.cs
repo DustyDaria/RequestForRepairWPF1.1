@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RequestForRepairWPF.Models.Pages;
+using RequestForRepairWPF.ViewModels.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,40 +23,37 @@ namespace RequestForRepairWPF.Views.Controls.Room
     public partial class Control_radioBtn : UserControl
     {
         DataBase dataBase = new DataBase();
-        List<string> typeList = new List<string>();
+        List<string> _typeList = new List<string>();
+        DescriptionRoom_Model _model = new DescriptionRoom_Model();
+        DescriptionRoom_ViewModel _viewModel = new DescriptionRoom_ViewModel();
+
         public Control_radioBtn()
         {
             InitializeComponent();
 
-            string queryCountType_GET = string.Format("SELECT COUNT(DISTINCT id_type_room_TR) FROM TypeRoom;");
-            string queryTypeRoom_GET = string.Format("SELECT DISTINCT name_type_room_TR FROM TypeRoom;");
+            _typeList = _model.TypeRoom_List;
+
             
-            typeList = dataBase.GetResultList(queryTypeRoom_GET);
-            
-            for (int i = 0; i < dataBase.GetID(queryCountType_GET); i++)
+
+            for (int i = 0; i < _typeList.Count; i++)
             {
                 RadioButton radioButton = new RadioButton();
-                radioButton.Content = typeList[i];
+                radioButton.Content = _typeList[i];
                 radioButton.Margin = new System.Windows.Thickness(5);
-                //radioButton.FontSize = new System.Windows.FontSizeConverter(12);
                 radioButton.VerticalAlignment = VerticalAlignment.Center;
                 radioButton.GroupName = "TypeRoom";
                 radioButton.Checked += new RoutedEventHandler(RadioButton_Checked);
                 panelForRadioBtn.Children.Add(radioButton);
             }
-        }
-        public string SelectedValue { get; set; }
-
-        public void GetValue(string content)
-        {
 
         }
+        
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             if (sender is RadioButton item)
             {
-                SelectedValue = item.Content.ToString();
+                _viewModel.TypeRoom = item.Content.ToString();
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.User;
 using RequestForRepairWPF.Infrastructure.Commands.Base;
 using RequestForRepairWPF.ViewModels.Controls.Menu;
 using System;
@@ -26,7 +27,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Menu
         {
            // _viewModel.userTypeOfAccount = User.type_of_account;
 
-            if(User.type_of_account == "Системный администратор")
+            if(User.id_type == 1)
             {
                 _viewModel.listVisibility_AllUsers = true;
                 _viewModel.listVisibility_Customers = true;
@@ -39,7 +40,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Menu
                 _viewModel.listVisibility_MyArchiveRequest = true;
                 _viewModel.listVisibility_FileReport = true;
             }
-            else if(User.type_of_account == "Заказчик")
+            else if(User.id_type == 2)
             {
                 _viewModel.listVisibility_EditUserAccount = true;
                 _viewModel.listVisibility_DescriptionRoom = true;
@@ -50,7 +51,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Menu
                 _viewModel.listVisibility_MyArchiveRequest = true;
                 _viewModel.listVisibility_FileReport = true;
             }
-            else if(User.type_of_account == "Исполнитель")
+            else if(User.id_type == 3)
             {
                 _viewModel.listVisibility_EditUserAccount = true;
                 _viewModel.listVisibility_WatchRequest = true;

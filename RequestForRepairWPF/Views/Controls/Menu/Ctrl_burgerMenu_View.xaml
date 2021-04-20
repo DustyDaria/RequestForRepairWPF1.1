@@ -70,8 +70,7 @@
     <Grid x:Name="GridMenu" 
             Width="70" 
             HorizontalAlignment="Left" 
-            Background="#002984"
-          BindingGroup="{Binding Path=userTypeOfAccount}">
+            Background="#002984">
         <StackPanel>
             <Grid 
                     Height="150" 
@@ -225,7 +224,7 @@
                         x:Name="list_EditUserAccount"
                         Height="auto"
                         Padding="3"
-                        Visibility="{Binding Path=OpenEditUserAccountView,
+                        Visibility="{Binding Path=listVisibility_EditUserAccount,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
                     <ListViewItem.InputBindings>
                         <MouseBinding Command="{Binding Path=OpenEditUserAccountView}"

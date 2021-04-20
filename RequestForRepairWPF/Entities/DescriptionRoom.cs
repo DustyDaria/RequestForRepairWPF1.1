@@ -26,8 +26,6 @@ namespace RequestForRepairWPF.Entities
         public int id_description_DR { get; set; }
         public string description_DR { get; set; }
         public string comment_DR { get; set; }
-        public int userID_DR { get; set; }
-        public int roomNUMBER_DR { get; set; }
     
         public virtual TypeRoom TypeRoom { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

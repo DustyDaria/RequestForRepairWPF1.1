@@ -83,3 +83,7 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Vi
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ExecutorsPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\FileReportPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\WatchRequestsPage_View.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\UserRegistrationPage_View.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\UserRegistrationPage_View.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\MessageBox_View.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\MessageBox_View.baml

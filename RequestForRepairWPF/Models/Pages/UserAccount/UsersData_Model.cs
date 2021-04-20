@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,8 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
 {
     public class UsersData_Model : INotifyPropertyChanged
     {
-        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        //private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
         //private User user = new User();
         //private int _userID_main, _userID_secondary;
         //private string _userName, _userLastName, _userMiddleName;
@@ -40,6 +42,11 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
             get => User.id_user;
         }
 
+        public int User_IDType
+        {
+            get => User.id_type;
+        }
+
         public string User_Login
         {
             get => User.user_login;
@@ -48,11 +55,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         public string User_Password
         {
             get => User.user_password;
-        }
-
-        public string User_TypeOfAccount
-        {
-            get => User.type_of_account;
         }
 
         public string User_LastName
@@ -96,21 +98,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userID_main = context.Users
-                //    .Where(c => c.user_login == _userEmail && c.user_password == _userPassword)
-                //    .Select(c => c.id_user)
-                //    .FirstOrDefault();
-
                 User.id_user = context.Users
                     .Where(c => c.user_login == User.user_login && c.user_password == User.user_password)
                     .Select(c => c.id_user)
                     .FirstOrDefault();
 
                 return User.id_user;
-
-                //user.id_user = _userID_main;
-
-                //return _userID_main;
             }
         }
         #endregion
@@ -123,15 +116,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userName = context.Users
-                //    .Where(c => c.id_user == _userID_main)
-                //    .Select(c => c.name)
-                //    .FirstOrDefault();
-                //
-                //user.name = _userName;
-                //
-                //return _userName;
-
                 User.name = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.name)
@@ -151,15 +135,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userLastName = context.Users
-                //    .Where(c => c.id_user == _userID_main)
-                //    .Select(c => c.last_name)
-                //    .FirstOrDefault();
-                //
-                //user.last_name = _userLastName;
-                //
-                //return _userLastName;
-
                 User.last_name = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.last_name)
@@ -179,15 +154,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userMiddleName = context.Users
-                //    .Where(c => c.id_user == _userID_main)
-                //    .Select(c => c.middle_name)
-                //    .FirstOrDefault();
-                //
-                //user.middle_name = _userMiddleName;
-                //
-                //return _userMiddleName;
-
                 User.middle_name = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.middle_name)
@@ -207,15 +173,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userPosition = context.Users
-                //    .Where(c => c.id_user == _userID_main)
-                //    .Select(c => c.position)
-                //    .FirstOrDefault();
-                //
-                //user.position = _userPosition;
-                //
-                //return _userPosition;
-
                 User.position = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.position)
@@ -235,15 +192,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-               // _userPhone = context.Users
-               //     .Where(c => c.id_user == _userID_main)
-               //     .Select(c => c.phone)
-               //     .FirstOrDefault();
-               //
-               // user.phone = _userPhone;
-               //
-               // return _userPhone;
-
                 User.phone = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.phone)
@@ -264,15 +212,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userEmail = context.Users
-                //    .Where(c => c.id_user == _userID_main)
-                //    .Select(c => c.user_login)
-                //    .FirstOrDefault();
-                //
-                //user.user_login = _userEmail;
-                //
-                //return _userEmail;
-
                 User.user_login = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.user_login)
@@ -292,15 +231,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-               // _userPassword = context.Users
-               //     .Where(c => c.id_user == _userID_main)
-               //     .Select(c => c.user_password)
-               //     .FirstOrDefault();
-               //
-               // user.user_password = _userPassword;
-               //
-               // return _userPassword;
-
                 User.user_password = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.user_password)
@@ -316,28 +246,45 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         #region Возврат Типа аккаунта авторизованного пользователя
         /// <summary> Возврат Типа аккаунта авторизованного пользователя </summary>
 
-        public string TypeOfAccount
+        public int TypeOfAccount_get
         {
             get
             {
-                //_userTypeOfAccount = context.Users
-                //    .Where(c => c.id_user == _userID_main)
+                //User.type_of_account = context.Users
+                //    .Where(c => c.id_user == User.id_user)
                 //    .Select(c => c.type_of_account)
                 //    .FirstOrDefault();
                 //
-                //user.type_of_account = _userTypeOfAccount;
-                //
-                //return _userTypeOfAccount;
+                //return User.type_of_account;
 
-                User.type_of_account = context.Users
-                    .Where(c => c.id_user == User.id_user)
-                    .Select(c => c.type_of_account)
+                User.id_type = context.Users
+                    .Where(c => c.TypeOfAccount.id_type == c.id_type && 
+                    c.id_user == User.id_user)
+                    .Select(c => c.id_type)
                     .FirstOrDefault();
 
-                return User.type_of_account;
+                return User.id_type;
             }
         }
 
+        #endregion
+
+        /// <summary> Возврат списка типов аккаунтов </summary>
+        #region Возврат списка типов аккаунтов
+        /// <summary> Возврат списка типов аккаунтов </summary>
+        
+        public List<string> ListUsersType
+        {
+            get
+            {
+                var allTypes = from t in context.TypeOfAccount
+                               select t.name_type;
+                foreach (var s in allTypes)
+                    TypeOfAccount.AllType.Add(s);
+
+                return TypeOfAccount.AllType;
+            }
+        }
         #endregion
 
         /// <summary> Возврат Категории исполнителя авторизованного пользователя </summary>
@@ -348,15 +295,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-               // _userCategoryExecutors = context.Users
-               //     .Where(c => c.id_user == _userID_main)
-               //     .Select(c => c.category_executors)
-               //     .FirstOrDefault();
-               //
-               // user.category_executors = _userCategoryExecutors;
-               //
-               // return _userCategoryExecutors;
-
                 User.category_executors = context.Users
                     .Where(c => c.id_user == User.id_user)
                     .Select(c => c.category_executors)
@@ -365,7 +303,20 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                 return User.category_executors;
             }
         }
+        #endregion
 
+        #region Возврат номера помещения заказчика авторизованного пользователя
+        public int RoomNumber
+        {
+            get
+            {
+                U_R_Room.roomNUMBER_URR = context.U_R_Room
+                    .Where(c => c.userID_URR == User.id_user)
+                    .Select(c => c.roomNUMBER_URR)
+                    .FirstOrDefault();
+                return U_R_Room.roomNUMBER_URR;
+            }
+        }
         #endregion
 
         #endregion
@@ -377,12 +328,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //_userPassword = context.Users
-                //    .Where(c => c.user_login == _userEmail)
-                //    .Select(c => c.user_password)
-                //    .FirstOrDefault();
-                //return _userPassword;
-
                 User.user_password = context.Users
                     .Where(c => c.user_login == User.user_login)
                     .Select(c => c.user_password)
@@ -394,24 +339,23 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         #endregion
 
         #region Проверка типа аккаунта пользователя
-        public string CheckUserType
+        public int CheckUserType
         {
             get
             {
-               // _userTypeOfAccount = context.Users
-               //     .Where(c => c.user_login == _userEmail &&
-               //     c.user_password == _userPassword)
-               //     .Select(c => c.type_of_account)
-               //     .FirstOrDefault();
-               // return _userTypeOfAccount;
-
-                User.type_of_account = context.Users
+                //User.type_of_account = context.Users
+                //    .Where(c => c.user_login == User.user_login &&
+                //    c.user_password == User.user_password)
+                //    .Select(c => c.type_of_account)
+                //    .FirstOrDefault();
+                //
+                //return User.type_of_account;
+                User.id_type = context.Users
                     .Where(c => c.user_login == User.user_login &&
                     c.user_password == User.user_password)
-                    .Select(c => c.type_of_account)
+                    .Select(c => c.id_type)
                     .FirstOrDefault();
-
-                return User.type_of_account;
+                return User.id_type;
             }
         }
         #endregion

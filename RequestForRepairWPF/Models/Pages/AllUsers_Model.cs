@@ -1,5 +1,6 @@
 ﻿
 using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.User;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -47,14 +47,29 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         #endregion
 
         #region Тип аккаунта
-        private static string _userType;
-        public string UserType
+        //private static string _userType;
+        //public string UserType
+        //{
+        //    get => _userType;
+        //    set => Set(ref _userType, value);
+        //    //OpenUserAccount;
+        //}
+
+        private static int _userType;
+        public int UserType
         {
             get => _userType;
             set => Set(ref _userType, value);
-            //OpenUserAccount;
         }
+        #endregion
 
+        #region Список типов аккаунтов 
+        private static List<string> _listUsersType;
+        public List<string> ListUsersType
+        {
+            get => _listUsersType;
+            set => Set(ref _listUsersType, value);
+        }
         #endregion
 
         #region Фамилия
@@ -99,6 +114,15 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         {
             get => _userPhone;
             set => Set(ref _userPhone, value);
+        }
+        #endregion
+
+        #region Номер помещения
+        private static int _userRoomNumber;
+        public int UserRoomNumber
+        {
+            get => _userRoomNumber;
+            set => Set(ref _userRoomNumber, value);
         }
         #endregion
 

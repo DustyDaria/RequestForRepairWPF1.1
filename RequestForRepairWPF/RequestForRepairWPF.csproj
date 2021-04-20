@@ -95,50 +95,57 @@
     <Compile Include="Data\Room\SpecialEquipment.cs" />
     <Compile Include="Data\Room\TechnicalEquipment.cs" />
     <Compile Include="Data\Room\TypeRoom.cs" />
+    <Compile Include="Data\User\TypeOfAccount.cs" />
     <Compile Include="Data\U_R_Customer_Custom.cs" />
     <Compile Include="Data\U_R_Executor_Custom.cs" />
     <Compile Include="Data\Room\U_R_Room.cs" />
-    <Compile Include="Entities\DB_RequestForRepair.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_RequestForRepair.Context.tt</DependentUpon>
+    <Compile Include="Entities\C__MigrationHistory.cs">
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\DB_RequestForRepair.cs">
+    <Compile Include="Entities\DB_RequestForRepairEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\DB_RequestForRepair.Designer.cs">
+    <Compile Include="Entities\DB_RequestForRepairEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DB_RequestForRepairEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_RequestForRepairEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\DescriptionRoom.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Requests.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Software.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\SpecialEquipment.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sysdiagrams.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\TechnicalEquipment.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TypeOfAccount.cs">
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\TypeRoom.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Users.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\U_R_Room.cs">
-      <DependentUpon>DB_RequestForRepair.tt</DependentUpon>
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\Base\DelegateCommand.cs" />
@@ -146,8 +153,8 @@
     <Compile Include="Infrastructure\Commands\GoBack.cs" />
     <Compile Include="Infrastructure\Commands\Controls\Password\LoginCommand.cs" />
     <Compile Include="Infrastructure\Commands\LogOut.cs" />
-    <Compile Include="Models\Controls\Room\Control_radioBtn_Model.cs" />
     <Compile Include="Models\Pages\DescriptionRoom_Model.cs" />
+    <Compile Include="Models\Pages\UserAccount\UserRegistrationData_ViewModel.cs" />
     <Compile Include="Models\Pages\UserAccount\UsersData_Model.cs" />
     <Compile Include="Models\Pages\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
@@ -156,12 +163,13 @@
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="Services\PageManager.cs" />
-    <Compile Include="ViewModels\Controls\Room\Control_radioBtn_ViewModel.cs" />
+    <Compile Include="ViewModels\DialogWindows\MessageBox_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\DescriptionRoom_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\UserAccount\CustomerUserAccount_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\UserAccount\UserRegistrationData_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\UserAccount\UsersData_ViewModel.cs" />
     <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml.cs">
       <DependentUpon>Ctrl_burgerMenu_View.xaml</DependentUpon>
@@ -171,6 +179,9 @@
     </Compile>
     <Compile Include="Views\Controls\Room\Control_checkBox.xaml.cs">
       <DependentUpon>Control_checkBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DialogWindows\MessageBox_View.xaml.cs">
+      <DependentUpon>MessageBox_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\AllUsersPage_View.xaml.cs">
       <DependentUpon>AllUsersPage_View.xaml</DependentUpon>
@@ -192,6 +203,9 @@
     </Compile>
     <Compile Include="Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml.cs">
       <DependentUpon>CustomerUserAccountPage_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserRegistrationPage_View.xaml.cs">
+      <DependentUpon>UserRegistrationPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\WatchRequestsPage_View.xaml.cs">
       <DependentUpon>WatchRequestsPage_View.xaml</DependentUpon>
@@ -232,6 +246,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DialogWindows\MessageBox_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\AllUsersPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -257,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserRegistrationPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -335,7 +357,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\User.cs" />
+    <Compile Include="Data\User\User.cs" />
     <Compile Include="Infrastructure\Commands\Base\RelayCommand.cs" />
     <Compile Include="Views\Windows\Customers_View.xaml.cs">
       <DependentUpon>Customers_View.xaml</DependentUpon>
@@ -366,12 +388,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entities\DB_RequestForRepair.edmx">
+    <EntityDeploy Include="Entities\DB_RequestForRepairEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_RequestForRepair.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB_RequestForRepairEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\DB_RequestForRepair.edmx.diagram">
-      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
+    <None Include="Entities\DB_RequestForRepairEntities.edmx.diagram">
+      <DependentUpon>DB_RequestForRepairEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -384,7 +406,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\Loaded\" />
+    <Folder Include="Models\Controls\Room\" />
     <Folder Include="Models\Windows\" />
+    <Folder Include="ViewModels\Controls\Room\" />
     <Folder Include="ViewModels\Windows\" />
   </ItemGroup>
   <ItemGroup>
@@ -394,15 +418,15 @@
     <Resource Include="logo2.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\DB_RequestForRepair.Context.tt">
+    <Content Include="Entities\DB_RequestForRepairEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
-      <LastGenOutput>DB_RequestForRepair.Context.cs</LastGenOutput>
+      <DependentUpon>DB_RequestForRepairEntities.edmx</DependentUpon>
+      <LastGenOutput>DB_RequestForRepairEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\DB_RequestForRepair.tt">
+    <Content Include="Entities\DB_RequestForRepairEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_RequestForRepair.edmx</DependentUpon>
-      <LastGenOutput>DB_RequestForRepair.cs</LastGenOutput>
+      <DependentUpon>DB_RequestForRepairEntities.edmx</DependentUpon>
+      <LastGenOutput>DB_RequestForRepairEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

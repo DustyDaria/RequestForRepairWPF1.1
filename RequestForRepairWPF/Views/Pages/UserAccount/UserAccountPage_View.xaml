@@ -119,25 +119,25 @@
                 <TextBox
                     x:Name="textBox_phone"
                     Margin="100 25 25 25"
-                    materialDesign:HintAssist.Hint="Телефон"
                     Grid.Column="0"
                     Grid.Row="5"
-                    Text="{Binding Path=UserPhone, Mode=TwoWay}"
+                    VerticalAlignment="Top"
+                    Text="{Binding Path=UserPhone}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-                    VerticalAlignment="Top"/>
-
+                    materialDesign:HintAssist.Hint="Телефон"/>
+                
                 <TextBox
                     x:Name="textBox_user_login"
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="1"
-                    Text="{Binding Path=UserLogin, Mode=TwoWay}"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                    Text="{Binding Path=UserEmail}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
+                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Hint="Логин"/>
@@ -197,7 +197,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    SelectedItem="{Binding Path=UserTypeOfAccount, Mode=TwoWay}"
+                    SelectedValue="{Binding Path=UserTypeOfAccount, Mode=TwoWay}"
                     Height="50">
                     <ComboBoxItem 
                                 Content="Системный администратор"/>

@@ -20,10 +20,11 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
     {
         private readonly UsersData_ViewModel _viewModel;
         
-        public string _email, _password, _typeOfAccount;
+        public string _email, _password;
         public string _name, _lastName, _middleName;
         public string _position, _phone, _categoryExecutors;
-        public int _id;
+        public int _idUser, _roomNumber, _idType;
+        public List<string> _listUsersType;
 
         public LoginCommand(UsersData_ViewModel viewModel)
         {
@@ -49,7 +50,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             {
                 UsersData_Model _model = new UsersData_Model(_email, _password);
 
-                if(_model.CheckUserPass == _password && _model.CheckUserType == "Системный администратор")
+                if(_model.CheckUserPass == _password && _model.CheckUserType == 1)
                 {
                     AddUserDataToModel(_model);
 
@@ -58,7 +59,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
                     AddUserDataToViewModel(_model);
 
                 }
-                else if(_model.CheckUserPass == _password && _model.CheckUserType == "Заказчик")
+                else if(_model.CheckUserPass == _password && _model.CheckUserType == 2)
                 {
                     AddUserDataToModel(_model);
 
@@ -66,7 +67,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
 
                     AddUserDataToViewModel(_model);
                 }
-                else if(_model.CheckUserPass == _password && _model.CheckUserType == "Исполнитель")
+                else if(_model.CheckUserPass == _password && _model.CheckUserType == 3)
                 {
                     AddUserDataToModel(_model);
 
@@ -79,14 +80,17 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
 
         private void AddUserDataToModel(UsersData_Model model)
         {
-            _id = model.ID;
-            _typeOfAccount = model.CheckUserType;
+            _idUser = model.ID;
+            _idType = model.CheckUserType;
             _lastName = model.LastName;
             _name = model.Name;
             _middleName = model.MiddleName;
             _position = model.Position;
             _phone = model.Phone;
             _categoryExecutors = model.CategoryExecutors;
+            _roomNumber = model.RoomNumber;
+
+            _listUsersType = model.ListUsersType;
         }
 
         private void AddUserDataToViewModel(UsersData_Model model)
@@ -94,13 +98,16 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             _viewModel.UserEmail = model.User_Login;
             _viewModel.UserPassword = model.User_Password;
             _viewModel.Authorization_userID = model.User_ID;
-            _viewModel.UserType = model.User_TypeOfAccount;
+            _viewModel.UserType = model.User_IDType;
             _viewModel.UserLastName = model.User_LastName;
-            _viewModel.UserName = model.User_LastName;
+            _viewModel.UserName = model.User_Name;
             _viewModel.UserMiddleName = model.User_MiddleName;
             _viewModel.UserPosition = model.User_Position;
             _viewModel.UserPhone = model.User_Phone;
             _viewModel.UserCategoryExecutors = model.User_CategoryExecutors;
+            _viewModel.UserRoomNumber = model.RoomNumber;
+
+            _viewModel.ListUsersType = model.ListUsersType;
         }
     }
 

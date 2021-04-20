@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/db_requestforrepair.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/db_requestforrepair.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/db_requestforrepairentities.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/db_requestforrepairentities.tt")]
 
 

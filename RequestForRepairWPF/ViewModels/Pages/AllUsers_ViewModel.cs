@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.User;
 using RequestForRepairWPF.Models;
 using RequestForRepairWPF.Models.Pages;
 using RequestForRepairWPF.ViewModels.Base;

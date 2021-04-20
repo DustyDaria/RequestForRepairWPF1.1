@@ -23,9 +23,9 @@ namespace RequestForRepairWPF.Entities
         }
     
         public int id_user { get; set; }
+        public int id_type { get; set; }
         public string user_login { get; set; }
         public string user_password { get; set; }
-        public string type_of_account { get; set; }
         public string last_name { get; set; }
         public string name { get; set; }
         public string middle_name { get; set; }
@@ -33,6 +33,7 @@ namespace RequestForRepairWPF.Entities
         public string category_executors { get; set; }
         public string phone { get; set; }
     
+        public virtual TypeOfAccount TypeOfAccount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<U_R_Room> U_R_Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

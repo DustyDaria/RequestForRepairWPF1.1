@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище DB_RequestForRepairModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
         <EntityType Name="DescriptionRoom">
           <Key>
             <PropertyRef Name="id_description_DR" />
@@ -13,8 +23,6 @@
           <Property Name="id_description_DR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description_DR" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="comment_DR" Type="varchar" MaxLength="300" />
-          <Property Name="userID_DR" Type="int" Nullable="false" />
-          <Property Name="roomNUMBER_DR" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Requests">
           <Key>
@@ -81,6 +89,13 @@
           <Property Name="name_TE" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="value_TE" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="TypeOfAccount">
+          <Key>
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_type" Type="int" Nullable="false" />
+          <Property Name="name_type" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
         <EntityType Name="TypeRoom">
           <Key>
             <PropertyRef Name="id_type_room_TR" />
@@ -120,9 +135,9 @@
             <PropertyRef Name="id_user" />
           </Key>
           <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_type" Type="int" Nullable="false" />
           <Property Name="user_login" Type="varchar" MaxLength="35" Nullable="false" />
           <Property Name="user_password" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="type_of_account" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="last_name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="middle_name" Type="varchar" MaxLength="30" />
@@ -256,10 +271,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_TypeOfAccount">
+          <End Role="TypeOfAccount" Type="Self.TypeOfAccount" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfAccount">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище DB_RequestForRepairModelContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DescriptionRoom" EntityType="Self.DescriptionRoom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfAccount" EntityType="Self.TypeOfAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeRoom" EntityType="Self.TypeRoom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="U_R_Customer" EntityType="Self.U_R_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="U_R_Executor" EntityType="Self.U_R_Executor" Schema="dbo" store:Type="Tables" />
@@ -334,12 +363,26 @@
             <End Role="TypeRoom" EntitySet="TypeRoom" />
             <End Role="U_R_Room" EntitySet="U_R_Room" />
           </AssociationSet>
+          <AssociationSet Name="FK_Users_TypeOfAccount" Association="Self.FK_Users_TypeOfAccount">
+            <End Role="TypeOfAccount" EntitySet="TypeOfAccount" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_RequestForRepairModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="DescriptionRoom">
           <Key>
             <PropertyRef Name="id_description_DR" />
@@ -348,8 +391,6 @@
           <Property Name="id_description_DR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="description_DR" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="comment_DR" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="userID_DR" Type="Int32" Nullable="false" />
-          <Property Name="roomNUMBER_DR" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TypeRoom" Relationship="Self.FK_DescriptionRoom_TypeRoom" FromRole="DescriptionRoom" ToRole="TypeRoom" />
           <NavigationProperty Name="Software" Relationship="Self.FK_Software_DescriptionRoom" FromRole="DescriptionRoom" ToRole="Software" />
           <NavigationProperty Name="SpecialEquipment" Relationship="Self.FK_SpecialEquipment_DescriptionRoom" FromRole="DescriptionRoom" ToRole="SpecialEquipment" />
@@ -383,6 +424,14 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="TypeOfAccount">
+          <Key>
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_type" Type="Int32" Nullable="false" />
+          <Property Name="name_type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_TypeOfAccount" FromRole="TypeOfAccount" ToRole="Users" />
+        </EntityType>
         <EntityType Name="TypeRoom">
           <Key>
             <PropertyRef Name="id_type_room_TR" />
@@ -397,15 +446,16 @@
             <PropertyRef Name="id_user" />
           </Key>
           <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_type" Type="Int32" Nullable="false" />
           <Property Name="user_login" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="type_of_account" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="middle_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="category_executors" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TypeOfAccount" Relationship="Self.FK_Users_TypeOfAccount" FromRole="Users" ToRole="TypeOfAccount" />
           <NavigationProperty Name="U_R_Room" Relationship="Self.FK_Room_Users" FromRole="Users" ToRole="U_R_Room" />
           <NavigationProperty Name="Requests" Relationship="Self.U_R_Customer" FromRole="Users" ToRole="Requests" />
           <NavigationProperty Name="Requests1" Relationship="Self.U_R_Executor" FromRole="Users" ToRole="Requests" />
@@ -505,6 +555,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_TypeOfAccount">
+          <End Role="TypeOfAccount" Type="Self.TypeOfAccount" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfAccount">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_U_R_Room_TypeRoom">
           <End Role="TypeRoom" Type="Self.TypeRoom" Multiplicity="0..1" />
           <End Role="U_R_Room" Type="Self.U_R_Room" Multiplicity="*" />
@@ -539,10 +601,12 @@
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DB_RequestForRepairEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_RequestForRepairEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="DescriptionRoom" EntityType="Self.DescriptionRoom" />
           <EntitySet Name="Requests" EntityType="Self.Requests" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypeOfAccount" EntityType="Self.TypeOfAccount" />
           <EntitySet Name="TypeRoom" EntityType="Self.TypeRoom" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="Software" EntityType="Self.Software" />
@@ -564,6 +628,10 @@
           <AssociationSet Name="FK_TechnicalEquipment_DescriptionRoom" Association="Self.FK_TechnicalEquipment_DescriptionRoom">
             <End Role="DescriptionRoom" EntitySet="DescriptionRoom" />
             <End Role="TechnicalEquipment" EntitySet="TechnicalEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_TypeOfAccount" Association="Self.FK_Users_TypeOfAccount">
+            <End Role="TypeOfAccount" EntitySet="TypeOfAccount" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_U_R_Room_TypeRoom" Association="Self.FK_U_R_Room_TypeRoom">
             <End Role="TypeRoom" EntitySet="TypeRoom" />
@@ -587,7 +655,17 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DB_RequestForRepairModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="DescriptionRoom">
             <EntityTypeMapping TypeName="DB_RequestForRepairModel.DescriptionRoom">
               <MappingFragment StoreEntitySet="DescriptionRoom">
@@ -595,8 +673,6 @@
                 <ScalarProperty Name="id_description_DR" ColumnName="id_description_DR" />
                 <ScalarProperty Name="description_DR" ColumnName="description_DR" />
                 <ScalarProperty Name="comment_DR" ColumnName="comment_DR" />
-                <ScalarProperty Name="userID_DR" ColumnName="userID_DR" />
-                <ScalarProperty Name="roomNUMBER_DR" ColumnName="roomNUMBER_DR" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -628,6 +704,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfAccount">
+            <EntityTypeMapping TypeName="DB_RequestForRepairModel.TypeOfAccount">
+              <MappingFragment StoreEntitySet="TypeOfAccount">
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="name_type" ColumnName="name_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TypeRoom">
             <EntityTypeMapping TypeName="DB_RequestForRepairModel.TypeRoom">
               <MappingFragment StoreEntitySet="TypeRoom">
@@ -640,9 +724,9 @@
             <EntityTypeMapping TypeName="DB_RequestForRepairModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
                 <ScalarProperty Name="user_login" ColumnName="user_login" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
-                <ScalarProperty Name="type_of_account" ColumnName="type_of_account" />
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="middle_name" ColumnName="middle_name" />

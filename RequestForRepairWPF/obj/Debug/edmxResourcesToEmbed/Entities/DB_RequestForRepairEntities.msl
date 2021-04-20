@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DescriptionRoom">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.DescriptionRoom">
+        <MappingFragment StoreEntitySet="DescriptionRoom">
+          <ScalarProperty Name="id_type_room_DR" ColumnName="id_type_room_DR" />
+          <ScalarProperty Name="id_description_DR" ColumnName="id_description_DR" />
+          <ScalarProperty Name="description_DR" ColumnName="description_DR" />
+          <ScalarProperty Name="comment_DR" ColumnName="comment_DR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Requests">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="id_request" ColumnName="id_request" />
+          <ScalarProperty Name="date_start" ColumnName="date_start" />
+          <ScalarProperty Name="date_end" ColumnName="date_end" />
+          <ScalarProperty Name="status_request" ColumnName="status_request" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+          <ScalarProperty Name="name_request" ColumnName="name_request" />
+          <ScalarProperty Name="description_request" ColumnName="description_request" />
+          <ScalarProperty Name="comment_request" ColumnName="comment_request" />
+          <ScalarProperty Name="inventory_number" ColumnName="inventory_number" />
+          <ScalarProperty Name="actual_date_end" ColumnName="actual_date_end" />
+          <ScalarProperty Name="category_request" ColumnName="category_request" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfAccount">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.TypeOfAccount">
+        <MappingFragment StoreEntitySet="TypeOfAccount">
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="name_type" ColumnName="name_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeRoom">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.TypeRoom">
+        <MappingFragment StoreEntitySet="TypeRoom">
+          <ScalarProperty Name="id_type_room_TR" ColumnName="id_type_room_TR" />
+          <ScalarProperty Name="name_type_room_TR" ColumnName="name_type_room_TR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="user_login" ColumnName="user_login" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="category_executors" ColumnName="category_executors" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Software">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Software">
+        <MappingFragment StoreEntitySet="Software">
+          <ScalarProperty Name="id_description_S" ColumnName="id_description_S" />
+          <ScalarProperty Name="name_S" ColumnName="name_S" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialEquipment">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.SpecialEquipment">
+        <MappingFragment StoreEntitySet="SpecialEquipment">
+          <ScalarProperty Name="name_SE" ColumnName="name_SE" />
+          <ScalarProperty Name="purpose_SE" ColumnName="purpose_SE" />
+          <ScalarProperty Name="in_amount_SE" ColumnName="in_amount_SE" />
+          <ScalarProperty Name="id_description_SE" ColumnName="id_description_SE" />
+          <ScalarProperty Name="value_SE" ColumnName="value_SE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TechnicalEquipment">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.TechnicalEquipment">
+        <MappingFragment StoreEntitySet="TechnicalEquipment">
+          <ScalarProperty Name="id_description_TE" ColumnName="id_description_TE" />
+          <ScalarProperty Name="in_amount_TE" ColumnName="in_amount_TE" />
+          <ScalarProperty Name="name_TE" ColumnName="name_TE" />
+          <ScalarProperty Name="value_TE" ColumnName="value_TE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="U_R_Room">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.U_R_Room">
+        <MappingFragment StoreEntitySet="U_R_Room">
+          <ScalarProperty Name="userID_URR" ColumnName="userID_URR" />
+          <ScalarProperty Name="roomNUMBER_URR" ColumnName="roomNUMBER_URR" />
+          <ScalarProperty Name="id_type_room_URR" ColumnName="id_type_room_URR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="U_R_Customer" TypeName="DB_RequestForRepairModel.U_R_Customer" StoreEntitySet="U_R_Customer">
+      <EndProperty Name="Requests">
+        <ScalarProperty Name="id_request" ColumnName="requestID_URC" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="id_user" ColumnName="userID_URC" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="U_R_Executor" TypeName="DB_RequestForRepairModel.U_R_Executor" StoreEntitySet="U_R_Executor">
+      <EndProperty Name="Requests">
+        <ScalarProperty Name="id_request" ColumnName="requestID_URE" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="id_user" ColumnName="userID_URE" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

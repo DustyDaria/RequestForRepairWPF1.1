@@ -1,5 +1,6 @@
 ﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Data.Room;
+using RequestForRepairWPF.Data.User;
 using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace RequestForRepairWPF.Models.Pages
 {
     public class DescriptionRoom_Model : ViewModel
     {
-        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
         //U_R_Room _room = new U_R_Room();
         DescriptionRoom _descriptionRoom = new DescriptionRoom();
         TypeRoom _typeRoom = new TypeRoom();

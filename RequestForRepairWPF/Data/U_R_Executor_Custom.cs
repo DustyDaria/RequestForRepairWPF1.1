@@ -11,7 +11,7 @@ namespace RequestForRepairWPF.Data
     public class U_R_Executor_Custom
     {
         public int userID_URE { get; set; }
-        public User User { get; set; }
+        //public User User { get; set; }
         public int requestID_URE { get; set; }
         public Request Request { get; set; }
         //public List<Entities.Request> Request { get; set; }

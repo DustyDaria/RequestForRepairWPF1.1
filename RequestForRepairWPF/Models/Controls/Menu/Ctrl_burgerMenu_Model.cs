@@ -13,9 +13,9 @@ namespace RequestForRepairWPF.Models.Controls.Menu
     public class Ctrl_burgerMenu_Model : INotifyPropertyChanged
     {
         private int _idUser;
-        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
+        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
 
-        public string UserType
+        public int UserType
         {
             get
             {
@@ -23,9 +23,9 @@ namespace RequestForRepairWPF.Models.Controls.Menu
                             where c.id_user == _idUser
                             select new
                             {
-                                c.type_of_account
+                                c.id_type
                             };
-                return Convert.ToString(query);
+                return Convert.ToInt32(query);
             }
             set
             {

@@ -1,4 +1,6 @@
-﻿using RequestForRepairWPF.Infrastructure.Commands.Controls.Menu;
+﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.User;
+using RequestForRepairWPF.Infrastructure.Commands.Controls.Menu;
 using RequestForRepairWPF.Models.Controls.Menu;
 using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Base;
@@ -19,8 +21,8 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
     {
 
         //private string _userTypeOfAccount;
-        private int _id;
-        Ctrl_burgerMenu_Model menu_Model = new Ctrl_burgerMenu_Model();
+        //private int _id;
+        //Ctrl_burgerMenu_Model menu_Model = new Ctrl_burgerMenu_Model();
         
 
         #region Команда на загрузкку элементов меню
@@ -30,75 +32,6 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
             MenuLoad_Command = new MenuLoad_Command(this);
         }
         #endregion
-
-        //private static string _userTypeOfAccount;
-        //public string userTypeOfAccount
-        //{
-        //    get => _userTypeOfAccount;
-        //    set => Set(ref _userTypeOfAccount, value);
-        //}
-        //
-        //private string menuItem(string _userTypeOfAccount)
-        //{
-        //    if (_userTypeOfAccount == "Системный администратор")
-        //    {
-        //        _listVisibility_AllUsers = true;
-        //
-        //        _listVisibility_Customers = true;
-        //
-        //        _listVisibility_Executors = true;
-        //
-        //        _listVisibility_RegisterNewUser = true;
-        //
-        //        _listVisibility_EditUserAccount = true;
-        //
-        //        _listVisibility_WatchRequest = true;
-        //
-        //        _listVisibility_WatchArchiveRequest = true;
-        //
-        //        _listVisibility_MyRequest = true;
-        //
-        //        _listVisibility_MyArchiveRequest = true;
-        //
-        //        _listVisibility_FileReport = true;
-        //    }
-        //    else if (_userTypeOfAccount == "Заказчик")
-        //    {
-        //        _listVisibility_EditUserAccount = true;
-        //
-        //        _listVisibility_DescriptionRoom = true;
-        //
-        //        _listVisibility_CreateRequest = true;
-        //
-        //        _listVisibility_WatchRequest = true;
-        //
-        //        _listVisibility_WatchArchiveRequest = true;
-        //
-        //        _listVisibility_MyRequest = true;
-        //
-        //        _listVisibility_MyArchiveRequest = true;
-        //
-        //        _listVisibility_FileReport = true;
-        //    }
-        //    else if (_userTypeOfAccount == "Исполнитель")
-        //    {
-        //        _listVisibility_EditUserAccount = true;
-        //
-        //        _listVisibility_WatchRequest = true;
-        //
-        //        _listVisibility_WatchArchiveRequest = true;
-        //
-        //        _listVisibility_MyRequest = true;
-        //
-        //        _listVisibility_MyArchiveRequest = true;
-        //
-        //        _listVisibility_FileReport = true;
-        //    }
-        //
-        //    return _userTypeOfAccount;
-        //}
-
-
 
         /// <summary> Инициализация элементов меню </summary>
         #region Инициализация элементов меню
@@ -432,14 +365,28 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
     {
         public OpenEditUserAccountViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new UserAccountPage_View());
+        public override void Execute(object parameter)
+        {
+            if (User.id_type == 1)
+            {
+                PageManager.MainFrame.Navigate(new UserAccountPage_View());
+            }
+            else if(User.id_type == 2)
+            {
+                PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
+            }
+            else if(User.id_type == 3)
+            {
+                PageManager.MainFrame.Navigate(new UserAccountPage_View());
+            }
+        }
     }
 
     internal class OpenRegUserAccountViewCommand : MyCommand
     {
         public OpenRegUserAccountViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new UserAccountPage_View());
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new UserRegistrationPage_View());
     }
 
     internal class OpenAllUsersViewCommand : MyCommand

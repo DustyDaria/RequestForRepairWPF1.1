@@ -3,6 +3,7 @@ FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\App.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Menu\Ctrl_burgerMenu_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Password\Ctrl_PasswordBox_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Room\Control_checkBox.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\DialogWindows\MessageBox_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\AllUsersPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\CreateAndEditRequestPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\CustomersPage_View.xaml;;
@@ -10,6 +11,7 @@ FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\ExecutorsPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\FileReportPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml;;
+FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\UserAccount\UserRegistrationPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\WatchRequestsPage_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\AllUsers_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\Authorization_View.xaml;;
@@ -25,6 +27,4 @@ FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windo
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\UserAccount\UserAccount_View.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Controls\Room\Control_radioBtn.xaml;;
 FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Windows\WatchRequests_View.xaml;;
-FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\Pages\UserRegistrationPage_View.xaml;;
-FC:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\Views\DialogWindows\MessageBox_View.xaml;;
 

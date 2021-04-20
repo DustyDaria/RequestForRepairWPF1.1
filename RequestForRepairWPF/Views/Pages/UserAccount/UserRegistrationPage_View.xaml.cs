@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RequestForRepairWPF.Views.Pages
+namespace RequestForRepairWPF.Views.Pages.UserAccount
 {
     /// <summary>
     /// Логика взаимодействия для UserRegistrationPage_View.xaml

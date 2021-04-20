@@ -204,7 +204,7 @@
     <Compile Include="Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml.cs">
       <DependentUpon>CustomerUserAccountPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\UserRegistrationPage_View.xaml.cs">
+    <Compile Include="Views\Pages\UserAccount\UserRegistrationPage_View.xaml.cs">
       <DependentUpon>UserRegistrationPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\WatchRequestsPage_View.xaml.cs">
@@ -278,7 +278,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\UserRegistrationPage_View.xaml">
+    <Page Include="Views\Pages\UserAccount\UserRegistrationPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

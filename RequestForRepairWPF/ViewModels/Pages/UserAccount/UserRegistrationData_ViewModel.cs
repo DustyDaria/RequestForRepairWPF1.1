@@ -1,4 +1,5 @@
-﻿using RequestForRepairWPF.ViewModels.Base;
+﻿using RequestForRepairWPF.Data.User;
+using RequestForRepairWPF.ViewModels.Base;
 using RequestForRepairWPF.ViewModels.DialogWindows;
 using RequestForRepairWPF.Views.DialogWindows;
 using System;
@@ -121,6 +122,18 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Команда на добаление пользовательских типов аккаунтов при загрузке
+        private ICommand _loadUsersType;
+        public ICommand LoadUsersType
+        {
+            get
+            {
+                _loadUsersType = new LoadUsersTypeCommand(this);
+                return _loadUsersType;
+            }
+        }
+        #endregion
+
         #region Команда на добавление пользовательских регистрационных данных
         private ICommand _regUserData;
         public ICommand RegUserDataCommand
@@ -132,6 +145,18 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             }
         }
         #endregion
+    }
+
+    internal class LoadUsersTypeCommand : MyRegCommand
+    {
+        public LoadUsersTypeCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => _userRegData_ViewModel.ListUsersType = TypeOfAccount.AllType;
+
+        //private void LoadTypes()
+        //{
+        //    _userRegData_ViewModel.ListUsersType = TypeOfAccount.AllType;
+        //}
     }
 
     internal class RegUserDataCommand : MyRegCommand

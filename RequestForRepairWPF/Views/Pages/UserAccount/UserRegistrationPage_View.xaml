@@ -1,4 +1,4 @@
-﻿<Page x:Class="RequestForRepairWPF.Views.Pages.UserRegistrationPage_View"
+﻿<Page x:Class="RequestForRepairWPF.Views.Pages.UserAccount.UserRegistrationPage_View"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -30,7 +30,7 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding Path=UserAccount_Command}"/>
+            <i:InvokeCommandAction Command="{Binding Path=LoadUsersType}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     
@@ -194,6 +194,26 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
+                    SelectedItem="{Binding Path=UserType}"
+                    Height="50"
+                    ItemsSource="{Binding Path=ListUsersType}">
+                </ComboBox>
+                
+                <!--<ComboBox
+                    x:Name="comboBox_type_of_account"
+                    VerticalAlignment="Top"
+                    
+                    Margin="25"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
+                    materialDesign:ColorZoneAssist.Mode="Accent"
+                    materialDesign:HintAssist.Hint="Тип аккаунта"
+                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
+                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    MinWidth="128"
                     SelectedItem="{Binding Path=UserTypeOfAccount, Mode=TwoWay}"
                     Height="50">
                     <ComboBoxItem 
@@ -202,7 +222,7 @@
                                 Content="Заказчик"/>
                     <ComboBoxItem
                                 Content="Исполнитель"/>
-                </ComboBox>
+                </ComboBox>-->
 
                 <ComboBox
                     x:Name="comboBox_category_executors"

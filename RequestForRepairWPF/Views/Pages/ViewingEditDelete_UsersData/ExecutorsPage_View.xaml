@@ -1,4 +1,4 @@
-﻿<Page x:Class="RequestForRepairWPF.Views.Pages.WatchRequestsPage_View"
+﻿<Page x:Class="RequestForRepairWPF.Views.Pages.ViewingEditDelete_UsersData.ExecutorsPage_View"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -20,7 +20,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         d:DesignHeight="800" d:DesignWidth="1080"
       
-      Title="Просмотр текущих заявок">
+      Title="Исполнители">
 
     <Grid>
         <!-- Контент -->
@@ -43,7 +43,7 @@
                     Grid.ColumnSpan="2"
                     x:Name="label_Header"
                     Margin="100,25,25,25"
-                    Text="Просмотр текущих заявок"
+                    Text="Исполнители"
                     Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                     FontWeight="DemiBold">
                 </TextBlock>
@@ -57,7 +57,7 @@
 
                     <DataGrid
                         Margin="100,25,25,25"
-                        x:Name="DataGrid_Request"
+                        x:Name="DataGrid_Executors"
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         SelectionUnit="Cell"
@@ -68,39 +68,67 @@
                                 Width="auto"/>
                             <DataGridTextColumn
                                 IsReadOnly="True"
-                                Binding="{Binding id_request}"
+                                Binding="{Binding id_user}"
                                 Header="ID" 
                                 Width="auto"/>
                             <DataGridTextColumn 
-                                Binding="{Binding name_request}"
+                                Binding="{Binding user_login}"
                                 IsReadOnly="False"
-                                Header="Название" 
+                                Header="Логин" 
                                 Width="auto"/>
                             <DataGridTextColumn 
-                                Binding="{Binding date_start}"
+                                Binding="{Binding last_name}"
                                 IsReadOnly="False"
-                                Header="Дата начала" 
+                                Header="Фамилия" 
                                 Width="auto"/>
                             <DataGridTextColumn 
-                                Binding="{Binding date_end}"
+                                Binding="{Binding name}"
                                 IsReadOnly="False"
-                                Header="Дата окончания" 
+                                Header="Имя" 
                                 Width="auto"/>
                             <DataGridTextColumn 
-                                Binding="{Binding status_request}"
+                                Binding="{Binding middle_name}"
                                 IsReadOnly="False"
-                                Header="Статус заявки" 
+                                Header="Отчество" 
                                 Width="auto"/>
                             <DataGridTextColumn 
-                                Binding="{Binding room_number}"
+                                Binding="{Binding position}"
                                 IsReadOnly="False"
-                                Header="Номер помещения" 
+                                Header="Должность" 
                                 Width="auto"/>
                             <DataGridTextColumn 
-                                Binding="{Binding category_request}"
-                                Header="Категория заявки" 
-                                IsReadOnly="True"
+                                Binding="{Binding category_executors}"
+                                Header="Категория исполнителя" 
+                                IsReadOnly="False"
                                 Width="auto"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding phone}"
+                                IsReadOnly="False"
+                                Header="Телефон" 
+                                Width="auto"/>
+                            <DataGridComboBoxColumn
+                                x:Name="comboBoxRequest"
+                                Header="Заявки"
+                                Width="auto">
+
+                            </DataGridComboBoxColumn>
+                            <!--<DataGridComboBoxColumn 
+                                Header="Заявки" 
+                                Width="auto" 
+                                SelectedValueBinding="{Binding Path=loadRequestIDCollection}" 
+                                DisplayMemberPath="Brigade1">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
+                                        <Setter Property="IsReadOnly" Value="True"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>-->
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
@@ -128,12 +156,13 @@
                           materialDesign:HintAssist.HelperText="Выберите критерий поиска"
                           MinWidth="128">
                         <ComboBoxItem Content="ID"/>
-                        <ComboBoxItem Content="Название"/>
-                        <ComboBoxItem Content="Дата начала"/>
-                        <ComboBoxItem Content="Дата окончания"/>
-                        <ComboBoxItem Content="Статус заявки"/>
-                        <ComboBoxItem Content="Номер помещения"/>
-                        <ComboBoxItem Content="Категория заявки"/>
+                        <ComboBoxItem Content="Логин"/>
+                        <ComboBoxItem Content="Фамилия"/>
+                        <ComboBoxItem Content="Имя"/>
+                        <ComboBoxItem Content="Отчество"/>
+                        <ComboBoxItem Content="Должность"/>
+                        <ComboBoxItem Content="Категория исполнителя"/>
+                        <ComboBoxItem Content="Телефон"/>
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"

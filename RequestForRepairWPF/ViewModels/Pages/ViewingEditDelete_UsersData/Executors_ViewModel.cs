@@ -1,6 +1,7 @@
 ﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Models;
 using RequestForRepairWPF.Models.Pages;
+using RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData;
 using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace RequestForRepairWPF.ViewModels.Pages
+namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
 {
     class Executors_ViewModel : ViewModel
     {

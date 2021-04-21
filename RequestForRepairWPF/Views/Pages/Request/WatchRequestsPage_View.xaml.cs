@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RequestForRepairWPF.Views.Pages
+namespace RequestForRepairWPF.Views.Pages.Request
 {
     /// <summary>
     /// Логика взаимодействия для WatchRequestsPage_View.xaml

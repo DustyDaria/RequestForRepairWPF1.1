@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RequestForRepairWPF.Views.Pages
+namespace RequestForRepairWPF.Views.Pages.ViewingEditDelete_UsersData
 {
     /// <summary>
-    /// Логика взаимодействия для CreateAndEditRequestPage_View.xaml
+    /// Логика взаимодействия для ExecutorsPage_View.xaml
     /// </summary>
-    public partial class CreateAndEditRequestPage_View : Page
+    public partial class ExecutorsPage_View : Page
     {
-        public CreateAndEditRequestPage_View()
+        public ExecutorsPage_View()
         {
             InitializeComponent();
         }

@@ -2,6 +2,7 @@
 using RequestForRepairWPF.Data.User;
 using RequestForRepairWPF.Models;
 using RequestForRepairWPF.Models.Pages;
+using RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData;
 using RequestForRepairWPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.ViewModels.Pages
+namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
 {
     class AllUsers_ViewModel : ViewModel
     {

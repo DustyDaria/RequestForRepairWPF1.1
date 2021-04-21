@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RequestForRepairWPF.Views.Pages
+namespace RequestForRepairWPF.Views.Pages.Request
 {
     /// <summary>
-    /// Логика взаимодействия для ExecutorsPage_View.xaml
+    /// Логика взаимодействия для CreateAndEditRequestPage_View.xaml
     /// </summary>
-    public partial class ExecutorsPage_View : Page
+    public partial class CreateAndEditRequestPage_View : Page
     {
-        public ExecutorsPage_View()
+        public CreateAndEditRequestPage_View()
         {
             InitializeComponent();
         }

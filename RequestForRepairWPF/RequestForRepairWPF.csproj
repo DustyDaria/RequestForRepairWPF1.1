@@ -157,15 +157,15 @@
     <Compile Include="Models\Pages\DescriptionRoom_Model.cs" />
     <Compile Include="Models\Pages\UserAccount\UserRegistrationData_ViewModel.cs" />
     <Compile Include="Models\Pages\UserAccount\UsersData_Model.cs" />
-    <Compile Include="Models\Pages\AllUsers_Model.cs" />
+    <Compile Include="Models\Pages\ViewingEditDelete_UsersData\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
-    <Compile Include="Models\Pages\Executor_Model.cs" />
+    <Compile Include="Models\Pages\ViewingEditDelete_UsersData\Executor_Model.cs" />
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
     <Compile Include="Services\DisplayRootRegistry.cs" />
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="Services\PageManager.cs" />
     <Compile Include="ViewModels\DialogWindows\MessageBox_ViewModel.cs" />
-    <Compile Include="ViewModels\Pages\AllUsers_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\DescriptionRoom_ViewModel.cs" />
@@ -184,19 +184,19 @@
     <Compile Include="Views\DialogWindows\MessageBox_View.xaml.cs">
       <DependentUpon>MessageBox_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\AllUsersPage_View.xaml.cs">
+    <Compile Include="Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.xaml.cs">
       <DependentUpon>AllUsersPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\CreateAndEditRequestPage_View.xaml.cs">
+    <Compile Include="Views\Pages\Request\CreateAndEditRequestPage_View.xaml.cs">
       <DependentUpon>CreateAndEditRequestPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\CustomersPage_View.xaml.cs">
+    <Compile Include="Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.xaml.cs">
       <DependentUpon>CustomersPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\DescriptionRoomPage_View.xaml.cs">
       <DependentUpon>DescriptionRoomPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\ExecutorsPage_View.xaml.cs">
+    <Compile Include="Views\Pages\ViewingEditDelete_UsersData\ExecutorsPage_View.xaml.cs">
       <DependentUpon>ExecutorsPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\FileReportPage_View.xaml.cs">
@@ -208,7 +208,7 @@
     <Compile Include="Views\Pages\UserAccount\UserRegistrationPage_View.xaml.cs">
       <DependentUpon>UserRegistrationPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\WatchRequestsPage_View.xaml.cs">
+    <Compile Include="Views\Pages\Request\WatchRequestsPage_View.xaml.cs">
       <DependentUpon>WatchRequestsPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\DescriptionRoom.xaml.cs">
@@ -251,15 +251,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\AllUsersPage_View.xaml">
+    <Page Include="Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\CreateAndEditRequestPage_View.xaml">
+    <Page Include="Views\Pages\Request\CreateAndEditRequestPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\CustomersPage_View.xaml">
+    <Page Include="Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -267,7 +267,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\ExecutorsPage_View.xaml">
+    <Page Include="Views\Pages\ViewingEditDelete_UsersData\ExecutorsPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,7 +283,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\WatchRequestsPage_View.xaml">
+    <Page Include="Views\Pages\Request\WatchRequestsPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,7 +295,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ViewModels\Pages\Executors_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\Executors_ViewModel.cs" />
     <Compile Include="Views\Windows\AllUsers_View.xaml.cs">
       <DependentUpon>AllUsers_View.xaml</DependentUpon>
     </Compile>
@@ -410,6 +410,7 @@
     <Folder Include="Models\Controls\Room\" />
     <Folder Include="Models\Windows\" />
     <Folder Include="ViewModels\Controls\Room\" />
+    <Folder Include="ViewModels\Pages\Request\" />
     <Folder Include="ViewModels\Windows\" />
   </ItemGroup>
   <ItemGroup>

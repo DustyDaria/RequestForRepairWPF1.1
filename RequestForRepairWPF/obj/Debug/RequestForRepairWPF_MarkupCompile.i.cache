@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\App.xaml
-27-1708649611
+27-785021663
 21192102280
-85-414800028
+85822331300
 27-10348926
-Views\Controls\Menu\Ctrl_burgerMenu_View.xaml;Views\Controls\Password\Ctrl_PasswordBox_View.xaml;Views\Controls\Room\Control_checkBox.xaml;Views\DialogWindows\MessageBox_View.xaml;Views\Pages\AllUsersPage_View.xaml;Views\Pages\CreateAndEditRequestPage_View.xaml;Views\Pages\CustomersPage_View.xaml;Views\Pages\DescriptionRoomPage_View.xaml;Views\Pages\ExecutorsPage_View.xaml;Views\Pages\FileReportPage_View.xaml;Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml;Views\Pages\UserAccount\UserRegistrationPage_View.xaml;Views\Pages\WatchRequestsPage_View.xaml;Views\Windows\AllUsers_View.xaml;Views\Windows\Authorization_View.xaml;Views\Windows\Customers_View.xaml;Views\Windows\DescriptionRoom.xaml;Views\Windows\Executors_View.xaml;Views\Windows\CreateAndEditRequest_View.xaml;Views\Windows\FileReport_View.xaml;Views\Windows\MainWindow.xaml;Views\Pages\AuthorizationPage_View.xaml;Views\Pages\UserAccount\UserAccountPage_View.xaml;Views\Windows\UserAccount\CustomerUserAccount_View.xaml;Views\Windows\UserAccount\UserAccount_View.xaml;Views\Controls\Room\Control_radioBtn.xaml;Views\Windows\WatchRequests_View.xaml;
+Views\Controls\Menu\Ctrl_burgerMenu_View.xaml;Views\Controls\Password\Ctrl_PasswordBox_View.xaml;Views\Controls\Room\Control_checkBox.xaml;Views\DialogWindows\MessageBox_View.xaml;Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.xaml;Views\Pages\Request\CreateAndEditRequestPage_View.xaml;Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.xaml;Views\Pages\DescriptionRoomPage_View.xaml;Views\Pages\ViewingEditDelete_UsersData\ExecutorsPage_View.xaml;Views\Pages\FileReportPage_View.xaml;Views\Pages\UserAccount\CustomerUserAccountPage_View.xaml;Views\Pages\UserAccount\UserRegistrationPage_View.xaml;Views\Pages\Request\WatchRequestsPage_View.xaml;Views\Windows\AllUsers_View.xaml;Views\Windows\Authorization_View.xaml;Views\Windows\Customers_View.xaml;Views\Windows\DescriptionRoom.xaml;Views\Windows\Executors_View.xaml;Views\Windows\CreateAndEditRequest_View.xaml;Views\Windows\FileReport_View.xaml;Views\Windows\MainWindow.xaml;Views\Pages\AuthorizationPage_View.xaml;Views\Pages\UserAccount\UserAccountPage_View.xaml;Views\Windows\UserAccount\CustomerUserAccount_View.xaml;Views\Windows\UserAccount\UserAccount_View.xaml;Views\Controls\Room\Control_radioBtn.xaml;Views\Windows\WatchRequests_View.xaml;
 
 True
 

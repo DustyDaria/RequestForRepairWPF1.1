@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RequestForRepairWPF.Models.Pages
+namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 {
     class AllUsers_Model : INotifyPropertyChanged
     {

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 //using System.Data.Linq.SqlClient.SqlMethods.Like;
 
-namespace RequestForRepairWPF.Models.Pages
+namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 {
     public class Executor_Model : INotifyPropertyChanged
     {

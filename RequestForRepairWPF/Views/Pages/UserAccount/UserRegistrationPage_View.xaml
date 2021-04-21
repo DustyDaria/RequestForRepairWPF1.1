@@ -146,12 +146,14 @@
                         Margin="25"
                         Grid.Row="2"
                         Grid.Column="1"
+                    materialDesign:HintAssist.Hint="Пароль" 
                         Password="{Binding Path=UserPassword, Mode=TwoWay}"/>
 
                 <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
                         Grid.Row="3"
                         Grid.Column="1"
+                    materialDesign:HintAssist.Hint="Повторите пароль" 
                         Password="{Binding Path=UserRepeatPassword, Mode=TwoWay}"/>
 
                 <!--<PasswordBox

@@ -23,5 +23,10 @@ namespace RequestForRepairWPF.Views.DialogWindows
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

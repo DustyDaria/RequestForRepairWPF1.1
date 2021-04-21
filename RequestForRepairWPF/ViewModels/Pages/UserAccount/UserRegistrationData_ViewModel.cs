@@ -166,80 +166,72 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         public override void Execute(object parameter) => SaveClick();
         private void SaveClick()
         {
-            MessageBox_ViewModel messageBox_ViewModel = new MessageBox_ViewModel();
-            MessageBox_View messageBox_View = new MessageBox_View();
-
             if (_userRegData_ViewModel.UserType == "Системный администратор")
             {
-                if (_userRegData_ViewModel.UserLastName == string.Empty)
+                if (_userRegData_ViewModel.UserLastName == null || _userRegData_ViewModel.UserLastName == string.Empty)
                 {
-                    messageBox_ViewModel.TextMessage = "Пожалуйста, введите фамилию пользователя!";
-                    messageBox_View.Show();
+                    OpenDialogWindow("Пожалуйста, введите фамилию пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserName == string.Empty)
+                else if (_userRegData_ViewModel.UserName == null || _userRegData_ViewModel.UserName == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите имя пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPosition == string.Empty)
+                else if (_userRegData_ViewModel.UserPosition == null || _userRegData_ViewModel.UserPosition == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите должность пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPhone == string.Empty)
+                else if (_userRegData_ViewModel.UserPhone == null || _userRegData_ViewModel.UserPhone == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите телефон пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserEmail == string.Empty)
+                else if (_userRegData_ViewModel.UserEmail == null || _userRegData_ViewModel.UserEmail == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите логин пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPassword == string.Empty)
+                else if (_userRegData_ViewModel.UserPassword == null || _userRegData_ViewModel.UserPassword == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserRepeatPassword == string.Empty
-                    && _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
+                else if (_userRegData_ViewModel.UserRepeatPassword == null
+                    || _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
                 {
-
+                    OpenDialogWindow("Введенные пароли не совпадают!");
                 }
                 else
                 {
-
+                    //////////////////////// СОХРАНЕНИЕ
                 }
             }
             else if (_userRegData_ViewModel.UserType == "Заказчик")
             {
-                if (_userRegData_ViewModel.UserLastName == string.Empty)
+                if (_userRegData_ViewModel.UserLastName == null || _userRegData_ViewModel.UserLastName == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите фамилию пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserMiddleName == string.Empty)
+                else if (_userRegData_ViewModel.UserName == null || _userRegData_ViewModel.UserName == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите имя пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserName == string.Empty)
+                else if (_userRegData_ViewModel.UserPosition == null || _userRegData_ViewModel.UserPosition == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите должность пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPosition == string.Empty)
+                else if (_userRegData_ViewModel.UserPhone == null || _userRegData_ViewModel.UserPhone == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите телефон пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPhone == string.Empty)
+                else if (_userRegData_ViewModel.UserEmail == null || _userRegData_ViewModel.UserEmail == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите логин пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserEmail == string.Empty)
+                else if (_userRegData_ViewModel.UserPassword == null || _userRegData_ViewModel.UserPassword == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPassword == string.Empty)
+                else if (_userRegData_ViewModel.UserRepeatPassword == null
+                    || _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
                 {
-
-                }
-                else if (_userRegData_ViewModel.UserRepeatPassword == string.Empty
-                    && _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
-                {
-
+                    OpenDialogWindow("Введенные пароли не совпадают!");
                 }
                 else if (_userRegData_ViewModel.UserRoomNumber == 0)
                 {
@@ -247,54 +239,61 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 }
                 else
                 {
-
+                    //////////////////////// СОХРАНЕНИЕ
                 }
             }
             else if (_userRegData_ViewModel.UserType == "Исполнитель")
             {
-                if (_userRegData_ViewModel.UserLastName == string.Empty)
+                if (_userRegData_ViewModel.UserLastName == null || _userRegData_ViewModel.UserLastName == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите фамилию пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserMiddleName == string.Empty)
+                else if (_userRegData_ViewModel.UserName == null || _userRegData_ViewModel.UserName == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите имя пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserName == string.Empty)
+                else if (_userRegData_ViewModel.UserPosition == null || _userRegData_ViewModel.UserPosition == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите должность пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPosition == string.Empty)
+                else if (_userRegData_ViewModel.UserPhone == null || _userRegData_ViewModel.UserPhone == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите телефон пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPhone == string.Empty)
+                else if (_userRegData_ViewModel.UserEmail == null || _userRegData_ViewModel.UserEmail == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите логин пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserEmail == string.Empty)
+                else if (_userRegData_ViewModel.UserPassword == null || _userRegData_ViewModel.UserPassword == string.Empty)
                 {
-
+                    OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
                 }
-                else if (_userRegData_ViewModel.UserPassword == string.Empty)
-                {
-
-                }
-                else if (_userRegData_ViewModel.UserRepeatPassword == string.Empty
+                else if (_userRegData_ViewModel.UserRepeatPassword == null
                     && _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
                 {
-
+                    OpenDialogWindow("Введенные пароли не совпадают!");
                 }
-                else if (_userRegData_ViewModel.UserCategoryExecutors == string.Empty)
+                else if (_userRegData_ViewModel.UserCategoryExecutors == null)
                 {
 
                 }
                 else
                 {
-
+                    //////////////////////// СОХРАНЕНИЕ
                 }
             }
+            else
+            {
+                OpenDialogWindow("Вам необходимо выбрать тип аккаунта!");
+            }
 
+        }
+
+        private void OpenDialogWindow(string textMessage)
+        {
+            MessageBox_ViewModel messageBox_ViewModel = new MessageBox_ViewModel(textMessage);
+            MessageBox_View messageBox_View = new MessageBox_View();
+            messageBox_View.Show();
         }
     }
 

@@ -57,6 +57,7 @@
 
             <ctrl:Ctrl_PasswordBox_View
             Margin="200 25 200 25"
+                    materialDesign:HintAssist.Hint="Пароль" 
             Password="{Binding Path=UserPassword}"/>
 
             <Button

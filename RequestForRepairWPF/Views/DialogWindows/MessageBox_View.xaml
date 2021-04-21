@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RequestForRepairWPF.Views.DialogWindows" xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.DialogWindows"
+        xmlns:local="clr-namespace:RequestForRepairWPF.Views.DialogWindows" 
+        xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.DialogWindows"
         mc:Ignorable="d"
         Title="Важное сообщение" 
+        WindowStartupLocation="CenterScreen"
         Height="200" 
-        Width="200">
+        Width="500">
     <Window.DataContext>
         <vm:MessageBox_ViewModel/>
     </Window.DataContext>
@@ -26,8 +28,8 @@
             TextWrapping="Wrap"
             Grid.Row="0"
                 HorizontalAlignment="Center"
-    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-            Text="{Binding Path=TextMessage}"/>
+    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+            Text="{Binding Path=TextMessage, Mode=TwoWay}"/>
         </ScrollViewer>
         
         <Button
@@ -35,10 +37,9 @@
             Width="100"
             Height="30"
             HorizontalAlignment="Center"
-            Command="{Binding Path=CloseApplicationCommand}"
     Style="{StaticResource MaterialDesignFlatLightBgButton}"
     ToolTip="MaterialDesignFlatLightButton"
-            Content="Хорошо">
+            Content="Хорошо" Click="Button_Click">
             
         </Button>
     </Grid>

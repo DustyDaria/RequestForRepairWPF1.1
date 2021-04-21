@@ -1,4 +1,6 @@
-﻿using RequestForRepairWPF.ViewModels.Base;
+﻿using RequestForRepairWPF.Infrastructure.Commands.Base;
+using RequestForRepairWPF.ViewModels.Base;
+using RequestForRepairWPF.Views.DialogWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,20 @@ namespace RequestForRepairWPF.ViewModels.DialogWindows
 {
     public class MessageBox_ViewModel : ViewModel
     {
+        #region Конструкторы
+        public MessageBox_ViewModel(string text)
+        {
+            TextMessage = text;
+        }
+
+        public MessageBox_ViewModel()
+        {
+            //#region Команды
+            //CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            //#endregion
+        }
+        #endregion
+
         #region Сообщение для пользователя
         private static string _textMessage;
         public string TextMessage
@@ -20,14 +36,37 @@ namespace RequestForRepairWPF.ViewModels.DialogWindows
         }
         #endregion
 
-        #region Закрыть окно
-        public ICommand CloseApplicationCommand { get; }
+        #region Закрыть окно (при биндинге кнопка отключается)
+        //public ICommand CloseApplicationCommand { get; }
+        //
+        //private bool CanCloseApplicationCommandExecute(object p) => true;
+        //private void OnCloseApplicationCommandExecuted(object p)
+        //{
+        //    MessageBox_View messageBox_View = new MessageBox_View();
+        //    messageBox_View.Close();
+        //    this.Close();
+        //}
 
-        private bool CanCloseApplicationCommandExecute(object p) => true;
-        private void OnCloseApplicationCommandExecuted(object p)
+        public bool CanClose { get; set; }
+
+        private RelayCommand closeCommand;
+        public ICommand CloseCommand
         {
-            Application.Current.Shutdown();
+            get
+            {
+                if (closeCommand == null)
+                {
+                    closeCommand = new RelayCommand(param => Close(), param => CanClose);
+                }
+                return closeCommand;
+            }
         }
+
+        public void Close()
+        {
+            this.Close();
+        }
+
         #endregion
 
     }

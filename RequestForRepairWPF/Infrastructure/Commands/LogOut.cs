@@ -1,6 +1,8 @@
 ﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Infrastructure.Commands.Base;
 using RequestForRepairWPF.Services;
+using RequestForRepairWPF.ViewModels.DialogWindows;
+using RequestForRepairWPF.Views.DialogWindows;
 using RequestForRepairWPF.Views.Pages;
 using RequestForRepairWPF.Views.Windows;
 using System;
@@ -19,8 +21,16 @@ namespace RequestForRepairWPF.Infrastructure.Commands
 
         private void AppRestart()
         {
-            System.Windows.Forms.Application.Restart();
-            System.Windows.Application.Current.Shutdown();
+            Dialog_ViewModel dialog_ViewModel = new Dialog_ViewModel("Вы уверены, что хотите выйти из своего профиля?");
+            DialogConfirmation_View dialogConfirmation_View = new DialogConfirmation_View();
+            dialogConfirmation_View.Show();
+            
+            // Необходимо уведомдение от ViewModel о замене значения свойства
+            //if (dialog_ViewModel.UserConfirmation == true)
+            //{
+            //    System.Windows.Forms.Application.Restart();
+            //    System.Windows.Application.Current.Shutdown();
+            //}
         }
     }
 }

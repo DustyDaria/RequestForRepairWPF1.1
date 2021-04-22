@@ -87,3 +87,5 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Vi
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\ExecutorsPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\WatchRequestsPage_View.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\DialogConfirmation_View.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\DialogConfirmation_View.baml

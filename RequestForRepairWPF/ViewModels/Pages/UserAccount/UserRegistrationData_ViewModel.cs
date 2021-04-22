@@ -291,7 +291,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         private void OpenDialogWindow(string textMessage)
         {
-            MessageBox_ViewModel messageBox_ViewModel = new MessageBox_ViewModel(textMessage);
+            Dialog_ViewModel messageBox_ViewModel = new Dialog_ViewModel(textMessage);
             MessageBox_View messageBox_View = new MessageBox_View();
             messageBox_View.Show();
         }

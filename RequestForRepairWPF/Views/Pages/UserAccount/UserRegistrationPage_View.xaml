@@ -311,33 +311,16 @@
                     Width="auto"
                     Padding="25 10 25 10"
                     Margin="25"
-                    Command="{Binding MenuListViewItem_Command}"
                     HorizontalAlignment="Right"
                     Grid.Column="1"
                     Grid.Row="6"
                     Content="Отмена"
+                    Command="{Binding Path=CancelUserRegCommand}"
                     Style="{StaticResource MaterialDesignFlatButton}"
                     ToolTip="MaterialDesignFlatButton">
                 </Button>
 
-                <Button
-                                x:Name="btn_Edit"
-                                FontSize="18"
-                                Height="auto"
-                                Width="auto"
-                    IsEnabled="False"
-                                Click="btn_Edit_Click"
-                                Padding="25 10 25 10"
-                                Margin="100 25 25 25"
-                                HorizontalAlignment="Left"
-                                Grid.Column="0"
-                                Grid.Row="6"
-                                Content="Редактировать"
-                                Style="{StaticResource MaterialDesignRaisedLightButton}"
-                                ToolTip="Resource name: MaterialDesignRaisedLightButton">
-
-                </Button>
-
+                
 
             </Grid>
 

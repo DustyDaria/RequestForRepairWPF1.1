@@ -24,10 +24,6 @@ namespace RequestForRepairWPF.Views.Pages.UserAccount
         {
             InitializeComponent();
         }
-        private void btn_Edit_Click(object sender, RoutedEventArgs e)
-        {
-            this.btn_Edit.IsEnabled = !this.btn_Edit.IsEnabled;
-        }
 
     }
 }

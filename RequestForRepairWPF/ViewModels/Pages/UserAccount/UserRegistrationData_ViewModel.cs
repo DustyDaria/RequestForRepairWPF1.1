@@ -147,19 +147,53 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             }
         }
         #endregion
+
+        #region Команда на отмену регистрации
+        private ICommand _cancelUserReg;
+        public ICommand CancelUserRegCommand
+        {
+            get
+            {
+                _cancelUserReg = new CancelUserRegCommand(this);
+                return _cancelUserReg;
+            }
+        }
+        #endregion
     }
 
+    #region Класс-команда для отмены регистрации пользователя
+    internal class CancelUserRegCommand : MyRegCommand
+    {
+        public CancelUserRegCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => CleanUsersData();
+
+        private void CleanUsersData()
+        {
+            _userRegData_ViewModel.UserEmail = null;
+            _userRegData_ViewModel.UserPassword = null;
+            _userRegData_ViewModel.UserRepeatPassword = null;
+            _userRegData_ViewModel.UserLastName = null;
+            _userRegData_ViewModel.UserName = null;
+            _userRegData_ViewModel.UserMiddleName = null;
+            _userRegData_ViewModel.UserPosition = null;
+            _userRegData_ViewModel.UserPhone = null;
+            _userRegData_ViewModel.UserType = null;
+            _userRegData_ViewModel.UserCategoryExecutors = null;
+            _userRegData_ViewModel.UserRoomNumber = 0;
+
+        }
+    }
+    #endregion
+
+    #region Класс-команда для загрузки пользовательских типов аккаунтов
     internal class LoadUsersTypeCommand : MyRegCommand
     {
         public LoadUsersTypeCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => _userRegData_ViewModel.ListUsersType = Data.User.TypeOfAccount.AllType;
-
-        //private void LoadTypes()
-        //{
-        //    _userRegData_ViewModel.ListUsersType = TypeOfAccount.AllType;
-        //}
     }
+    #endregion
 
     internal class RegUserDataCommand : MyRegCommand
     {
@@ -185,14 +219,6 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                                        where u.user_login == userLogin 
                                        select u.user_login)
                                        .FirstOrDefault();
-            //var checkLogin1 = context.Users
-            //    .Where(u => u.user_login == userLogin)
-            //    .Select(u => u.user_login);
-            //var checkLogin = from u in context.Users
-            //                 where u.user_login == userLogin
-            //                 select u.user_login;
-            //foreach (string u in checkLogin)
-            //    checkedUserLogin = u;
             #endregion
 
             if (_userRegData_ViewModel.UserType == "Системный администратор" && admins.Count >= 3)

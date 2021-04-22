@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.Data.User;
+using RequestForRepairWPF.Entities;
 using RequestForRepairWPF.ViewModels.Base;
 using RequestForRepairWPF.ViewModels.DialogWindows;
 using RequestForRepairWPF.Views.DialogWindows;
@@ -13,6 +14,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 {
     public class UserRegistrationData_ViewModel : ViewModel
     {
+        
         #region Логин
         private static string _userEmail;
         public string UserEmail
@@ -151,7 +153,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
     {
         public LoadUsersTypeCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => _userRegData_ViewModel.ListUsersType = TypeOfAccount.AllType;
+        public override void Execute(object parameter) => _userRegData_ViewModel.ListUsersType = Data.User.TypeOfAccount.AllType;
 
         //private void LoadTypes()
         //{
@@ -161,12 +163,43 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
     internal class RegUserDataCommand : MyRegCommand
     {
+        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
+        
         public RegUserDataCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => SaveClick();
         private void SaveClick()
         {
-            if (_userRegData_ViewModel.UserType == "Системный администратор")
+            #region Получение зарегистрированных администраторов (для проверки)
+            List<int> admins = new List<int>();
+            var queryAdmin = from adm in context.Users
+                             where adm.id_type == 1
+                             select adm.id_user;
+            foreach (int a in queryAdmin)
+                admins.Add(a);
+            #endregion
+
+            #region  Получение логина зарегистрированного пользователя по совпадению с введенным (для проверки)
+            string userLogin = _userRegData_ViewModel.UserEmail;
+            string checkedUserLogin = (from u in context.Users 
+                                       where u.user_login == userLogin 
+                                       select u.user_login)
+                                       .FirstOrDefault();
+            //var checkLogin1 = context.Users
+            //    .Where(u => u.user_login == userLogin)
+            //    .Select(u => u.user_login);
+            //var checkLogin = from u in context.Users
+            //                 where u.user_login == userLogin
+            //                 select u.user_login;
+            //foreach (string u in checkLogin)
+            //    checkedUserLogin = u;
+            #endregion
+
+            if (_userRegData_ViewModel.UserType == "Системный администратор" && admins.Count >= 3)
+            {
+                OpenDialogWindow("Вы не можете зарегистрировать нового пользователя с типом аккаунта \"Системный администратор\"!\nМаксимально возможное количество пользователей с типом аккаунта \"Системный администратор\" не должно превышать 3");
+            }
+            else if (_userRegData_ViewModel.UserType == "Системный администратор")
             {
                 if (_userRegData_ViewModel.UserLastName == null || _userRegData_ViewModel.UserLastName == string.Empty)
                 {
@@ -188,6 +221,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 {
                     OpenDialogWindow("Пожалуйста, введите логин пользователя!");
                 }
+                else if (_userRegData_ViewModel.UserEmail == checkedUserLogin)
+                {
+                    OpenDialogWindow("Пожалуйста, введите другой логин пользователя!\nПользователь с таким логином уже зарегистрирован!");
+                }
                 else if (_userRegData_ViewModel.UserPassword == null || _userRegData_ViewModel.UserPassword == string.Empty)
                 {
                     OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
@@ -199,7 +236,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 }
                 else
                 {
-                    //////////////////////// СОХРАНЕНИЕ
+                    SaveUsersData(_userRegData_ViewModel.UserName, _userRegData_ViewModel.UserLastName, _userRegData_ViewModel.UserMiddleName,
+                        _userRegData_ViewModel.UserPosition, _userRegData_ViewModel.UserPhone, _userRegData_ViewModel.UserEmail,
+                        _userRegData_ViewModel.UserPassword, 1);
+                    CleanUsersData();
                 }
             }
             else if (_userRegData_ViewModel.UserType == "Заказчик")
@@ -223,6 +263,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 else if (_userRegData_ViewModel.UserEmail == null || _userRegData_ViewModel.UserEmail == string.Empty)
                 {
                     OpenDialogWindow("Пожалуйста, введите логин пользователя!");
+                }
+                else if (_userRegData_ViewModel.UserEmail == checkedUserLogin)
+                {
+                    OpenDialogWindow("Пожалуйста, введите другой логин пользователя!\nПользователь с таким логином уже зарегистрирован!");
                 }
                 else if (_userRegData_ViewModel.UserPassword == null || _userRegData_ViewModel.UserPassword == string.Empty)
                 {
@@ -264,6 +308,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 {
                     OpenDialogWindow("Пожалуйста, введите логин пользователя!");
                 }
+                else if (_userRegData_ViewModel.UserEmail == checkedUserLogin)
+                {
+                    OpenDialogWindow("Пожалуйста, введите другой логин пользователя!\nПользователь с таким логином уже зарегистрирован!");
+                }
                 else if (_userRegData_ViewModel.UserPassword == null || _userRegData_ViewModel.UserPassword == string.Empty)
                 {
                     OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
@@ -287,6 +335,41 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 OpenDialogWindow("Вам необходимо выбрать тип аккаунта!");
             }
 
+        }
+
+        private void SaveUsersData(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password, int _typeOfAccount)
+        {
+            Users user = new Users
+            {
+                id_type = _typeOfAccount,
+                user_login = _email,
+                user_password = _password,
+                last_name = _lastName,
+                name = _name,
+                middle_name = _middleName,
+                position = _position,
+                phone = _phone
+            };
+            context.Users.Add(user);
+            context.SaveChanges();
+
+            OpenDialogWindow("Пользователь был успешно зарегистрирован!");
+        }
+
+        private void CleanUsersData()
+        {
+            _userRegData_ViewModel.UserEmail = null;
+            _userRegData_ViewModel.UserPassword = null;
+            _userRegData_ViewModel.UserRepeatPassword = null;
+            _userRegData_ViewModel.UserLastName = null;
+            _userRegData_ViewModel.UserName = null;
+            _userRegData_ViewModel.UserMiddleName = null;
+            _userRegData_ViewModel.UserPosition = null;
+            _userRegData_ViewModel.UserPhone = null;
+            _userRegData_ViewModel.UserType = null;
+            _userRegData_ViewModel.UserCategoryExecutors = null;
+            _userRegData_ViewModel.UserRoomNumber = 0;
+            
         }
 
         private void OpenDialogWindow(string textMessage)

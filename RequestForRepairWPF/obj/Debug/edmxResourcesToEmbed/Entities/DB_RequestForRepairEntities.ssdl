@@ -35,6 +35,14 @@
     <Property Name="actual_date_end" Type="datetime" />
     <Property Name="category_request" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="id_room" />
+    </Key>
+    <Property Name="id_room" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="room_number" Type="int" Nullable="false" />
+    <Property Name="room_status" Type="bit" Nullable="false" />
+  </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "DB_RequestForRepair.dbo.Software" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="Software">
@@ -119,11 +127,11 @@
   <EntityType Name="U_R_Room">
     <Key>
       <PropertyRef Name="userID_URR" />
-      <PropertyRef Name="roomNUMBER_URR" />
+      <PropertyRef Name="id_room" />
     </Key>
     <Property Name="userID_URR" Type="int" Nullable="false" />
-    <Property Name="roomNUMBER_URR" Type="int" Nullable="false" />
     <Property Name="id_type_room_URR" Type="int" />
+    <Property Name="id_room" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -254,6 +262,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_U_R_Room_Rooms">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+    <End Role="U_R_Room" Type="Self.U_R_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="id_room" />
+      </Principal>
+      <Dependent Role="U_R_Room">
+        <PropertyRef Name="id_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_U_R_Room_TypeRoom">
     <End Role="TypeRoom" Type="Self.TypeRoom" Multiplicity="0..1" />
     <End Role="U_R_Room" Type="Self.U_R_Room" Multiplicity="*" />
@@ -282,6 +302,7 @@
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DescriptionRoom" EntityType="Self.DescriptionRoom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeOfAccount" EntityType="Self.TypeOfAccount" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeRoom" EntityType="Self.TypeRoom" Schema="dbo" store:Type="Tables" />
@@ -314,8 +335,8 @@
     <EntitySet Name="U_R_Room" EntityType="Self.U_R_Room" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [U_R_Room].[userID_URR] AS [userID_URR], 
-    [U_R_Room].[roomNUMBER_URR] AS [roomNUMBER_URR], 
-    [U_R_Room].[id_type_room_URR] AS [id_type_room_URR]
+    [U_R_Room].[id_type_room_URR] AS [id_type_room_URR], 
+    [U_R_Room].[id_room] AS [id_room]
     FROM [dbo].[U_R_Room] AS [U_R_Room]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_Customer_Request" Association="Self.FK_Customer_Request">
@@ -353,6 +374,10 @@
     <AssociationSet Name="FK_U_R_Executor_Users" Association="Self.FK_U_R_Executor_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="U_R_Executor" EntitySet="U_R_Executor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_U_R_Room_Rooms" Association="Self.FK_U_R_Room_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="U_R_Room" EntitySet="U_R_Room" />
     </AssociationSet>
     <AssociationSet Name="FK_U_R_Room_TypeRoom" Association="Self.FK_U_R_Room_TypeRoom">
       <End Role="TypeRoom" EntitySet="TypeRoom" />

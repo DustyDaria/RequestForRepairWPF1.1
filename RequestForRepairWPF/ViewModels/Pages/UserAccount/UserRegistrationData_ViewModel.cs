@@ -197,8 +197,8 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
     internal class RegUserDataCommand : MyRegCommand
     {
-        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
-        
+        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+
         public RegUserDataCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => SaveClick();

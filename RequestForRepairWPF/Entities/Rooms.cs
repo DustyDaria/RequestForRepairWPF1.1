@@ -12,14 +12,19 @@ namespace RequestForRepairWPF.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class U_R_Room
+    public partial class Rooms
     {
-        public int userID_URR { get; set; }
-        public Nullable<int> id_type_room_URR { get; set; }
-        public int id_room { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rooms()
+        {
+            this.U_R_Room = new HashSet<U_R_Room>();
+        }
     
-        public virtual Rooms Rooms { get; set; }
-        public virtual TypeRoom TypeRoom { get; set; }
-        public virtual Users Users { get; set; }
+        public int id_room { get; set; }
+        public int room_number { get; set; }
+        public bool room_status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<U_R_Room> U_R_Room { get; set; }
     }
 }

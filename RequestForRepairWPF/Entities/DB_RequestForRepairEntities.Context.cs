@@ -13,10 +13,10 @@ namespace RequestForRepairWPF.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_RequestForRepairEntities1 : DbContext
+    public partial class DB_RequestForRepairEntities3 : DbContext
     {
-        public DB_RequestForRepairEntities1()
-            : base("name=DB_RequestForRepairEntities1")
+        public DB_RequestForRepairEntities3()
+            : base("name=DB_RequestForRepairEntities3")
         {
         }
     
@@ -28,6 +28,7 @@ namespace RequestForRepairWPF.Entities
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<DescriptionRoom> DescriptionRoom { get; set; }
         public virtual DbSet<Requests> Requests { get; set; }
+        public virtual DbSet<Rooms> Rooms { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfAccount> TypeOfAccount { get; set; }
         public virtual DbSet<TypeRoom> TypeRoom { get; set; }

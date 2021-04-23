@@ -13,7 +13,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
     public class UsersData_Model : INotifyPropertyChanged
     {
         //private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
-        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
+        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
         //private User user = new User();
         //private int _userID_main, _userID_secondary;
         //private string _userName, _userLastName, _userMiddleName;

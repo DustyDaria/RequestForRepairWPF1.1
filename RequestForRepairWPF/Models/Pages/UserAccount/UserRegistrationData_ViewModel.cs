@@ -10,7 +10,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
 {
     public class UserRegistrationData_ViewModel : INotifyPropertyChanged
     {
-        private Entities.DB_RequestForRepairEntities1 context = new Entities.DB_RequestForRepairEntities1();
+        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
 
 
 

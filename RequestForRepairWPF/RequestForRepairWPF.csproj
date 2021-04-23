@@ -91,6 +91,7 @@
     </ApplicationDefinition>
     <Compile Include="Data\Request.cs" />
     <Compile Include="Data\Room\DescriptionRoom.cs" />
+    <Compile Include="Data\Room\Rooms.cs" />
     <Compile Include="Data\Room\Software.cs" />
     <Compile Include="Data\Room\SpecialEquipment.cs" />
     <Compile Include="Data\Room\TechnicalEquipment.cs" />
@@ -121,6 +122,9 @@
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Requests.cs">
+      <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Rooms.cs">
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Software.cs">

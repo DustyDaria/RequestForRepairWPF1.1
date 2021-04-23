@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities3">
     <EntitySetMapping Name="C__MigrationHistory">
       <EntityTypeMapping TypeName="DB_RequestForRepairModel.C__MigrationHistory">
         <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -35,6 +35,15 @@
           <ScalarProperty Name="inventory_number" ColumnName="inventory_number" />
           <ScalarProperty Name="actual_date_end" ColumnName="actual_date_end" />
           <ScalarProperty Name="category_request" ColumnName="category_request" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Rooms">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="id_room" ColumnName="id_room" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+          <ScalarProperty Name="room_status" ColumnName="room_status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -114,8 +123,8 @@
       <EntityTypeMapping TypeName="DB_RequestForRepairModel.U_R_Room">
         <MappingFragment StoreEntitySet="U_R_Room">
           <ScalarProperty Name="userID_URR" ColumnName="userID_URR" />
-          <ScalarProperty Name="roomNUMBER_URR" ColumnName="roomNUMBER_URR" />
           <ScalarProperty Name="id_type_room_URR" ColumnName="id_type_room_URR" />
+          <ScalarProperty Name="id_room" ColumnName="id_room" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

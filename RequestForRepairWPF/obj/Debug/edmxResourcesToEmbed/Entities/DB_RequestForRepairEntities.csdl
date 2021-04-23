@@ -41,6 +41,15 @@
     <NavigationProperty Name="Users" Relationship="Self.U_R_Customer" FromRole="Requests" ToRole="Users" />
     <NavigationProperty Name="Users1" Relationship="Self.U_R_Executor" FromRole="Requests" ToRole="Users" />
   </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="id_room" />
+    </Key>
+    <Property Name="id_room" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_number" Type="Int32" Nullable="false" />
+    <Property Name="room_status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="U_R_Room" Relationship="Self.FK_U_R_Room_Rooms" FromRole="Rooms" ToRole="U_R_Room" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -126,11 +135,12 @@
   <EntityType Name="U_R_Room">
     <Key>
       <PropertyRef Name="userID_URR" />
-      <PropertyRef Name="roomNUMBER_URR" />
+      <PropertyRef Name="id_room" />
     </Key>
     <Property Name="userID_URR" Type="Int32" Nullable="false" />
-    <Property Name="roomNUMBER_URR" Type="Int32" Nullable="false" />
     <Property Name="id_type_room_URR" Type="Int32" />
+    <Property Name="id_room" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK_U_R_Room_Rooms" FromRole="U_R_Room" ToRole="Rooms" />
     <NavigationProperty Name="TypeRoom" Relationship="Self.FK_U_R_Room_TypeRoom" FromRole="U_R_Room" ToRole="TypeRoom" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Room_Users" FromRole="U_R_Room" ToRole="Users" />
   </EntityType>
@@ -182,6 +192,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_U_R_Room_Rooms">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+    <End Role="U_R_Room" Type="Self.U_R_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="id_room" />
+      </Principal>
+      <Dependent Role="U_R_Room">
+        <PropertyRef Name="id_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Users_TypeOfAccount">
     <End Role="TypeOfAccount" Type="Self.TypeOfAccount" Multiplicity="1" />
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -228,10 +250,11 @@
     <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="DB_RequestForRepairEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB_RequestForRepairEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
     <EntitySet Name="DescriptionRoom" EntityType="Self.DescriptionRoom" />
     <EntitySet Name="Requests" EntityType="Self.Requests" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TypeOfAccount" EntityType="Self.TypeOfAccount" />
     <EntitySet Name="TypeRoom" EntityType="Self.TypeRoom" />
@@ -255,6 +278,10 @@
     <AssociationSet Name="FK_TechnicalEquipment_DescriptionRoom" Association="Self.FK_TechnicalEquipment_DescriptionRoom">
       <End Role="DescriptionRoom" EntitySet="DescriptionRoom" />
       <End Role="TechnicalEquipment" EntitySet="TechnicalEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_U_R_Room_Rooms" Association="Self.FK_U_R_Room_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="U_R_Room" EntitySet="U_R_Room" />
     </AssociationSet>
     <AssociationSet Name="FK_Users_TypeOfAccount" Association="Self.FK_Users_TypeOfAccount">
       <End Role="TypeOfAccount" EntitySet="TypeOfAccount" />

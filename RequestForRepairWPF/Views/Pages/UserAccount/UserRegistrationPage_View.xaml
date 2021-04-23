@@ -201,31 +201,6 @@
                     ItemsSource="{Binding Path=ListUsersType}">
                 </ComboBox>
                 
-                <!--<ComboBox
-                    x:Name="comboBox_type_of_account"
-                    VerticalAlignment="Top"
-                    
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="4"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:ColorZoneAssist.Mode="Accent"
-                    materialDesign:HintAssist.Hint="Тип аккаунта"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
-                    MinWidth="128"
-                    SelectedItem="{Binding Path=UserTypeOfAccount, Mode=TwoWay}"
-                    Height="50">
-                    <ComboBoxItem 
-                                Content="Системный администратор"/>
-                    <ComboBoxItem
-                                Content="Заказчик"/>
-                    <ComboBoxItem
-                                Content="Исполнитель"/>
-                </ComboBox>-->
-
                 <ComboBox
                     x:Name="comboBox_category_executors"
                             Visibility="Collapsed"

@@ -1,4 +1,5 @@
 ﻿using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.Room;
 using RequestForRepairWPF.Data.User;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
 {
     public class UsersData_Model : INotifyPropertyChanged
     {
-        //private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
-        //private User user = new User();
-        //private int _userID_main, _userID_secondary;
-        //private string _userName, _userLastName, _userMiddleName;
-        //private string _userPosition, _userPhone, _userCategoryExecutors;
-        //private string _userEmail, _userPassword, _userTypeOfAccount;
 
         /// <summary>
         /// Данные авторизованного пользователя
@@ -283,6 +278,60 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                     TypeOfAccount.AllType.Add(s);
 
                 return TypeOfAccount.AllType;
+            }
+        }
+        #endregion
+
+        /// <summary> Возврат списка категорий исполнителя</summary>
+        #region Возврат списка категорий исполнителя
+        /// <summary> Возврат списка категорий исполнителя</summary>
+        public List<string> ListCategoryExecutors
+        {
+            get
+            {
+                var allCategory = (from c in context.Users
+                                   where c.category_executors != string.Empty && c.category_executors != null
+                                   select c.category_executors)
+                                  .Distinct();
+                foreach (var s in allCategory)
+                    User.AllCategoryExecutors.Add(s);
+
+                return User.AllCategoryExecutors;
+            }
+        }
+        #endregion
+
+        /// <summary> Возврат списка помещений</summary>
+        #region Возврат списка помещений
+        /// <summary> Возврат списка помещений</summary>
+        public List<int> ListRommsNumber
+        {
+            get
+            {
+                var allRooms = from r in context.Rooms
+                               select r.room_number;
+                foreach (var s in allRooms)
+                    Rooms.AllRoomsNumber.Add(s);
+
+                return Rooms.AllRoomsNumber;
+            }
+        }
+        #endregion
+
+        /// <summary> Возврат списка свободных помещений</summary>
+        #region Возврат списка свободных помещений
+        /// <summary> Возврат списка свободных помещений</summary>
+        public List<int> ListLiberyRoomsNumber
+        {
+            get
+            {
+                var allLibertyRooms = from r in context.Rooms
+                                      where r.room_status == false
+                                      select r.room_number;
+                foreach (var s in allLibertyRooms)
+                    Rooms.AllLibertyRoomsNumber.Add(s);
+
+                return Rooms.AllLibertyRoomsNumber;
             }
         }
         #endregion

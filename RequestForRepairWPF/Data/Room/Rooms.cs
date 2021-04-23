@@ -12,5 +12,6 @@ namespace RequestForRepairWPF.Data.Room
         public int room_number { get; set; }
         public bool room_status { get; set; }
         public static List<int> AllRoomsNumber { get; set; } = new List<int>();
+        public static List<int> AllLibertyRoomsNumber { get; set; } = new List<int>();
     }
 }

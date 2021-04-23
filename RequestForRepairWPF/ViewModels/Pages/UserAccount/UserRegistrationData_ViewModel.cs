@@ -124,14 +124,32 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Список категорий исполнителей
+        private List<string> _listExecutorsType;
+        public List<string> ListExecutorsType
+        {
+            get => _listExecutorsType;
+            set => Set(ref _listExecutorsType, value);
+        }
+        #endregion
+
+        #region Списсок всех помещений
+        private List<int> _listLibertyRoomsNumber;
+        public List<int> ListLibertyRoomsNumber
+        {
+            get => _listLibertyRoomsNumber;
+            set => Set(ref _listLibertyRoomsNumber, value);
+        }
+        #endregion 
+
         #region Команда на добаление пользовательских типов аккаунтов при загрузке
-        private ICommand _loadUsersType;
-        public ICommand LoadUsersType
+        private ICommand _loadRegData;
+        public ICommand LoadRegData
         {
             get
             {
-                _loadUsersType = new LoadUsersTypeCommand(this);
-                return _loadUsersType;
+                _loadRegData = new LoadRegDataCommand(this);
+                return _loadRegData;
             }
         }
         #endregion
@@ -186,12 +204,19 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
     }
     #endregion
 
-    #region Класс-команда для загрузки пользовательских типов аккаунтов
-    internal class LoadUsersTypeCommand : MyRegCommand
+    #region Класс-команда загрузки необходимых данных для регистрации
+    internal class LoadRegDataCommand : MyRegCommand
     {
-        public LoadUsersTypeCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
+        public LoadRegDataCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => _userRegData_ViewModel.ListUsersType = Data.User.TypeOfAccount.AllType;
+        public override void Execute(object parameter) => LoadRegData();
+
+        private void LoadRegData()
+        {
+            _userRegData_ViewModel.ListUsersType = Data.User.TypeOfAccount.AllType;
+            _userRegData_ViewModel.ListLibertyRoomsNumber = Data.Room.Rooms.AllLibertyRoomsNumber;
+            _userRegData_ViewModel.ListExecutorsType = Data.User.User.AllCategoryExecutors;
+        }
     }
     #endregion
 

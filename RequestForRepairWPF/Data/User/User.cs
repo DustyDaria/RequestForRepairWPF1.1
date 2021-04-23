@@ -20,7 +20,7 @@ namespace RequestForRepairWPF.Data.User
         public static string position { get; set; }
         public static string category_executors { get; set; }
         public static string phone { get; set; }
-        
 
+        public static List<string> AllCategoryExecutors { get; set; } = new List<string>();
     }
 }

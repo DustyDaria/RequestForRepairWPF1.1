@@ -30,7 +30,7 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding Path=LoadUsersType}"/>
+            <i:InvokeCommandAction Command="{Binding Path=LoadRegData}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     
@@ -156,31 +156,6 @@
                     materialDesign:HintAssist.Hint="Повторите пароль" 
                         Password="{Binding Path=UserRepeatPassword, Mode=TwoWay}"/>
 
-                <!--<PasswordBox
-                    IsEnabled="False"
-                    x:Name="passBox_user_password"
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Пароль"/>
-
-                <PasswordBox
-                    IsEnabled="False"
-                    x:Name="passBox_repeat_user_password"
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="3"
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Повторите пароль"/>-->
-
                 <ComboBox
                     x:Name="comboBox_type_of_account"
                     VerticalAlignment="Top"
@@ -194,20 +169,22 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Тип аккаунта"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="Не спеши, выбирай с умом"
                     MinWidth="128"
+                    
                     SelectedItem="{Binding Path=UserType}"
                     Height="50"
-                    ItemsSource="{Binding Path=ListUsersType}">
+                    ItemsSource="{Binding Path=ListUsersType}" 
+                    SelectionChanged="comboBox_type_of_account_SelectionChanged">
                 </ComboBox>
-                
+
                 <ComboBox
                     x:Name="comboBox_category_executors"
                             Visibility="Collapsed"
                     VerticalAlignment="Top"
                     Margin="25"
                     Grid.Column="1"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                    
                     Grid.Row="5"
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:TextFieldAssist.HasClearButton="True"
@@ -215,42 +192,54 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Категория исполнителя"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="Не спеши, выбирай с умом"
                     MinWidth="128"
-                    SelectedItem="{Binding Path=UserCategoryExecutors, Mode=TwoWay}"
-                    Height="50">
-                    <ComboBoxItem>
-                        IT-специалист
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Электрик
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Плотник
-                    </ComboBoxItem>
+                    Height="50"
+                    ItemsSource="{Binding Path=ListExecutorsType}"
+                    SelectedItem="{Binding Path=UserCategoryExecutors}">
                 </ComboBox>
 
-                <!-- <ComboBox
+                <ComboBox
                     x:Name="comboBox_room_number"
                             Visibility="Collapsed"
                     VerticalAlignment="Top"
                     Margin="25"
                     Grid.Column="1"
                     Grid.Row="5"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Номер кабинета"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="Вы можете выбрать только свободное помещение"
                     MinWidth="128"
-                    ItemsSource="{Binding Path=_userRoomNumber}"
+                    ItemsSource="{Binding Path=ListLibertyRoomsNumber}"
                     Height="50">
                 </ComboBox>
 
-                <TextBox
+                <!--<ComboBox
+                    x:Name="comboBox_room_number"
+                            Visibility="Collapsed"
+                    VerticalAlignment="Top"
+                    Margin="25"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                      materialDesign:HintAssist.Hint="Номер кабинета"
+                      materialDesign:HintAssist.FloatingScale="1.5"
+                      materialDesign:HintAssist.FloatingOffset="0, -24"
+                      MinWidth="128"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    ItemsSource="{Binding Path=ListRoomsNumber}"
+                    Height="50">
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>-->
+
+                <!-- <TextBox
                     x:Name="textBox_room_number"
                     Margin="25"
                     Grid.Column="1"

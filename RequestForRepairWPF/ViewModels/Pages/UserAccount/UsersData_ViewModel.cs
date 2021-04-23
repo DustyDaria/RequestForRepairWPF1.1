@@ -135,19 +135,6 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
-       //#region Список номеров помещений
-       //private List<int> _userRoomNumber;
-       //public List<int> UserRoomNumber
-       //{
-       //    get => _userRoomNumber;
-       //    set
-       //    {
-       //        Set(ref _userRoomNumber, value);
-       //        //_userRoomNumber.CopyTo(value);
-       //    }
-       //}
-       //#endregion
-
 
         #region Команда на вход
         public ICommand LoginCommand { get; }

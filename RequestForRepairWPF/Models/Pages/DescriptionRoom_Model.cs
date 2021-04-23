@@ -25,12 +25,22 @@ namespace RequestForRepairWPF.Models.Pages
         {
             get
             {
-                U_R_Room.roomNUMBER_URR = context.U_R_Room
+                //U_R_Room.roomNUMBER_URR = context.U_R_Room
+                //    .Where(c => c.userID_URR == User.id_user)
+                //    .Select(c => c.roomNUMBER_URR)
+                //    .FirstOrDefault();
+
+                U_R_Room.id_room = context.U_R_Room
                     .Where(c => c.userID_URR == User.id_user)
-                    .Select(c => c.roomNUMBER_URR)
+                    .Select(c => c.id_room)
                     .FirstOrDefault();
 
-                return U_R_Room.roomNUMBER_URR;
+                int roomNumber = context.Rooms
+                    .Where(c => c.id_room == U_R_Room.id_room)
+                    .Select(c => c.room_number)
+                    .FirstOrDefault();
+
+                return roomNumber;
             }
         }
         #endregion
@@ -52,8 +62,13 @@ namespace RequestForRepairWPF.Models.Pages
         {
             get
             {
+                //U_R_Room.id_type_room_URR = (int)context.U_R_Room
+                //    .Where(c => c.roomNUMBER_URR == U_R_Room.roomNUMBER_URR)
+                //    .Select(c => c.id_type_room_URR)
+                //    .FirstOrDefault();
+
                 U_R_Room.id_type_room_URR = (int)context.U_R_Room
-                    .Where(c => c.roomNUMBER_URR == U_R_Room.roomNUMBER_URR)
+                    .Where(c => c.id_room == U_R_Room.id_room)
                     .Select(c => c.id_type_room_URR)
                     .FirstOrDefault();
 

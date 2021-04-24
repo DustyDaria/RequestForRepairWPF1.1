@@ -59,6 +59,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <TextBlock
@@ -214,43 +215,93 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Вы можете выбрать только свободное помещение"
                     MinWidth="128"
+                    SelectedItem="{Binding Path=UserRoomNumber}"
                     ItemsSource="{Binding Path=ListLibertyRoomsNumber}"
                     Height="50">
                 </ComboBox>
 
-                <!--<ComboBox
-                    x:Name="comboBox_room_number"
-                            Visibility="Collapsed"
+                <Grid
+                    x:Name="grid_room_number"
+                    Visibility="Collapsed"
+                    MinWidth="128"
                     VerticalAlignment="Top"
                     Margin="25"
                     Grid.Column="1"
-                    Grid.Row="5"
-                      materialDesign:HintAssist.Hint="Номер кабинета"
-                      materialDesign:HintAssist.FloatingScale="1.5"
-                      materialDesign:HintAssist.FloatingOffset="0, -24"
-                      MinWidth="128"
-                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    ItemsSource="{Binding Path=ListRoomsNumber}"
-                    Height="50">
-                    <ComboBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel />
-                        </ItemsPanelTemplate>
-                    </ComboBox.ItemsPanel>
-                </ComboBox>-->
+                    Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- <TextBox
-                    x:Name="textBox_room_number"
+                    <TextBox
+                        Grid.Column="0"
+                        Width="auto"
+                        HorizontalAlignment="Left"
+                      materialDesign:HintAssist.Hint="Выбранные кабинеты"
+                      IsEnabled="False"
+                        Text="{Binding Path=ListToString}"/>
+
+                        <Button
+                            Grid.Column="1"
+                      Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                      ToolTip="MaterialDesignFloatingActionMiniAccentButton"
+                            Command="{Binding Path=AddRoomNumberCommand}">
+                            <materialDesign:PackIcon
+                        Kind="Plus"
+                        Height="24"
+                        Width="24" />
+                        </Button>
+                    <Button
+                        Grid.Column="2"
+                      Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                      HorizontalAlignment="Left"
+                      ToolTip="MaterialDesignFloatingActionMiniButton"
+                        Command="{Binding Path=DeleteRoomsNumberCommand}">
+                        <materialDesign:PackIcon
+                        Kind="Clear"
+                        Height="24"
+                        Width="24" />
+                    </Button>
+                </Grid>
+                <!--<StackPanel
+                    x:Name="stack_panel_room_number"
+                    Orientation="Horizontal"
+                    Visibility="Visible"
+                    MinWidth="128"
+                    VerticalAlignment="Top"
                     Margin="25"
                     Grid.Column="1"
-                    Grid.Row="5"
-                            Visibility="Hidden"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
-                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Номер кабинета"/>-->
+                    Grid.Row="5">
+                    
+                    <TextBox
+                        HorizontalAlignment="Left"
+                      materialDesign:HintAssist.Hint="Выбранные кабинеты"
+                      IsEnabled="False" />
+
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                    <Button
+                      Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                      ToolTip="MaterialDesignFloatingActionMiniAccentButton">
+                        <materialDesign:PackIcon
+                        Kind="Plus"
+                        Height="24"
+                        Width="24" />
+                    </Button>
+                    <Button
+                      Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                      HorizontalAlignment="Left"
+                      ToolTip="MaterialDesignFloatingActionMiniButton">
+                        <materialDesign:PackIcon
+                        Kind="Clear"
+                        Height="24"
+                        Width="24" />
+                    </Button>
+                    </StackPanel>
+                </StackPanel>-->
+                
 
                 <Button
                     x:Name="btn_Save"
@@ -261,7 +312,7 @@
                     Margin="25"
                     HorizontalAlignment="Left"
                     Grid.Column="1"
-                    Grid.Row="6"
+                    Grid.Row="7"
                     Content="Сохранить"
                     Command="{Binding Path=RegUserDataCommand}"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
@@ -277,7 +328,7 @@
                     Margin="25"
                     HorizontalAlignment="Right"
                     Grid.Column="1"
-                    Grid.Row="6"
+                    Grid.Row="7"
                     Content="Отмена"
                     Command="{Binding Path=CancelUserRegCommand}"
                     Style="{StaticResource MaterialDesignFlatButton}"

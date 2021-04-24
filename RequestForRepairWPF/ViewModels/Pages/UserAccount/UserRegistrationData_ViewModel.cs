@@ -14,7 +14,8 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 {
     public class UserRegistrationData_ViewModel : ViewModel
     {
-        
+        public static List<int> _chooseRoomsNum = new List<int>();
+
         #region Логин
         private static string _userEmail;
         public string UserEmail
@@ -106,6 +107,46 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Список выбранных помещений для регистрации пользователя
+        private static List<int> _listChooseRooms;
+        private static string _list;
+        public string ListToString
+        {
+            get
+            {
+                return _list;
+            }
+            set
+            {
+                Set(ref _list, _list + ", " + value);
+            }
+
+            //foreach(var item in _listChooseRooms)
+            //{
+            //    list = _listChooseRooms[item] + ", ";
+            //}
+            //return list;
+        }
+        public List<int> ListChooseRooms
+        {
+            get => _listChooseRooms;
+            //get => listToString();
+            set
+            {
+                _listChooseRooms = value;
+                OnPropertyChanged("ListChooseRooms");
+            }
+
+            
+            //set => Set(ref _listChooseRooms, value);
+            //set
+            //{
+            //    _listChooseRooms.Add(new Rooms { room_number = Convert.ToInt32(value) });
+            //    OnPropertyChanged("ListChooseRooms");
+            //}
+        }
+        #endregion
+
         #region Категория исполнителя
         private static string _userCategoryExecutors;
         public string UserCategoryExecutors
@@ -133,7 +174,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
-        #region Списсок всех помещений
+        #region Список всех помещений
         private List<int> _listLibertyRoomsNumber;
         public List<int> ListLibertyRoomsNumber
         {
@@ -154,7 +195,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
-        #region Команда на добавление пользовательских регистрационных данных
+        #region Команда на сохранение пользовательских регистрационных данных
         private ICommand _regUserData;
         public ICommand RegUserDataCommand
         {
@@ -177,7 +218,61 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             }
         }
         #endregion
+
+        #region Команда на добавление кабинета
+        private ICommand _addRoomNumberCommand;
+        public ICommand AddRoomNumberCommand
+        {
+            get
+            {
+                _addRoomNumberCommand = new AddRoomNumberCommand(this);
+                return _addRoomNumberCommand;
+            }
+        }
+        #endregion
+
+        #region Команда на удаление выбранных кабинетов 
+        private ICommand _deleteRoomsNumberCommand;
+        public ICommand DeleteRoomsNumberCommand
+        {
+            get
+            {
+                _deleteRoomsNumberCommand = new DeleteRoomsNumberCommand(this);
+                return _deleteRoomsNumberCommand;
+            }
+        }
+        #endregion 
     }
+
+    #region Класс-команда для добавления помещения при регистрации пользователя
+    internal class AddRoomNumberCommand : MyRegCommand
+    {
+       
+        public AddRoomNumberCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => AddRoomsNumber();
+        private void AddRoomsNumber()
+        {
+            //Rooms room = new Rooms();
+            //room.room_number = _userRegData_ViewModel.UserRoomNumber;
+            UserRegistrationData_ViewModel._chooseRoomsNum.Add(_userRegData_ViewModel.UserRoomNumber);
+            //_chooseRoomsNum.Add(room.room_number);
+
+            //_userRegData_ViewModel.ListChooseRooms.Add(_userRegData_ViewModel.UserRoomNumber);
+            _userRegData_ViewModel.ListChooseRooms = UserRegistrationData_ViewModel._chooseRoomsNum;
+            _userRegData_ViewModel.ListToString = Convert.ToString(_userRegData_ViewModel.ListChooseRooms);
+        }
+    }
+    #endregion
+
+    #region Класс-команда для удаления выбранных помещений
+    internal class DeleteRoomsNumberCommand : MyRegCommand
+    {
+        public DeleteRoomsNumberCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => _userRegData_ViewModel.ListChooseRooms.Clear();
+    }
+    #endregion
 
     #region Класс-команда для отмены регистрации пользователя
     internal class CancelUserRegCommand : MyRegCommand
@@ -287,7 +382,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 }
                 else
                 {
-                    SaveUsersData(_userRegData_ViewModel.UserName, _userRegData_ViewModel.UserLastName, _userRegData_ViewModel.UserMiddleName,
+                    SaveUsersData_Admin(_userRegData_ViewModel.UserName, _userRegData_ViewModel.UserLastName, _userRegData_ViewModel.UserMiddleName,
                         _userRegData_ViewModel.UserPosition, _userRegData_ViewModel.UserPhone, _userRegData_ViewModel.UserEmail,
                         _userRegData_ViewModel.UserPassword, 1);
                     CleanUsersData();
@@ -368,17 +463,20 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                     OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
                 }
                 else if (_userRegData_ViewModel.UserRepeatPassword == null
-                    && _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
+                    || _userRegData_ViewModel.UserPassword != _userRegData_ViewModel.UserRepeatPassword)
                 {
                     OpenDialogWindow("Введенные пароли не совпадают!");
                 }
                 else if (_userRegData_ViewModel.UserCategoryExecutors == null)
                 {
-
+                    OpenDialogWindow("Пожалуйста, выберите категорию исполнителя!");
                 }
                 else
                 {
-                    //////////////////////// СОХРАНЕНИЕ
+                    SaveUsersData_Executor(_userRegData_ViewModel.UserName, _userRegData_ViewModel.UserLastName, _userRegData_ViewModel.UserMiddleName,
+                        _userRegData_ViewModel.UserPosition, _userRegData_ViewModel.UserPhone, _userRegData_ViewModel.UserEmail,
+                        _userRegData_ViewModel.UserPassword, 3, _userRegData_ViewModel.UserCategoryExecutors);
+                    CleanUsersData();
                 }
             }
             else
@@ -388,7 +486,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         }
 
-        private void SaveUsersData(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password, int _typeOfAccount)
+        private void SaveUsersData_Admin(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password, int _typeOfAccount)
         {
             Users user = new Users
             {
@@ -404,7 +502,26 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             context.Users.Add(user);
             context.SaveChanges();
 
-            OpenDialogWindow("Пользователь был успешно зарегистрирован!");
+            OpenDialogWindow("Системный администратор был успешно зарегистрирован!");
+        }
+        private void SaveUsersData_Executor(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password, int _typeOfAccount, string _category_executor)
+        {
+            Users user = new Users
+            {
+                id_type = _typeOfAccount,
+                user_login = _email,
+                user_password = _password,
+                last_name = _lastName,
+                name = _name,
+                middle_name = _middleName,
+                position = _position,
+                phone = _phone,
+                category_executors = _category_executor
+            };
+            context.Users.Add(user);
+            context.SaveChanges();
+
+            OpenDialogWindow("Исполнитель был успешно зарегистрирован!");
         }
 
         private void CleanUsersData()

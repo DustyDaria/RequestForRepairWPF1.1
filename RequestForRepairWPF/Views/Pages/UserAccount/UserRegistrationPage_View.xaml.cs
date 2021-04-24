@@ -33,17 +33,20 @@ namespace RequestForRepairWPF.Views.Pages.UserAccount
             if(_viewModel.UserType == "Заказчик")
             {
                 comboBox_room_number.Visibility = Visibility.Visible;
+                grid_room_number.Visibility = Visibility.Visible;
                 comboBox_category_executors.Visibility = Visibility.Collapsed;
 
             }
             else if(_viewModel.UserType == "Исполнитель")
             {
                 comboBox_room_number.Visibility = Visibility.Collapsed;
+                grid_room_number.Visibility = Visibility.Collapsed;
                 comboBox_category_executors.Visibility = Visibility.Visible;
             }
             else if(_viewModel.UserType == "Системный администратор")
             {
                 comboBox_room_number.Visibility = Visibility.Collapsed;
+                grid_room_number.Visibility = Visibility.Collapsed;
                 comboBox_category_executors.Visibility = Visibility.Collapsed;
             }
         }

@@ -301,10 +301,10 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         }
         #endregion
 
-        /// <summary> Возврат списка помещений</summary>
-        #region Возврат списка помещений
-        /// <summary> Возврат списка помещений</summary>
-        public List<int> ListRommsNumber
+        /// <summary> Возврат списка всех помещений</summary>
+        #region Возврат списка всех помещений
+        /// <summary> Возврат списка всех помещений</summary>
+        public List<int> ListAllRommsNumber
         {
             get
             {
@@ -336,6 +336,59 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         }
         #endregion
 
+        /// <summary> Возврат списка всех помещений авторизованного пользователя</summary>
+        #region Возврат списка всех помещений авторизованного пользователя
+        /// <summary> Возврат списка всех помещений авторизованного пользователя</summary>
+        /// 
+        //private List<int> _listUserRoomsNumber;
+        public List<int> ListUserRoomsNumber
+        {
+            get
+            {
+                var queryRoomsID = from r in context.U_R_Room
+                                       where r.userID_URR == User.id_user
+                                       select r.id_room;
+
+                foreach (var q in queryRoomsID)
+                {
+                    U_R_Room.listAll_id_room.Add(q);
+
+                    //var queryRoomsNumber = from t in context.Rooms
+                    //                       where t.id_room == q
+                    //                       select t.room_number;
+                    var queryRoomsNumber = context.Rooms
+                        .Where(c => c.id_room == q)
+                        .Select(c => c.room_number)
+                        .FirstOrDefault();
+                   // _listUserRoomsNumber.Add(queryRoomsNumber);
+                    U_R_Room.list_user_rooms_number.Add(queryRoomsNumber);
+                }
+
+                // return _listUserRoomsNumber;
+                return U_R_Room.list_user_rooms_number;
+            }
+        }
+        #endregion
+
+        #region Возврат номера помещения заказчика авторизованного пользователя
+        public int RoomNumber
+        {
+            get
+            {
+                U_R_Room.id_room = context.U_R_Room
+                    .Where(c => c.userID_URR == User.id_user)
+                    .Select(c => c.id_room)
+                    .FirstOrDefault();
+
+                int roomNumber = context.Rooms
+                    .Where(c => c.id_room == U_R_Room.id_room)
+                    .Select(c => c.room_number)
+                    .FirstOrDefault();
+
+                return roomNumber;
+            }
+        }
+        #endregion
         /// <summary> Возврат Категории исполнителя авторизованного пользователя </summary>
         #region Возврат Категории исполнителя авторизованного пользователя
         /// <summary> Возврат Категории исполнителя авторизованного пользователя </summary>
@@ -354,30 +407,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         }
         #endregion
 
-        #region Возврат номера помещения заказчика авторизованного пользователя
-        public int RoomNumber
-        {
-            get
-            {
-                //U_R_Room.roomNUMBER_URR = context.U_R_Room
-                //    .Where(c => c.userID_URR == User.id_user)
-                //    .Select(c => c.roomNUMBER_URR)
-                //    .FirstOrDefault();
-
-                U_R_Room.id_room = context.U_R_Room
-                    .Where(c => c.userID_URR == User.id_user)
-                    .Select(c => c.id_room)
-                    .FirstOrDefault();
-
-                int roomNumber = context.Rooms
-                    .Where(c => c.id_room == U_R_Room.id_room)
-                    .Select(c => c.room_number)
-                    .FirstOrDefault();
-
-                return roomNumber;
-            }
-        }
-        #endregion
 
         #endregion
 

@@ -5,10 +5,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ctrlm="clr-namespace:RequestForRepairWPF.Views.Controls.Menu" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+      xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Pages.Request"
+      mc:Ignorable="d"
         
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -19,6 +21,16 @@
         d:DesignHeight="800" d:DesignWidth="1080"
       
       Title="Создание заявки">
+    <Page.DataContext>
+        <vm:CreateAndEditRequest_ViewModel/>
+    </Page.DataContext>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Path=LoadRequestDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
 
     <Grid>
 
@@ -50,7 +62,7 @@
                             Grid.ColumnSpan="2"
                     x:Name="label_Header"
                     Margin="100 25 100 25"
-                    Text="Создание заявки"
+                    Text="Создание заявки (не закончено)"
                     Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                     FontWeight="DemiBold">
                 </TextBlock>
@@ -60,6 +72,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="1"
+                    Text="{Binding Path=NameRequest}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -73,6 +86,7 @@
                     Grid.Row="2"
                             Grid.RowSpan="2"
                             Height="200"
+                    Text="{Binding Path=DescriptionRequest}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
                             TextWrapping="Wrap"
@@ -85,6 +99,7 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="4"
+                    Text="{Binding Path=CommentRequest}"
                             Grid.RowSpan="2"
                             Height="200"
                             TextWrapping="Wrap"
@@ -99,6 +114,8 @@
                     Margin="100 25 25 25"
                     Grid.Column="0"
                     Grid.Row="6"
+                    IsEnabled="False"
+                    
                           Header="Текущий статус заявки"
                           Style="{DynamicResource MaterialDesignCardGroupBox}"
                             materialDesign:ColorZoneAssist.Mode="Accent">
@@ -188,9 +205,11 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Номер помещения"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="«Прости, Джо в сделку не входил»"
                     MinWidth="128"
-                    Height="50"/>
+                    Height="50"
+                    ItemsSource="{Binding Path=ListRoomsNumber}"
+                    SelectedItem="{Binding Path=RoomNumberRequest}"/>
 
                 <TextBox
                     x:Name="textBox_inventory_number"
@@ -209,7 +228,8 @@
                             Grid.Row="3"
                             Margin="25 25 25 25"
                             VerticalAlignment="Top"
-                            SelectedDate="{x:Static sys:DateTime.Today}"
+                            SelectedDate="{Binding Path=DateStart}"
+                    DisplayDateStart="{x:Static sys:DateTime.Now}"
                           materialDesign:HintAssist.Hint="Дата начала (по умолчанию)"
                           Style="{StaticResource MaterialDesignOutlinedDatePicker}"/>
 
@@ -219,6 +239,8 @@
                             Grid.Row="4"
                             Margin="25 25 25 25"
                             VerticalAlignment="Top"
+                    SelectedDate="{Binding Path=DateEnd}"
+                    DisplayDateStart="{x:Static sys:DateTime.Now}"
                           materialDesign:HintAssist.Hint="Дата окончания (по умолчанию)"
                           Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
 
@@ -235,16 +257,13 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Категория работ"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="«Не спеши, выбирай с умом»"
                     MinWidth="128"
-                    Height="50">
-                    <ComboBoxItem Content="Электрик"/>
-                    <ComboBoxItem Content="Плотник"/>
-                    <ComboBoxItem Content="IT-специалист"/>
+                    Height="50"
+                    ItemsSource="{Binding Path=ListCategoryRequest}"
+                    SelectedItem="{Binding Path=CategoryRequest}">
                 </ComboBox>
-
-
-
+                
                 <Button
                     x:Name="btn_Save"
                     FontSize="20"
@@ -257,7 +276,7 @@
                     Grid.Column="1"
                     Grid.Row="6"
                     Content="Сохранить"
-                    IsEnabled="False"
+                    Command="{Binding Path=SaveRequestDataCommand}"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton">
                 </Button>
@@ -274,7 +293,6 @@
                     Grid.Column="1"
                     Grid.Row="6"
                     Content="Отмена"
-                    IsEnabled="False"
                     Style="{StaticResource MaterialDesignFlatButton}"
                     ToolTip="MaterialDesignFlatButton">
                 </Button>

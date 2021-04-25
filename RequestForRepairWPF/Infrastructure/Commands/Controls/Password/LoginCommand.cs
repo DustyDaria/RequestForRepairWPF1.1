@@ -27,6 +27,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
         public List<string> _listUsersType;
         public List<int> _listRoomsNumber;
         public List<int> _listLibertyRoomsNumber;
+        public List<int> _listUserRoomsNumber;
         public List<string> _listCategoryExecutors;
 
         public LoginCommand(UsersData_ViewModel viewModel)
@@ -94,8 +95,9 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             _roomNumber = model.RoomNumber;
 
             _listUsersType = model.ListUsersType;
-            _listRoomsNumber = model.ListRommsNumber;
+            _listRoomsNumber = model.ListAllRommsNumber;
             _listLibertyRoomsNumber = model.ListLiberyRoomsNumber;
+            _listUserRoomsNumber = model.ListUserRoomsNumber;
             _listCategoryExecutors = model.ListCategoryExecutors;
         }
 

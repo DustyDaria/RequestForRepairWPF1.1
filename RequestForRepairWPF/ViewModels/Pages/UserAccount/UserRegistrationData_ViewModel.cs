@@ -183,7 +183,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion 
 
-        #region Команда на добаление пользовательских типов аккаунтов при загрузке
+        #region Команда на загрузку данных
         private ICommand _loadRegData;
         public ICommand LoadRegData
         {
@@ -315,6 +315,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
     }
     #endregion
 
+    #region Класс-команда для сохранения пользовательских регистрационных данных
     internal class RegUserDataCommand : MyRegCommand
     {
         private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
@@ -547,6 +548,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             messageBox_View.Show();
         }
     }
+    #endregion
 
     #region Вспомогательный класс для команд
     abstract class MyRegCommand : ICommand

@@ -170,7 +170,7 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Тип аккаунта"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Не спеши, выбирай с умом"
+                    materialDesign:HintAssist.HelperText="«... ни при каких условиях не изменится»"
                     MinWidth="128"
                     
                     SelectedItem="{Binding Path=UserType}"
@@ -193,7 +193,7 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Категория исполнителя"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Не спеши, выбирай с умом"
+                    materialDesign:HintAssist.HelperText="«Не спеши, выбирай с умом»"
                     MinWidth="128"
                     Height="50"
                     ItemsSource="{Binding Path=ListExecutorsType}"

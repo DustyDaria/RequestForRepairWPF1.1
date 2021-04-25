@@ -1,9 +1,11 @@
-﻿using RequestForRepairWPF.Entities;
+﻿using RequestForRepairWPF.Data.User;
+using RequestForRepairWPF.Entities;
 using RequestForRepairWPF.ViewModels.Base;
 using RequestForRepairWPF.ViewModels.DialogWindows;
 using RequestForRepairWPF.Views.DialogWindows;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -183,6 +185,11 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
         #region Сохранение данных в бд 
         private void SaveData(DateTime _date_start, DateTime _date_end, int _room_number, string _name_request, string _description_request, string _comment_request, string _inventory_number, string _category_request)
         {
+            Users authUser = new Users
+            {
+                id_user = User.id_user
+            };
+
             Requests request = new Requests
             {
                 date_start = _date_start,
@@ -193,15 +200,54 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
                 description_request = _description_request,
                 comment_request = _comment_request,
                 inventory_number = _inventory_number,
-                category_request = _category_request,
-               
+                category_request = _category_request
             };
             context.Requests.Add(request);
             context.SaveChanges();
+            
+            request.Users.Add(
+                new Users { 
+                    id_user = User.id_user, 
+                    id_type = User.id_type, 
+                    user_login = User.user_login,
+                    user_password = User.user_password,
+                    last_name = User.last_name,
+                    name = User.name,
+                    middle_name = User.middle_name,
+                    position = User.position,
+                    category_executors = User.category_executors,
+                    phone = User.phone
+            });
+
+
+            //authUser.Requests.Add(request);
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}", validationErrors.Entry.Entity.ToString(), validationError.ErrorMessage);
+                        //raise a new exception inserting the current one as the InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
 
             OpenDialogWindow("Заявка " + request.id_request + " была успешно создана и передана на модерацию");
         }
         #endregion
+
+
+
+
+
 
         #region Очищение полей 
         private void ClearData()

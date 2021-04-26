@@ -134,7 +134,7 @@
                     Text="{Binding Path=UserEmail}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                    IsEnabled="False"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Hint="Логин"/>
@@ -145,7 +145,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                     materialDesign:HintAssist.Hint="Пароль" 
-                        Password="{Binding Path=UserPassword}"/>
+                        Password="{Binding Path=UserPassword_SET}"/>
 
                 <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
@@ -153,7 +153,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                     materialDesign:HintAssist.Hint="Повторите пароль" 
-                        Password="{Binding Path=RepeatUserPassword}"/>
+                        Password="{Binding Path=RepeatUserPassword_SET}"/>
                 <ComboBox
                     x:Name="comboBox_type_of_account"
                     VerticalAlignment="Top"
@@ -206,7 +206,7 @@
                     Grid.Row="6"
                     Content="Сохранить"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
-                    
+                    Command="{Binding Path=SaveDataCommand}"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton">
                 </Button>

@@ -1,6 +1,10 @@
-﻿using RequestForRepairWPF.Infrastructure.Commands.Controls.Password;
+﻿using RequestForRepairWPF.Data.User;
+using RequestForRepairWPF.Entities;
+using RequestForRepairWPF.Infrastructure.Commands.Controls.Password;
 using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Base;
+using RequestForRepairWPF.ViewModels.DialogWindows;
+using RequestForRepairWPF.Views.DialogWindows;
 using RequestForRepairWPF.Views.Pages;
 using System;
 using System.Collections.Generic;
@@ -39,18 +43,25 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         #region Пароль
         private static string _userPassword;
-        public string UserPassword
+        public string UserPassword_SET
+        {
+            set => Set(ref _userPassword, value);
+        }
+        public string UserPassword_GET
         {
             get => _userPassword;
-            set => Set(ref _userPassword, value);
         }
         #endregion
 
         #region Повторите пароль
         private static string _repeatUserPassword;
-        public string RepeatUserPassword
+        public string RepeatUserPassword_SET
         {
             set => Set(ref _repeatUserPassword, value);
+        }
+        public string RepeatUserPassword_GET
+        {
+            get => _repeatUserPassword;
         }
         #endregion
 
@@ -145,6 +156,15 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Список категорий исполнителя
+        private static List<string> _listCategoryExecutors;
+        public List<string> ListCategoryExecutors
+        {
+            get => _listCategoryExecutors;
+            set => Set(ref _listCategoryExecutors, value);
+        }
+        #endregion
+
         #region Категория исполнителя
         private static string _userCategoryExecutors;
         public string UserCategoryExecutors
@@ -154,6 +174,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Команды
 
         #region Команда на вход
         public ICommand LoginCommand { get; }
@@ -161,6 +182,18 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         {
             LoginCommand = new LoginCommand(this);
 
+        }
+        #endregion
+
+        #region Команда на сохранение данных
+        private ICommand _saveDataCommand;
+        public ICommand SaveDataCommand
+        {
+            get
+            {
+                _saveDataCommand = new SaveDataCommand(this);
+                return _saveDataCommand;
+            }
         }
         #endregion
 
@@ -176,7 +209,134 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
 
         #endregion
+
+        #endregion
     }
+
+    #region Класс-команда для сохранения данных 
+    internal class SaveDataCommand : MyCommand
+    {
+        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+
+        public SaveDataCommand(UsersData_ViewModel usersData_ViewModel) : base(usersData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => SaveData();
+
+        private void SaveData()
+        {
+            #region  Получение логина зарегистрированного пользователя по совпадению с введенным (для проверки)
+            string userLogin = _usersData_ViewModel.UserEmail;
+            string checkedUserLogin = (from u in context.Users
+                                       where u.user_login == userLogin
+                                       select u.user_login)
+                                       .FirstOrDefault();
+            #endregion
+
+            if (_usersData_ViewModel.UserLastName == null || _usersData_ViewModel.UserLastName == string.Empty)
+            {
+                OpenDialogWindow("Пожалуйста, введите фамилию пользователя!");
+            }
+            else if (_usersData_ViewModel.UserName == null || _usersData_ViewModel.UserName == string.Empty)
+            {
+                OpenDialogWindow("Пожалуйста, введите имя пользователя!");
+            }
+            else if (_usersData_ViewModel.UserPosition == null || _usersData_ViewModel.UserPosition == string.Empty)
+            {
+                OpenDialogWindow("Пожалуйста, введите должность пользователя!");
+            }
+            else if (_usersData_ViewModel.UserPhone == null || _usersData_ViewModel.UserPhone == string.Empty)
+            {
+                OpenDialogWindow("Пожалуйста, введите телефон пользователя!");
+            }
+            //else if (_usersData_ViewModel.UserEmail == null || _usersData_ViewModel.UserEmail == string.Empty)
+            //{
+            //    OpenDialogWindow("Пожалуйста, введите логин пользователя!");
+            //}
+            //else if (_usersData_ViewModel.UserEmail == checkedUserLogin)
+            //{
+            //    OpenDialogWindow("Пожалуйста, введите другой логин пользователя!\nПользователь с таким логином уже зарегистрирован!");
+            //}
+            else if (_usersData_ViewModel.UserPassword_GET == null || _usersData_ViewModel.UserPassword_GET == string.Empty)
+            {
+                OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
+            }
+            else if (_usersData_ViewModel.RepeatUserPassword_GET == null
+                || _usersData_ViewModel.UserPassword_GET != _usersData_ViewModel.RepeatUserPassword_GET)
+            {
+                OpenDialogWindow("Введенные пароли не совпадают!");
+            }
+            else if(_usersData_ViewModel.UserPassword_GET != User.user_password 
+                || _usersData_ViewModel.RepeatUserPassword_GET != User.user_password)
+            {
+                OpenDialogWindow("Пароль введен неверно!\nПожалуйста, введите пароль от Вашей учетной записи");
+            }
+            else
+            {
+                SaveUsersData(_usersData_ViewModel.UserName, _usersData_ViewModel.UserLastName, _usersData_ViewModel.UserMiddleName, 
+                    _usersData_ViewModel.UserPosition, _usersData_ViewModel.UserPhone, _usersData_ViewModel.UserEmail, _usersData_ViewModel.UserPassword_GET);
+                //CleanUsersData();
+            }
+        }
+
+        private void SaveUsersData(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password)
+        {
+            var user = context.Users
+                 .Where(c => c.id_user == User.id_user)
+                 .FirstOrDefault();
+            user.name = _name;
+            user.last_name = _lastName;
+            user.middle_name = _middleName;
+            user.position = _position;
+            user.phone = _phone;
+            user.user_login = _email;
+            user.user_password = _password;
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}", validationErrors.Entry.Entity.ToString(), validationError.ErrorMessage);
+                        //raise a new exception inserting the current one as the InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
+
+            OpenDialogWindow("Ваши данные были успешно изменены!");
+        }
+
+        private void CleanUsersData()
+        {
+            _usersData_ViewModel.UserEmail = null;
+            _usersData_ViewModel.UserPassword_SET = null;
+            _usersData_ViewModel.RepeatUserPassword_SET = null;
+            _usersData_ViewModel.UserLastName = null;
+            _usersData_ViewModel.UserName = null;
+            _usersData_ViewModel.UserMiddleName = null;
+            _usersData_ViewModel.UserPosition = null;
+            _usersData_ViewModel.UserPhone = null;
+            _usersData_ViewModel.UserType_string = null;
+            _usersData_ViewModel.UserCategoryExecutors = null;
+            _usersData_ViewModel.UserRoomNumber = 0;
+
+        }
+
+        private void OpenDialogWindow(string textMessage)
+        {
+            Dialog_ViewModel messageBox_ViewModel = new Dialog_ViewModel(textMessage);
+            MessageBox_View messageBox_View = new MessageBox_View();
+            messageBox_View.Show();
+        }
+    }
+    #endregion
 
     #region Класс-команда для загрузки страницы "Описание помещения"
     internal class OpenDescriptionRoomViewCommand : MyCommand

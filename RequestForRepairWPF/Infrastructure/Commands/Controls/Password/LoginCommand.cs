@@ -1,7 +1,9 @@
 ﻿using RequestForRepairWPF.Infrastructure.Commands.Base;
 using RequestForRepairWPF.Models.Pages.UserAccount;
 using RequestForRepairWPF.Services;
+using RequestForRepairWPF.ViewModels.DialogWindows;
 using RequestForRepairWPF.ViewModels.Pages.UserAccount;
+using RequestForRepairWPF.Views.DialogWindows;
 using RequestForRepairWPF.Views.Pages.UserAccount;
 using RequestForRepairWPF.Views.Windows;
 using RequestForRepairWPF.Views.Windows.UserAccount;
@@ -40,15 +42,17 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
         private void LogIn()
         {
             _email = _viewModel.UserEmail;
-            _password = _viewModel.UserPassword;
+            _password = _viewModel.UserPassword_GET;
 
             if (_email == string.Empty || _email == null)
             {
-                MessageBox.Show("Доделай диалоговые окна\nПожалуйста, введите Ваш логин!");
+                //MessageBox.Show("Доделай диалоговые окна\nПожалуйста, введите Ваш логин!");
+                OpenDialogWindow("Пожалуйста, введите Ваш логин!");
             }
-            else if (_password == string.Empty && _password == null)
+            else if (_password == string.Empty || _password == null)
             {
-                MessageBox.Show("Доделай диалоговые окна\nПожалуйста, введите Ваш пароль!");
+                //MessageBox.Show("Доделай диалоговые окна\nПожалуйста, введите Ваш пароль!");
+                OpenDialogWindow("Пожалуйста, введите Ваш пароль!");
             }
             else
             {
@@ -73,7 +77,18 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
                     PageManager.MainFrame.Navigate(new UserAccountPage_View());
 
                 }
+                else
+                {
+                    OpenDialogWindow("Вы неправильно ввели учетные данные! Пожалуйста, попробуйте еще раз.");
+                }
             }
+        }
+
+        private void OpenDialogWindow(string textMessage)
+        {
+            Dialog_ViewModel messageBox_ViewModel = new Dialog_ViewModel(textMessage);
+            MessageBox_View messageBox_View = new MessageBox_View();
+            messageBox_View.Show();
         }
 
         private void AddUserDataToModel(UsersData_Model model)
@@ -98,7 +113,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
         private void AddUserDataToViewModel(UsersData_Model model)
         {
             _viewModel.UserEmail = _email;
-            _viewModel.UserPassword = _password;
+            _viewModel.UserPassword_SET = _password;
             _viewModel.Authorization_userID = _idUser;
             _viewModel.UserType_int = _idType;
             _viewModel.UserLastName = _lastName;
@@ -106,6 +121,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             _viewModel.UserMiddleName = _middleName;
             _viewModel.UserPosition = _position;
             _viewModel.UserPhone = _phone;
+            _viewModel.ListCategoryExecutors = _listCategoryExecutors;
             _viewModel.UserCategoryExecutors = _categoryExecutors;
             _viewModel.ListUserRoomsNumber = _listUserRoomsNumber;
             if(_idType == 1)

@@ -137,7 +137,7 @@
                     Text="{Binding Path=UserEmail}"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                     VerticalAlignment="Top"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                    IsEnabled="False"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.Hint="Логин"/>
@@ -148,7 +148,7 @@
                         Grid.Row="2"
                     materialDesign:HintAssist.Hint="Пароль" 
                         Grid.Column="1"
-                        Password="{Binding Path=UserPassword}"/>
+                        Password="{Binding Path=UserPassword_SET}"/>
 
                 <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
@@ -156,7 +156,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                     materialDesign:HintAssist.Hint="Повторите пароль" 
-                        Password="{Binding Path=RepeatUserPassword}"/>
+                        Password="{Binding Path=RepeatUserPassword_SET}"/>
 
                 <ComboBox
                     x:Name="comboBox_type_of_account"
@@ -185,7 +185,7 @@
                     VerticalAlignment="Top"
                     Margin="25"
                     Grid.Column="1"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                    IsEnabled="False"
                     Grid.Row="5"
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     materialDesign:TextFieldAssist.HasClearButton="True"
@@ -195,7 +195,7 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    ItemsSource="{Binding Path=ListUsersType}"
+                    ItemsSource="{Binding Path=ListCategoryExecutors}"
                     SelectedItem="{Binding Path=UserCategoryExecutors}"
                     Height="50">
                 </ComboBox>
@@ -245,7 +245,7 @@
                     Grid.Row="6"
                     Content="Сохранить"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
-                    
+                    Command="{Binding Path=SaveDataCommand}"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton">
                 </Button>

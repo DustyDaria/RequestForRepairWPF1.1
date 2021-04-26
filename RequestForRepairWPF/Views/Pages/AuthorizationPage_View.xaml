@@ -26,20 +26,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" 
                     Margin="100">
-            <!--<materialDesign:ColorZone 
-            Margin="0 0 0 25" 
-            Mode="PrimaryMid"
-            Padding="16">
-                <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-                    <TextBlock
-                Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                Text="Учет заявок на ремонт">
-                    </TextBlock>
-                </StackPanel>
-            </materialDesign:ColorZone>-->
+           
             <TextBlock HorizontalAlignment="Center" 
                    Height="auto" Width="auto"
                    TextAlignment="Center"
@@ -58,7 +45,7 @@
             <ctrl:Ctrl_PasswordBox_View
             Margin="200 25 200 25"
                     materialDesign:HintAssist.Hint="Пароль" 
-            Password="{Binding Path=UserPassword}"/>
+            Password="{Binding Path=UserPassword_SET}"/>
 
             <Button
             x:Name="btn_LogIn"

@@ -46,12 +46,10 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
 
             if (_email == string.Empty || _email == null)
             {
-                //MessageBox.Show("Доделай диалоговые окна\nПожалуйста, введите Ваш логин!");
                 OpenDialogWindow("Пожалуйста, введите Ваш логин!");
             }
             else if (_password == string.Empty || _password == null)
             {
-                //MessageBox.Show("Доделай диалоговые окна\nПожалуйста, введите Ваш пароль!");
                 OpenDialogWindow("Пожалуйста, введите Ваш пароль!");
             }
             else
@@ -61,21 +59,20 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
                 if(_model.CheckUserPass == _password && _model.CheckUserType == 1)
                 {
                     AddUserDataToModel(_model);
-                    AddUserDataToViewModel(_model);
+                    AddUserDataToViewModel();
                     PageManager.MainFrame.Navigate(new UserAccountPage_View());
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == 2)
                 {
                     AddUserDataToModel(_model);
-                    AddUserDataToViewModel(_model);
+                    AddUserDataToViewModel();
                     PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == 3)
                 {
                     AddUserDataToModel(_model);
-                    AddUserDataToViewModel(_model);
+                    AddUserDataToViewModel();
                     PageManager.MainFrame.Navigate(new UserAccountPage_View());
-
                 }
                 else
                 {
@@ -110,7 +107,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             _listCategoryExecutors = model.ListCategoryExecutors;
         }
 
-        private void AddUserDataToViewModel(UsersData_Model model)
+        private void AddUserDataToViewModel()
         {
             _viewModel.UserEmail = _email;
             _viewModel.UserPassword_SET = _password;
@@ -124,6 +121,7 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             _viewModel.ListCategoryExecutors = _listCategoryExecutors;
             _viewModel.UserCategoryExecutors = _categoryExecutors;
             _viewModel.ListUserRoomsNumber = _listUserRoomsNumber;
+
             if(_idType == 1)
             {
                 _viewModel.UserType_string = "Системный администратор";

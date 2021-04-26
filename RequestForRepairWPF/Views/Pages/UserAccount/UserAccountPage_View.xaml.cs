@@ -42,9 +42,5 @@ namespace RequestForRepairWPF.Views.Pages.UserAccount
             this.btn_Edit.IsEnabled = !this.btn_Edit.IsEnabled;
         }
 
-        private void comboBox_type_of_account_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           
-        }
     }
 }

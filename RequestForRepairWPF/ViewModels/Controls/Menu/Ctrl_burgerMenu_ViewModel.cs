@@ -4,6 +4,7 @@ using RequestForRepairWPF.Infrastructure.Commands.Controls.Menu;
 using RequestForRepairWPF.Models.Controls.Menu;
 using RequestForRepairWPF.Services;
 using RequestForRepairWPF.ViewModels.Base;
+using RequestForRepairWPF.ViewModels.Pages.UserAccount;
 using RequestForRepairWPF.Views.Pages;
 using RequestForRepairWPF.Views.Pages.Request;
 using RequestForRepairWPF.Views.Pages.UserAccount;
@@ -365,22 +366,38 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
 
     internal class OpenEditUserAccountViewCommand : MyCommand
     {
+        UsersData_ViewModel _usersData_ViewModel = new UsersData_ViewModel();
         public OpenEditUserAccountViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
             if (User.id_type == 1)
             {
+                UpdateData();
+
                 PageManager.MainFrame.Navigate(new UserAccountPage_View());
             }
             else if(User.id_type == 2)
             {
+                UpdateData();
+
                 PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
             }
             else if(User.id_type == 3)
             {
+                UpdateData();
+
                 PageManager.MainFrame.Navigate(new UserAccountPage_View());
             }
+        }
+
+        private void UpdateData()
+        {
+            _usersData_ViewModel.UserLastName = User.last_name;
+            _usersData_ViewModel.UserName = User.name;
+            _usersData_ViewModel.UserMiddleName = User.middle_name;
+            _usersData_ViewModel.UserPosition = User.position;
+            _usersData_ViewModel.UserPhone = User.phone;
         }
     }
 

@@ -6,6 +6,7 @@ using RequestForRepairWPF.ViewModels.Base;
 using RequestForRepairWPF.ViewModels.DialogWindows;
 using RequestForRepairWPF.Views.DialogWindows;
 using RequestForRepairWPF.Views.Pages;
+using RequestForRepairWPF.Views.Pages.UserAccount;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -197,6 +198,18 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Команда отмены
+        private ICommand _cancelCommand;
+        public ICommand CancelCommand
+        {
+            get
+            {
+                _cancelCommand = new CancelCommand(this);
+                return _cancelCommand;
+            }
+        }
+        #endregion
+
         #region Команда для загрузки страницы "Описание помещения"
         private ICommand _openDescriptionRoomView;
         public ICommand OpenDescriptionRoomView
@@ -212,6 +225,46 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         #endregion
     }
+
+    #region Класс-команда отмены
+    internal class CancelCommand : MyCommand
+    {
+        public CancelCommand(UsersData_ViewModel usersData_ViewModel) : base(usersData_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => Cancel();
+
+        private void Cancel()
+        {
+            if (User.id_type == 1)
+            {
+                UpdateData();
+
+                PageManager.MainFrame.Navigate(new UserAccountPage_View());
+            }
+            else if (User.id_type == 2)
+            {
+                UpdateData();
+
+                PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
+            }
+            else if (User.id_type == 3)
+            {
+                UpdateData(); 
+
+                PageManager.MainFrame.Navigate(new UserAccountPage_View());
+            }
+        }
+
+        private void UpdateData()
+        {
+            _usersData_ViewModel.UserLastName = User.last_name;
+            _usersData_ViewModel.UserName = User.name;
+            _usersData_ViewModel.UserMiddleName = User.middle_name;
+            _usersData_ViewModel.UserPosition = User.position;
+            _usersData_ViewModel.UserPhone = User.phone;
+        }
+    }
+    #endregion
 
     #region Класс-команда для сохранения данных 
     internal class SaveDataCommand : MyCommand
@@ -248,14 +301,6 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             {
                 OpenDialogWindow("Пожалуйста, введите телефон пользователя!");
             }
-            //else if (_usersData_ViewModel.UserEmail == null || _usersData_ViewModel.UserEmail == string.Empty)
-            //{
-            //    OpenDialogWindow("Пожалуйста, введите логин пользователя!");
-            //}
-            //else if (_usersData_ViewModel.UserEmail == checkedUserLogin)
-            //{
-            //    OpenDialogWindow("Пожалуйста, введите другой логин пользователя!\nПользователь с таким логином уже зарегистрирован!");
-            //}
             else if (_usersData_ViewModel.UserPassword_GET == null || _usersData_ViewModel.UserPassword_GET == string.Empty)
             {
                 OpenDialogWindow("Пожалуйста, введите пароль пользователя!");
@@ -274,7 +319,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             {
                 SaveUsersData(_usersData_ViewModel.UserName, _usersData_ViewModel.UserLastName, _usersData_ViewModel.UserMiddleName, 
                     _usersData_ViewModel.UserPosition, _usersData_ViewModel.UserPhone, _usersData_ViewModel.UserEmail, _usersData_ViewModel.UserPassword_GET);
-                //CleanUsersData();
+                
             }
         }
 
@@ -313,21 +358,6 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             OpenDialogWindow("Ваши данные были успешно изменены!");
         }
 
-        private void CleanUsersData()
-        {
-            _usersData_ViewModel.UserEmail = null;
-            _usersData_ViewModel.UserPassword_SET = null;
-            _usersData_ViewModel.RepeatUserPassword_SET = null;
-            _usersData_ViewModel.UserLastName = null;
-            _usersData_ViewModel.UserName = null;
-            _usersData_ViewModel.UserMiddleName = null;
-            _usersData_ViewModel.UserPosition = null;
-            _usersData_ViewModel.UserPhone = null;
-            _usersData_ViewModel.UserType_string = null;
-            _usersData_ViewModel.UserCategoryExecutors = null;
-            _usersData_ViewModel.UserRoomNumber = 0;
-
-        }
 
         private void OpenDialogWindow(string textMessage)
         {

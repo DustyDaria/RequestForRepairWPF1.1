@@ -222,6 +222,7 @@
                     Grid.Column="1"
                     Grid.Row="6"
                     Content="Отмена"
+                    Command="{Binding Path=CancelCommand}"
                     IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                     Style="{StaticResource MaterialDesignFlatButton}"
                     ToolTip="MaterialDesignFlatButton">

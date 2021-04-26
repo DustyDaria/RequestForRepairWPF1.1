@@ -193,45 +193,12 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Категория исполнителя"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="«... ни при каких условиях не изменится»"
                     MinWidth="128"
                     ItemsSource="{Binding Path=ListCategoryExecutors}"
                     SelectedItem="{Binding Path=UserCategoryExecutors}"
                     Height="50">
                 </ComboBox>
-
-                <!-- <ComboBox
-                    x:Name="comboBox_room_number"
-                            Visibility="Collapsed"
-                    VerticalAlignment="Top"
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="5"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    materialDesign:TextFieldAssist.HasClearButton="True"
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:ColorZoneAssist.Mode="Accent"
-                    materialDesign:HintAssist.Hint="Номер кабинета"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
-                    MinWidth="128"
-                    ItemsSource="{Binding Path=_userRoomNumber}"
-                    Height="50">
-                </ComboBox>
-
-                <TextBox
-                    x:Name="textBox_room_number"
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="5"
-                            Visibility="Hidden"
-                    IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
-                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Номер кабинета"/>-->
 
                 <Button
                     x:Name="btn_Save"
@@ -257,7 +224,7 @@
                     Width="auto"
                     Padding="25 10 25 10"
                     Margin="25"
-                    Command="{Binding MenuListViewItem_Command}"
+                    Command="{Binding Path=CancelCommand}"
                     HorizontalAlignment="Right"
                     Grid.Column="1"
                     Grid.Row="6"
@@ -268,13 +235,13 @@
                 </Button>
 
                 <Button
-                                x:Name="btn_Edit"
-                                FontSize="18"
-                                Height="auto"
-                                Width="auto"
-                                Click="btn_Edit_Click"
-                                Padding="25 10 25 10"
-                                Margin="100 25 25 25"
+                    x:Name="btn_Edit"
+                    FontSize="18"
+                    Height="auto"
+                    Width="auto"
+                    Click="btn_Edit_Click"
+                    Padding="25 10 25 10"
+                      Margin="100 25 25 25"
                                 HorizontalAlignment="Left"
                                 Grid.Column="0"
                                 Grid.Row="6"

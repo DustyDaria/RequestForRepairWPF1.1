@@ -23,7 +23,6 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\En
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.xml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\AllUsers_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Authorization_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Executors_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.dll
@@ -35,7 +34,6 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Pr
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.Wpf.pdb
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.Wpf.xml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\AllUsers_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Authorization_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Executors_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\CreateAndEditRequest_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\FileReport_View.g.cs
@@ -47,11 +45,7 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Vi
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\WatchRequests_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\DescriptionRoom.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\DescriptionRoom.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\UserAccount\UserAccount_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\UserAccount\UserAccount_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\UserAccount\CustomerUserAccount_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\UserAccount\CustomerUserAccount_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Controls\Room\Control_radioBtn.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Controls\Room\Control_checkBox.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Controls\Room\Control_checkBox.baml
@@ -77,15 +71,15 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Vi
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\MessageBox_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\UserAccount\UserRegistrationPage_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\UserAccount\UserRegistrationPage_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\CreateAndEditRequestPage_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\WatchRequestsPage_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\ExecutorsPage_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\CreateAndEditRequestPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\ViewingEditDelete_UsersData\ExecutorsPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\WatchRequestsPage_View.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\DialogConfirmation_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\DialogWindows\DialogConfirmation_View.baml
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\CreateRequestPage_View.g.cs
+C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Pages\Request\CreateRequestPage_View.baml

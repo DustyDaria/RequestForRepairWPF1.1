@@ -1,7 +1,6 @@
 ﻿using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Data.User;
 using RequestForRepairWPF.Views.Windows;
-using RequestForRepairWPF.Views.Windows.UserAccount;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -238,9 +237,9 @@ namespace RequestForRepairWPF
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {
-                CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                customerUser.Show();
+                //CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
+                //this.Close();
+                //customerUser.Show();
             }
 
         }

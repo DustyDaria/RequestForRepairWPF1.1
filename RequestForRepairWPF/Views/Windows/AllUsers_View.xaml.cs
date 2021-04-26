@@ -1,7 +1,6 @@
 ﻿
 using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Views.Windows;
-using RequestForRepairWPF.Views.Windows.UserAccount;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -151,9 +150,9 @@ namespace RequestForRepairWPF
         private void btn_PopUpLogout_Click(object sender, RoutedEventArgs e)
         {
             // ДИАЛОГОВЫЕ ОКНА
-            MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
-            Authorization_View authorization = new Authorization_View();
-            this.Close();
+            //MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
+            //Authorization_View authorization = new Authorization_View();
+            //this.Close();
             //authorization.Show();
         }
 
@@ -234,9 +233,9 @@ namespace RequestForRepairWPF
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {
-                CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                customerUser.Show();
+                //CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
+                //this.Close();
+                //customerUser.Show();
             }
 
         }

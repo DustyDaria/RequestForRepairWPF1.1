@@ -6,7 +6,6 @@ using RequestForRepairWPF.ViewModels.Pages.UserAccount;
 using RequestForRepairWPF.Views.DialogWindows;
 using RequestForRepairWPF.Views.Pages.UserAccount;
 using RequestForRepairWPF.Views.Windows;
-using RequestForRepairWPF.Views.Windows.UserAccount;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -25,19 +25,15 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Menu
 
         private void MenuLoad()
         {
-           // _viewModel.userTypeOfAccount = User.type_of_account;
-
             if(User.id_type == 1)
             {
+                _viewModel.listVisibility_EditUserAccount = true;
                 _viewModel.listVisibility_AllUsers = true;
                 _viewModel.listVisibility_Customers = true;
                 _viewModel.listVisibility_Executors = true;
                 _viewModel.listVisibility_RegisterNewUser = true;
-                _viewModel.listVisibility_EditUserAccount = true;
                 _viewModel.listVisibility_WatchRequest = true;
                 _viewModel.listVisibility_WatchArchiveRequest = true;
-                _viewModel.listVisibility_MyRequest = true;
-                _viewModel.listVisibility_MyArchiveRequest = true;
                 _viewModel.listVisibility_FileReport = true;
             }
             else if(User.id_type == 2)

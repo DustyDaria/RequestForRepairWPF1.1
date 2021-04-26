@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RequestForRepairWPF.Views.Pages.Request
 {
     /// <summary>
-    /// Логика взаимодействия для CreateAndEditRequestPage_View.xaml
+    /// Логика взаимодействия для CreateRequestPage_View.xaml
     /// </summary>
-    public partial class CreateAndEditRequestPage_View : Page
+    public partial class CreateRequestPage_View : Page
     {
-        public CreateAndEditRequestPage_View()
+        public CreateRequestPage_View()
         {
             InitializeComponent();
         }

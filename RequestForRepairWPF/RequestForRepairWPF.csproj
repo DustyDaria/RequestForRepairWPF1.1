@@ -169,7 +169,7 @@
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="Services\PageManager.cs" />
     <Compile Include="ViewModels\DialogWindows\Dialog_ViewModel.cs" />
-    <Compile Include="ViewModels\Pages\Request\CreateAndEditRequest_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Request\CreateRequest_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
@@ -195,8 +195,8 @@
     <Compile Include="Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.xaml.cs">
       <DependentUpon>AllUsersPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Request\CreateAndEditRequestPage_View.xaml.cs">
-      <DependentUpon>CreateAndEditRequestPage_View.xaml</DependentUpon>
+    <Compile Include="Views\Pages\Request\CreateRequestPage_View.xaml.cs">
+      <DependentUpon>CreateRequestPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\ViewingEditDelete_UsersData\CustomersPage_View.xaml.cs">
       <DependentUpon>CustomersPage_View.xaml</DependentUpon>
@@ -237,9 +237,6 @@
     <Compile Include="Views\Pages\UserAccount\UserAccountPage_View.xaml.cs">
       <DependentUpon>UserAccountPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\UserAccount\CustomerUserAccount_View.xaml.cs">
-      <DependentUpon>CustomerUserAccount_View.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Windows\WatchRequests_View.xaml.cs">
       <DependentUpon>WatchRequests_View.xaml</DependentUpon>
     </Compile>
@@ -267,7 +264,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\Request\CreateAndEditRequestPage_View.xaml">
+    <Page Include="Views\Pages\Request\CreateRequestPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,10 +300,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\Authorization_View.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\Executors_ViewModel.cs" />
     <Compile Include="Views\Windows\AllUsers_View.xaml.cs">
       <DependentUpon>AllUsers_View.xaml</DependentUpon>
@@ -316,10 +309,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBase.cs" />
-    <Compile Include="Views\Windows\Authorization_View.xaml.cs">
-      <DependentUpon>Authorization_View.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Views\Windows\Customers_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -352,14 +341,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\UserAccount\CustomerUserAccount_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\UserAccount\UserAccount_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Controls\Room\Control_radioBtn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -380,9 +361,6 @@
     </Compile>
     <Compile Include="Views\Windows\CreateAndEditRequest_View.xaml.cs">
       <DependentUpon>CreateAndEditRequest_View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\UserAccount\UserAccount_View.xaml.cs">
-      <DependentUpon>UserAccount_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

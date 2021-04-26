@@ -22,12 +22,6 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
 {
     public class Ctrl_burgerMenu_ViewModel : ViewModel
     {
-
-        //private string _userTypeOfAccount;
-        //private int _id;
-        //Ctrl_burgerMenu_Model menu_Model = new Ctrl_burgerMenu_Model();
-        
-
         #region Команда на загрузкку элементов меню
         public ICommand MenuLoad_Command { get; }
         public Ctrl_burgerMenu_ViewModel()
@@ -354,7 +348,7 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
     {
         public OpenCreateRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new CreateAndEditRequestPage_View());
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new CreateRequestPage_View());
     }
 
     internal class OpenDescriptionRoomViewCommand : MyCommand

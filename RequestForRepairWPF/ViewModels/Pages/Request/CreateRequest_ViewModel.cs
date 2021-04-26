@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace RequestForRepairWPF.ViewModels.Pages.Request
 {
-    public class CreateAndEditRequest_ViewModel : ViewModel
+    public class CreateRequest_ViewModel : ViewModel
     {
         #region название заявки
         private static string _nameRequest;
@@ -148,7 +148,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
     {
         private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
 
-        public SaveRequestDataCommand(CreateAndEditRequest_ViewModel createRequest_ViewModel) : base(createRequest_ViewModel) { }
+        public SaveRequestDataCommand(CreateRequest_ViewModel createRequest_ViewModel) : base(createRequest_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => SaveRequestData();
         private void SaveRequestData()
@@ -277,7 +277,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
     #region Класс-команда для загрузки данных
     internal class LoadRequestDataCommand : MyRequestCommand
     {
-        public LoadRequestDataCommand(CreateAndEditRequest_ViewModel createRequest_ViewModel) : base(createRequest_ViewModel) { }
+        public LoadRequestDataCommand(CreateRequest_ViewModel createRequest_ViewModel) : base(createRequest_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => LoadRequestData();
         private void LoadRequestData()
@@ -291,8 +291,8 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
     #region Вспомогательный класс для команд
     abstract class MyRequestCommand : ICommand
     {
-        protected CreateAndEditRequest_ViewModel _createRequest_ViewModel;
-        public MyRequestCommand(CreateAndEditRequest_ViewModel createRequest_ViewModel)
+        protected CreateRequest_ViewModel _createRequest_ViewModel;
+        public MyRequestCommand(CreateRequest_ViewModel createRequest_ViewModel)
         {
             _createRequest_ViewModel = createRequest_ViewModel;
         }

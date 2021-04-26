@@ -1,4 +1,4 @@
-﻿using RequestForRepairWPF.Views.Windows.UserAccount;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,8 +95,8 @@ namespace RequestForRepairWPF.Views.Windows
         {
             // ДИАЛОГОВЫЕ ОКНА
             //MessageBox.Show("БЛАБЛАБЛАБЛА, ТУТ ДОЛЖНО БЫТЬ ДИЛОГОВОЕ ОКНО");
-            Authorization_View authorization = new Authorization_View();
-            this.Close();
+            //Authorization_View authorization = new Authorization_View();
+            //this.Close();
             //authorization.Show();
         }
         #endregion
@@ -165,9 +165,9 @@ namespace RequestForRepairWPF.Views.Windows
             }
             else if (dataBase.GetResult(queryCheckTypeOfAccount_GET) == "Исполнитель")
             {
-                CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
-                this.Close();
-                customerUser.Show();
+                //CustomerUserAccount_View customerUser = new CustomerUserAccount_View(mainID, "Редактировать", 0);
+                //this.Close();
+                //customerUser.Show();
             }
 
         }

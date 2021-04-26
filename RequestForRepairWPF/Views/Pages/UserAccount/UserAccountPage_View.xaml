@@ -146,40 +146,17 @@
                         Margin="25"
                         IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                         Grid.Row="2"
+                    materialDesign:HintAssist.Hint="Пароль" 
                         Grid.Column="1"
-                        Password="{Binding Path=UserPassword, Mode=TwoWay}"/>
+                        Password="{Binding Path=UserPassword}"/>
 
                 <ctrlp:Ctrl_PasswordBox_View
                         Margin="25"
                         IsEnabled="{Binding ElementName=btn_Edit, Path=IsEnabled, Converter={StaticResource InverseBooleanConverter}}"
                         Grid.Row="3"
                         Grid.Column="1"
-                        Password="{Binding Path=UserPassword, Mode=TwoWay}"/>
-
-                <!--<PasswordBox
-                    IsEnabled="False"
-                    x:Name="passBox_user_password"
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Пароль"/>
-
-                <PasswordBox
-                    IsEnabled="False"
-                    x:Name="passBox_repeat_user_password"
-                    Margin="25"
-                    Grid.Column="1"
-                    Grid.Row="3"
-                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                    Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.Hint="Повторите пароль"/>-->
+                    materialDesign:HintAssist.Hint="Повторите пароль" 
+                        Password="{Binding Path=RepeatUserPassword}"/>
 
                 <ComboBox
                     x:Name="comboBox_type_of_account"
@@ -195,16 +172,11 @@
                     materialDesign:ColorZoneAssist.Mode="Accent"
                     materialDesign:HintAssist.Hint="Тип аккаунта"
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
-                    materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
+                    materialDesign:HintAssist.HelperText="«... ни при каких условиях не изменится»"
                     MinWidth="128"
-                    SelectedValue="{Binding Path=UserTypeOfAccount, Mode=TwoWay}"
+                    ItemsSource="{Binding Path=ListUsersType}"
+                    SelectedValue="{Binding Path=UserType_string}"
                     Height="50">
-                    <ComboBoxItem 
-                                Content="Системный администратор"/>
-                    <ComboBoxItem
-                                Content="Заказчик"/>
-                    <ComboBoxItem
-                                Content="Исполнитель"/>
                 </ComboBox>
 
                 <ComboBox
@@ -223,17 +195,9 @@
                     materialDesign:HintAssist.Foreground="{DynamicResource SecondaryHueMidBrush}"
                     materialDesign:HintAssist.HelperText="Когда-нибудь здесь появится шутейка"
                     MinWidth="128"
-                    SelectedItem="{Binding Path=UserCategoryExecutors, Mode=TwoWay}"
+                    ItemsSource="{Binding Path=ListUsersType}"
+                    SelectedItem="{Binding Path=UserCategoryExecutors}"
                     Height="50">
-                    <ComboBoxItem>
-                        IT-специалист
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Электрик
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Плотник
-                    </ComboBoxItem>
                 </ComboBox>
 
                 <!-- <ComboBox

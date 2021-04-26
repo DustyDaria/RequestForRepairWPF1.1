@@ -219,7 +219,6 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
                     phone = User.phone
             });
 
-
             //authUser.Requests.Add(request);
             try
             {

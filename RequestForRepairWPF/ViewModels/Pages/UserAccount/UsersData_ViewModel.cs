@@ -46,20 +46,30 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
-        #region Тип аккаунта
-        //private static string _userType;
-        //public string UserType
-        //{
-        //    get => _userType;
-        //    set => Set(ref _userType, value);
-        //    //OpenUserAccount;
-        //}
-
-        private static int _userType;
-        public int UserType
+        #region Повторите пароль
+        private static string _repeatUserPassword;
+        public string RepeatUserPassword
         {
-            get => _userType;
-            set => Set(ref _userType, value);
+            set => Set(ref _repeatUserPassword, value);
+        }
+        #endregion
+
+        #region ID Типа аккаунта
+
+        private static int _userType_int;
+        public int UserType_int
+        {
+            get => _userType_int;
+            set => Set(ref _userType_int, value);
+        }
+        #endregion
+
+        #region Тип аккаунта
+        private static string _userType_string;
+        public string UserType_string
+        {
+            get => _userType_string;
+            set => Set(ref _userType_string, value);
         }
         #endregion
 
@@ -126,6 +136,15 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         }
         #endregion
 
+        #region Список номеров помещений пользователя
+        private static List<int> _listUserRoomsNumber;
+        public List<int> ListUserRoomsNumber
+        {
+            get => _listUserRoomsNumber;
+            set => Set(ref _listUserRoomsNumber, value);
+        }
+        #endregion
+
         #region Категория исполнителя
         private static string _userCategoryExecutors;
         public string UserCategoryExecutors
@@ -159,13 +178,21 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         #endregion
     }
 
-    #region Класс для загрузки страницы "Описание помещения"
+    #region Класс-команда для загрузки страницы "Описание помещения"
     internal class OpenDescriptionRoomViewCommand : MyCommand
     {
         public OpenDescriptionRoomViewCommand(UsersData_ViewModel usersData_ViewModel) : base(usersData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new DescriptionRoomPage_View());
-    }
+        public override void Execute(object parameter) => LoadPage();
+
+        private void LoadPage()
+        {
+            DescriptionRoom_ViewModel descriptionRoom_ViewModel = new DescriptionRoom_ViewModel();
+            descriptionRoom_ViewModel.RoomNumber = Convert.ToString(_usersData_ViewModel.UserRoomNumber);
+            PageManager.MainFrame.Navigate(new DescriptionRoomPage_View());
+
+        }
+}
     #endregion
 
     #region Вспомогательный класс для команд

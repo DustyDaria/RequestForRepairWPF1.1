@@ -87,7 +87,7 @@ namespace RequestForRepairWPF.ViewModels.Pages
         public override void Execute(object parameter)
         {
             DescriptionRoom_Model _model = new DescriptionRoom_Model();
-            _descriptionRoom_ViewModel.RoomNumber = Convert.ToString(_model.RoomNumber);
+            //_descriptionRoom_ViewModel.RoomNumber = Convert.ToString(_model.RoomNumber);
             _descriptionRoom_ViewModel.ID_TypeRoom_URR = _model.ID_TypeRoom_URR;
             //_descriptionRoom_ViewModel.TypeRoom = _model.TypeRoom;
             _descriptionRoom_ViewModel.DescriptionRoom = _model.DescriptionRoom;

@@ -57,27 +57,21 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
                 if(_model.CheckUserPass == _password && _model.CheckUserType == 1)
                 {
                     AddUserDataToModel(_model);
-
-                    PageManager.MainFrame.Navigate(new UserAccountPage_View());
-
                     AddUserDataToViewModel(_model);
-
+                    PageManager.MainFrame.Navigate(new UserAccountPage_View());
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == 2)
                 {
                     AddUserDataToModel(_model);
-
-                    PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
-
                     AddUserDataToViewModel(_model);
+                    PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
                 }
                 else if(_model.CheckUserPass == _password && _model.CheckUserType == 3)
                 {
                     AddUserDataToModel(_model);
-
+                    AddUserDataToViewModel(_model);
                     PageManager.MainFrame.Navigate(new UserAccountPage_View());
 
-                    AddUserDataToViewModel(_model);
                 }
             }
         }
@@ -106,15 +100,26 @@ namespace RequestForRepairWPF.Infrastructure.Commands.Controls.Password
             _viewModel.UserEmail = _email;
             _viewModel.UserPassword = _password;
             _viewModel.Authorization_userID = _idUser;
-            _viewModel.UserType = _idType;
+            _viewModel.UserType_int = _idType;
             _viewModel.UserLastName = _lastName;
             _viewModel.UserName = _name;
             _viewModel.UserMiddleName = _middleName;
             _viewModel.UserPosition = _position;
             _viewModel.UserPhone = _phone;
             _viewModel.UserCategoryExecutors = _categoryExecutors;
-            _viewModel.UserRoomNumber = _roomNumber;
-
+            _viewModel.ListUserRoomsNumber = _listUserRoomsNumber;
+            if(_idType == 1)
+            {
+                _viewModel.UserType_string = "Системный администратор";
+            }
+            else if(_idType == 2)
+            {
+                _viewModel.UserType_string = "Заказчик";
+            }
+            else if(_idType == 3)
+            {
+                _viewModel.UserType_string = "Исполнитель";
+            }
             _viewModel.ListUsersType = _listUsersType;
 
         }

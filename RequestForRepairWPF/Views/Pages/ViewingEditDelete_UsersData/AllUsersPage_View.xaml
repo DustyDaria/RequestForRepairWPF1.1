@@ -18,7 +18,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         d:DesignHeight="800" d:DesignWidth="1080"
       
-      Title="Личный кабинет">
+      Title="Все пользователи">
     <Page.DataContext>
         <vm:AllUsers_ViewModel/>
     </Page.DataContext>
@@ -57,66 +57,63 @@
 
 
                 <DataGrid
+                    VerticalScrollBarVisibility="Visible"
+                    Height="500"
                         Margin="100,25,25,25"
                         x:Name="AllUsers"
+                    CanUserAddRows="False"
                     ItemsSource="{Binding Path=AllUsers}"
-                        AutoGenerateColumns="True"
-                        CanUserAddRows="True"
+                        AutoGenerateColumns="False"
                         SelectionUnit="Cell"
                         SelectionMode="Extended" 
                     Grid.ColumnSpan="2">
-                    <!--<DataGrid.Columns>
-                        <DataGridCheckBoxColumn
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn
                                 Header="Выбор"
-                                Width="auto"/>
-                        <DataGridTextColumn
-                                Binding="{Binding id_user}"
+                                Binding="{Binding Path=userSelect}"/>
+                            <DataGridTextColumn
+                                Binding="{Binding Path=idUser}"
                                 IsReadOnly="True"
-                                Header="ID" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding user_login}"
+                                Header="ID" />
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=userLogin}"
                                 IsReadOnly="False"
-                                Header="Логин" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding last_name}"
+                                Header="Логин"/>
+                            <DataGridTextColumn
+                                Binding="{Binding Path=userPassword}"
                                 IsReadOnly="False"
-                                Header="Фамилия" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding name}"
-                                IsReadOnly="False"
-                                Header="Имя" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding middle_name}"
-                                IsReadOnly="False"
-                                Header="Отчество" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding position}"
-                                IsReadOnly="False"
-                                Header="Должность" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding type_of_account}"
+                                Header="Пароль"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=typeOfAccount}"
                                 IsReadOnly="True"
-                                Header="Тип аккаунта" 
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding category_executors}"
+                                Header="Тип аккаунта"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=lastName}"
+                                IsReadOnly="False"
+                                Header="Фамилия"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=name}"
+                                IsReadOnly="False"
+                                Header="Имя"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=middleName}"
+                                IsReadOnly="False"
+                                Header="Отчество"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=position}"
+                                IsReadOnly="False"
+                                Header="Должность"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=categoryExecutors}"
                                 Header="Категория исполнителя" 
+                                IsReadOnly="True"/>
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=phone}"
                                 IsReadOnly="False"
-                                Width="auto"/>
-                        <DataGridTextColumn 
-                                Binding="{Binding phone}"
-                                IsReadOnly="False"
-                                Header="Телефон" 
-                                Width="auto"/>
+                                Header="Телефон"/>
 
-                    </DataGrid.Columns>-->
-                </DataGrid>
+                        </DataGrid.Columns>
+                    </DataGrid>
             </StackPanel>
             <StackPanel
                     Grid.Row="1"

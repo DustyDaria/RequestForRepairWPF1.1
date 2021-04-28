@@ -42,5 +42,7 @@ namespace RequestForRepairWPF.Data.User
 
         public static List<string> AllCategoryExecutors { get; set; } = new List<string>();
         public static List<int> AllUsersID { get; set; } = new List<int>();
+
+        public bool userSelect { get; set; }
     }
 }

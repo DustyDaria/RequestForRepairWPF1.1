@@ -28,11 +28,11 @@ namespace RequestForRepairWPF
         private int mainID = 0;
         DataBase dataBase = new DataBase();
         //my_DbContext db = new my_DbContext();
-        List<User> idList = new List<User>();
+        List<User_DataModel> idList = new List<User_DataModel>();
         List<int> requestList = new List<int>();
         public string typeSearchTransfer;
         public string stringReaderBoxTransfer;
-        ObservableCollection<User> executorsCollection = new ObservableCollection<User>(); 
+        ObservableCollection<User_DataModel> executorsCollection = new ObservableCollection<User_DataModel>(); 
         public Executors_View(int mainID)
         {
             InitializeComponent();

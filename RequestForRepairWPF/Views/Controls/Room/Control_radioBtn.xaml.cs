@@ -28,7 +28,7 @@ namespace RequestForRepairWPF.Views.Controls.Room
         List<string> _typeList = new List<string>();
         DescriptionRoom_Model _model = new DescriptionRoom_Model();
         DescriptionRoom_ViewModel _viewModel = new DescriptionRoom_ViewModel();
-        U_R_Room _room = new U_R_Room();
+        U_R_Room_DataModel _room = new U_R_Room_DataModel();
 
         public Control_radioBtn()
         {
@@ -58,7 +58,7 @@ namespace RequestForRepairWPF.Views.Controls.Room
             {
                 _viewModel.TypeRoom = item.Content.ToString();
                 _model.NameTypeRoom_TR = item.Content.ToString();
-                U_R_Room.id_type_room_URR = _model.ID_TypeRoom_TR;
+                U_R_Room_DataModel.id_type_room_URR = _model.ID_TypeRoom_TR;
                 _viewModel.DescriptionRoom = _model.DescriptionRoom;
                 _viewModel.CommentRoom = _model.CommentRoom;
             }

@@ -365,19 +365,19 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-            if (User.id_type == 1)
+            if (User_DataModel._idType == 1)
             {
                 UpdateData();
 
                 PageManager.MainFrame.Navigate(new UserAccountPage_View());
             }
-            else if(User.id_type == 2)
+            else if(User_DataModel._idType == 2)
             {
                 UpdateData();
 
                 PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
             }
-            else if(User.id_type == 3)
+            else if(User_DataModel._idType == 3)
             {
                 UpdateData();
 
@@ -387,11 +387,11 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
 
         private void UpdateData()
         {
-            _usersData_ViewModel.UserLastName = User.last_name;
-            _usersData_ViewModel.UserName = User.name;
-            _usersData_ViewModel.UserMiddleName = User.middle_name;
-            _usersData_ViewModel.UserPosition = User.position;
-            _usersData_ViewModel.UserPhone = User.phone;
+            _usersData_ViewModel.UserLastName = User_DataModel._lastName;
+            _usersData_ViewModel.UserName = User_DataModel._name;
+            _usersData_ViewModel.UserMiddleName = User_DataModel._middleName;
+            _usersData_ViewModel.UserPosition = User_DataModel._position;
+            _usersData_ViewModel.UserPhone = User_DataModel._phone;
         }
     }
 

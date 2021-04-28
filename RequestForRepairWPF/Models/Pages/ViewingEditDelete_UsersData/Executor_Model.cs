@@ -21,7 +21,7 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         //public ObservableCollection<Executor> ExecutorsCollection = new ObservableCollection<Executor>();
         //public ObservableCollection<U_R_Executor_Custom> U_R_ExecutorCollection = new ObservableCollection<U_R_Executor_Custom>();
 
-        U_R_Executor_Custom u_r_executorObj = new U_R_Executor_Custom();
+        //U_R_Executor_Custom u_r_executorObj = new U_R_Executor_Custom();
         //Executor executorObj = new Executor();
         private string criteriaSearch;
         private string dataForSearch;

@@ -235,19 +235,19 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         private void Cancel()
         {
-            if (User.id_type == 1)
+            if (User_DataModel._idType == 1)
             {
                 UpdateData();
 
                 PageManager.MainFrame.Navigate(new UserAccountPage_View());
             }
-            else if (User.id_type == 2)
+            else if (User_DataModel._idType == 2)
             {
                 UpdateData();
 
                 PageManager.MainFrame.Navigate(new CustomerUserAccountPage_View());
             }
-            else if (User.id_type == 3)
+            else if (User_DataModel._idType == 3)
             {
                 UpdateData(); 
 
@@ -257,11 +257,11 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         private void UpdateData()
         {
-            _usersData_ViewModel.UserLastName = User.last_name;
-            _usersData_ViewModel.UserName = User.name;
-            _usersData_ViewModel.UserMiddleName = User.middle_name;
-            _usersData_ViewModel.UserPosition = User.position;
-            _usersData_ViewModel.UserPhone = User.phone;
+            _usersData_ViewModel.UserLastName = User_DataModel._lastName;
+            _usersData_ViewModel.UserName = User_DataModel._name;
+            _usersData_ViewModel.UserMiddleName = User_DataModel._middleName;
+            _usersData_ViewModel.UserPosition = User_DataModel._position;
+            _usersData_ViewModel.UserPhone = User_DataModel._phone;
         }
     }
     #endregion
@@ -310,8 +310,8 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
             {
                 OpenDialogWindow("Введенные пароли не совпадают!");
             }
-            else if(_usersData_ViewModel.UserPassword_GET != User.user_password 
-                || _usersData_ViewModel.RepeatUserPassword_GET != User.user_password)
+            else if(_usersData_ViewModel.UserPassword_GET != User_DataModel._userPassword 
+                || _usersData_ViewModel.RepeatUserPassword_GET != User_DataModel._userPassword)
             {
                 OpenDialogWindow("Пароль введен неверно!\nПожалуйста, введите пароль от Вашей учетной записи");
             }
@@ -326,7 +326,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         private void SaveUsersData(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password)
         {
             var user = context.Users
-                 .Where(c => c.id_user == User.id_user)
+                 .Where(c => c.id_user == User_DataModel._idUser)
                  .FirstOrDefault();
             user.name = _name;
             user.last_name = _lastName;

@@ -41,6 +41,15 @@
     <ApplicationIcon>logo2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Core.3.2.0\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -71,6 +80,9 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -89,17 +101,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Request.cs" />
-    <Compile Include="Data\Room\DescriptionRoom.cs" />
-    <Compile Include="Data\Room\Rooms.cs" />
-    <Compile Include="Data\Room\Software.cs" />
-    <Compile Include="Data\Room\SpecialEquipment.cs" />
-    <Compile Include="Data\Room\TechnicalEquipment.cs" />
-    <Compile Include="Data\Room\TypeRoom.cs" />
-    <Compile Include="Data\User\TypeOfAccount.cs" />
-    <Compile Include="Data\U_R_Customer_Custom.cs" />
-    <Compile Include="Data\U_R_Executor_Custom.cs" />
-    <Compile Include="Data\Room\U_R_Room.cs" />
+    <Compile Include="Data\Request_DataModel.cs" />
+    <Compile Include="Data\Room\DescriptionRoom_DataModel.cs" />
+    <Compile Include="Data\Room\Rooms_DataModel.cs" />
+    <Compile Include="Data\Room\Software_DataModel.cs" />
+    <Compile Include="Data\Room\SpecialEquipment_DataModel.cs" />
+    <Compile Include="Data\Room\TechnicalEquipment_DataModel.cs" />
+    <Compile Include="Data\Room\TypeRoom_DataModel.cs" />
+    <Compile Include="Data\User\TypeOfAccount_DataModel.cs" />
+    <Compile Include="Data\Room\U_R_Room_DataModel.cs" />
     <Compile Include="Entities\C__MigrationHistory.cs">
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
@@ -351,7 +361,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\User\User.cs" />
+    <Compile Include="Data\User\User_DataModel.cs" />
     <Compile Include="Infrastructure\Commands\Base\RelayCommand.cs" />
     <Compile Include="Views\Windows\Customers_View.xaml.cs">
       <DependentUpon>Customers_View.xaml</DependentUpon>

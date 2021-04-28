@@ -26,60 +26,60 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
             //this._userEmail = _userEmail;
             //this._userPassword = _userPassword;
 
-            User.user_login = _userEmail;
-            User.user_password = _userPassword;
+            User_DataModel._userLogin = _userEmail;
+            User_DataModel._userPassword = _userPassword;
         }
         #endregion
 
         #region Получение данных из класса User
         public int User_ID
         {
-            get => User.id_user;
+            get => User_DataModel._idUser;
         }
 
         public int User_IDType
         {
-            get => User.id_type;
+            get => User_DataModel._idType;
         }
 
         public string User_Login
         {
-            get => User.user_login;
+            get => User_DataModel._userLogin;
         }
 
         public string User_Password
         {
-            get => User.user_password;
+            get => User_DataModel._userPassword;
         }
 
         public string User_LastName
         {
-            get => User.last_name;
+            get => User_DataModel._lastName;
         }
 
         public string User_Name
         {
-            get => User.name;
+            get => User_DataModel._name;
         }
 
         public string User_MiddleName
         {
-            get => User.middle_name;
+            get => User_DataModel._middleName;
         }
 
         public string User_Position
         {
-            get => User.position;
+            get => User_DataModel._position;
         }
 
         public string User_CategoryExecutors
         {
-            get => User.category_executors;
+            get => User_DataModel._categoryExecutors;
         }
 
         public string User_Phone
         {
-            get => User.phone;
+            get => User_DataModel._phone;
         }
         #endregion
 
@@ -93,12 +93,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.id_user = context.Users
-                    .Where(c => c.user_login == User.user_login && c.user_password == User.user_password)
+                User_DataModel._idUser = context.Users
+                    .Where(c => c.user_login == User_DataModel._userLogin && c.user_password == User_DataModel._userPassword)
                     .Select(c => c.id_user)
                     .FirstOrDefault();
 
-                return User.id_user;
+                return User_DataModel._idUser;
             }
         }
         #endregion
@@ -111,12 +111,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.name = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._name = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.name)
                     .FirstOrDefault();
 
-                return User.name;
+                return User_DataModel._name;
             }
         }
 
@@ -130,12 +130,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.last_name = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._lastName = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.last_name)
                     .FirstOrDefault();
 
-                return User.last_name;
+                return User_DataModel._lastName;
             }
         }
 
@@ -149,12 +149,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.middle_name = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._middleName = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.middle_name)
                     .FirstOrDefault();
 
-                return User.middle_name;
+                return User_DataModel._middleName;
             }
         }
 
@@ -168,12 +168,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.position = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._position = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.position)
                     .FirstOrDefault();
 
-                return User.position;
+                return User_DataModel._position;
             }
         }
 
@@ -187,12 +187,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.phone = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._phone = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.phone)
                     .FirstOrDefault();
 
-                return User.phone;
+                return User_DataModel._phone;
 
             }
         }
@@ -207,12 +207,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.user_login = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._userLogin = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.user_login)
                     .FirstOrDefault();
 
-                return User.user_login;
+                return User_DataModel._userLogin;
             }
         }
 
@@ -226,12 +226,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.user_password = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._userPassword = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.user_password)
                     .FirstOrDefault();
 
-                return User.user_password;
+                return User_DataModel._userPassword;
             }
         }
 
@@ -252,13 +252,13 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                 //
                 //return User.type_of_account;
 
-                User.id_type = context.Users
+                User_DataModel._idType = context.Users
                     .Where(c => c.TypeOfAccount.id_type == c.id_type && 
-                    c.id_user == User.id_user)
+                    c.id_user == User_DataModel._idUser)
                     .Select(c => c.id_type)
                     .FirstOrDefault();
 
-                return User.id_type;
+                return User_DataModel._idType;
             }
         }
 
@@ -275,9 +275,9 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                 var allTypes = from t in context.TypeOfAccount
                                select t.name_type;
                 foreach (var s in allTypes)
-                    TypeOfAccount.AllType.Add(s);
+                    TypeOfAccount_DataModel.AllType.Add(s);
 
-                return TypeOfAccount.AllType;
+                return TypeOfAccount_DataModel.AllType;
             }
         }
         #endregion
@@ -294,9 +294,9 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                                    select c.category_executors)
                                   .Distinct();
                 foreach (var s in allCategory)
-                    User.AllCategoryExecutors.Add(s);
+                    User_DataModel.AllCategoryExecutors.Add(s);
 
-                return User.AllCategoryExecutors;
+                return User_DataModel.AllCategoryExecutors;
             }
         }
         #endregion
@@ -311,9 +311,9 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                 var allRooms = from r in context.Rooms
                                select r.room_number;
                 foreach (var s in allRooms)
-                    Rooms.AllRoomsNumber.Add(s);
+                    Rooms_DataModel.AllRoomsNumber.Add(s);
 
-                return Rooms.AllRoomsNumber;
+                return Rooms_DataModel.AllRoomsNumber;
             }
         }
         #endregion
@@ -329,9 +329,9 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                                       where r.room_status == false
                                       select r.room_number;
                 foreach (var s in allLibertyRooms)
-                    Rooms.AllLibertyRoomsNumber.Add(s);
+                    Rooms_DataModel.AllLibertyRoomsNumber.Add(s);
 
-                return Rooms.AllLibertyRoomsNumber;
+                return Rooms_DataModel.AllLibertyRoomsNumber;
             }
         }
         #endregion
@@ -346,12 +346,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
             get
             {
                 var queryRoomsID = from r in context.U_R_Room
-                                       where r.userID_URR == User.id_user
+                                       where r.userID_URR == User_DataModel._idUser
                                        select r.id_room;
 
                 foreach (var q in queryRoomsID)
                 {
-                    U_R_Room.listAll_id_room.Add(q);
+                    U_R_Room_DataModel.listAll_id_room.Add(q);
 
                     //var queryRoomsNumber = from t in context.Rooms
                     //                       where t.id_room == q
@@ -361,11 +361,11 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                         .Select(c => c.room_number)
                         .FirstOrDefault();
                    // _listUserRoomsNumber.Add(queryRoomsNumber);
-                    U_R_Room.list_user_rooms_number.Add(queryRoomsNumber);
+                    U_R_Room_DataModel.list_user_rooms_number.Add(queryRoomsNumber);
                 }
 
                 // return _listUserRoomsNumber;
-                return U_R_Room.list_user_rooms_number;
+                return U_R_Room_DataModel.list_user_rooms_number;
             }
         }
         #endregion
@@ -375,13 +375,13 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                U_R_Room.id_room = context.U_R_Room
-                    .Where(c => c.userID_URR == User.id_user)
+                U_R_Room_DataModel.id_room = context.U_R_Room
+                    .Where(c => c.userID_URR == User_DataModel._idUser)
                     .Select(c => c.id_room)
                     .FirstOrDefault();
 
                 int roomNumber = context.Rooms
-                    .Where(c => c.id_room == U_R_Room.id_room)
+                    .Where(c => c.id_room == U_R_Room_DataModel.id_room)
                     .Select(c => c.room_number)
                     .FirstOrDefault();
 
@@ -397,12 +397,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.category_executors = context.Users
-                    .Where(c => c.id_user == User.id_user)
+                User_DataModel._categoryExecutors = context.Users
+                    .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.category_executors)
                     .FirstOrDefault();
 
-                return User.category_executors;
+                return User_DataModel._categoryExecutors;
             }
         }
         #endregion
@@ -417,12 +417,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User.user_password = context.Users
-                    .Where(c => c.user_login == User.user_login)
+                User_DataModel._userPassword = context.Users
+                    .Where(c => c.user_login == User_DataModel._userLogin)
                     .Select(c => c.user_password)
                     .FirstOrDefault();
 
-                return User.user_password;
+                return User_DataModel._userPassword;
             }
         }
         #endregion
@@ -439,12 +439,12 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
                 //    .FirstOrDefault();
                 //
                 //return User.type_of_account;
-                User.id_type = context.Users
-                    .Where(c => c.user_login == User.user_login &&
-                    c.user_password == User.user_password)
+                User_DataModel._idType = context.Users
+                    .Where(c => c.user_login == User_DataModel._userLogin &&
+                    c.user_password == User_DataModel._userPassword)
                     .Select(c => c.id_type)
                     .FirstOrDefault();
-                return User.id_type;
+                return User_DataModel._idType;
             }
         }
         #endregion

@@ -7,8 +7,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RequestForRepairWPF"
-        xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands"
-        mc:Ignorable="d"
+        xmlns:cmd="clr-namespace:RequestForRepairWPF.Infrastructure.Commands" xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData"
+      mc:Ignorable="d"
         
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -19,6 +19,9 @@
         d:DesignHeight="800" d:DesignWidth="1080"
       
       Title="Личный кабинет">
+    <Page.DataContext>
+        <vm:AllUsers_ViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <!-- Контент -->
@@ -55,12 +58,14 @@
 
                 <DataGrid
                         Margin="100,25,25,25"
-                        x:Name="DataGrid_AllUsers"
-                        AutoGenerateColumns="False"
-                        CanUserAddRows="False"
+                        x:Name="AllUsers"
+                    ItemsSource="{Binding Path=AllUsers}"
+                        AutoGenerateColumns="True"
+                        CanUserAddRows="True"
                         SelectionUnit="Cell"
-                        SelectionMode="Extended" Grid.ColumnSpan="2">
-                    <DataGrid.Columns>
+                        SelectionMode="Extended" 
+                    Grid.ColumnSpan="2">
+                    <!--<DataGrid.Columns>
                         <DataGridCheckBoxColumn
                                 Header="Выбор"
                                 Width="auto"/>
@@ -110,7 +115,7 @@
                                 Header="Телефон" 
                                 Width="auto"/>
 
-                    </DataGrid.Columns>
+                    </DataGrid.Columns>-->
                 </DataGrid>
             </StackPanel>
             <StackPanel

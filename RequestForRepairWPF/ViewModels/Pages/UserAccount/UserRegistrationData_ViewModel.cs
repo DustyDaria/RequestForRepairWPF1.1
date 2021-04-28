@@ -308,9 +308,9 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         private void LoadRegData()
         {
-            _userRegData_ViewModel.ListUsersType = Data.User.TypeOfAccount.AllType;
-            _userRegData_ViewModel.ListLibertyRoomsNumber = Data.Room.Rooms.AllLibertyRoomsNumber;
-            _userRegData_ViewModel.ListExecutorsType = Data.User.User.AllCategoryExecutors;
+            _userRegData_ViewModel.ListUsersType = Data.User.TypeOfAccount_DataModel.AllType;
+            _userRegData_ViewModel.ListLibertyRoomsNumber = Data.Room.Rooms_DataModel.AllLibertyRoomsNumber;
+            _userRegData_ViewModel.ListExecutorsType = Data.User.User_DataModel.AllCategoryExecutors;
         }
     }
     #endregion

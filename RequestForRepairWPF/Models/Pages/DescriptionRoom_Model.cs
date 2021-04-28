@@ -14,8 +14,8 @@ namespace RequestForRepairWPF.Models.Pages
     {
         private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
         //U_R_Room _room = new U_R_Room();
-        DescriptionRoom _descriptionRoom = new DescriptionRoom();
-        TypeRoom _typeRoom = new TypeRoom();
+        DescriptionRoom_DataModel _descriptionRoom = new DescriptionRoom_DataModel();
+        TypeRoom_DataModel _typeRoom = new TypeRoom_DataModel();
         private int _idTypeRoom;
         private List<string> _typeRoomList = new List<string>();
 
@@ -30,13 +30,13 @@ namespace RequestForRepairWPF.Models.Pages
                 //    .Select(c => c.roomNUMBER_URR)
                 //    .FirstOrDefault();
 
-                U_R_Room.id_room = context.U_R_Room
-                    .Where(c => c.userID_URR == User.id_user)
+                U_R_Room_DataModel.id_room = context.U_R_Room
+                    .Where(c => c.userID_URR == User_DataModel._idUser)
                     .Select(c => c.id_room)
                     .FirstOrDefault();
 
                 int roomNumber = context.Rooms
-                    .Where(c => c.id_room == U_R_Room.id_room)
+                    .Where(c => c.id_room == U_R_Room_DataModel.id_room)
                     .Select(c => c.room_number)
                     .FirstOrDefault();
 
@@ -50,9 +50,9 @@ namespace RequestForRepairWPF.Models.Pages
         {
             get
             {
-                U_R_Room.userID_URR = User.id_user;
+                U_R_Room_DataModel.userID_URR = User_DataModel._idUser;
 
-                return U_R_Room.userID_URR;
+                return U_R_Room_DataModel.userID_URR;
             }
         }
         #endregion
@@ -67,12 +67,12 @@ namespace RequestForRepairWPF.Models.Pages
                 //    .Select(c => c.id_type_room_URR)
                 //    .FirstOrDefault();
 
-                U_R_Room.id_type_room_URR = (int)context.U_R_Room
-                    .Where(c => c.id_room == U_R_Room.id_room)
+                U_R_Room_DataModel.id_type_room_URR = (int)context.U_R_Room
+                    .Where(c => c.id_room == U_R_Room_DataModel.id_room)
                     .Select(c => c.id_type_room_URR)
                     .FirstOrDefault();
 
-                return U_R_Room.id_type_room_URR;
+                return U_R_Room_DataModel.id_type_room_URR;
             }
         }
         #endregion
@@ -90,12 +90,12 @@ namespace RequestForRepairWPF.Models.Pages
         {
             get
             {
-                U_R_Room.id_type_room_URR = context.TypeRoom
+                U_R_Room_DataModel.id_type_room_URR = context.TypeRoom
                     .Where(c => c.name_type_room_TR == _nameTypeRoom_TR)
                     .Select(c => c.id_type_room_TR)
                     .FirstOrDefault();
 
-                return U_R_Room.id_type_room_URR;
+                return U_R_Room_DataModel.id_type_room_URR;
             }
         }
         #endregion
@@ -106,7 +106,7 @@ namespace RequestForRepairWPF.Models.Pages
             get
             {
                 _descriptionRoom.description_DR = context.DescriptionRoom
-                    .Where(c => c.id_type_room_DR == U_R_Room.id_type_room_URR)
+                    .Where(c => c.id_type_room_DR == U_R_Room_DataModel.id_type_room_URR)
                     .Select(c => c.description_DR)
                     .FirstOrDefault();
                 
@@ -121,7 +121,7 @@ namespace RequestForRepairWPF.Models.Pages
             get
             {
                 _descriptionRoom.comment_DR = context.DescriptionRoom
-                    .Where(c => c.id_type_room_DR == U_R_Room.id_type_room_URR)
+                    .Where(c => c.id_type_room_DR == U_R_Room_DataModel.id_type_room_URR)
                     .Select(c => c.comment_DR)
                     .FirstOrDefault();
                 return _descriptionRoom.comment_DR;
@@ -135,7 +135,7 @@ namespace RequestForRepairWPF.Models.Pages
             get
             {
                 _typeRoom.name_type_room_TR = context.TypeRoom
-                    .Where(c => c.id_type_room_TR == U_R_Room.id_type_room_URR)
+                    .Where(c => c.id_type_room_TR == U_R_Room_DataModel.id_type_room_URR)
                     .Select(c => c.name_type_room_TR)
                     .FirstOrDefault();
                 return _typeRoom.name_type_room_TR;

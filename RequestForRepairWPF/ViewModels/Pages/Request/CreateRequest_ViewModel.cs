@@ -187,7 +187,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
         {
             Users authUser = new Users
             {
-                id_user = User.id_user
+                id_user = User_DataModel._idUser
             };
 
             Requests request = new Requests
@@ -207,16 +207,16 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
             
             request.Users.Add(
                 new Users { 
-                    id_user = User.id_user, 
-                    id_type = User.id_type, 
-                    user_login = User.user_login,
-                    user_password = User.user_password,
-                    last_name = User.last_name,
-                    name = User.name,
-                    middle_name = User.middle_name,
-                    position = User.position,
-                    category_executors = User.category_executors,
-                    phone = User.phone
+                    id_user = User_DataModel._idUser, 
+                    id_type = User_DataModel._idType, 
+                    user_login = User_DataModel._userLogin,
+                    user_password = User_DataModel._userPassword,
+                    last_name = User_DataModel._lastName,
+                    name = User_DataModel._name,
+                    middle_name = User_DataModel._middleName,
+                    position = User_DataModel._position,
+                    category_executors = User_DataModel._categoryExecutors,
+                    phone = User_DataModel._phone
             });
 
             //authUser.Requests.Add(request);
@@ -282,8 +282,8 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
         public override void Execute(object parameter) => LoadRequestData();
         private void LoadRequestData()
         {
-            _createRequest_ViewModel.ListCategoryRequest = Data.User.User.AllCategoryExecutors;
-            _createRequest_ViewModel.ListRoomsNumber = Data.Room.U_R_Room.list_user_rooms_number;
+            _createRequest_ViewModel.ListCategoryRequest = Data.User.User_DataModel.AllCategoryExecutors;
+            _createRequest_ViewModel.ListRoomsNumber = Data.Room.U_R_Room_DataModel.list_user_rooms_number;
         }
     }
     #endregion

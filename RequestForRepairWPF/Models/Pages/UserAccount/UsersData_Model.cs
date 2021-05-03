@@ -351,21 +351,17 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
 
                 foreach (var q in queryRoomsID)
                 {
-                    U_R_Room_DataModel.listAll_id_room.Add(q);
+                    U_R_Room_DataModel._listAll_idRoom.Add(q);
 
-                    //var queryRoomsNumber = from t in context.Rooms
-                    //                       where t.id_room == q
-                    //                       select t.room_number;
                     var queryRoomsNumber = context.Rooms
                         .Where(c => c.id_room == q)
                         .Select(c => c.room_number)
                         .FirstOrDefault();
-                   // _listUserRoomsNumber.Add(queryRoomsNumber);
-                    U_R_Room_DataModel.list_user_rooms_number.Add(queryRoomsNumber);
+
+                    U_R_Room_DataModel._listUserRoomsNumber.Add(queryRoomsNumber);
                 }
 
-                // return _listUserRoomsNumber;
-                return U_R_Room_DataModel.list_user_rooms_number;
+                return U_R_Room_DataModel._listUserRoomsNumber;
             }
         }
         #endregion
@@ -375,13 +371,13 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                U_R_Room_DataModel.id_room = context.U_R_Room
+                U_R_Room_DataModel._idRoom = context.U_R_Room
                     .Where(c => c.userID_URR == User_DataModel._idUser)
                     .Select(c => c.id_room)
                     .FirstOrDefault();
 
                 int roomNumber = context.Rooms
-                    .Where(c => c.id_room == U_R_Room_DataModel.id_room)
+                    .Where(c => c.id_room == U_R_Room_DataModel._idRoom)
                     .Select(c => c.room_number)
                     .FirstOrDefault();
 

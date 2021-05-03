@@ -9,11 +9,19 @@ namespace RequestForRepairWPF.Data.Room
 {
     public class U_R_Room_DataModel
     {
-        public static int userID_URR { get; set; }
-        public static int id_room { get; set; }
-        public static int id_type_room_URR { get; set; }
+        public static int _userID { get; set; }
+        public int userID { get; set; }
 
-        public static List<int> listAll_id_room { get; set; } = new List<int>();
-        public static List<int> list_user_rooms_number { get; set; } = new List<int>();
+        public static int _idRoom { get; set; }
+        public int idRoom { get; set; }
+
+        public static int _idTypeRoom { get; set; }
+        public int idTypeRoom { get; set; }
+
+        public static List<int> _listAll_idRoom { get; set; } = new List<int>();
+        public List<int> listAll_idRoom { get; set; } = new List<int>();
+
+        public static List<int> _listUserRoomsNumber { get; set; } = new List<int>();
+        public List<int> listUserRoomsNumber { get; set; } = new List<int>();
     }
 }

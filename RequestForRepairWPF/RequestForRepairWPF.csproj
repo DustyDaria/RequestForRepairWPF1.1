@@ -173,6 +173,7 @@
     <Compile Include="Models\Pages\UserAccount\UsersData_Model.cs" />
     <Compile Include="Models\Pages\ViewingEditDelete_UsersData\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
+    <Compile Include="Models\Pages\ViewingEditDelete_UsersData\Customers_Model.cs" />
     <Compile Include="Models\Pages\ViewingEditDelete_UsersData\Executor_Model.cs" />
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
     <Compile Include="Services\DisplayRootRegistry.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="ViewModels\Pages\UserAccount\CustomerUserAccount_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\UserAccount\UserRegistrationData_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\UserAccount\UsersData_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\Customers_ViewModel.cs" />
     <Compile Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml.cs">
       <DependentUpon>Ctrl_burgerMenu_View.xaml</DependentUpon>
     </Compile>

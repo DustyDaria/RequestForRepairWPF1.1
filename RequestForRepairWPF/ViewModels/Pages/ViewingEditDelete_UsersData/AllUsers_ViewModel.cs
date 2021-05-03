@@ -14,30 +14,18 @@ using System.Threading.Tasks;
 
 namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
 {
-    class AllUsers_ViewModel : ViewModel
+    public class AllUsers_ViewModel : ViewModel
     {
         public BindableCollection<User_DataModel> AllUsers { get; set; }
 
         public AllUsers_ViewModel()
         {
+            /// <summary>Загрузка данных</summary>
+            #region Загрузка данных
+            /// <summary>Загрузка данных</summary>
             AllUsers_Model _model = new AllUsers_Model();
             AllUsers = new BindableCollection<User_DataModel>(_model.GetPeople(_model.AllIdUsers));
+            #endregion
         }
-
-        /// <summary>Загрузка данных</summary>
-        #region Загрузка данных
-        /// <summary>Загрузка данных</summary>
-        
-        //public ObservableCollection<User_DataModel> LoadData
-        //{
-        //   // get
-        //   // {
-        //   //     m_model = new AllUsers_Model();
-        //   //     return m_model.LoadData();
-        //   // }
-        //}
-        //
-        #endregion
-
     }
 }

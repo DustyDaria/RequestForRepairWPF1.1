@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RequestForRepairWPF.Data.Room;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -43,6 +44,9 @@ namespace RequestForRepairWPF.Data.User
         public static List<string> AllCategoryExecutors { get; set; } = new List<string>();
         public static List<int> AllUsersID { get; set; } = new List<int>();
 
+        public List<int> ListUserIdRooms { get; set; } = new List<int>();
+        public List<int> ListUserRooms { get; set; } = new List<int>();
+        public int PrimaryRoom { get; set; }
         public bool userSelect { get; set; }
     }
 }

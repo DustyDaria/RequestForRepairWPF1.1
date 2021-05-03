@@ -12,26 +12,11 @@ using System.Threading.Tasks;
 
 namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 {
-    class AllUsers_Model : INotifyPropertyChanged
+    public class AllUsers_Model : INotifyPropertyChanged
     {
         Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
 
-        //private List<int> _allIdUsers;
-        public List<int> AllIdUsers
-        {
-            get
-            {
-                var query = from u in context.Users
-                            select u.id_user;
-
-                foreach (var i in query)
-                    User_DataModel.AllUsersID.Add(i);
-                //_allIdUsers.Add(i);
-
-                return User_DataModel.AllUsersID;
-            }
-        }
-
+       
 
         public string UserLogin(int id)
         {
@@ -142,9 +127,7 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
             List<User_DataModel> output = new List<User_DataModel>();
 
             foreach(var i in AllIdUsers)
-            {
                 output.Add(GetPerson(i));
-            }
 
             return output;
         }
@@ -167,57 +150,19 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
             return output;
         }
 
-        // Нужно будет добавить SET при реализации редактирования
-        /// <summary>GET,SET</summary>
-        #region GET,SET
-        /// <summary>GET,SET</summary>
-        
-        //public int Id_user
-        //{
-        //    get => userObj.id_user;
-        //}
-        //public string User_login
-        //{
-        //    get => userObj.user_login;
-        //    
-        //}
-        //public string Last_name
-        //{
-        //    get => userObj.last_name;
-        //    
-        //}
-        //public string Name
-        //{
-        //    get => userObj.name;
-        //    
-        //}
-        //public string Middle_name
-        //{
-        //    get => userObj.middle_name;
-        //    
-        //}
-        //public string Position
-        //{
-        //    get => userObj.position;
-        //    
-        //}
-        //public string Type_of_account
-        //{
-        //    get => userObj.type_of_account;
-        //}
-        //public string Category_executors
-        //{
-        //    get => userObj.category_executors;
-        //    
-        //}
-        //
-        //public string Phone
-        //{
-        //    get => userObj.phone;
-        //    
-        //}
-        #endregion
+        public List<int> AllIdUsers
+        {
+            get
+            {
+                var query = from u in context.Users
+                            select u.id_user;
 
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(i);
+
+                return User_DataModel.AllUsersID;
+            }
+        }
 
         /// <summary>Событие на изменение модели</summary>
         #region Событие на изменение модели

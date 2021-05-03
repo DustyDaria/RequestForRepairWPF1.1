@@ -283,7 +283,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
         private void LoadRequestData()
         {
             _createRequest_ViewModel.ListCategoryRequest = Data.User.User_DataModel.AllCategoryExecutors;
-            _createRequest_ViewModel.ListRoomsNumber = Data.Room.U_R_Room_DataModel.list_user_rooms_number;
+            _createRequest_ViewModel.ListRoomsNumber = Data.Room.U_R_Room_DataModel._listUserRoomsNumber;
         }
     }
     #endregion

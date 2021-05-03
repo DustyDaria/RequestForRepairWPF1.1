@@ -58,7 +58,7 @@ namespace RequestForRepairWPF.Views.Controls.Room
             {
                 _viewModel.TypeRoom = item.Content.ToString();
                 _model.NameTypeRoom_TR = item.Content.ToString();
-                U_R_Room_DataModel.id_type_room_URR = _model.ID_TypeRoom_TR;
+                U_R_Room_DataModel._idTypeRoom = _model.ID_TypeRoom_TR;
                 _viewModel.DescriptionRoom = _model.DescriptionRoom;
                 _viewModel.CommentRoom = _model.CommentRoom;
             }

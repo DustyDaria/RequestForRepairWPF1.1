@@ -147,31 +147,29 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
     internal class SaveRequestDataCommand : MyRequestCommand
     {
         private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        StringBuilder errors = new StringBuilder();
 
         public SaveRequestDataCommand(CreateRequest_ViewModel createRequest_ViewModel) : base(createRequest_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => SaveRequestData();
         private void SaveRequestData()
         {
-            if (_createRequest_ViewModel.NameRequest == null || _createRequest_ViewModel.NameRequest == string.Empty)
+            if (string.IsNullOrWhiteSpace(_createRequest_ViewModel.NameRequest))
+                errors.AppendLine("Вашей заявке необходимо название!");
+            if (string.IsNullOrWhiteSpace(_createRequest_ViewModel.DescriptionRequest))
+                errors.AppendLine("Описание - это самая важная часть заявки!");
+            if (_createRequest_ViewModel.RoomNumberRequest == 0)
+                errors.AppendLine("Вам необходимо выбрать помещение!");
+            if (_createRequest_ViewModel.DateEnd <= _createRequest_ViewModel.DateStart)
+                errors.AppendLine("Необходимая дата окончания выполнения работ по заявке не может быть меньше или равна дате начала выполнения работ.\nПожалуйста, выберите корректную дату окончания выполнения работ по заявке!");
+            if (string.IsNullOrWhiteSpace(_createRequest_ViewModel.CategoryRequest))
+                errors.AppendLine("Вам необходимо выбрать категорию работ для заявки!");
+            
+            if(errors.Length > 0)
             {
-                OpenDialogWindow("Пожалуйста, введите корректное название заявки!");
-            }
-            else if (_createRequest_ViewModel.DescriptionRequest == null || _createRequest_ViewModel.DescriptionRequest == string.Empty)
-            {
-                OpenDialogWindow("Пожалуйста, введите соответствующее описание заявки!");
-            }
-            else if (_createRequest_ViewModel.RoomNumberRequest == 0)
-            {
-                OpenDialogWindow("Пожалуйста, выберите Ваше помещение!");
-            }
-            else if (_createRequest_ViewModel.DateEnd <= _createRequest_ViewModel.DateStart)
-            {
-                OpenDialogWindow("Необходимая дата окончания выполнения работ по заявке не может быть меньше или равна дате начала выполнения работ.\nПожалуйста, выберите корректную дату окончания выполнения работ по заявке!");
-            }
-            else if (_createRequest_ViewModel.CategoryRequest == null || _createRequest_ViewModel.CategoryRequest == string.Empty)
-            {
-                OpenDialogWindow("Пожалуйста, выберите корректную категорию работ для заявки!");
+                OpenDialogWindow(errors.ToString());
+                errors.Clear();
+                return;
             }
             else
             {
@@ -180,6 +178,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
                     _createRequest_ViewModel.InventoryNumber, _createRequest_ViewModel.CategoryRequest);
                 ClearData();
             }
+
         }
 
         #region Сохранение данных в бд 

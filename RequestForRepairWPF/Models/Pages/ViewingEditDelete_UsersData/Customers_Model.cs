@@ -52,9 +52,39 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
             output.position = UserPosition(id);
             output.phone = UserPhone(id);
             output.ListUserRooms = ListUserRoomsNumber(id);
+            //output.ListUserActiveRequest = 
 
             return output;
         }
+
+       // public List<int> ListUserActiveRequest(int id)
+       // {
+       //     User_DataModel output = new User_DataModel();
+
+            //context.Users.Include(x => x.Request).Where(entry => entry.id_user == id)
+            //    .Select(entry => entry.)
+
+
+            //var queryRequestID = context.Users.FirstOrDefault(p => p.id_user == id);
+            //
+            //foreach(var c in queryRequestID)
+            //{
+            //
+            //}
+
+            //var query_user = context.Users
+            //    .Where(u => u.id_user == id)
+            //    .ToList();
+            //
+            //foreach(var request in query_user)
+            //{
+            //    var _req = request.Requests.ToList(u => u.)
+            //    output.ListUserActiveRequest.Add(request.Requests.)
+            //    request.Requests.
+            //}
+
+            //var queryTest = queryRequestID.Requests1.FirstOrDefault();
+       // }
 
         public List<int> ListUserRoomsNumber(int id)
         {

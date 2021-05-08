@@ -1,6 +1,8 @@
 ﻿
 using RequestForRepairWPF.Data;
 using RequestForRepairWPF.Data.User;
+using RequestForRepairWPF.ViewModels.DialogWindows;
+using RequestForRepairWPF.Views.DialogWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,127 +14,257 @@ using System.Threading.Tasks;
 
 namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 {
-    public class AllUsers_Model : INotifyPropertyChanged
+    public class AllUsers_Model 
     {
         Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
 
-       
+        #region Поиск
 
-        public string UserLogin(int id)
+        #region Получение id всех исполнителей (КРИТЕРИЙ КАТЕГОРИЯ ИСПОЛНИТЕЛЯ)
+        public List<int> AllIdUsers_CategoryExecutors(string searchData)
         {
-            string _login = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.user_login)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.category_executors.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _login;
-        }
-
-        public string UserPass(int id)
-        {
-            string _password = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.user_password)
-                .FirstOrDefault();
-
-            return _password;
-        }
-
-        public string UserTypeOfAccount(int id)
-        {
-            string _typeOfAccount = null;
-            int _idType = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.id_type)
-                .FirstOrDefault();
-
-            if (_idType == 1)
+            try
             {
-                _typeOfAccount = "Системный администратор";
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
             }
-            else if(_idType == 2)
+            catch (Exception e)
             {
-                _typeOfAccount = "Заказчик";
-            }
-            else if(_idType == 3)
-            {
-                _typeOfAccount = "Исполнитель";
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
             }
 
-            return _typeOfAccount;
-        }
 
-        public string UserLastName(int id)
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ЛОГИН)
+        public List<int> AllIdUsers_Login(string searchData)
         {
-            string _lastName = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.last_name)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.user_login.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _lastName;
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
         }
+        #endregion
 
-        public string UserName(int id)
+        #region Получение id всех исполнителей (КРИТЕРИЙ ФАМИЛИЯ)
+        public List<int> AllIdUsers_LastName(string searchData)
         {
-            string _name = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.name)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.last_name.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _name;
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
         }
+        #endregion
 
-        public string UserMiddleName(int id)
+        #region Получение id всех исполнителей (КРИТЕРИЙ ИМЯ)
+        public List<int> AllIdUsers_Name(string searchData)
         {
-            string _middleName = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.middle_name)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.name.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _middleName;
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
         }
+        #endregion
 
-        public string UserPosition(int id)
+        #region Получение id всех исполнителей (КРИТЕРИЙ ОТЧЕСТВО)
+        public List<int> AllIdUsers_MiddleName(string searchData)
         {
-            string _position = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.position)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.middle_name.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _position;
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
         }
+        #endregion
 
-        public string UserCategoryExecutors(int id)
+        #region Получение id всех исполнителей (КРИТЕРИЙ ДОЛЖНОСТЬ)
+        public List<int> AllIdUsers_Position(string searchData)
         {
-            string _categoryExecutors = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.category_executors)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.position.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _categoryExecutors;
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
         }
+        #endregion
 
-        public string UserPhone(int id)
+        #region Получение id всех исполнителей (КРИТЕРИЙ ТЕЛЕФОН)
+        public List<int> AllIdUsers_Phone(string searchData)
         {
-            string _phone = context.Users
-                .Where(c => c.id_user == id)
-                .Select(c => c.phone)
-                .FirstOrDefault();
+            var query = context.Users
+                .Where(b => b.phone.Contains(searchData))
+                .Select(b => b.id_user);
 
-            return _phone;
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
         }
+        #endregion
 
-        public List<User_DataModel> GetPeople(List<int> AllIdUsers)
+        #endregion
+
+        #region Отображение данных
+
+        #region Получение id всех пользователей (ВСЕ ПОЛЬЗОВАТЕЛИ)
+        public List<int> AllIdUsers_All
+        {
+            get
+            {
+                var query = from u in context.Users
+                            select u.id_user;
+
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(i);
+
+                return User_DataModel.AllUsersID;
+            }
+        }
+        #endregion
+
+        #region Получение id всех пользователей (ВСЕ ЗАКАЗЧИКИ)
+        public List<int> AllIdUsers_Customers
+        {
+            get
+            {
+                var query = from u in context.Users
+                            where u.id_type == 2
+                            select u.id_user;
+
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(i);
+
+                return User_DataModel.AllUsersID;
+            }
+        }
+        #endregion 
+
+        #region Получение id всех пользователей (ВСЕ ИСПОЛНИТЕЛИ)
+        public List<int> AllIdUsers_Executors
+        {
+            get
+            {
+                var query = from u in context.Users
+                            where u.id_type == 3
+                            select u.id_user;
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(i);
+
+                return User_DataModel.AllUsersID;
+            }
+        }
+        #endregion
+
+        #region Получение списка пользователей (ВСЕ ПОЛЬЗОВАТЕЛИ)
+        public List<User_DataModel> GetPeople_All(List<int> AllIdUsers)
         {
             List<User_DataModel> output = new List<User_DataModel>();
 
-            foreach(var i in AllIdUsers)
-                output.Add(GetPerson(i));
+            foreach (var i in AllIdUsers)
+                output.Add(GetPerson_All(i));
 
             return output;
         }
+        #endregion
 
-        private User_DataModel GetPerson(int id)
+        #region Получение списка пользователй (ВСЕ ЗАКАЗЧИКИ)
+        public List<User_DataModel> GetPeople_Customers(List<int> AllIdUsers)
+        {
+            List<User_DataModel> output = new List<User_DataModel>();
+
+            foreach (var i in AllIdUsers)
+                output.Add(GetPerson_Customer(i));
+
+            return output;
+        }
+        #endregion
+
+        #region Получение списка пользователей (ВСЕ ИСПОЛНИТЕЛИ)
+        public List<User_DataModel> GetPeople_Executors(List<int> AllIdUsers)
+        {
+            List<User_DataModel> output = new List<User_DataModel>();
+
+            foreach (var i in AllIdUsers)
+                output.Add(GetPerson_Executor(i));
+
+            return output;
+        }
+        #endregion
+
+        #region Получение одного пользователя (ВСЕ ПОЛЬЗОВАТЕЛИ)
+        private User_DataModel GetPerson_All(int id)
         {
             User_DataModel output = new User_DataModel();
 
@@ -149,31 +281,208 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 
             return output;
         }
-
-        public List<int> AllIdUsers
-        {
-            get
-            {
-                var query = from u in context.Users
-                            select u.id_user;
-
-                foreach (var i in query)
-                    User_DataModel.AllUsersID.Add(i);
-
-                return User_DataModel.AllUsersID;
-            }
-        }
-
-        /// <summary>Событие на изменение модели</summary>
-        #region Событие на изменение модели
-        /// <summary>Событие на изменение модели</summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "") // Метод, который скажет ViewModel, что нужно передать виду новые данные
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-            
         #endregion
+
+        #region Получение одного пользоватлея (ВСЕ ЗАКАЗЧИКИ)
+        private User_DataModel GetPerson_Customer(int id)
+        {
+            User_DataModel output = new User_DataModel();
+
+            output.idUser = id;
+            output.userLogin = UserLogin(id);
+            output.userPassword = UserPass(id);
+            output.lastName = UserLastName(id);
+            output.name = UserName(id);
+            output.middleName = UserMiddleName(id);
+            output.position = UserPosition(id);
+            output.phone = UserPhone(id);
+            output.ListUserRooms = ListUserRoomsNumber(id);
+            //output.ListUserActiveRequest = 
+
+            return output;
+        }
+        #endregion
+
+        #region Получeние одного пользователя (ВСЕ ИСПОЛНИТЕЛИ)
+        private User_DataModel GetPerson_Executor(int id)
+        {
+            User_DataModel output = new User_DataModel();
+
+            output.idUser = id;
+            output.userLogin = UserLogin(id);
+            output.userPassword = UserPass(id);
+            output.categoryExecutors = UserCategoryExecutors(id);
+            output.lastName = UserLastName(id);
+            output.name = UserName(id);
+            output.middleName = UserMiddleName(id);
+            output.position = UserPosition(id);
+            output.phone = UserPhone(id);
+
+            return output;
+        }
+        #endregion
+
+        #endregion
+
+        #region Получение данных
+
+        #region Получение списка помещений
+        public List<int> ListUserRoomsNumber(int id)
+        {
+            User_DataModel output = new User_DataModel();
+
+            var queryRoomsID = from r in context.U_R_Room
+                               where r.userID_URR == id
+                               select r.id_room;
+
+            foreach (var q in queryRoomsID)
+            {
+
+                var queryRoomsNumber = context.Rooms
+                    .Where(c => c.id_room == q)
+                    .Select(c => c.room_number)
+                    .FirstOrDefault();
+
+                output.ListUserRooms.Add(queryRoomsNumber);
+            }
+
+            return output.ListUserRooms;
+        }
+        #endregion
+
+        #region Логин пользователя
+        private string UserLogin(int id)
+        {
+            string _login = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.user_login)
+                .FirstOrDefault();
+
+            return _login;
+        }
+        #endregion
+
+        #region Пароль
+        private string UserPass(int id)
+        {
+            string _password = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.user_password)
+                .FirstOrDefault();
+
+            return _password;
+        }
+        #endregion
+
+        #region Тип аккаунта
+        public string UserTypeOfAccount(int id)
+        {
+            string _typeOfAccount = null;
+            int _idType = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.id_type)
+                .FirstOrDefault();
+
+            if (_idType == 1)
+            {
+                _typeOfAccount = "Системный администратор";
+            }
+            else if (_idType == 2)
+            {
+                _typeOfAccount = "Заказчик";
+            }
+            else if (_idType == 3)
+            {
+                _typeOfAccount = "Исполнитель";
+            }
+
+            return _typeOfAccount;
+        }
+        #endregion
+
+        #region Категория исполнителя
+        private string UserCategoryExecutors(int id)
+        {
+            string _categoryExecutors = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.category_executors)
+                .FirstOrDefault();
+
+            return _categoryExecutors;
+        }
+        #endregion
+
+        #region Фамилия
+        private string UserLastName(int id)
+        {
+            string _lastName = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.last_name)
+                .FirstOrDefault();
+
+            return _lastName;
+        }
+        #endregion
+
+        #region Имя
+        private string UserName(int id)
+        {
+            string _name = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.name)
+                .FirstOrDefault();
+
+            return _name;
+        }
+        #endregion
+
+        #region Отчество 
+        private string UserMiddleName(int id)
+        {
+            string _middleName = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.middle_name)
+                .FirstOrDefault();
+
+            return _middleName;
+        }
+        #endregion
+
+        #region Должность
+        private string UserPosition(int id)
+        {
+            string _position = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.position)
+                .FirstOrDefault();
+
+            return _position;
+        }
+        #endregion
+
+        #region Телефон
+        private string UserPhone(int id)
+        {
+            string _phone = context.Users
+                .Where(c => c.id_user == id)
+                .Select(c => c.phone)
+                .FirstOrDefault();
+
+            return _phone;
+        }
+        #endregion
+
+        #endregion
+
+
+        #region Открытие диалогового окна
+        private void OpenDialogWindow(string textMessage)
+        {
+            Dialog_ViewModel messageBox_ViewModel = new Dialog_ViewModel(textMessage);
+            MessageBox_View messageBox_View = new MessageBox_View();
+            messageBox_View.Show();
+        }
+        #endregion
+
     }
 }

@@ -32,8 +32,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
         public Executors_ViewModel()
         {
             #region Загрузка данных
-            Executors_Model _model = new Executors_Model();
-            AllExecutors = new BindableCollection<User_DataModel>(_model.GetPeople(_model.AllIdUsers));
+            User_DataModel.AllUsersID.Clear();
+
+            AllUsers_Model _model = new AllUsers_Model();
+            AllExecutors = new BindableCollection<User_DataModel>(_model.GetPeople_Executors(_model.AllIdUsers_Executors));
             #endregion
 
         }
@@ -109,10 +111,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
             }
             else
             {
-                User_DataModel.AllUsersID.Clear();
-                _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
-                                (_model.GetPeople(_model.AllIdUsers_ID(_executors_ViewModel.DataForSearch)));
-                //OnPropertyChanged("AllExecutors");
+                //User_DataModel.AllUsersID.Clear();
+                //_executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                //                (_model.GetPeople(_model.AllIdUsers_LastName(_executors_ViewModel.DataForSearch)));
+                
             }
             //AllExecutors = new BindableCollection<User_DataModel>(_model.GetPeople(_model.AllIdUsers));
         }

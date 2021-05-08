@@ -9,8 +9,8 @@
       xmlns:ctrl="clr-namespace:RequestForRepairWPF.Views.Controls.Room"
         
         xmlns:local="clr-namespace:RequestForRepairWPF"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:vm="clr-namespace:RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData"
+      mc:Ignorable="d"
         
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -22,6 +22,10 @@
       
       Title="Исполнители">
 
+    <Page.DataContext>
+        <vm:Executors_ViewModel/>
+    </Page.DataContext>
+    
     <Grid>
         <!-- Контент -->
         <ScrollViewer
@@ -56,79 +60,81 @@
 
 
                     <DataGrid
+                    VerticalScrollBarVisibility="Visible"
+                    Height="500"
                         Margin="100,25,25,25"
-                        x:Name="DataGrid_Executors"
-                        AutoGenerateColumns="False"
+                        x:Name="AllExecutors"
                         CanUserAddRows="False"
+                        ItemsSource="{Binding Path=AllExecutors, UpdateSourceTrigger=PropertyChanged}"
                         SelectionUnit="Cell"
-                        SelectionMode="Extended" Grid.ColumnSpan="2">
+                        SelectionMode="Extended" 
+                        AutoGenerateColumns="False"
+                        Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn
                                 Header="Выбор"
-                                Width="auto"/>
+                                Binding="{Binding Path=userSelect}"/>
                             <DataGridTextColumn
+                                Binding="{Binding Path=idUser}"
                                 IsReadOnly="True"
-                                Binding="{Binding id_user}"
-                                Header="ID" 
-                                Width="auto"/>
+                                Header="ID" />
                             <DataGridTextColumn 
-                                Binding="{Binding user_login}"
+                                Binding="{Binding Path=userLogin}"
                                 IsReadOnly="False"
-                                Header="Логин" 
-                                Width="auto"/>
+                                Header="Логин"/>
+                            <DataGridTextColumn
+                                Binding="{Binding Path=userPassword}"
+                                IsReadOnly="False"
+                                Header="Пароль"/>
+                            <DataGridTextColumn
+                                Binding="{Binding Path=categoryExecutors}"
+                                IsReadOnly="True"
+                                Header="Категория исполнителя"/>
                             <DataGridTextColumn 
-                                Binding="{Binding last_name}"
+                                Binding="{Binding Path=lastName}"
                                 IsReadOnly="False"
-                                Header="Фамилия" 
-                                Width="auto"/>
+                                Header="Фамилия"/>
                             <DataGridTextColumn 
-                                Binding="{Binding name}"
+                                Binding="{Binding Path=name}"
                                 IsReadOnly="False"
-                                Header="Имя" 
-                                Width="auto"/>
+                                Header="Имя"/>
                             <DataGridTextColumn 
-                                Binding="{Binding middle_name}"
+                                Binding="{Binding Path=middleName}"
                                 IsReadOnly="False"
-                                Header="Отчество" 
-                                Width="auto"/>
+                                Header="Отчество"/>
                             <DataGridTextColumn 
-                                Binding="{Binding position}"
+                                Binding="{Binding Path=position}"
                                 IsReadOnly="False"
-                                Header="Должность" 
-                                Width="auto"/>
+                                Header="Должность"/>
                             <DataGridTextColumn 
-                                Binding="{Binding category_executors}"
-                                Header="Категория исполнителя" 
+                                Binding="{Binding Path=phone}"
                                 IsReadOnly="False"
-                                Width="auto"/>
-                            <DataGridTextColumn 
-                                Binding="{Binding phone}"
-                                IsReadOnly="False"
-                                Header="Телефон" 
-                                Width="auto"/>
-                            <DataGridComboBoxColumn
-                                x:Name="comboBoxRequest"
-                                Header="Заявки"
-                                Width="auto">
+                                Header="Телефон"/>
+                            
+                            <DataGridTemplateColumn
+                                Header="Активные заявки">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Text="{Binding}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox
+                                            ItemsSource="{Binding}"
+                                            SelectedItem="{Binding}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock 
+                                                        Text="{Binding}"/>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
 
-                            </DataGridComboBoxColumn>
-                            <!--<DataGridComboBoxColumn 
-                                Header="Заявки" 
-                                Width="auto" 
-                                SelectedValueBinding="{Binding Path=loadRequestIDCollection}" 
-                                DisplayMemberPath="Brigade1">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
-                                        <Setter Property="IsReadOnly" Value="True"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                                <DataGridComboBoxColumn.EditingElementStyle>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Executor}"/>
-                                    </Style>
-                                </DataGridComboBoxColumn.EditingElementStyle>
-                            </DataGridComboBoxColumn>-->
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
@@ -147,27 +153,20 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Height="auto"
-                        SelectedItem="{Binding CriteriaSearch, UpdateSourceTrigger=PropertyChanged}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                           materialDesign:TextFieldAssist.HasClearButton="True"
                           materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueMidBrush}"
                           materialDesign:ColorZoneAssist.Mode="PrimaryMid"
                           materialDesign:HintAssist.Hint="Тут нужен критерий"
                           materialDesign:HintAssist.HelperText="Выберите критерий поиска"
-                          MinWidth="128">
-                        <ComboBoxItem Content="ID"/>
-                        <ComboBoxItem Content="Логин"/>
-                        <ComboBoxItem Content="Фамилия"/>
-                        <ComboBoxItem Content="Имя"/>
-                        <ComboBoxItem Content="Отчество"/>
-                        <ComboBoxItem Content="Должность"/>
-                        <ComboBoxItem Content="Категория исполнителя"/>
-                        <ComboBoxItem Content="Телефон"/>
+                        ItemsSource="{Binding Path=ListCriteriaSearch}"
+                        SelectedItem="{Binding Path=SelectedCriteriaSearch}"
+                          MinWidth="130">
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"
                         
-                        Text="{Binding DataForSearch, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding Path=DataForSearch}"
                         Grid.ColumnSpan="2"
                         FontSize="14"
                         Grid.Row="1"
@@ -182,7 +181,7 @@
                         Margin="0 20 0 20">
                         <Button
                         x:Name="btn_Search"
-                            Command="{Binding SearchDataCommand}"
+                            Command="{Binding Path=SearchCommand}"
                         Padding="10"
                         Margin="15 10 15 10"
                         Grid.Row="2"

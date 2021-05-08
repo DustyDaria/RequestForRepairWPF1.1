@@ -21,9 +21,6 @@ namespace RequestForRepairWPF.ViewModels.DialogWindows
 
         public Dialog_ViewModel()
         {
-            //#region Команды
-            //CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
-            //#endregion
         }
         #endregion
 

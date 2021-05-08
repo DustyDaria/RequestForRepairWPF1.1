@@ -20,8 +20,317 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 
         #region Поиск
 
+        #region ЗАКАЗЧИКИ
+
+        #region Получение id всех заказчиков (КРИТЕРИЙ ЛОГИН)
+        public List<int> AllIdUsers_SearchLogin_cus(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.user_login.Contains(searchData)
+                && b.id_type == 2)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех заказчиков (КРИТЕРИЙ ФАМИЛИЯ)
+        public List<int> AllIdUsers_SearchLastName_cus(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.last_name.Contains(searchData)
+                && b.id_type == 2)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех заказчиков (КРИТЕРИЙ ИМЯ)
+        public List<int> AllIdUsers_SearchName_cus(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.name.Contains(searchData)
+                && b.id_type == 2)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех заказчиков (КРИТЕРИЙ ОТЧЕСТВО)
+        public List<int> AllIdUsers_SearchMiddleName_cus(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.middle_name.Contains(searchData)
+                && b.id_type == 2)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех заказчиков (КРИТЕРИЙ ДОЛЖНОСТЬ)
+        public List<int> AllIdUsers_SearchPosition_cus(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.position.Contains(searchData)
+                && b.id_type == 2)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех заказчиков (КРИТЕРИЙ ТЕЛЕФОН)
+        public List<int> AllIdUsers_SearchPhone_cus(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.phone.Contains(searchData)
+                && b.id_type == 2)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #endregion
+
+        #region ИСПОЛНИТЕЛИ
+
         #region Получение id всех исполнителей (КРИТЕРИЙ КАТЕГОРИЯ ИСПОЛНИТЕЛЯ)
-        public List<int> AllIdUsers_CategoryExecutors(string searchData)
+        public List<int> AllIdUsers_SearchCategoryExecutors_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.category_executors.Contains(searchData) 
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ЛОГИН)
+        public List<int> AllIdUsers_SearchLogin_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.user_login.Contains(searchData)
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ФАМИЛИЯ)
+        public List<int> AllIdUsers_SearchLastName_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.last_name.Contains(searchData)
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ИМЯ)
+        public List<int> AllIdUsers_SearchName_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.name.Contains(searchData)
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ОТЧЕСТВО)
+        public List<int> AllIdUsers_SearchMiddleName_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.middle_name.Contains(searchData)
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ДОЛЖНОСТЬ)
+        public List<int> AllIdUsers_SearchPosition_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.position.Contains(searchData)
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #region Получение id всех исполнителей (КРИТЕРИЙ ТЕЛЕФОН)
+        public List<int> AllIdUsers_SearchPhone_exe(string searchData)
+        {
+            var query = context.Users
+                .Where(b => b.phone.Contains(searchData)
+                && b.id_type == 3)
+                .Select(b => b.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
+        #endregion
+
+        #region ВСЕ ПОЛЬЗОВАТЕЛИ
+
+        #region Получение id всех пользователей (КРИТЕРИЙ КАТЕГОРИЯ ИСПОЛНИТЕЛЯ)
+        public List<int> AllIdUsers_SearchCategoryExecutors_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.category_executors.Contains(searchData))
@@ -42,8 +351,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Получение id всех исполнителей (КРИТЕРИЙ ЛОГИН)
-        public List<int> AllIdUsers_Login(string searchData)
+        #region Получение id всех пользователей (КРИТЕРИЙ ЛОГИН)
+        public List<int> AllIdUsers_SearchLogin_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.user_login.Contains(searchData))
@@ -64,8 +373,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Получение id всех исполнителей (КРИТЕРИЙ ФАМИЛИЯ)
-        public List<int> AllIdUsers_LastName(string searchData)
+        #region Получение id всех пользователей (КРИТЕРИЙ ФАМИЛИЯ)
+        public List<int> AllIdUsers_SearchLastName_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.last_name.Contains(searchData))
@@ -86,8 +395,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Получение id всех исполнителей (КРИТЕРИЙ ИМЯ)
-        public List<int> AllIdUsers_Name(string searchData)
+        #region Получение id всех пользователей (КРИТЕРИЙ ИМЯ)
+        public List<int> AllIdUsers_SearchName_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.name.Contains(searchData))
@@ -108,8 +417,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Получение id всех исполнителей (КРИТЕРИЙ ОТЧЕСТВО)
-        public List<int> AllIdUsers_MiddleName(string searchData)
+        #region Получение id всех пользователей (КРИТЕРИЙ ОТЧЕСТВО)
+        public List<int> AllIdUsers_SearchMiddleName_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.middle_name.Contains(searchData))
@@ -130,8 +439,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Получение id всех исполнителей (КРИТЕРИЙ ДОЛЖНОСТЬ)
-        public List<int> AllIdUsers_Position(string searchData)
+        #region Получение id всех пользователей (КРИТЕРИЙ ДОЛЖНОСТЬ)
+        public List<int> AllIdUsers_SearchPosition_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.position.Contains(searchData))
@@ -152,8 +461,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Получение id всех исполнителей (КРИТЕРИЙ ТЕЛЕФОН)
-        public List<int> AllIdUsers_Phone(string searchData)
+        #region Получение id всех пользователей (КРИТЕРИЙ ТЕЛЕФОН)
+        public List<int> AllIdUsers_SearchPhone_all(string searchData)
         {
             var query = context.Users
                 .Where(b => b.phone.Contains(searchData))
@@ -172,6 +481,8 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 
             return User_DataModel.AllUsersID;
         }
+        #endregion
+
         #endregion
 
         #endregion
@@ -473,7 +784,6 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         #endregion
 
         #endregion
-
 
         #region Открытие диалогового окна
         private void OpenDialogWindow(string textMessage)

@@ -195,6 +195,7 @@
                         </Button>
                         <Button
                         x:Name="btn_UpdateData"
+                            Command="{Binding Path=UpdateDataCommand}"
                         Padding="10"
                         Margin="15 10 15 10"
                         Grid.Row="2"

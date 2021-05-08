@@ -21,13 +21,14 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
 {
     class Executors_ViewModel : ViewModel
     {
+        #region Коллекция данных для отображения
         private BindableCollection<User_DataModel> _allExecutors;
         public BindableCollection<User_DataModel> AllExecutors
         {
             get => _allExecutors;
             set => Set(ref _allExecutors, value);
         }
-
+        #endregion
 
         public Executors_ViewModel()
         {
@@ -49,9 +50,9 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
         }
         #endregion
 
-        #region Критерий поиска
+        #region Список ритериев поиска
         private string[] _listCriteriaSearch = new string[] {
-            "ID", "Логин", "Категория исполнителя", "Фамилия", 
+            "Логин", "Категория исполнителя", "Фамилия", 
             "Имя", "Отчество", "Должность", "Телефон"};
         public string[] ListCriteriaSearch
         {
@@ -81,15 +82,50 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
             }
         }
         #endregion
+
+        #region Команда на обновление данных 
+        private ICommand _updateDataCommand;
+        public ICommand UpdateDataCommand
+        {
+            get
+            {
+                _updateDataCommand = new UpdateDataCommand(this);
+                return _updateDataCommand;
+            }
+        }
+
+        #endregion
+
         #endregion
 
     }
 
+    #region Класс-команда для обновления данных
+    internal class UpdateDataCommand : MyExeCommand
+    {
+        AllUsers_Model _model = new AllUsers_Model();
+
+        public UpdateDataCommand(Executors_ViewModel executors_ViewModel) : base(executors_ViewModel) { }
+        public override bool CanExecute(object parameter) => true;
+        public override void Execute(object parameter) => UpdateData();
+
+        private void UpdateData()
+        {
+            User_DataModel.AllUsersID.Clear();
+            _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>(_model.GetPeople_Executors(_model.AllIdUsers_Executors));
+
+            _executors_ViewModel.SelectedCriteriaSearch = null;
+            _executors_ViewModel.DataForSearch = null;
+
+        }
+    }
+    #endregion
+
     #region Класс-команда для поиска по полю
-    internal class SearchCommand : MyRegCommand
+    internal class SearchCommand : MyExeCommand
     {
 
-        Executors_Model _model = new Executors_Model();
+        AllUsers_Model _model = new AllUsers_Model();
         StringBuilder errors = new StringBuilder();
 
         public SearchCommand(Executors_ViewModel executors_ViewModel) : base(executors_ViewModel) { }
@@ -111,10 +147,54 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
             }
             else
             {
-                //User_DataModel.AllUsersID.Clear();
-                //_executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
-                //                (_model.GetPeople(_model.AllIdUsers_LastName(_executors_ViewModel.DataForSearch)));
-                
+                User_DataModel.AllUsersID.Clear();
+                if (_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[0])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchLogin_exe(_executors_ViewModel.DataForSearch)));
+
+                }
+                else if (_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[1])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchCategoryExecutors_exe(_executors_ViewModel.DataForSearch)));
+                }
+                else if (_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[2])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchLastName_exe(_executors_ViewModel.DataForSearch)));
+                }
+                else if (_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[3])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchName_exe(_executors_ViewModel.DataForSearch)));
+                }
+                else if (_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[4])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchMiddleName_exe(_executors_ViewModel.DataForSearch)));
+                }
+                else if(_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[5])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchPosition_exe(_executors_ViewModel.DataForSearch)));
+                }
+                else if(_executors_ViewModel.SelectedCriteriaSearch == _executors_ViewModel.ListCriteriaSearch[6])
+                {
+                    _executors_ViewModel.AllExecutors = new BindableCollection<User_DataModel>
+                        (_model.GetPeople_Executors(_model.AllIdUsers_SearchPhone_exe(_executors_ViewModel.DataForSearch)));
+                }
+
+                if (_executors_ViewModel.AllExecutors.Count == 0)
+                    errors.AppendLine("К сожалению, совпадений не найдено :(");
+
+                if (errors.Length > 0)
+                {
+                    OpenDialogWindow(errors.ToString());
+                    errors.Clear();
+                    return;
+                }
+
             }
             //AllExecutors = new BindableCollection<User_DataModel>(_model.GetPeople(_model.AllIdUsers));
         }
@@ -144,10 +224,10 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
     #endregion
 
     #region Вспомогательный класс для команд
-    abstract class MyRegCommand : ICommand
+    abstract class MyExeCommand : ICommand
     {
         protected Executors_ViewModel _executors_ViewModel;
-        public MyRegCommand(Executors_ViewModel executors_ViewModel)
+        public MyExeCommand(Executors_ViewModel executors_ViewModel)
         {
             _executors_ViewModel = executors_ViewModel;
         }

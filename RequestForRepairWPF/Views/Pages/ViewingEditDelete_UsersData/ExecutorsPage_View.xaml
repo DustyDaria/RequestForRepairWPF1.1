@@ -181,7 +181,7 @@
                         Margin="0 20 0 20">
                         <Button
                         x:Name="btn_Search"
-                            Command="{Binding Path=SearchCommand}"
+                            Command="{Binding Path=SearchExeCommand}"
                         Padding="10"
                         Margin="15 10 15 10"
                         Grid.Row="2"
@@ -195,7 +195,7 @@
                         </Button>
                         <Button
                         x:Name="btn_UpdateData"
-                            Command="{Binding Path=UpdateDataCommand}"
+                            Command="{Binding Path=UpdateDataExeCommand}"
                         Padding="10"
                         Margin="15 10 15 10"
                         Grid.Row="2"

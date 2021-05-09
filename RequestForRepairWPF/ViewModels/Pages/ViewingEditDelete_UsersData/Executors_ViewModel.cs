@@ -71,26 +71,26 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
 
         #region Команды 
         #region Команда на поиск по полю
-        private ICommand _searchCommand;
-        public ICommand SearchCommand
+        private ICommand _searchExeCommand;
+        public ICommand SearchExeCommand
         {
             get
             {
-                _searchCommand = new SearchCommand(this);
-                return _searchCommand;
+                _searchExeCommand = new SearchExeCommand(this);
+                return _searchExeCommand;
                 
             }
         }
         #endregion
 
         #region Команда на обновление данных 
-        private ICommand _updateDataCommand;
-        public ICommand UpdateDataCommand
+        private ICommand _updateDataExeCommand;
+        public ICommand UpdateDataExeCommand
         {
             get
             {
-                _updateDataCommand = new UpdateDataCommand(this);
-                return _updateDataCommand;
+                _updateDataExeCommand = new UpdateDataExeCommand(this);
+                return _updateDataExeCommand;
             }
         }
 
@@ -101,11 +101,11 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
     }
 
     #region Класс-команда для обновления данных
-    internal class UpdateDataCommand : MyExeCommand
+    internal class UpdateDataExeCommand : MyExeCommand
     {
         AllUsers_Model _model = new AllUsers_Model();
 
-        public UpdateDataCommand(Executors_ViewModel executors_ViewModel) : base(executors_ViewModel) { }
+        public UpdateDataExeCommand(Executors_ViewModel executors_ViewModel) : base(executors_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => UpdateData();
 
@@ -122,13 +122,13 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
     #endregion
 
     #region Класс-команда для поиска по полю
-    internal class SearchCommand : MyExeCommand
+    internal class SearchExeCommand : MyExeCommand
     {
 
         AllUsers_Model _model = new AllUsers_Model();
         StringBuilder errors = new StringBuilder();
 
-        public SearchCommand(Executors_ViewModel executors_ViewModel) : base(executors_ViewModel) { }
+        public SearchExeCommand(Executors_ViewModel executors_ViewModel) : base(executors_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter) => Search();
 
@@ -196,21 +196,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
                 }
 
             }
-            //AllExecutors = new BindableCollection<User_DataModel>(_model.GetPeople(_model.AllIdUsers));
         }
-
-        /// <summary> Событие на изменение модели </summary>
-        #region Событие на изменение модели
-        /// <summary> Событие на изменение модели </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        //Метод, который скажет ViewModel, что нужно передать виду новые данные
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-        #endregion
 
         #region Открытие диалогового окна
         private void OpenDialogWindow(string textMessage)

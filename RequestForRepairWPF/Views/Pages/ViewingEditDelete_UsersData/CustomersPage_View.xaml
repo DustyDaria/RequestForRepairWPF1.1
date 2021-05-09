@@ -69,9 +69,15 @@
                         AutoGenerateColumns="False"
                         Grid.ColumnSpan="2">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn
-                                Header="Выбор"
-                                Binding="{Binding Path=userSelect}"/>
+                            <DataGridTemplateColumn Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button 
+                                            Content="Редактировать"
+                                            Style="{StaticResource MaterialDesignRaisedLightButton}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn
                                 Binding="{Binding Path=idUser}"
                                 IsReadOnly="True"
@@ -224,39 +230,6 @@
                         Width="30" />
                         </Button>
                     </StackPanel>
-
-                    <Button
-                        Grid.Row="3"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                    x:Name="btn_Edit"
-                        IsEnabled="False"
-                    FontSize="18"
-                    Height="auto"
-                    Padding="20 10 20 10"
-                    Margin="15 10 15 10"
-                    HorizontalAlignment="Center"
-                    Content="Редактировать"
-                    Style="{StaticResource MaterialDesignRaisedLightButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-
-                    </Button>
-                    <Button
-                        Grid.Row="4"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                    x:Name="btn_Delete"
-                        IsEnabled="False"
-                    FontSize="18"
-                    Height="auto"
-                    Padding="20 10 20 10"
-                    Margin="15 10 15 10"
-                    HorizontalAlignment="Center"
-                    Content="Удалить"
-                    Style="{StaticResource MaterialDesignRaisedLightButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedLightButton">
-
-                    </Button>
                 </StackPanel>
 
             </Grid>

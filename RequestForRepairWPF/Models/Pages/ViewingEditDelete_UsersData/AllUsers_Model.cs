@@ -329,6 +329,34 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
 
         #region ВСЕ ПОЛЬЗОВАТЕЛИ
 
+        #region Получение id всех пользователй (КРИТЕРИЙ ТИП АККАУНТА)
+        public List<int> AllIdUsers_SearchTypeOfAccount_all(string searchData)
+        {
+            User_DataModel _user = new User_DataModel();
+
+            _user.idType = context.TypeOfAccount
+                .Where(b => b.name_type.Contains(searchData))
+                .Select(b => b.id_type)
+                .FirstOrDefault();
+
+            var query = context.Users
+                .Where(u => u.id_type == _user.idType)
+                .Select(u => u.id_user);
+
+            try
+            {
+                foreach (var i in query)
+                    User_DataModel.AllUsersID.Add(Convert.ToInt32(i));
+            }
+            catch(Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+            
+            return User_DataModel.AllUsersID;
+        }
+        #endregion
+
         #region Получение id всех пользователей (КРИТЕРИЙ КАТЕГОРИЯ ИСПОЛНИТЕЛЯ)
         public List<int> AllIdUsers_SearchCategoryExecutors_all(string searchData)
         {

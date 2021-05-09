@@ -245,13 +245,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //User.type_of_account = context.Users
-                //    .Where(c => c.id_user == User.id_user)
-                //    .Select(c => c.type_of_account)
-                //    .FirstOrDefault();
-                //
-                //return User.type_of_account;
-
                 User_DataModel._idType = context.Users
                     .Where(c => c.TypeOfAccount.id_type == c.id_type && 
                     c.id_user == User_DataModel._idUser)

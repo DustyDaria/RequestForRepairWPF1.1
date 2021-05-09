@@ -111,7 +111,7 @@
                     Foreground="#ffc246"
                     FontSize="16"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListViewItem 
                         x:Name="list_AllUsers"
                         
@@ -124,11 +124,6 @@
                                       CommandParameter="{Binding}"
                                       MouseAction="LeftClick"/>
                     </ListViewItem.InputBindings>
-                    <!--<ListViewItem.InputBindings>
-
-                            <MouseBinding Command="{Binding BurgerMenu_AllUsers}"
-                                          MouseAction="LeftClick"/>
-                        </ListViewItem.InputBindings>-->
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon 
                                 Margin="10"
@@ -314,36 +309,12 @@
                                 VerticalAlignment="Center"/>
                         <TextBlock 
                                 Height="auto"
-                                Text="Просмотр&#10;текущих заявок" 
+                                Text="Все заявки" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem 
-                        x:Name="list_WatchArchiveRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="{Binding Path=listVisibility_WatchArchiveRequest,
-                    Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <ListViewItem.InputBindings>
-                        <MouseBinding Command="{Binding Path=OpenWatchArchiveRequestView}"
-                                      CommandParameter="{Binding}"
-                                      MouseAction="LeftClick"/>
-                    </ListViewItem.InputBindings>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="ArchiveOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                        <TextBlock 
-                                Height="auto"
-                                Text="Просмотр&#10;архивных заявок" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                    </StackPanel>
-                </ListViewItem>
+                
                 <ListViewItem
                         x:Name="list_MyRequest"
                         Height="auto"
@@ -364,36 +335,12 @@
                                 VerticalAlignment="Center"/>
                         <TextBlock 
                                 Height="auto"
-                                Text="Мои текущие заявки" 
+                                Text="Мои заявки" 
                                 VerticalAlignment="Center" 
                                 Margin="20 10"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem
-                        x:Name="list_MyArchiveRequest"
-                        Height="auto"
-                        Padding="3"
-                        Visibility="{Binding Path=listVisibility_MyArchiveRequest,
-                    Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <ListViewItem.InputBindings>
-                        <MouseBinding Command="{Binding Path=OpenMyArchiveRequestView}"
-                                      CommandParameter="{Binding}"
-                                      MouseAction="LeftClick"/>
-                    </ListViewItem.InputBindings>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon  
-                                Margin="10"
-                                Kind="UserCheckOutline" 
-                                Width="25" 
-                                Height="25"
-                                VerticalAlignment="Center"/>
-                        <TextBlock 
-                                Height="auto"
-                                Text="Мои архивные заявки" 
-                                VerticalAlignment="Center" 
-                                Margin="20 10"/>
-                    </StackPanel>
-                </ListViewItem>
+                
                 <ListViewItem 
                         x:Name="list_FileReport"
                         Height="auto"

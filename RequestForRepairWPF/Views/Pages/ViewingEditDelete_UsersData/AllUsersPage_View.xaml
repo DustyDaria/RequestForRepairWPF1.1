@@ -84,11 +84,11 @@
                                 Header="ID" />
                             <DataGridTextColumn 
                                 Binding="{Binding Path=userLogin}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Логин"/>
                             <DataGridTextColumn
                                 Binding="{Binding Path=userPassword}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Пароль"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=typeOfAccount}"
@@ -96,19 +96,19 @@
                                 Header="Тип аккаунта"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=lastName}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Фамилия"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=name}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Имя"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=middleName}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Отчество"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=position}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Должность"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=categoryExecutors}"
@@ -116,7 +116,7 @@
                                 IsReadOnly="True"/>
                             <DataGridTextColumn 
                                 Binding="{Binding Path=phone}"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 Header="Телефон"/>
 
                         </DataGrid.Columns>

@@ -229,32 +229,17 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         }
         #endregion
 
-        #region Просмотр заявки       НУЖНА ДОРАБОТКА ВЬЮХИ 
-        private ICommand _openWatchRequestView;
-        public ICommand OpenWatchRequestView
+        #region Просмотр всех заявок       НУЖНА ДОРАБОТКА ВЬЮХИ 
+        private ICommand _openAllRequestView;
+        public ICommand OpenAllRequestView
         {
             get
             {
-                if (_openWatchRequestView == null)
+                if (_openAllRequestView == null)
                 {
-                    _openWatchRequestView = new OpenWatchRequestViewCommand(this);
+                    _openAllRequestView = new OpenAllRequestViewCommand(this);
                 }
-                return _openWatchRequestView;
-            }
-        }
-        #endregion
-
-        #region Просмотр Архивных заявок       НУЖНА ДОРАБОТКА ВЬЮХИ 
-        private ICommand _openWatchArchiveRequestView;
-        public ICommand OpenWatchArchiveRequestView
-        {
-            get
-            {
-                if (_openWatchArchiveRequestView == null)
-                {
-                    _openWatchArchiveRequestView = new OpenWatchArchiveRequestViewCommand(this);
-                }
-                return _openWatchArchiveRequestView;
+                return _openAllRequestView;
             }
         }
         #endregion
@@ -274,20 +259,7 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         }
         #endregion
 
-        #region Просмотр моих архивных заявок       НУЖНА ДОРАБОТКА ВЬЮХИ 
-        private ICommand _openMyArchiveRequestView;
-        public ICommand OpenMyArchiveRequestView
-        {
-            get
-            {
-                if (_openMyArchiveRequestView == null)
-                {
-                    _openMyArchiveRequestView = new OpenMyArchiveRequestViewCommand(this);
-                }
-                return _openMyArchiveRequestView;
-            }
-        }
-        #endregion
+        
 
         #region Создание отчета  
         private ICommand _openFileReportView;
@@ -316,32 +288,19 @@ namespace RequestForRepairWPF.ViewModels.Controls.Menu
         public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new FileReportPage_View());
     }
 
-    internal class OpenMyArchiveRequestViewCommand : MyCommand
-    {
-        public OpenMyArchiveRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
-        public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
-    }
-
     internal class OpenMyRequestViewCommand : MyCommand
     {
         public OpenMyRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new MyRequestPage_View());
     }
 
-    internal class OpenWatchArchiveRequestViewCommand : MyCommand
-    {
-        public OpenWatchArchiveRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
-        public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
-    }
 
-    internal class OpenWatchRequestViewCommand : MyCommand
+    internal class OpenAllRequestViewCommand : MyCommand
     {
-        public OpenWatchRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
+        public OpenAllRequestViewCommand(Ctrl_burgerMenu_ViewModel ctrl_Menu_ViewModel) : base(ctrl_Menu_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
-        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new WatchRequestsPage_View());
+        public override void Execute(object parameter) => PageManager.MainFrame.Navigate(new AllRequestsPage_View());
     }
 
     internal class OpenCreateRequestViewCommand : MyCommand

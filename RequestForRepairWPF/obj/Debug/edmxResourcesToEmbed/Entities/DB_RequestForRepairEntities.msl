@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities3">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DB_RequestForRepairModelContainer" CdmEntityContainer="DB_RequestForRepairEntities">
     <EntitySetMapping Name="C__MigrationHistory">
       <EntityTypeMapping TypeName="DB_RequestForRepairModel.C__MigrationHistory">
         <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -21,9 +21,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Requests">
-      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Requests">
-        <MappingFragment StoreEntitySet="Requests">
+    <EntitySetMapping Name="Request">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Request">
+        <MappingFragment StoreEntitySet="Request">
           <ScalarProperty Name="id_request" ColumnName="id_request" />
           <ScalarProperty Name="date_start" ColumnName="date_start" />
           <ScalarProperty Name="date_end" ColumnName="date_end" />
@@ -74,9 +74,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DB_RequestForRepairModel.Users">
-        <MappingFragment StoreEntitySet="Users">
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="DB_RequestForRepairModel.User">
+        <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="id_user" ColumnName="id_user" />
           <ScalarProperty Name="id_type" ColumnName="id_type" />
           <ScalarProperty Name="user_login" ColumnName="user_login" />
@@ -129,18 +129,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="U_R_Customer" TypeName="DB_RequestForRepairModel.U_R_Customer" StoreEntitySet="U_R_Customer">
-      <EndProperty Name="Requests">
+      <EndProperty Name="Request">
         <ScalarProperty Name="id_request" ColumnName="requestID_URC" />
       </EndProperty>
-      <EndProperty Name="Users">
+      <EndProperty Name="User">
         <ScalarProperty Name="id_user" ColumnName="userID_URC" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="U_R_Executor" TypeName="DB_RequestForRepairModel.U_R_Executor" StoreEntitySet="U_R_Executor">
-      <EndProperty Name="Requests">
+      <EndProperty Name="Request">
         <ScalarProperty Name="id_request" ColumnName="requestID_URE" />
       </EndProperty>
-      <EndProperty Name="Users">
+      <EndProperty Name="User">
         <ScalarProperty Name="id_user" ColumnName="userID_URE" />
       </EndProperty>
     </AssociationSetMapping>

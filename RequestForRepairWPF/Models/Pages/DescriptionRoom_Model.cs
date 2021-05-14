@@ -12,7 +12,7 @@ namespace RequestForRepairWPF.Models.Pages
 {
     public class DescriptionRoom_Model : ViewModel
     {
-        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         //U_R_Room _room = new U_R_Room();
         DescriptionRoom_DataModel _descriptionRoom = new DescriptionRoom_DataModel();
         TypeRoom_DataModel _typeRoom = new TypeRoom_DataModel();

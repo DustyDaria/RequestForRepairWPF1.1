@@ -13,12 +13,12 @@ namespace RequestForRepairWPF.Models.Controls.Menu
     public class Ctrl_burgerMenu_Model : INotifyPropertyChanged
     {
         private int _idUser;
-        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         public int UserType
         {
             get
             {
-                var query = from c in context.Users
+                var query = from c in context.User
                             where c.id_user == _idUser
                             select new
                             {

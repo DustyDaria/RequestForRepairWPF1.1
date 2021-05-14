@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace RequestForRepairWPF.Models.Pages.UserAccount
 {
-    public class UsersData_Model : INotifyPropertyChanged
+    public class UsersData_Model 
     {
-        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
 
         /// <summary>
         /// Данные авторизованного пользователя
@@ -93,7 +93,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._idUser = context.Users
+                User_DataModel._idUser = context.User
                     .Where(c => c.user_login == User_DataModel._userLogin && c.user_password == User_DataModel._userPassword)
                     .Select(c => c.id_user)
                     .FirstOrDefault();
@@ -111,7 +111,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._name = context.Users
+                User_DataModel._name = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.name)
                     .FirstOrDefault();
@@ -130,7 +130,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._lastName = context.Users
+                User_DataModel._lastName = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.last_name)
                     .FirstOrDefault();
@@ -149,7 +149,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._middleName = context.Users
+                User_DataModel._middleName = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.middle_name)
                     .FirstOrDefault();
@@ -168,7 +168,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._position = context.Users
+                User_DataModel._position = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.position)
                     .FirstOrDefault();
@@ -187,7 +187,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._phone = context.Users
+                User_DataModel._phone = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.phone)
                     .FirstOrDefault();
@@ -207,7 +207,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._userLogin = context.Users
+                User_DataModel._userLogin = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.user_login)
                     .FirstOrDefault();
@@ -226,7 +226,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._userPassword = context.Users
+                User_DataModel._userPassword = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.user_password)
                     .FirstOrDefault();
@@ -245,7 +245,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._idType = context.Users
+                User_DataModel._idType = context.User
                     .Where(c => c.TypeOfAccount.id_type == c.id_type && 
                     c.id_user == User_DataModel._idUser)
                     .Select(c => c.id_type)
@@ -282,7 +282,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                var allCategory = (from c in context.Users
+                var allCategory = (from c in context.User
                                    where c.category_executors != string.Empty && c.category_executors != null
                                    select c.category_executors)
                                   .Distinct();
@@ -386,7 +386,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._categoryExecutors = context.Users
+                User_DataModel._categoryExecutors = context.User
                     .Where(c => c.id_user == User_DataModel._idUser)
                     .Select(c => c.category_executors)
                     .FirstOrDefault();
@@ -406,7 +406,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                User_DataModel._userPassword = context.Users
+                User_DataModel._userPassword = context.User
                     .Where(c => c.user_login == User_DataModel._userLogin)
                     .Select(c => c.user_password)
                     .FirstOrDefault();
@@ -421,14 +421,7 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
         {
             get
             {
-                //User.type_of_account = context.Users
-                //    .Where(c => c.user_login == User.user_login &&
-                //    c.user_password == User.user_password)
-                //    .Select(c => c.type_of_account)
-                //    .FirstOrDefault();
-                //
-                //return User.type_of_account;
-                User_DataModel._idType = context.Users
+                User_DataModel._idType = context.User
                     .Where(c => c.user_login == User_DataModel._userLogin &&
                     c.user_password == User_DataModel._userPassword)
                     .Select(c => c.id_type)
@@ -440,17 +433,6 @@ namespace RequestForRepairWPF.Models.Pages.UserAccount
 
         #endregion
 
-        /// <summary> Событие на изменение модели </summary>
-        #region Событие на изменение модели
-        /// <summary> Событие на изменение модели </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        //Метод, который скажет ViewModel, что нужно передать виду новые данные
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-        #endregion
+       
     }
 }

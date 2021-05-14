@@ -318,7 +318,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
     #region Класс-команда для сохранения пользовательских регистрационных данных
     internal class RegUserDataCommand : MyRegCommand
     {
-        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
 
         public RegUserDataCommand(UserRegistrationData_ViewModel userRegData_ViewModel) : base(userRegData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
@@ -327,7 +327,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         {
             #region Получение зарегистрированных администраторов (для проверки)
             List<int> admins = new List<int>();
-            var queryAdmin = from adm in context.Users
+            var queryAdmin = from adm in context.User
                              where adm.id_type == 1
                              select adm.id_user;
             foreach (int a in queryAdmin)
@@ -336,7 +336,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
             #region  Получение логина зарегистрированного пользователя по совпадению с введенным (для проверки)
             string userLogin = _userRegData_ViewModel.UserEmail;
-            string checkedUserLogin = (from u in context.Users 
+            string checkedUserLogin = (from u in context.User
                                        where u.user_login == userLogin 
                                        select u.user_login)
                                        .FirstOrDefault();
@@ -489,7 +489,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         private void SaveUsersData_Admin(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password, int _typeOfAccount)
         {
-            Users user = new Users
+            User user = new User
             {
                 id_type = _typeOfAccount,
                 user_login = _email,
@@ -500,14 +500,14 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 position = _position,
                 phone = _phone
             };
-            context.Users.Add(user);
+            context.User.Add(user);
             context.SaveChanges();
 
             OpenDialogWindow("Системный администратор был успешно зарегистрирован!");
         }
         private void SaveUsersData_Executor(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password, int _typeOfAccount, string _category_executor)
         {
-            Users user = new Users
+            User user = new User
             {
                 id_type = _typeOfAccount,
                 user_login = _email,
@@ -519,7 +519,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
                 phone = _phone,
                 category_executors = _category_executor
             };
-            context.Users.Add(user);
+            context.User.Add(user);
             context.SaveChanges();
 
             OpenDialogWindow("Исполнитель был успешно зарегистрирован!");

@@ -20,6 +20,6 @@ namespace RequestForRepairWPF.Entities
     
         public virtual Rooms Rooms { get; set; }
         public virtual TypeRoom TypeRoom { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -1,10 +1,4 @@
-﻿using RequestForRepairWPF.Data.Room;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace RequestForRepairWPF.Data.User
 {
@@ -49,5 +43,13 @@ namespace RequestForRepairWPF.Data.User
         public List<int> ListUserActiveRequest { get; set; } = new List<int>();
         public int PrimaryRoom { get; set; }
         public bool userSelect { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                return $"{ lastName } { name } { middleName }";
+            }
+        }
     }
 }

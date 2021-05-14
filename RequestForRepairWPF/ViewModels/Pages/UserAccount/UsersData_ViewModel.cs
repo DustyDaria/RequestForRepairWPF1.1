@@ -269,7 +269,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
     #region Класс-команда для сохранения данных 
     internal class SaveDataCommand : MyCommand
     {
-        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
 
         public SaveDataCommand(UsersData_ViewModel usersData_ViewModel) : base(usersData_ViewModel) { }
         public override bool CanExecute(object parameter) => true;
@@ -279,7 +279,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
         {
             #region  Получение логина зарегистрированного пользователя по совпадению с введенным (для проверки)
             string userLogin = _usersData_ViewModel.UserEmail;
-            string checkedUserLogin = (from u in context.Users
+            string checkedUserLogin = (from u in context.User
                                        where u.user_login == userLogin
                                        select u.user_login)
                                        .FirstOrDefault();
@@ -325,7 +325,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.UserAccount
 
         private void SaveUsersData(string _name, string _lastName, string _middleName, string _position, string _phone, string _email, string _password)
         {
-            var user = context.Users
+            var user = context.User
                  .Where(c => c.id_user == User_DataModel._idUser)
                  .FirstOrDefault();
             user.name = _name;

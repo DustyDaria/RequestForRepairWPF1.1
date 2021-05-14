@@ -12,14 +12,14 @@ namespace RequestForRepairWPF.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public User()
         {
             this.U_R_Room = new HashSet<U_R_Room>();
-            this.Requests = new HashSet<Requests>();
-            this.Requests1 = new HashSet<Requests>();
+            this.Request = new HashSet<Request>();
+            this.Request1 = new HashSet<Request>();
         }
     
         public int id_user { get; set; }
@@ -37,8 +37,8 @@ namespace RequestForRepairWPF.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<U_R_Room> U_R_Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Requests> Requests { get; set; }
+        public virtual ICollection<Request> Request { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Requests> Requests1 { get; set; }
+        public virtual ICollection<Request> Request1 { get; set; }
     }
 }

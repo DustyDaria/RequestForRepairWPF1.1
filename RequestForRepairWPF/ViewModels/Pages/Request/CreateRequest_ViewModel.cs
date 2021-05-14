@@ -146,7 +146,7 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
     #region Класс-команда для сохранения данных заявки
     internal class SaveRequestDataCommand : MyRequestCommand
     {
-        private Entities.DB_RequestForRepairEntities3 context = new Entities.DB_RequestForRepairEntities3();
+        private Entities.DB_RequestForRepairEntities context = new Entities.DB_RequestForRepairEntities();
         StringBuilder errors = new StringBuilder();
 
         public SaveRequestDataCommand(CreateRequest_ViewModel createRequest_ViewModel) : base(createRequest_ViewModel) { }
@@ -184,12 +184,12 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
         #region Сохранение данных в бд 
         private void SaveData(DateTime _date_start, DateTime _date_end, int _room_number, string _name_request, string _description_request, string _comment_request, string _inventory_number, string _category_request)
         {
-            Users authUser = new Users
+            User authUser = new User
             {
                 id_user = User_DataModel._idUser
             };
 
-            Requests request = new Requests
+            Entities.Request request = new Entities.Request
             {
                 date_start = _date_start,
                 date_end = _date_end,
@@ -201,11 +201,11 @@ namespace RequestForRepairWPF.ViewModels.Pages.Request
                 inventory_number = _inventory_number,
                 category_request = _category_request
             };
-            context.Requests.Add(request);
+            context.Request.Add(request);
             context.SaveChanges();
             
-            request.Users.Add(
-                new Users { 
+            request.User.Add(
+                new User { 
                     id_user = User_DataModel._idUser, 
                     id_type = User_DataModel._idType, 
                     user_login = User_DataModel._userLogin,

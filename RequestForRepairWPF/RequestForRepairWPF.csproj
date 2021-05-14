@@ -172,7 +172,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Request_DataModel.cs" />
+    <Compile Include="Data\Request\Request_DataModel.cs" />
     <Compile Include="Data\Room\DescriptionRoom_DataModel.cs" />
     <Compile Include="Data\Room\Rooms_DataModel.cs" />
     <Compile Include="Data\Room\Software_DataModel.cs" />
@@ -202,7 +202,7 @@
     <Compile Include="Entities\DescriptionRoom.cs">
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Requests.cs">
+    <Compile Include="Entities\Request.cs">
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Rooms.cs">
@@ -226,7 +226,7 @@
     <Compile Include="Entities\TypeRoom.cs">
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Users.cs">
+    <Compile Include="Entities\User.cs">
       <DependentUpon>DB_RequestForRepairEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\U_R_Room.cs">
@@ -242,6 +242,7 @@
     <Compile Include="Models\Pages\DescriptionRoom_Model.cs" />
     <Compile Include="Models\Pages\UserAccount\UserRegistrationData_ViewModel.cs" />
     <Compile Include="Models\Pages\UserAccount\UsersData_Model.cs" />
+    <Compile Include="Models\Pages\ViewingEditDelete_Request\AllRequest_Model.cs" />
     <Compile Include="Models\Pages\ViewingEditDelete_UsersData\AllUsers_Model.cs" />
     <Compile Include="Models\Controls\Menu\Ctrl_burgerMenu_Model.cs" />
     <Compile Include="Services\BooleanToVisibilityConverter.cs" />
@@ -249,7 +250,10 @@
     <Compile Include="Services\InverseBooleanConverter.cs" />
     <Compile Include="Services\PageManager.cs" />
     <Compile Include="ViewModels\DialogWindows\Dialog_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Request\AllRequest2_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\Request\CreateRequest_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Request\MyRequest_ViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Viewing_Edit_Delete_Request\AllRequest_ViewModel.cs" />
     <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\AllUsers_ViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\Controls\Menu\Ctrl_burgerMenu_ViewModel.cs" />
@@ -272,6 +276,9 @@
     </Compile>
     <Compile Include="Views\DialogWindows\MessageBox_View.xaml.cs">
       <DependentUpon>MessageBox_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Request\MyRequestPage_View.xaml.cs">
+      <DependentUpon>MyRequestPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.xaml.cs">
       <DependentUpon>AllUsersPage_View.xaml</DependentUpon>
@@ -297,8 +304,8 @@
     <Compile Include="Views\Pages\UserAccount\UserRegistrationPage_View.xaml.cs">
       <DependentUpon>UserRegistrationPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\Request\WatchRequestsPage_View.xaml.cs">
-      <DependentUpon>WatchRequestsPage_View.xaml</DependentUpon>
+    <Compile Include="Views\Pages\Request\AllRequestsPage_View.xaml.cs">
+      <DependentUpon>AllRequestsPage_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\DescriptionRoom.xaml.cs">
       <DependentUpon>DescriptionRoom.xaml</DependentUpon>
@@ -341,6 +348,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Request\MyRequestPage_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\ViewingEditDelete_UsersData\AllUsersPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -373,7 +384,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\Request\WatchRequestsPage_View.xaml">
+    <Page Include="Views\Pages\Request\AllRequestsPage_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -492,8 +503,8 @@
   <ItemGroup>
     <Content Include="Entities\DB_RequestForRepairEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_RequestForRepairEntities.edmx</DependentUpon>
       <LastGenOutput>DB_RequestForRepairEntities.Context.cs</LastGenOutput>
+      <DependentUpon>DB_RequestForRepairEntities.edmx</DependentUpon>
     </Content>
     <Content Include="Entities\DB_RequestForRepairEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

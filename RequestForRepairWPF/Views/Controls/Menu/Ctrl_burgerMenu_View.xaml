@@ -296,7 +296,7 @@
                         Visibility="{Binding Path=listVisibility_WatchRequest,
                     Converter={StaticResource BooleanToVisibilityConverter}}">
                     <ListViewItem.InputBindings>
-                        <MouseBinding Command="{Binding Path=OpenWatchRequestView}"
+                        <MouseBinding Command="{Binding Path=OpenAllRequestView}"
                                       CommandParameter="{Binding}"
                                       MouseAction="LeftClick"/>
                     </ListViewItem.InputBindings>

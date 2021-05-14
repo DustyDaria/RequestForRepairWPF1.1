@@ -17,13 +17,13 @@ namespace RequestForRepairWPF.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeOfAccount()
         {
-            this.Users = new HashSet<Users>();
+            this.User = new HashSet<User>();
         }
     
         public int id_type { get; set; }
         public string name_type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

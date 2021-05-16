@@ -307,12 +307,6 @@
     <Compile Include="Views\Pages\Request\AllRequestsPage_View.xaml.cs">
       <DependentUpon>AllRequestsPage_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\DescriptionRoom.xaml.cs">
-      <DependentUpon>DescriptionRoom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\FileReport_View.xaml.cs">
-      <DependentUpon>FileReport_View.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Controls\Room\Control_radioBtn.xaml.cs">
       <DependentUpon>Control_radioBtn.xaml</DependentUpon>
     </Compile>
@@ -324,9 +318,6 @@
     </Compile>
     <Compile Include="Views\Pages\UserAccount\UserAccountPage_View.xaml.cs">
       <DependentUpon>UserAccountPage_View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\WatchRequests_View.xaml.cs">
-      <DependentUpon>WatchRequests_View.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Controls\Menu\Ctrl_burgerMenu_View.xaml">
       <SubType>Designer</SubType>
@@ -388,39 +379,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\AllUsers_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="ViewModels\Pages\ViewingEditDelete_UsersData\Executors_ViewModel.cs" />
-    <Compile Include="Views\Windows\AllUsers_View.xaml.cs">
-      <DependentUpon>AllUsers_View.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataBase.cs" />
-    <Page Include="Views\Windows\Customers_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\DescriptionRoom.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\Executors_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\CreateAndEditRequest_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\FileReport_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -437,23 +400,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\WatchRequests_View.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\User\User_DataModel.cs" />
     <Compile Include="Infrastructure\Commands\Base\RelayCommand.cs" />
-    <Compile Include="Views\Windows\Customers_View.xaml.cs">
-      <DependentUpon>Customers_View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\Executors_View.xaml.cs">
-      <DependentUpon>Executors_View.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\CreateAndEditRequest_View.xaml.cs">
-      <DependentUpon>CreateAndEditRequest_View.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

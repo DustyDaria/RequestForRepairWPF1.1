@@ -32,6 +32,15 @@ namespace RequestForRepairWPF.ViewModels.Pages.ViewingEditDelete_UsersData
             #endregion
         }
 
+        //#region Выбранная из списка заявка
+        //private string _selectedRequest;
+        //public string SelectedRequest
+        //{
+        //    get => _selectedRequest;
+        //    set => Set(ref _selectedRequest, value);
+        //}
+        //#endregion
+
         #region Выбранный критерий поиска
         private string _selectedCriteriaSearch;
         public string SelectedCriteriaSearch

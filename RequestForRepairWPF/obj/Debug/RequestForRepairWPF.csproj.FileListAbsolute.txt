@@ -22,8 +22,6 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\En
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.xml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\AllUsers_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Executors_View.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.dll
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.Wpf.dll
@@ -33,18 +31,6 @@ C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Pr
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.xml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.Wpf.pdb
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\bin\Debug\Prism.Wpf.xml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\AllUsers_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Executors_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\CreateAndEditRequest_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\FileReport_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\CreateAndEditRequest_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\FileReport_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Customers_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\Customers_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\WatchRequests_View.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\WatchRequests_View.baml
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\DescriptionRoom.g.cs
-C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Windows\DescriptionRoom.baml
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Controls\Room\Control_radioBtn.g.cs
 C:\Users\daria\source\repos\RequestForRepairWPF\RequestForRepairWPF\obj\Debug\Views\Controls\Room\Control_checkBox.g.cs

@@ -24,7 +24,6 @@ namespace RequestForRepairWPF.Views.Controls.Room
     /// </summary>
     public partial class Control_radioBtn : UserControl
     {
-        DataBase dataBase = new DataBase();
         List<string> _typeList = new List<string>();
         DescriptionRoom_Model _model = new DescriptionRoom_Model();
         DescriptionRoom_ViewModel _viewModel = new DescriptionRoom_ViewModel();

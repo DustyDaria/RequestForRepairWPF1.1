@@ -41,6 +41,8 @@ namespace RequestForRepairWPF.Data.User
         //public List<int> ListUserIdRooms { get; set; } = new List<int>();
         public List<int> ListUserRooms { get; set; } = new List<int>();
         public List<int> ListUserActiveRequest { get; set; } = new List<int>();
+        public List<string> ListUserActiveRequest_Name { get; set; } = new List<string>();
+        public string PrimaryRequest { get; set; }
         public int PrimaryRoom { get; set; }
         public bool userSelect { get; set; }
 

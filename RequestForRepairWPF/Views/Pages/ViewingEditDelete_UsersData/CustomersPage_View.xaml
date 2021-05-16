@@ -139,18 +139,18 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
-                                            Text="{Binding}"/>
+                                            Text="{Binding Path=PrimaryRequest}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
                                     <DataTemplate>
                                         <ComboBox
-                                            ItemsSource="{Binding}"
-                                            SelectedItem="{Binding}">
+                                            ItemsSource="{Binding Path=ListUserActiveRequest_Name}"
+                                            SelectedItem="{Binding Path=PrimaryRequest}">
                                             <ComboBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <TextBlock 
-                                                        Text="{Binding}"/>
+                                                        Text="{Binding Path=PrimaryRequest}"/>
                                                 </DataTemplate>
                                             </ComboBox.ItemTemplate>
 

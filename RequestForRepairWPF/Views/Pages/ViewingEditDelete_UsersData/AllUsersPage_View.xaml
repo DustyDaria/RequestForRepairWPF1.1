@@ -118,6 +118,7 @@
                                 Binding="{Binding Path=phone}"
                                 IsReadOnly="True"
                                 Header="Телефон"/>
+                            
 
                         </DataGrid.Columns>
                     </DataGrid>

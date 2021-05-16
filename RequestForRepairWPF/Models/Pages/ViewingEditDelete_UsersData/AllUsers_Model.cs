@@ -1,5 +1,6 @@
 ﻿
 using RequestForRepairWPF.Data;
+using RequestForRepairWPF.Data.Request;
 using RequestForRepairWPF.Data.User;
 using RequestForRepairWPF.ViewModels.DialogWindows;
 using RequestForRepairWPF.Views.DialogWindows;
@@ -617,6 +618,7 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
             output.position = UserPosition(id);
             output.categoryExecutors = UserCategoryExecutors(id);
             output.phone = UserPhone(id);
+            output.ListUserActiveRequest_Name = UserListRequestName(id);
 
             return output;
         }
@@ -636,7 +638,7 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
             output.position = UserPosition(id);
             output.phone = UserPhone(id);
             output.ListUserRooms = ListUserRoomsNumber(id);
-            //output.ListUserActiveRequest = 
+            output.ListUserActiveRequest_Name = UserListRequestName(id);
 
             return output;
         }
@@ -656,6 +658,7 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
             output.middleName = UserMiddleName(id);
             output.position = UserPosition(id);
             output.phone = UserPhone(id);
+            output.ListUserActiveRequest_Name = UserListRequestName(id);
 
             return output;
         }
@@ -664,6 +667,84 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_UsersData
         #endregion
 
         #region Получение данных
+
+        #region Получение списка заявок
+        public List<string> UserListRequestName(int id)
+        {
+            var _user = new User_DataModel();
+            //var _request = new Request_DataModel();
+
+            _user.idType = context.User
+                              .Where(r => r.id_user == id)
+                              .Select(r => r.id_type)
+                              .FirstOrDefault();
+
+            if(_user.idType == 1)
+            {
+                return null;
+            }
+            else if(_user.idType == 2)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == id);
+
+                foreach(var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request
+                                         select t.id_request;
+
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            _user.ListUserActiveRequest.Add(r);
+                    }
+                    catch(Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+            else if(_user.idType == 3)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == id);
+
+                foreach(var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request1
+                                         select t.id_request;
+
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            _user.ListUserActiveRequest.Add(r);
+                    }
+                    catch(Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+
+            foreach(var i in _user.ListUserActiveRequest)
+            {
+                var queryRequestName = from t in context.Request
+                                       where t.id_request == i
+                                       select t.name_request;
+                try
+                {
+                    foreach (var r in queryRequestName)
+                        _user.ListUserActiveRequest_Name.Add(r);
+                }
+                catch(Exception e)
+                {
+                    OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                }
+            }
+
+            return _user.ListUserActiveRequest_Name;
+        }
+        #endregion
 
         #region Получение списка помещений
         public List<int> ListUserRoomsNumber(int id)

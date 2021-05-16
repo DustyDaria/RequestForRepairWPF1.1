@@ -20,7 +20,6 @@ namespace RequestForRepairWPF.Views.Controls.Room
     /// </summary>
     public partial class Control_checkBox : UserControl
     {
-        DataBase dataBase = new DataBase();
         List<string> typeList = new List<string>();
 
         public Control_checkBox()
@@ -30,19 +29,19 @@ namespace RequestForRepairWPF.Views.Controls.Room
             string queryCountType_GET = string.Format("SELECT COUNT(DISTINCT id_description_TE) FROM TechnicalEquipment ORDER BY id_description_TE;");
             string queryTypeRoom_GET = string.Format("SELECT DISTINCT name_TE, value_TE, in_amount_TE FROM TechnicalEquipment ORDER BY id_description_TE;");
 
-            typeList = dataBase.GetResultList(queryTypeRoom_GET);
-
-            for (int i = 0; i < dataBase.GetID(queryCountType_GET); i++)
-            {
-                CheckBox checkBox = new CheckBox();
-                checkBox.Content = typeList[i];
-                checkBox.Margin = new System.Windows.Thickness(5);
-                //radioButton.FontSize = new System.Windows.FontSizeConverter(12);
-                checkBox.VerticalAlignment = VerticalAlignment.Center;
-
-                //checkBox.Checked += new RoutedEventHandler(checkBox_Checked);
-                panelForCheckBox.Children.Add(checkBox);
-            }
+            //typeList = dataBase.GetResultList(queryTypeRoom_GET);
+            //
+            //for (int i = 0; i < dataBase.GetID(queryCountType_GET); i++)
+            //{
+            //    CheckBox checkBox = new CheckBox();
+            //    checkBox.Content = typeList[i];
+            //    checkBox.Margin = new System.Windows.Thickness(5);
+            //    //radioButton.FontSize = new System.Windows.FontSizeConverter(12);
+            //    checkBox.VerticalAlignment = VerticalAlignment.Center;
+            //
+            //    //checkBox.Checked += new RoutedEventHandler(checkBox_Checked);
+            //    panelForCheckBox.Children.Add(checkBox);
+            //}
         }
         
     }

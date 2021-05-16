@@ -15,11 +15,21 @@ namespace RequestForRepairWPF.Entities
     
     public partial class DB_RequestForRepairEntities : DbContext
     {
+        private static DB_RequestForRepairEntities _context;
+
         public DB_RequestForRepairEntities()
             : base("name=DB_RequestForRepairEntities")
         {
         }
     
+        public static DB_RequestForRepairEntities GetContext()
+        {
+            if (_context == null)
+                _context = new DB_RequestForRepairEntities();
+
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

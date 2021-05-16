@@ -98,11 +98,11 @@
                                 IsReadOnly="True"
                                 Header="Категория работ"/>
                             <DataGridTextColumn
-                                Binding="{Binding}"
+                                Binding="{Binding Path=FullNameCustomer}"
                                 IsReadOnly="True"
                                 Header="Заказчик"/>
                             <DataGridTextColumn
-                                Binding="{Binding}"
+                                Binding="{Binding Path=FullNameExecutor}"
                                 IsReadOnly="True"
                                 Header="Исполнитель"/>
                             <DataGridTextColumn
@@ -152,7 +152,8 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Height="auto"
-                        SelectedItem="{Binding CriteriaSearch, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding Path=SelectedCriteriaSearch}"
+                        ItemsSource="{Binding Path=ListCriteriaSearch}"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                           materialDesign:TextFieldAssist.HasClearButton="True"
                           materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueMidBrush}"
@@ -160,18 +161,11 @@
                           materialDesign:HintAssist.Hint="Тут нужен критерий"
                           materialDesign:HintAssist.HelperText="Выберите критерий поиска"
                           MinWidth="128">
-                        <ComboBoxItem Content="ID"/>
-                        <ComboBoxItem Content="Название"/>
-                        <ComboBoxItem Content="Дата начала"/>
-                        <ComboBoxItem Content="Дата окончания"/>
-                        <ComboBoxItem Content="Статус заявки"/>
-                        <ComboBoxItem Content="Номер помещения"/>
-                        <ComboBoxItem Content="Категория заявки"/>
                     </ComboBox>
                     <TextBox 
                         x:Name="textBox_DataForSearch"
                         
-                        Text="{Binding DataForSearch, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding Path=DataForSearch}"
                         Grid.ColumnSpan="2"
                         FontSize="14"
                         Grid.Row="1"
@@ -186,7 +180,7 @@
                         Margin="0 20 0 20">
                         <Button
                         x:Name="btn_Search"
-                            Command="{Binding SearchDataCommand}"
+                            Command="{Binding Path=SearchMyCommand}"
                         Padding="10"
                         Margin="15 10 15 10"
                         Grid.Row="2"
@@ -204,6 +198,7 @@
                         Margin="15 10 15 10"
                         Grid.Row="2"
                         Grid.Column="0"
+                            Command="{Binding Path=UpdateDataMyCommand}"
                         Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         ToolTip="MaterialDesignFloatingActionLightButton">
                             <materialDesign:PackIcon

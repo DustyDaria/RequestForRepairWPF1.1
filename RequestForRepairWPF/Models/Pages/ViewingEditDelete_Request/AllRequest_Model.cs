@@ -15,6 +15,444 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_Request
 
         #region Поиск
 
+        #region ВСЕ ЗАЯВКИ
+
+        #region Получение id всех заявок (КРИТЕРИЙ ДАТА НАЧАЛА)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ДАТА ОКОНЧАНИЯ)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ РЕАЛЬНАЯ ДАТА ОКОНЧАНИЯ)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ СТАТУС ЗАЯВКИ)
+        public List<int> AllIdRequests_SearchStatus_all(string searchData)
+        {
+            var query = context.Request
+                .Where(b => b.status_request.Contains(searchData))
+                .Select(b => b.id_request);
+
+            try
+            {
+                foreach (var i in query)
+                    Request_DataModel.AllRequestID.Add(i);
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ НОМЕР ПОМЕЩЕНИЯ)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ НАЗВАНИЕ ЗАЯВКИ)
+        public List<int> AllIdRequest_SearchName_all(string searchData)
+        {
+            var query = context.Request
+                .Where(b => b.name_request.Contains(searchData))
+                .Select(b => b.id_request);
+
+            try
+            {
+                foreach (var i in query)
+                    Request_DataModel.AllRequestID.Add(i);
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ОПИСАНИЕ ЗАЯВКИ)
+        public List<int> AllIdRequest_SearchDescription_all(string searchData)
+        {
+            var query = context.Request
+                .Where(b => b.description_request.Contains(searchData))
+                .Select(b => b.id_request);
+
+            try
+            {
+                foreach (var i in query)
+                    Request_DataModel.AllRequestID.Add(i);
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ КОММЕНТАРИЙ К ЗАЯВКЕ)
+        public List<int> AllIdRequest_SearchComment_all(string searchData)
+        {
+            var query = context.Request
+                .Where(b => b.comment_request.Contains(searchData))
+                .Select(b => b.id_request);
+
+            try
+            {
+                foreach (var i in query)
+                    Request_DataModel.AllRequestID.Add(i);
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ КАТЕГОРИЯ ЗАЯВКИ)
+        public List<int> AllIdRequest_SearchCategory_all(string searchData)
+        {
+            var query = context.Request
+                .Where(b => b.category_request.Contains(searchData))
+                .Select(b => b.id_request);
+
+            try
+            {
+                foreach (var i in query)
+                    Request_DataModel.AllRequestID.Add(i);
+            }
+            catch (Exception e)
+            {
+                OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ЗАКАЗЧИК)
+        public List<int> AllIdRequest_SearchCustomer_all(string searchData)
+        {
+            var _user = new User_DataModel();
+            var _request = new Request_DataModel();
+
+            _request.FullNameExecutor = searchData;
+
+
+
+                var queryUserID = context.User.Include("Request")
+                .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request
+                                         select t.id_request;
+                    foreach (var r in queryRequestID)
+                    {
+                        Request_DataModel.AllRequestID.Add(r);
+                    }
+                }
+            
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ИСПОЛНИТЕЛЬ)
+
+        #endregion
+
+        #endregion
+
+        #region МОИ ЗАЯВКИ
+
+        #region Получение id всех заявок (КРИТЕРИЙ ДАТА НАЧАЛА)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ДАТА ОКОНЧАНИЯ)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ РЕАЛЬНАЯ ДАТА ОКОНЧАНИЯ)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ СТАТУС ЗАЯВКИ)
+        public List<int> AllIdRequests_SearchStatus_my(string searchData)
+        {
+            if (User_DataModel._idType == 2)
+            {
+                var queryUserID = context.User.Include("Request")
+                .Where(u => u.id_user == User_DataModel._idUser);
+                
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request
+                                         where t.status_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+            else if (User_DataModel._idType == 3)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach(var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request1
+                                         where t.status_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                        Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ НОМЕР ПОМЕЩЕНИЯ)
+
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ НАЗВАНИЕ ЗАЯВКИ)
+        public List<int> AllIdRequests_SearchName_my(string searchData)
+        {
+            if (User_DataModel._idType == 2)
+            {
+                var queryUserID = context.User.Include("Request")
+                .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request
+                                         where t.name_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+            else if (User_DataModel._idType == 3)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request1
+                                         where t.name_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ОПИСАНИЕ ЗАЯВКИ)
+        public List<int> AllIdRequests_SearchDescription_my(string searchData)
+        {
+            if (User_DataModel._idType == 2)
+            {
+                var queryUserID = context.User.Include("Request")
+                .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request
+                                         where t.description_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+            else if (User_DataModel._idType == 3)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request1
+                                         where t.description_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ КОММЕНТАРИЙ К ЗАЯВКЕ)
+        public List<int> AllIdRequests_SearchComment_my(string searchData)
+        {
+            if (User_DataModel._idType == 2)
+            {
+                var queryUserID = context.User.Include("Request")
+                .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+
+                    var queryRequestID = from t in u.Request
+                                         where t.comment_request.Contains(searchData)
+                                         select t.id_request;
+
+                    try
+                    {
+
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+            else if (User_DataModel._idType == 3)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request1
+                                         where t.comment_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ КАТЕГОРИЯ ЗАЯВКИ)
+        public List<int> AllIdRequests_SearchCategory_my(string searchData)
+        {
+            if (User_DataModel._idType == 2)
+            {
+                var queryUserID = context.User.Include("Request")
+                .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request
+                                         where t.category_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+            else if (User_DataModel._idType == 3)
+            {
+                var queryUserID = context.User.Include("Request")
+                    .Where(u => u.id_user == User_DataModel._idUser);
+
+                foreach (var u in queryUserID)
+                {
+                    var queryRequestID = from t in u.Request1
+                                         where t.category_request.Contains(searchData)
+                                         select t.id_request;
+                    try
+                    {
+                        foreach (var r in queryRequestID)
+                            Request_DataModel.AllRequestID.Add(r);
+                    }
+                    catch (Exception e)
+                    {
+                        OpenDialogWindow("Ошибка!!!\n" + e.ToString());
+                    }
+                }
+            }
+
+            return Request_DataModel.AllRequestID;
+        }
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ЗАКАЗЧИК)
+        
+        #endregion
+
+        #region Получение id всех заявок (КРИТЕРИЙ ИСПОЛНИТЕЛЬ)
+
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region Отображение данных
@@ -63,9 +501,14 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_Request
                     {
                         var queryRequestID = from t in u.Request
                                     select t.id_request;
-                        foreach (var r in queryRequestID)
+                        try
                         {
-                            Request_DataModel.AllRequestID.Add(r);
+                            foreach (var r in queryRequestID)
+                                Request_DataModel.AllRequestID.Add(r);
+                        }
+                        catch (Exception e)
+                        {
+                            OpenDialogWindow("Ошибка!!!\n" + e.ToString());
                         }
                     }
                 }
@@ -78,9 +521,14 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_Request
                     {
                         var queryRequestID = from t in u.Request1
                                              select t.id_request;
-                        foreach (var r in queryRequestID)
+                        try
                         {
-                            Request_DataModel.AllRequestID.Add(r);
+                            foreach (var r in queryRequestID)
+                                Request_DataModel.AllRequestID.Add(r);
+                        }
+                        catch (Exception e)
+                        {
+                            OpenDialogWindow("Ошибка!!!\n" + e.ToString());
                         }
                     }
                 }
@@ -128,7 +576,10 @@ namespace RequestForRepairWPF.Models.Pages.ViewingEditDelete_Request
                 name_request = RequestName(id),
                 description_request = RequestDescription(id),
                 comment_request = RequestComment(id),
-                category_request = RequestCategory(id)
+                category_request = RequestCategory(id),
+                FullNameCustomer = RequestCustomer(id),
+                FullNameExecutor = RequestExecutor(id)
+              
             };
 
             return output;
